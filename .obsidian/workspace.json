@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "71acc068ea8fc80d",
+    "type": "split",
+    "children": [
+      {
+        "id": "39d045dddfc0c1bb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "18b4b43bfb37aac4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "On Hierarchical Algorithms/Derivations/Lemma - Frobenius Norm Consistency.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lemma - Frobenius Norm Consistency"
+            }
+          },
+          {
+            "id": "a1b3b983942c705e",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Hierarchical Algorithms/HA_NotesAnnotated-1.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "HA_NotesAnnotated-1"
+            }
+          },
+          {
+            "id": "d22da99108777192",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f56687600eebdfe2",
+    "type": "split",
+    "children": [
+      {
+        "id": "86bfb65c91b7fb99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93b682b33b2dedc2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9e099031aad8dd4d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d88cefb445e777b8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 407.5
+  },
+  "right": {
+    "id": "451613d0c8fb2f54",
+    "type": "split",
+    "children": [
+      {
+        "id": "2b094ee5c2eb1681",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "725000b048786eec",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "35fadae3969ff93d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "905ad9472683fcf1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c5a32bf7b2652704",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "d22da99108777192",
+  "lastOpenFiles": [
+    "On Statistical Modeling/_Exercises/SM_Ay/Exercises04_Ay.pdf",
+    "On Statistical Modeling/_Exercises/SM_Ay/Exercises03_Ay.pdf",
+    "On Statistical Modeling/_Exercises/SM_Ay/Exercises02_Ay.pdf",
+    "On Statistical Modeling/_Exercises/SM_Ay/Exercises01_Ay.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Solutions_Mock_exam_first_half.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Solutions.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Solutions (1).pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_first_half.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_2.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam.pdf",
+    "On Statistical Modeling/_Exercises/LMR_Schulte/Exercise 3",
+    "On Statistical Modeling/Theorems & Lemmas/Slutsky's Lemma.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.6.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.5.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.4.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 3.6.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 2.2.md",
+    "On Statistical Modeling/Theorems & Lemmas/Lemma 2.1.md",
+    "On Statistical Modeling/Theorems & Lemmas/Law of Large Numbers.md",
+    "On Statistical Modeling/Theorems & Lemmas/Gaussian MLE Theorem.md",
+    "On Statistical Modeling/Theorems & Lemmas/Gaussian Chi Squared Theorem.md",
+    "On Statistical Modeling/Theorems & Lemmas/Central Limit Theorem.md",
+    "On Statistical Modeling/Tests/z-test.md",
+    "On Statistical Modeling/Tests/t-test.md",
+    "On Statistical Modeling/Modeling/General Linear Models.md",
+    "On Statistical Modeling/Modeling/Gaussian Linear Models.md",
+    "On Statistical Modeling/Distributions/t - student distribution.md",
+    "On Statistical Modeling/Distributions/Poisson Distribution.md",
+    "On Statistical Modeling/Distributions/Normal Distribution.md",
+    "On Statistical Modeling/Distributions/f - distribution.md",
+    "On Statistical Modeling/Distributions/Chi Squared Distribution.md",
+    "On Statistical Modeling/Definitions/Standard Deviation.md",
+    "On Statistical Modeling/Definitions/Sample Variance.md",
+    "On Statistical Modeling/Definitions/Sample Mean.md",
+    "On Statistical Modeling/Definitions/Quantiles.md",
+    "On Statistical Modeling/Definitions/p-value.md",
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/ai_images/ai_generated_image_397964995849396983.png",
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/ai_images/ai_generated_image_-1510363668583573399.png",
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_vanilla_training.png",
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_her_training.png",
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_her_comparison.png"
+  ]
+}
