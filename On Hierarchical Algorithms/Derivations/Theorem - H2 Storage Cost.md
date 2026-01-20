@@ -1,4 +1,4 @@
-﻿# Theorem - H2 Storage Cost
+# Theorem - H2 Storage Cost
 
 ## Definition / Statement
 *(Content to be populated)*

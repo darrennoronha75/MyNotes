@@ -1,27 +1,30 @@
 ## Definition
-A matrix $M \in \mathbb{R}^{n \times m}$ is called a **Rank-k Matrix** if it can be represented in a factorized form as the product of two "thin" matrices:
-$$M = A B^T$$
-Where:
-* $A \in \mathbb{R}^{n \times k}$ (The "Left" factor)
-* $B \in \mathbb{R}^{m \times k}$ (The "Right" factor)
-* $k \ll \min(n, m)$ (The rank is much smaller than the dimensions)
+A matrix $M \in \mathbb{R}^{n \times m}$ has **rank at most $k$** if it can be written as the outer product of two "thin" matrices:
+$$
+M = A \cdot B^T
+$$
+where:
+* $A \in \mathbb{R}^{n \times k}$ (The column basis)
+* [cite_start]$B \in \mathbb{R}^{m \times k}$ (The row basis) [cite: 3037]
 
-## Mathematical Formulation
-This can also be expressed as the sum of $k$ outer products (Rank-1 matrices):
-$$M = \sum_{\nu=1}^{k} a_\nu b_\nu^T$$
-Where $a_\nu$ are the columns of $A$ and $b_\nu$ are the columns of $B$.
+## Visual Representation
+$$
+\begin{pmatrix} \quad \\ \quad M \quad \\ \quad \end{pmatrix}_{n \times m} 
+= 
+\begin{pmatrix} \ | \ \\ A \\ \ | \ \end{pmatrix}_{n \times k} 
+\cdot 
+\begin{pmatrix} - & B^T & - \end{pmatrix}_{k \times m}
+$$
 
-## Intuition
-Instead of storing a massive grid of data (which may contain redundant information), we store the "basis vectors" ($A$) and the "coefficients" ($B$) that generate the grid.
+## Notation
+We denote the set of rank-$k$ matrices as $\mathcal{R}(k, n, m)$.
+
+### Intuition (The Compression)
+A full matrix stores $n \times m$ numbers.
+A rank-$k$ matrix stores only the "instructions" to build it: $k$ columns for $A$ and $k$ columns for $B$.
+If $k$ is small ($k \ll n, m$), this is a massive compression.
 
 ### Links
-* **Prerequisite:** [[Rank of a Matrix]]
-* **Uses:** [[Singular Value Decomposition (SVD)]]
-* **Used In:** [[Hierarchical Matrix (Hp) Format]], [[Lemma - Rank-k Storage Cost]]
-* **Tags:** #foundations #linear_algebra
-
----
-*Reference: Lecture Script Page 5 (Definition 1.5)*
-
----
-*Reference: Lecture Notes / Exercise Sheet*
+* **Calculates:** [[Lemma - Rank-k Storage Cost]]
+* **Operations:** [[Algorithm - Exact Rank-k Multiplication]]
+* **Tags:** #foundations #rank-k

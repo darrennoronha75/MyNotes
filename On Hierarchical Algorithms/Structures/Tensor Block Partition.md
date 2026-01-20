@@ -1,4 +1,4 @@
-﻿# Tensor Block Partition
+# Tensor Block Partition
 
 ## Definition / Statement
 *(Content to be populated)*

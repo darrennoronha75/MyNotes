@@ -1,4 +1,4 @@
-﻿# Derivation - MMM Complexity
+# Derivation - MMM Complexity
 
 ## Definition / Statement
 *(Content to be populated)*

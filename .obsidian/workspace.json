@@ -4,25 +4,76 @@
     "type": "split",
     "children": [
       {
-        "id": "39d045dddfc0c1bb",
+        "id": "b9bbe921d6c22edb",
         "type": "tabs",
+        "dimension": 50,
         "children": [
           {
-            "id": "18b4b43bfb37aac4",
+            "id": "904e37652479e9f9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Hierarchical Algorithms/Derivations/Lemma - Frobenius Norm Consistency.md",
+                "file": "On Hierarchical Algorithms/Foundations/LU Decomposition.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lemma - Frobenius Norm Consistency"
+              "title": "LU Decomposition"
             }
           },
           {
-            "id": "a1b3b983942c705e",
+            "id": "ae9716b17f22eba7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-Matrix Vector Multiplication (MVM).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Algorithm - Hp-Matrix Vector Multiplication (MVM)"
+            }
+          },
+          {
+            "id": "835bce93bb2d3bc6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "On Hierarchical Algorithms/Structures/Hierarchical Matrix (Hp) Format.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hierarchical Matrix (Hp) Format"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "9c847ce489052ef5",
+        "type": "tabs",
+        "dimension": 50,
+        "children": [
+          {
+            "id": "8e26cedeb5510835",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "On Reinforcement Learning/Algorithms/Monte Carlo Methods/Monte-Carlo First-Visit.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Monte-Carlo First-Visit"
+            }
+          },
+          {
+            "id": "f2a34eeefe8dbf54",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -32,19 +83,8 @@
               "icon": "lucide-file-text",
               "title": "HA_NotesAnnotated-1"
             }
-          },
-          {
-            "id": "d22da99108777192",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +141,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 407.5
+    "width": 491.5110321044922
   },
   "right": {
     "id": "451613d0c8fb2f54",
@@ -189,48 +229,52 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d22da99108777192",
+  "active": "835bce93bb2d3bc6",
   "lastOpenFiles": [
-    "On Statistical Modeling/_Exercises/SM_Ay/Exercises04_Ay.pdf",
-    "On Statistical Modeling/_Exercises/SM_Ay/Exercises03_Ay.pdf",
-    "On Statistical Modeling/_Exercises/SM_Ay/Exercises02_Ay.pdf",
-    "On Statistical Modeling/_Exercises/SM_Ay/Exercises01_Ay.pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Solutions_Mock_exam_first_half.pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Solutions.pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Solutions (1).pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_first_half.pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_2.pdf",
-    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam.pdf",
-    "On Statistical Modeling/_Exercises/LMR_Schulte/Exercise 3",
-    "On Statistical Modeling/Theorems & Lemmas/Slutsky's Lemma.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.6.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.5.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 5.4.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 3.6.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 2.2.md",
-    "On Statistical Modeling/Theorems & Lemmas/Lemma 2.1.md",
-    "On Statistical Modeling/Theorems & Lemmas/Law of Large Numbers.md",
-    "On Statistical Modeling/Theorems & Lemmas/Gaussian MLE Theorem.md",
-    "On Statistical Modeling/Theorems & Lemmas/Gaussian Chi Squared Theorem.md",
-    "On Statistical Modeling/Theorems & Lemmas/Central Limit Theorem.md",
-    "On Statistical Modeling/Tests/z-test.md",
-    "On Statistical Modeling/Tests/t-test.md",
-    "On Statistical Modeling/Modeling/General Linear Models.md",
-    "On Statistical Modeling/Modeling/Gaussian Linear Models.md",
-    "On Statistical Modeling/Distributions/t - student distribution.md",
-    "On Statistical Modeling/Distributions/Poisson Distribution.md",
-    "On Statistical Modeling/Distributions/Normal Distribution.md",
-    "On Statistical Modeling/Distributions/f - distribution.md",
-    "On Statistical Modeling/Distributions/Chi Squared Distribution.md",
-    "On Statistical Modeling/Definitions/Standard Deviation.md",
-    "On Statistical Modeling/Definitions/Sample Variance.md",
-    "On Statistical Modeling/Definitions/Sample Mean.md",
-    "On Statistical Modeling/Definitions/Quantiles.md",
-    "On Statistical Modeling/Definitions/p-value.md",
+    "On Reinforcement Learning/Algorithms/Monte Carlo Methods/Monte-Carlo First-Visit.md",
+    "On Reinforcement Learning/Algorithms/Policy Gradient Methods",
+    "On Reinforcement Learning/Algorithms/Actor-Critic Methods/TD3.md",
+    "On Reinforcement Learning/Algorithms/Actor-Critic Methods/DPG.md",
+    "On Reinforcement Learning/Algorithms/Actor-Critic Methods/DDPG.md",
+    "On Hierarchical Algorithms/Learn Order - HA.md",
+    "On Hierarchical Algorithms/HA_NotesAnnotated-1.pdf",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-Matrix Addition.md",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-LU Decomposition.md",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-Matrix Inversion (Recursive).md",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-Matrix Vector Multiplication (MVM).md",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - H-Matrix Inversion (Newton-Schulz).md",
+    "On Hierarchical Algorithms/Algorithms/Algorithm - Hp-Matrix Matrix Multiplication (MMM).md",
+    "On Hierarchical Algorithms/Implementation/Agglomeration Logic.md",
+    "On Hierarchical Algorithms/Derivations/Theorem - Cost of Algebraic Recompression.md",
+    "On Hierarchical Algorithms/Calculations/Lemma - QR Decomposition Cost.md",
+    "On Hierarchical Algorithms/Derivations/Theorem - Truncation Non-Associativity.md",
+    "On Hierarchical Algorithms/Foundations/Asymptotically Smooth Kernels.md",
+    "On Hierarchical Algorithms/Derivations/Theorem - Properties of Rank.md",
+    "On Hierarchical Algorithms/Foundations/Rank of a Matrix.md",
+    "On Hierarchical Algorithms/Derivations/Theorem - H2 Storage Cost.md",
+    "On Hierarchical Algorithms/Foundations/Rank-k Matrix Representation.md",
+    "On Hierarchical Algorithms/Foundations/Model Problem - The Logarithmic Kernel.md",
+    "On Hierarchical Algorithms/Foundations/Discretization Error vs Approximation Error.md",
+    "On Hierarchical Algorithms/Structures/Tensor Block Partition.md",
+    "On Hierarchical Algorithms/Approximation/Taylor Series Approximation.md",
+    "On Hierarchical Algorithms/Foundations/Kernel Function.md",
+    "On Artificial Intelligence/lecture5-game_theory.pdf",
+    "On Artificial Intelligence/lecture4-adversarial_search.pdf",
+    "On Artificial Intelligence/lecture3-search.pdf",
+    "On Artificial Intelligence/lecture2-search.pdf",
+    "On Artificial Intelligence/lecture1-AI_agents.pdf",
+    "On Artificial Intelligence/lecture0-about.pdf",
+    "On Reinforcement Learning/_Content/L12/L12.1.pdf",
+    "On Reinforcement Learning/_Content/L11/L11.pdf",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/web_images/web_image_5569408118488927588.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/web_images/web_image_427980405250522591.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/source_images/source_image_587.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/source_images/cliff.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_7558748147581301578.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_612856166983975977.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_-6733219054194282269.png",
+    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_-6287647312038211821.png",
     "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/ai_images/ai_generated_image_397964995849396983.png",
-    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/ai_images/ai_generated_image_-1510363668583573399.png",
-    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_vanilla_training.png",
-    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_her_training.png",
-    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/fetchreach_her_comparison.png"
+    "On Reinforcement Learning/_Content/L11/L11/63_Reward-sha/ai_images/ai_generated_image_-1510363668583573399.png"
   ]
 }

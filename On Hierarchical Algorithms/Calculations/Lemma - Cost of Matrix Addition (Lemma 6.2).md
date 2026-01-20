@@ -1,4 +1,4 @@
-﻿# Lemma - Cost of Matrix Addition (Lemma 6.2)
+# Lemma - Cost of Matrix Addition (Lemma 6.2)
 
 ## Definition / Statement
 *(Content to be populated)*

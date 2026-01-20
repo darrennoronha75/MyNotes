@@ -1,4 +1,4 @@
-﻿# Derivation - MVM Complexity
+# Derivation - MVM Complexity
 
 ## Definition / Statement
 *(Content to be populated)*

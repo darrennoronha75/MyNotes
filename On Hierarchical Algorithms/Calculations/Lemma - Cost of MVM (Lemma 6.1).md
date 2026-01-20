@@ -1,4 +1,4 @@
-﻿# Lemma - Cost of MVM (Lemma 6.1)
+# Lemma - Cost of MVM (Lemma 6.1)
 
 ## Definition / Statement
 *(Content to be populated)*

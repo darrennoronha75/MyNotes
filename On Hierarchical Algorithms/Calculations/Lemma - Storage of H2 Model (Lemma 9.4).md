@@ -1,4 +1,4 @@
-﻿# Lemma - Storage of H2 Model (Lemma 9.4)
+# Lemma - Storage of H2 Model (Lemma 9.4)
 
 ## Definition / Statement
 *(Content to be populated)*

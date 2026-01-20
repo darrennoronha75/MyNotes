@@ -1,4 +1,4 @@
-﻿# Recursion Patterns in C
+# Recursion Patterns in C
 
 ## Definition / Statement
 *(Content to be populated)*

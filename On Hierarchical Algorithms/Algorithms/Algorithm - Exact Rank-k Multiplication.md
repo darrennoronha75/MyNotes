@@ -15,10 +15,22 @@ $$M_{prod} = A_1 \underbrace{(B_1^T A_2)}_{\text{Kernel } K} B_2^T$$
 **Result:** The product is still a Rank-k matrix (specifically, rank is $\min(k_1, k_2)$).
 **Total Cost:** $O(k^2 n)$ (Linear in $n$).
 
+## Complexity Analysis
+The total computational cost depends on which side the core matrix $K$ is absorbed into (Step 2).
+
+1.  **Core Computation ($K$):**
+    Calculating $K = (B')^T A''$ requires multiplying a $k' \times m$ matrix by an $m \times k''$ matrix.
+    * Cost:** $\approx 2m k' k''$ operations. [
+
+2.  **Absorption Costs:**
+    * **Option A (Left Absorption):** Computing $A_{new} = A' K$ ($n \times k'$ times $k' \times k''$) costs $\approx 2n k' k''$.
+        * **Total Complexity:** $\mathcal{O}(k' k'' (m + n))$. 
+    * **Option B (Right Absorption):** Computing $B_{new}^T = K (B'')^T$ ($k' \times k''$ times $k'' \times l$) costs $\approx 2l k' k''$.
+        * **Total Complexity:** $\mathcal{O}(k' k'' (m + l))$. 
+
+**Comparison:**
+Standard dense matrix multiplication would take $\mathcal{O}(n \cdot m \cdot l)$. Since the ranks $k', k''$ are typically very small constants compared to the dimensions $n, m, l$, the exact rank-k multiplication is orders of magnitude faster.
 ### Links
 * **Prerequisite:** [[Rank-k Matrix Representation]]
-* **Used In:** [[Algorithm - H-Matrix Matrix Multiplication (MMM)]]
+* **Used In:** [[Algorithm - Hp-Matrix Matrix Multiplication (MMM)]]
 * **Tags:** #algorithms #arithmetic
-
----
-*Reference: Lecture Script Page 6 (Section 2.2)*

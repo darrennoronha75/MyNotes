@@ -1,4 +1,4 @@
-﻿# Formatted Forward Substitution
+# Formatted Forward Substitution
 
 ## Definition / Statement
 *(Content to be populated)*

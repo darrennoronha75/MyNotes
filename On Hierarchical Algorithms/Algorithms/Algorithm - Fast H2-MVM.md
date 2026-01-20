@@ -1,4 +1,4 @@
-﻿# Algorithm - Fast H2-MVM
+# Algorithm - Fast H2-MVM
 
 ## Definition / Statement
 *(Content to be populated)*

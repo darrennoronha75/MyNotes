@@ -1,4 +1,4 @@
-﻿# H2-Matrix Concept
+# H2-Matrix Concept
 
 ## Definition / Statement
 *(Content to be populated)*

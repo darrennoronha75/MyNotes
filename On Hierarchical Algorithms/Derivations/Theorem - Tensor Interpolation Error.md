@@ -1,4 +1,4 @@
-﻿# Theorem - Tensor Interpolation Error
+# Theorem - Tensor Interpolation Error
 
 ## Definition / Statement
 *(Content to be populated)*

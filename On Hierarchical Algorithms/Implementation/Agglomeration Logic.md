@@ -1,4 +1,4 @@
-﻿# Agglomeration Logic
+# Agglomeration Logic
 
 ## Definition / Statement
 *(Content to be populated)*

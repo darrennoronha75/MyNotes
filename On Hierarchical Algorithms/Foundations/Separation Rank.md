@@ -1,4 +1,4 @@
-﻿# Separation Rank
+# Separation Rank
 
 ## Definition / Statement
 *(Content to be populated)*

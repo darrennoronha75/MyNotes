@@ -4,9 +4,9 @@
 *Goal: Understand the motivation (Complexity) and the fundamental tool (Rank-k).*
 **(Script Pages 1-4)**
 
-- [ ] [[Foundations/The Curse of Dimensionality]]
-- [ ] [[Foundations/Discretization Error vs Approximation Error]]
-- [ ] [[Structures/Block Partition Definition]]
+- [x] [[Foundations/The Curse of Dimensionality]]
+- [x] [[Foundations/Discretization Error vs Approximation Error]]
+- [x] [[Structures/Block Partition Definition]]
 - [ ] [[Structures/Tensor Block Partition]]
 
 ---
@@ -16,24 +16,24 @@
 **(Script Pages 5-16)**
 
 ### 2.1 - 2.3: Definitions & Best Approximation
-- [ ] [[Foundations/Rank of a Matrix]]
-- [ ] [[Foundations/Rank-k Matrix Representation]]
-- [ ] [[Derivations/Theorem - Properties of Rank]]
-- [ ] [[Calculations/Lemma - Rank-k Storage Cost]]
-- [ ] [[Foundations/Singular Value Decomposition (SVD)]]
-- [ ] [[Foundations/Reduced SVD]]
-- [ ] [[Derivations/Theorem - Best Low-Rank Approximation Error]]
-- [ ] [[Foundations/Eckart-Young-Mirsky Theorem]]
+- [x] [[Foundations/Rank of a Matrix]]
+- [x] [[Foundations/Rank-k Matrix Representation]]
+- [x] [[Derivations/Theorem - Properties of Rank]]
+- [x] [[Lemma - Rank k Storage Cost]]
+- [x] [[Foundations/Singular Value Decomposition (SVD)]]
+- [x] [[Reduced Singular Value Decomposition]]
+- [x] [[Theorem - Best Low-Rank Approximation Error]]
+
 
 ### 2.4 - 2.7: Arithmetic & Truncation
-- [ ] [[Algorithms/Algorithm - Exact Rank-k Addition]]
-- [ ] [[Algorithms/Algorithm - Exact Rank-k Multiplication]]
-- [ ] [[Calculations/Lemma - QR Decomposition Cost]]
-- [ ] [[Algorithms/Algorithm - Algebraic Recompression]] (Truncation)
+- [x] [[Algorithms/Algorithm - Exact Rank-k Addition]]
+- [x] [[Algorithms/Algorithm - Exact Rank-k Multiplication]]
+- [x] [[Calculations/Lemma - QR Decomposition Cost]]
+- [x] [[Algorithms/Algorithm - Algebraic Recompression]] (Truncation)
 - [ ] [[Derivations/Theorem - Cost of Algebraic Recompression]]
-- [ ] [[Algorithms/Algorithm - Formatted Addition]]
-- [ ] [[Implementation/Agglomeration Logic]] (Formatted Agglomeration)
-- [ ] [[Derivations/Theorem - Truncation Non-Associativity]]
+- [x] [[Algorithms/Algorithm - Formatted Addition]]
+- [x]  [[Algorithm - Formatted Agglomeration]]
+- [x] [[Derivations/Theorem - Truncation Non-Associativity]]
 
 ---
 
@@ -41,14 +41,17 @@
 *Goal: A simplified "Sandbox" example to prove O(n log n) before the general theory.*
 **(Script Pages 17-30)**
 
-- [ ] [[Structures/Hierarchical Matrix (Hp) Format]]
-- [ ] [[Derivations/Theorem - Number of Blocks in Hp]]
-- [ ] [[Derivations/Theorem - Storage Cost of H-Matrix]] (Specific to Hp)
-- [ ] [[Calculations/Lemma - Inverse of Tridiagonal Matrix]]
-- [ ] [[Approximation/Taylor Series Approximation]] (Used in Integral Model Problem)
-- [ ] [[Calculations/Lemma - Error Bound of Taylor Expansion]]
-
----
+- [x] [[Structures/Hierarchical Matrix (Hp) Format]]
+- [x] [[Derivations/Theorem - Number of Blocks in Hp]]
+- [x] [[Derivations/Theorem - Storage Cost of H-Matrix]] (Specific to Hp)
+- [x] [[Calculations/Lemma - Inverse of Tridiagonal Matrix]]
+- [x] [[Taylor Series Approximation]] (Used in Integral Model Problem)
+- [x] [[Calculations/Lemma - Error Bound of Taylor Expansion]]
+- [x] [[Algorithm - Hp-Matrix Addition]]
+- [x] [[Algorithm - Hp-LU Decomposition]]
+- [x] [[Algorithm - Hp-Matrix Vector Multiplication (MVM)]]
+- [x] [[Algorithm - Hp-Matrix Matrix Multiplication (MMM)]]
+- [x] [[Algorithm - Hp-Matrix Inversion (Recursive)]]
 
 ## CHAPTER 4: Separable Approximation
 *Goal: How to generate low-rank blocks using analytical functions (Interpolation).*
@@ -60,7 +63,7 @@
 - [ ] [[Approximation/Lagrange Interpolation]]
 - [ ] [[Approximation/Runge's Phenomenon]] (Context for Chebyshev)
 - [ ] [[Calculations/Lemma - Interpolation Error Bound]]
-- [ ] [[Approximation/Chebyshev Interpolation]]
+- [ ] [[Chebyshev Interpolation]]
 - [ ] [[Calculations/Lemma - Chebyshev Max Norm]]
 
 ### 4.2.2: Multi-dimensional & Analysis
@@ -93,14 +96,14 @@
 *Goal: The Engines - How to compute Ax, A+B, A*B, and A^-1.*
 **(Script Pages 61-70)**
 
-- [ ] [[Algorithms/Algorithm - H-Matrix Vector Multiplication (MVM)]]
+- [ ] [[Algorithm - Hp-Matrix Vector Multiplication (MVM)]]
 - [ ] [[Calculations/Lemma - Cost of MVM (Lemma 6.1)]]
 - [ ] [[Calculations/Lemma - Cost of Matrix Addition (Lemma 6.2)]]
-- [ ] [[Algorithms/Algorithm - H-Matrix Matrix Multiplication (MMM)]]
+- [ ] [[Algorithm - Hp-Matrix Matrix Multiplication (MMM)]]
 - [ ] [[Calculations/Lemma - Update Cost]] (Adding Rank-k to H-block)
 - [ ] [[Derivations/Derivation - MMM Complexity]]
 - [ ] [[Algorithms/Algorithm - H-Matrix Inversion (Newton-Schulz)]]
-- [ ] [[Algorithms/Algorithm - H-LU Decomposition]]
+- [ ] [[Algorithm - Hp-LU Decomposition]]
 - [ ] [[Implementation/Formatted Forward Substitution]]
 - [ ] [[Derivations/Derivation - H-LU Complexity]]
 
@@ -110,8 +113,8 @@
 *Goal: The "Black Box" method to find Low-Rank blocks without derivatives.*
 **(Script Pages 71-80)**
 
-- [ ] [[Algorithms/Adaptive Cross Approximation (ACA)]]
-- [ ] [[Algorithms/ACA with Partial Pivoting]]
+- [ ] [[Algorithm - Adaptive Cross Approximation (ACA)]]
+- [ ] [[Algorithm - ACA with Partial Pivoting]]
 - [ ] [[Implementation/Stopping Criteria for ACA]]
 
 ---

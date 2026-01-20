@@ -1,4 +1,4 @@
-﻿# Algorithm - H-Cholesky Decomposition
+# Algorithm - H-Cholesky Decomposition
 
 ## Definition / Statement
 *(Content to be populated)*
