@@ -18,7 +18,7 @@ $$\pi'(s) = \arg\max_{a} \sum_{s'} p(s'|s,a) [r(s,a) + \gamma V^\pi(s')] = \arg\
 ### Pseudocode
 
 **Input:** Value function $V$, Dynamics $p$, Reward $r$, Discount $\gamma$, Policy $\pi$
-**Output:** Improved Policy $\pi'$, boolean `policy-stable`
+**Output:** Improved Policy $\pi'$, boolean `policy-stable`/
 
 1.  `policy-stable` $\leftarrow$ true
 2.  **For each state** $s \in \mathcal{S}$:

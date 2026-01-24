@@ -32,4 +32,4 @@ Unlike $V(s)$, the first action is already fixed ($a$), so we only average over 
 
 ### Links
 * **Related to V:** $V^\pi(s) = \mathbb{E}_{a \sim \pi}[Q^\pi(s,a)]$.
-* **Solved via:** [[Bellman Optimality Equations]].
+* **Solved via:** [[Bellman Optimality Equation]].

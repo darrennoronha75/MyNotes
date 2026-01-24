@@ -22,7 +22,7 @@ The term $\nabla_\theta \log p_\theta(x)$ is formally known as the **Score Funct
 ---
 
 ### Derivation: Gradient of an Expectation
-This is the critical proof required for the [[Policy Gradient Theorem]]. We want to calculate the gradient of the expected return $J(\theta)$ without knowing the dynamics of the environment.
+This is the critical proof required for the [[Policy Gradient Theorem - Stochastic Policy]]. We want to calculate the gradient of the expected return $J(\theta)$ without knowing the dynamics of the environment.
 
 **Problem:** The gradient is *outside* the expectation, but we need it *inside* to estimate it with samples.
 $$\nabla_\theta J(\theta) = \nabla_\theta \mathbb{E}_{\tau \sim p_\theta} [R(\tau)]$$
@@ -49,5 +49,5 @@ $$\nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim p_\theta} [ \nabla_\theta \log
 2.  **Sampling:** We transformed an integral of a gradient (unsolvable) into an expectation (solvable). We can now just run the agent, collect samples, and average them to estimate the gradient.
 
 ### Links
-* **Used In:** [[Policy Gradient Theorem]]
+* **Used In:** [[Policy Gradient Theorem - Stochastic Policy]]
 * **Foundation For:** [[REINFORCE]]

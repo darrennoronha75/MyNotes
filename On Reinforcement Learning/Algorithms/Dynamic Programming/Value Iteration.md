@@ -29,5 +29,5 @@ $$V_{k+1}(s) \leftarrow \max_{a} \sum_{s'} p(s'|s,a) [r(s,a) + \gamma V_k(s')]$$
 10.     $\pi(s) = \arg\max_{a} \sum_{s'} p(s'|s,a) [r(s,a) + \gamma V(s')]$
 
 ### Links
-* **Uses:** [[Bellman Optimality Equations]].
+* **Uses:** [[Bellman Optimality Equation]].
 * **Implements:** [[On Reinforcement Learning/Algorithms/Dynamic Programming/Generalized Policy Iteration]].

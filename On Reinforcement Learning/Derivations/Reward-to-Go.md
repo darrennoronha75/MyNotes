@@ -34,5 +34,5 @@ Since probabilities must sum to 1 ($\sum \pi = 1$), the gradient of the sum is t
 Since the gradient w.r.t past rewards averages to zero, we can remove them from the equation. This leaves only the correlation with **future rewards** ($G_t$).
 
 ### Links
-* **Applied In:** [[Policy Gradient Theorem]]
+* **Applied In:** [[Policy Gradient Theorem - Stochastic Policy]]
 * **Related Concept:** [[Reward-to-Go]]

@@ -41,5 +41,5 @@ The abstract objective $J(\pi)$ is practically implemented via value functions i
 
 ### Links
 * **Depends On:** [[Return]] ($G_t$).
-* **Optimized By:** [[Policy Gradient Theorem]] (Direct optimization).
+* **Optimized By:** [[Policy Gradient Theorem - Stochastic Policy]] (Direct optimization).
 * **Optimized By:** [[On Reinforcement Learning/Algorithms/Dynamic Programming/Generalized Policy Iteration]] (Indirect optimization via Value Functions).

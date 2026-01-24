@@ -14,14 +14,14 @@ The **Bellman Equations** are the recursive relationships that allow us to calcu
 ### The Two Types
 You must distinguish between **Expectation** (for evaluating a specific policy) and **Optimality** (for finding the best policy).
 
-**1. [[Derivations/Bellman Expectation Equations|Bellman Expectation Equations]]**
+**1. [[Bellman Expectation Equation|Bellman Expectation Equations]]**
 Used for Policy Evaluation (Prediction). These are linear equations.
 * **For $V^\pi(s)$:**
     $$V^\pi(s) = \sum_{a} \pi(a|s) \sum_{s'} p(s'|s,a) [r(s,a) + \gamma V^\pi(s')]$$
 * **For $Q^\pi(s,a)$:**
     $$Q^\pi(s,a) = \sum_{s'} p(s'|s,a) [r(s,a) + \gamma \sum_{a'} \pi(a'|s') Q^\pi(s',a')]$$
 
-**2. [[Derivations/Bellman Optimality Equations|Bellman Optimality Equations]]**
+**2. [[Bellman Optimality Equation|Bellman Optimality Equations]]**
 Used for Control (Value Iteration / Q-Learning). These are non-linear (due to the `max`).
 * **For $V^*(s)$:**
     $$V^*(s) = \max_{a} \sum_{s'} p(s'|s,a) [r(s,a) + \gamma V^*(s')]$$

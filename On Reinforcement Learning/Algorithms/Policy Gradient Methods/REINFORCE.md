@@ -9,7 +9,7 @@ aliases:
   - Williams Algorithm
 ---
 
-**REINFORCE** (Monte Carlo Policy Gradient) is the simplest policy gradient algorithm. It uses the [[Policy Gradient Theorem]] to update the policy parameters $\theta$ directly using actual returns sampled from complete episodes.
+**REINFORCE** (Monte Carlo Policy Gradient) is the simplest policy gradient algorithm. It uses the [[Policy Gradient Theorem - Stochastic Policy]] to update the policy parameters $\theta$ directly using actual returns sampled from complete episodes.
 
 Because it relies on the full return $G_t$, it is a **Monte Carlo** method and can only be updated at the end of an episode.
 
@@ -35,5 +35,5 @@ $$\theta \leftarrow \theta + \alpha \gamma^t G_t \nabla_\theta \log \pi_\theta(a
 * **Cons:** High variance (learning can be unstable); requires complete episodes (cannot do online/incremental learning).
 
 ### Links
-* **Implements:** [[Policy Gradient Theorem]]
+* **Implements:** [[Policy Gradient Theorem - Stochastic Policy]]
 * **Improved By:** [[Variance Reduction - RL]] (using Baselines).

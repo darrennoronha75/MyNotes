@@ -30,5 +30,5 @@ We can expand the expectation to see the recursive structure (The Bellman Equati
 * **Limitation:** In Model-Free RL (unknown dynamics $p$), $V(s)$ is insufficient for control because we cannot look ahead to see which action leads to the best next state.
 
 ### Links
-* **Defined recursively by:** [[Bellman Expectation Equations]].
+* **Defined recursively by:** [[Bellman Expectation Equation]].
 * **Relation to Q:** $V^\pi(s) = \sum_a \pi(a|s) Q^\pi(s,a)$.
