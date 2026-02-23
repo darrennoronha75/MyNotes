@@ -1,4 +1,4 @@
-﻿# Transfer Matrix (E)
+# Transfer Matrix (E)
 
 ## Definition / Statement
 *(Content to be populated)*

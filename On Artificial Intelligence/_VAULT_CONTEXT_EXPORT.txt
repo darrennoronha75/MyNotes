@@ -1,0 +1,2757 @@
+﻿VAULT CONTEXT EXPORT - 2026-02-18 20:35
+
+
+
+<<<<< START FILE: \Algorithms\Tree Search vs Graph Search - Distinction.md >>>>>
+
+The fundamental distinction in search algorithms lies in how they handle redundant paths (repeated states).
+
+### Tree Search
+* **Logic**: Does **not** track visited states. If a loop exists in the graph, Tree Search will explore it infinitely.
+* **Memory**: Lower memory overhead (no `explored` set).
+* **Completeness**: **Incomplete** if the state space contains loops.
+
+### Graph Search
+* **Logic**: Maintains an **Explored Set** (or `closed` list) of visited states. If the frontier generates a state already in the explored set, it is discarded.
+* **Memory**: Higher memory overhead (stores every visited state).
+* **Completeness**: **Complete** even in finite spaces with loops.
+* **Optimality Caution**: For [[A-Star]] in Graph Search, the heuristic must be **Consistent**, not just Admissible.
+
+### Links
+* **Applied In**: [[BFS]], [[DFS]], [[A-Star]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Adversarial Search\Alpha-Beta Pruning.md >>>>>
+
+
+An optimization for [[Minimax]] that maintains two values, $\alpha$ and $\beta$, to prune branches of the game tree.
+
+> [!abstract] **The Logic**
+> * **$\alpha$**: The value of the best (highest-value) choice found so far along the path for **MAX**.
+> * **$\beta$**: The value of the best (lowest-value) choice found so far along the path for **MIN**.
+
+### Pseudocode
+```python
+def MAX_VALUE(state, alpha, beta):
+    if terminal(state): return utility(state)
+    v = -infinity
+    for a in actions(state):
+        v = max(v, MIN_VALUE(result(state, a), alpha, beta))
+        if v >= beta: return v  # Beta-cut
+        alpha = max(alpha, v)
+    return v
+
+def MIN_VALUE(state, alpha, beta):
+    if terminal(state): return utility(state)
+    v = +infinity
+    for a in actions(state):
+        v = min(v, MAX_VALUE(result(state, a), alpha, beta))
+        if v <= alpha: return v  # Alpha-cut
+        beta = min(beta, v)
+    return v
+````
+
+### Links
+
+- **Theorem**: [[Pruning Optimality Theorem]]    
+- **Base Algorithm**: [[Minimax]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Adversarial Search\Expectiminimax.md >>>>>
+
+An extension of Minimax for **Stochastic Games** (games with chance, like dice or card draws).
+
+### Logic
+In addition to **MAX** (us) and **MIN** (opponent) nodes, the tree includes **CHANCE** nodes.
+* **MAX Node**: $v = \max(v, \text{child})$
+* **MIN Node**: $v = \min(v, \text{child})$
+* **CHANCE Node**: Calculates the **Expected Value** (weighted average).
+  $$v = \sum_{s'} P(s' | s, a) \cdot \text{Value}(s')$$
+
+### Complexity
+* The inclusion of chance nodes increases the branching factor, making deep search significantly more expensive than standard Minimax.
+* **Pruning**: Standard Alpha-Beta pruning is much less effective because exact bounds are harder to establish on averages.
+
+### Links
+* **Parent**: [[Minimax]]
+* **Context**: [[Environment Types]] (Stochastic)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Adversarial Search\Maximin.md >>>>>
+
+In game theory, Maximin refers to a strategy where a player attempts to maximize their minimum possible payoff, effectively choosing the "best of the worst-case scenarios".
+
+### Key Concepts
+* **Safety First**: It is a risk-averse strategy used when an agent does not know the opponent's strategy or assumes the opponent is out to minimize their payoff.
+* **Zero-Sum Games**: In zero-sum games, the Maximin strategy is equivalent to the [[Minimax]] strategy.
+* **Security Level**: The Maximin value is the highest value a player can guarantee themselves regardless of the opponent's actions.
+
+### Links
+* **Related**: [[Nash Equilibrium]]
+* **Algorithm**: [[Minimax]]
+* **Tags**: #formalization #game-theory #strategy
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Adversarial Search\Minimax.md >>>>>
+
+
+Minimax is a recursive depth-first search used in zero-sum games to determine the optimal move for a player by assuming the opponent also plays optimally.
+
+> [!info] **Complexity & Properties**
+> * **Nature**: A Depth-First Search (DFS) traversal of the game tree.
+> * **Time Complexity**: $O(b^m)$, where $b$ is the branching factor and $m$ is the maximum depth of the tree.
+> * **Space Complexity**: $O(b \cdot m)$, as it only needs to store one path at a time.
+> * **Optimality**: Yes, against an optimal opponent.
+
+### Pseudocode
+```python
+def MINIMAX_DECISION(state):
+    return argmax(state.actions, key=lambda a: MIN_VALUE(result(state, a)))
+
+def MAX_VALUE(state):
+    if TERMINAL_TEST(state): return UTILITY(state)
+    v = -infinity
+    for a in state.actions:
+        v = max(v, MIN_VALUE(result(state, a)))
+    return v
+
+def MIN_VALUE(state):
+    if TERMINAL_TEST(state): return UTILITY(state)
+    v = +infinity
+    for a in state.actions:
+        v = min(v, MAX_VALUE(result(state, a)))
+    return v
+````
+
+### Links
+
+- **Optimization**: [[Alpha-Beta Pruning]].    
+- **Variant**: [[Negamax]]    
+- **Tags**: #adversarial-search #minimax #dfs
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Adversarial Search\Negamax.md >>>>>
+
+
+Negamax is a simplified implementation of Minimax based on the zero-sum property where $max(a, b) = -min(-a, -b)$.
+### Core Logic
+In a zero-sum game, the utility for Player 1 is the negative utility for Player 2. This allows us to use a single `MAX` function for both players by negating the values returned from the recursive calls.
+
+### Pseudocode
+```python
+def NEGAMAX(state):
+    if TERMINAL_TEST(state):
+        return UTILITY(state)
+    
+    value = -infinity
+    for action in state.actions:
+        value = max(value, -NEGAMAX(result(state, action)))
+    return value
+````
+
+### Links
+
+- **Base Algorithm**: [[Minimax]]    
+- **Optimized**: [[Alpha-Beta Pruning]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Informed Search\A-Star.md >>>>>
+
+A* is an informed search algorithm that uses an evaluation function to guide the search toward the goal, aiming to minimize the total estimated path cost.
+
+> [!info] **Complexity & Properties**
+> * **Evaluation Function**: $f(n) = g(n) + h(n)$.
+>   * $g(n)$: The actual path cost from the start node to node $n$.
+>   * $h(n)$: The estimated cost from node $n$ to the goal (Heuristic).
+> * **Frontier Logic**: Priority Queue ordered by $f(n)$ (lowest first).
+> * **Time Complexity**: $O(b^d)$ in the worst case, but efficiency depends heavily on the heuristic $h$.
+> * **Space Complexity**: $O(b^d)$, as it maintains all generated nodes in memory to handle graph search.
+> * **Completeness**: Yes.
+> * **Optimality**: Yes, if $h(n)$ is **Admissible** (for Tree Search) or **Consistent** (for Graph Search).
+
+### Pseudocode
+```python
+def A_STAR_SEARCH(problem, h):
+    node = Node(problem.initial_state)
+    # Frontier is a priority queue ordered by f(n) = g(n) + h(n)
+    frontier = PriorityQueue(node, f=lambda n: n.path_cost + h(n))
+    reached = {problem.initial_state: node}
+    
+    while not frontier.is_empty():
+        node = frontier.pop()
+        if problem.is_goal(node.state):
+            return node
+        for child in expand(problem, node):
+            s = child.state
+            if s not in reached or child.path_cost < reached[s].path_cost:
+                reached[s] = child
+                frontier.push(child)
+    return failure
+````
+
+### Lab Insight (Lab 2)
+
+During implementation, A* proved significantly more efficient than Uniform Cost Search (UCS) because it avoids expanding nodes in directions that move away from the goal. Common heuristics used include **Manhattan Distance** (for 4-way movement) and **Euclidean Distance** (for straight-line movement).
+
+### Links
+
+- **Prerequisite**: [[Heuristic Properties]]    
+- **Foundation**: [[Search Problem Tuple]]    
+- **Tags**: #algorithm #informed-search #astar
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Informed Search\Best-First Search.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Informed Search\Greedy Best-First Search.md >>>>>
+
+Greedy Best-First Search expands the node that appears to be closest to the goal based solely on the heuristic value $h(n)$, ignoring the path cost $g(n)$.
+
+> [!warning] **Complexity & Properties**
+> * **Evaluation Function**: $f(n) = h(n)$.
+> * **Frontier Logic**: Priority Queue ordered by $h(n)$.
+> * **Time Complexity**: $O(b^m)$ in the worst case, where $m$ is the maximum depth. A poor heuristic can lead the search down an infinite or very long path.
+> * **Space Complexity**: $O(b^m)$, as all generated nodes are kept in memory.
+> * **Completeness**: No; it can get stuck in loops in graph search or infinite paths.
+> * **Optimality**: No; it finds a solution quickly but rarely the shortest one.
+
+### Pseudocode
+```python
+def GREEDY_BEST_FIRST_SEARCH(problem, h):
+    node = Node(problem.initial_state)
+    # Frontier is a priority queue ordered by h(n)
+    frontier = PriorityQueue(node, f=lambda n: h(n))
+    reached = {problem.initial_state: node}
+    
+    while not frontier.is_empty():
+        node = frontier.pop()
+        if problem.is_goal(node.state):
+            return node
+        for child in expand(problem, node):
+            s = child.state
+            if s not in reached:
+                reached[s] = child
+                frontier.push(child)
+    return failure
+````
+
+### Comparison to A-Star
+
+Unlike [[A-Star]], which balances actual cost and estimated cost ($g+h$), Greedy search is "short-sighted." While it often reaches a goal faster in terms of node expansions, the resulting path is often non-optimal because it ignores the accumulated travel cost.
+
+### Links
+
+- **Optimization**: [[A-Star]]    
+- **Prerequisite**: [[Heuristic Properties]]    
+- **Tags**: #algorithm #greedy #informed-search
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\CNF Conversion.md >>>>>
+
+
+The systematic algorithm to transform *any* propositional sentence into **Conjunctive Normal Form (CNF)** (a conjunction of clauses). This is a prerequisite for the [[Resolution Algorithm]].
+
+> [!info] **The 6-Step Recipe**
+> 1.  **Eliminate Biconditionals ($\Leftrightarrow$)**:
+>     * Replace $\alpha \Leftrightarrow \beta$ with $(\alpha \Rightarrow \beta) \wedge (\beta \Rightarrow \alpha)$.
+> 2.  **Eliminate Implications ($\Rightarrow$)**:
+>     * Replace $\alpha \Rightarrow \beta$ with $\neg \alpha \vee \beta$.
+> 3.  **Move Negation Inwards (De Morgan's Laws)**:
+>     * $\neg (\alpha \wedge \beta) \to (\neg \alpha \vee \neg \beta)$
+>     * $\neg (\alpha \vee \beta) \to (\neg \alpha \wedge \neg \beta)$
+>     * $\neg \neg \alpha \to \alpha$.
+> 4.  **Distribute $\vee$ over $\wedge$**:
+>     * Apply rule: $\alpha \vee (\beta \wedge \gamma) \equiv (\alpha \vee \beta) \wedge (\alpha \vee \gamma)$.
+> 5.  **Flatten**:
+>     * Turn $(A \vee B) \vee C$ into $A \vee B \vee C$.
+> 6.  **Factorization**:
+>     * Remove duplicate literals ($A \vee A \to A$) and definitions like $A \vee \neg A$ (True).
+
+### Example
+Converting $A \Leftrightarrow (B \vee C)$:
+1. $(A \Rightarrow (B \vee C)) \wedge ((B \vee C) \Rightarrow A)$
+2. $(\neg A \vee B \vee C) \wedge (\neg (B \vee C) \vee A)$
+3. $(\neg A \vee B \vee C) \wedge ((\neg B \wedge \neg C) \vee A)$
+4. $(\neg A \vee B \vee C) \wedge (\neg B \vee A) \wedge (\neg C \vee A)$ **(CNF)**.
+
+### Links
+* **Target Format**: [[CNF (Conjunctive Normal Form)]]
+* **Next Step**: [[Resolution Algorithm]]
+* **Tags**: #algorithm #exam-technique
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\DPLL Algorithm.md >>>>>
+
+
+The Davis-Putnam-Logemann-Loveland (DPLL) algorithm is a complete, backtracking-search algorithm for determining the satisfiability of a logical sentence in CNF. It is essentially **Model Checking** with three massive optimizations.
+
+### The 3 Optimizations
+1.  **Early Termination**:
+    * A clause is true if *any* literal is true.
+    * A sentence is false if *any* clause is false.
+2.  **Pure Symbol Heuristic**:
+    * A symbol is "pure" if it appears with the same sign in all *unfinished* clauses.
+    * *Action*: Assign all pure symbols to True (if positive) or False (if negative) immediately. They can never make a clause false.
+3.  **Unit Clause Heuristic**:
+    * A "unit clause" is a clause with only one remaining unassigned literal (e.g., $P$ or $A \vee False$).
+    * *Action*: This literal *must* be assigned to satisfy the clause. This cascades (Unit Propagation).
+
+### Links
+* **Basis**: [[Model Checking]]
+* **Alternative**: [[WalkSAT Algorithm]]
+* **Tags**: #algorithm #sat-solver #optimization
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\FOL Resolution.md >>>>>
+
+
+FOL Resolution is a complete inference procedure that combines [[Unification]], [[Resolution Rule]], and a conversion to First-Order CNF.
+
+### 1. Conversion to CNF (The "Lifting" Steps)
+In addition to the propositional steps (eliminating implications, etc.), FOL requires:
+1.  **Standardize Variables**: Ensure each quantifier uses a unique variable name.
+2.  **Skolemization**: Remove existential quantifiers ($\exists$) by replacing variables with **Skolem Constants** or **Skolem Functions**.
+    * *Example*: $\exists x : Heart(x, John) \to Heart(H_1, John)$ (where $H_1$ is a new constant).
+3.  **Drop Universal Quantifiers**: All remaining variables are implicitly $\forall$.
+
+### 2. The Resolution Step
+Take two clauses and find a substitution $\theta$ that makes two literals complementary.
+$$\frac{\{l_1, \dots, l_k\}, \quad \{m_1, \dots, m_n\}}{\text{SUBST}(\theta, \{l_1, \dots, l_{i-1}, l_{i+1}, \dots, l_k, m_1, \dots, m_{j-1}, m_{j+1}, \dots, m_n\})}$$
+**Where** UNIFY($l_i, \neg m_j$) = $\theta$.
+
+
+
+### Properties
+* **Completeness**: Resolution is refutation-complete (it will always find a contradiction if the KB is unsatisfiable).
+
+### Links
+* **Base Algorithm**: [[Resolution Algorithm]]
+* **Mechanism**: [[Unification]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Forward Chaining.md >>>>>
+
+
+A data-driven inference algorithm for **Horn Clauses**. It determines if a query $q$ is entailed by the KB.
+
+### Algorithm Logic
+1.  **Count**: For every clause, count how many premises are not yet satisfied.
+2.  **Agenda**: Initialize a queue with all **Facts** (clauses with 0 premises).
+3.  **Loop**:
+    * Pop symbol $p$ from the agenda.
+    * If $p == q$, return **True**.
+    * For every clause where $p$ is a premise:
+        * Decrement its count.
+        * If count becomes 0, push the clause's conclusion to the agenda.
+
+### Properties
+* **Complexity**: $O(N)$, where $N$ is the size of the KB (Linear Time).
+* **Sound & Complete**: Yes, but *only* for Horn Clauses.
+
+
+
+### Links
+* **Requires**: [[Horn Clauses]]
+* **Contrast**: [[Backward Chaining]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Generalized Modus Ponens.md >>>>>
+
+
+Generalized Modus Ponens is a "lifted" version of [[Modus Ponens]] that uses [[Unification]] to apply rules directly to sentences with variables.
+
+> [!abstract] **The Rule**
+> For atomic sentences $p_i, p_i', q$:
+> $$\frac{p_1', p_2', \dots, p_n', \quad (p_1 \wedge p_2 \wedge \dots \wedge p_n \Rightarrow q)}{q\theta}$$
+> **Where** UNIFY($p_i', p_i$) = $\theta$ for all $i$.
+
+### Significance
+* GMP allows inference without **Propositionalization** (converting everything to propositional logic), which avoids the combinatorial explosion of substituting every possible constant for every variable.
+* It is the core engine for **Forward Chaining** and **Backward Chaining** in First-Order Logic.
+
+### Example (Kinship)
+* **Premise 1**: $Father(Philip, Charles)$
+* **Premise 2**: $\forall x, y : Father(x, y) \Rightarrow Parent(x, y)$
+* **Unification**: $\theta = \{x / Philip, y / Charles\}$
+* **Conclusion**: $Parent(Philip, Charles)$
+
+### Links
+* **Prerequisite**: [[Unification]]
+* **Logic Base**: [[Modus Ponens]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Modal Trace Algorithm.md >>>>>
+
+
+A systematic way to determine if $w \models \phi$ in a Kripke model, as required in **Lab 09 (Question 1)** and **Exam SoSe 24**.
+
+### Step-by-Step Procedure
+1. **Decompose the Formula**: Break $\phi$ into its sub-formulas (e.g., $\Diamond \Box \neg a \to$ check $\neg a$, then $\Box \neg a$, then $\Diamond$).
+2. **Identify Successors**: For the current world $w$, list all worlds $v$ such that $wRv$ exists.
+3. **Check Inner Modal**:
+   * For **$\Box \psi$**: Visit *every* successor. If $\psi$ is false in even one, the whole $\Box \psi$ is false.
+   * For **$\Diamond \psi$**: Visit successors until you find *one* where $\psi$ is true. If found, $\Diamond \psi$ is true.
+4. **Evaluate Boolean Logic**: Apply standard truth tables for $\wedge, \vee, \neg$ within the world.
+
+### Example Trace (from Lab 09)
+**Query**: $u \models \Diamond(a \wedge \Diamond \neg a)$
+1. Look at $u$'s successors: $W = \{v, w\}$.
+2. Check if $v$ or $w$ satisfies $(a \wedge \Diamond \neg a)$.
+3. World $w$ satisfies $a$ and has no successors ($\Diamond \neg a$ is false there).
+4. World $v$ satisfies... [logic continues].
+
+### Links
+* **Reference**: [[Kripke Semantics]]
+* **Lab Context**: [[Lab 09 Trace]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Modus Ponens.md >>>>>
+
+
+The fundamental inference rule used in both propositional and first-order logic.
+
+> [!abstract] **The Rule**
+> $$\frac{\alpha \Rightarrow \beta, \quad \alpha}{\beta}$$
+> * **Premise 1**: If $\alpha$ implies $\beta$ is true...
+> * **Premise 2**: And $\alpha$ is true...
+> * **Conclusion**: Then $\beta$ must be true.
+
+### Properties
+* **Soundness**: Yes. If the premises are true, the conclusion is guaranteed to be true.
+* **Completeness**: No. Modus Ponens alone is not complete for general logic, but it is complete for **Horn Clauses** when combined with Forward/Backward chaining.
+
+### Links
+* **Used In**: [[Forward Chaining]], [[Backward Chaining]]
+* **Generalization**: [[Resolution Rule]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Prolog Execution Logic.md >>>>>
+
+
+Prolog uses **Backward Chaining** and a specific search strategy to answer queries based on a Knowledge Base of Horn Clauses.
+
+### 1. The Search Mechanism
+* **Strategy**: **Depth-First Search (DFS)** on the goal tree.
+* **Order**: Rules are processed from **top to bottom**; premises within a rule are processed from **left to right**.
+* **Backtracking**: If a sub-goal fails, Prolog backtracks to the most recent choice point to try an alternative rule.
+
+### 2. Standardizing Apart in Execution
+Every time a rule is called, Prolog renames its variables (e.g., `X` becomes `_G123`) to ensure no collision with variables in the query or other rules.
+
+### 3. Negation as Failure (NAF)
+Prolog uses the **Closed World Assumption**. The query `\+ P` (not P) succeeds if and only if the system **fails** to prove `P`.
+* *Warning*: This is different from classical logic $\neg P$. In Prolog, failure to find a fact implies it is false.
+
+### Links
+* **Foundations**: [[Logic Programming]]
+* **Kernel**: [[Backward Chaining]], [[Unification]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Resolution Algorithm.md >>>>>
+
+
+A **Proof by Contradiction** (Reductio ad Absurdum) algorithm used to determine if $KB \models \alpha$.
+
+### The Process
+To show that $KB \models \alpha$, we show that $(KB \wedge \neg \alpha)$ is **Unsatisfiable**.
+
+1.  **Negate the Goal**: Add $\neg \alpha$ to the KB.
+2.  **Convert to CNF**: Turn $(KB \wedge \neg \alpha)$ into a set of clauses.
+3.  **Loop**:
+    * Select two clauses that contain complementary literals.
+    * Apply the [[Resolution Rule]] to generate a new clause (Resolvent).
+    * If the Resolvent is the **Empty Clause**, return **True** (Contradiction found $\to$ Entailment holds).
+    * If the Resolvent is already in the set, discard it.
+    * If no new clauses can be generated, return **False** (Entailment fails).
+
+### Properties
+* **Sound**: Yes.
+* **Complete**: Yes (for PL and FOL).
+
+### Links
+* **Prerequisite**: [[CNF Conversion]]
+* **Kernel**: [[Resolution Rule]]
+* **Tags**: #algorithm #inference #proof
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Resolution Rule.md >>>>>
+
+
+A single inference rule that yields a complete inference algorithm when coupled with any search algorithm.
+
+> [!abstract] **The Rule**
+> $$\frac{l_1 \vee \dots \vee l_k, \quad m_1 \vee \dots \vee m_n}{l_1 \vee \dots \vee l_{i-1} \vee l_{i+1} \vee \dots \vee l_k \vee m_1 \vee \dots \vee m_{j-1} \vee m_{j+1} \vee \dots \vee m_n}$$
+> **Where** $l_i$ and $m_j$ are **complementary literals** (e.g., $P$ and $\neg P$).
+
+### Simplified Form
+$$\frac{P \vee A, \quad \neg P \vee B}{A \vee B}$$
+* "If $P$ is true, $B$ must be true. If $P$ is false, $A$ must be true. Therefore, either $A$ or $B$ is true.".
+
+### The Empty Clause ($\square$)
+If we resolve $P$ and $\neg P$, we get an empty clause (False).
+* Deriving the empty clause signifies a **Contradiction**.
+
+### Links
+* **Used In**: [[Resolution Algorithm]]
+* **Format**: [[CNF (Conjunctive Normal Form)]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Standardizing Apart.md >>>>>
+
+
+A preprocessing step in FOL inference to ensure that variable names do not collide between different sentences or rules.
+
+### The Problem
+If we have:
+1. $\forall x : Knows(John, x)$
+2. $\forall x : Likes(x, Pizza)$
+An inference engine might incorrectly assume the $x$ in sentence 1 is the same as the $x$ in sentence 2.
+
+### The Solution
+Rename variables so that no two sentences share a variable name.
+1. $\forall x_1 : Knows(John, x_1)$
+2. $\forall x_2 : Likes(x_2, Pizza)$
+
+### Application
+This is a mandatory step before performing [[Unification]] or [[FOL Resolution]].
+
+### Links
+* **Context**: [[Unification]]
+* **Context**: [[FOL Resolution]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\Unification.md >>>>>
+
+Unification is the algorithmic process of finding a substitution that makes two first-order logic expressions identical. It is the "lifting" mechanism that allows FOL inference to work with variables.
+
+> [!abstract] **Definition**
+> Given two sentences $p$ and $q$, **UNIFY($p, q$) = $\theta$** where $p\theta = q\theta$.
+> * $\theta$ is a substitution (a set of variable bindings).
+
+### Examples
+1.  **UNIFY**($Knows(John, x)$, $Knows(John, Jane)$) 
+    * $\theta = \{x / Jane\}$.
+2.  **UNIFY**($Knows(John, x)$, $Knows(y, Bill)$) 
+    * $\theta = \{y / John, x / Bill\}$.
+3.  **UNIFY**($Knows(John, x)$, $Knows(y, Mother(y))$)
+    * $\theta = \{y / John, x / Mother(John)\}$.
+
+### Standardizing Variables
+To avoid name clashes (e.g., using $x$ in two different rules), we "standardize apart" by renaming variables in one of the sentences before unifying (e.g., $Knows(John, x_1)$ and $Knows(John, x_2)$).
+
+### Links
+* **Used In**: [[Generalized Modus Ponens]], [[FOL Resolution]]
+* **Implementation**: [[lab08.pdf]] (Prolog's `=` operator)
+* **Tags**: #algorithm #logic #unification
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Logic\Inference\WalkSAT Algorithm.md >>>>>
+
+
+A **Local Search** algorithm for satisfiability. It trades completeness for speed and is often used for massive problems.
+
+### Algorithm Logic
+1.  Start with a random assignment of truth values.
+2.  **Loop** for max_flips:
+    * If the assignment satisfies the sentence, return **Success**.
+    * Pick a **random unsatisfied clause**.
+    * **Coin Flip** (probability $p$):
+        * **Heads**: Flip a variable in the clause chosen at random (Random Walk).
+        * **Tails**: Flip the variable in the clause that maximizes the number of satisfied clauses (Min-Conflicts heuristic).
+
+### Properties
+* **Sound**: Yes (if it finds a solution, it's valid).
+* **Complete**: No. It might loop forever or stick in local minima.
+* **Result**: Returns "Satisfiable" or "Unknown" (never "Unsatisfiable").
+
+### Links
+* **Type**: [[Stochastic Local Search]]
+* **Contrast**: [[DPLL Algorithm]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Uniformed Search\BFS.md >>>>>
+
+
+BFS explores the search tree level by level, ensuring that all nodes at depth $d$ are expanded before any nodes at depth $d+1$.
+
+> [!info] **Complexity & Properties**
+> * **Frontier Logic:** FIFO (Queue).
+> * **Time Complexity:** $O(b^d)$, where $b$ is the branching factor and $d$ is the depth of the shallowest goal.
+> * **Space Complexity:** $O(b^d)$, as every node generated must remain in memory.
+> * **Completeness:** Yes.
+> * **Optimality:** Yes, if all step costs are equal.
+
+### Pseudocode
+```python
+def BREADTH_FIRST_SEARCH(problem):
+    node = Node(problem.initial_state)
+    if problem.is_goal(node.state): return node
+    frontier = Queue([node])
+    reached = {problem.initial_state}
+    while not frontier.is_empty():
+        node = frontier.pop()
+        for child in expand(problem, node):
+            s = child.state
+            if problem.is_goal(s): return child
+            if s not in reached:
+                reached.add(s)
+                frontier.push(child)
+    return failure
+````
+
+### Lab Insight (Lab 1)
+
+In Python, BFS is efficiently implemented using `collections.deque` for the frontier to ensure $O(1)$ pop operations from the left.
+### Links
+
+- **Contrast:** [[DFS]]    
+- **Optimized By:** [[Iterative Deepening Search]]    
+- **Tags:** #algorithm #bfs #optimal
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Uniformed Search\DFS.md >>>>>
+
+DFS prioritizes exploring the deepest nodes in the current branch of the search tree before backtracking to explore alternative branches.
+
+> [!info] **Complexity & Properties**
+> * **Frontier Logic:** LIFO (Stack).
+> * **Time Complexity:** $O(b^m)$, where $b$ is the branching factor and $m$ is the maximum depth. In the worst case, every node is visited.
+> * **Space Complexity:** $O(b \cdot m)$. Linear space is the primary advantage, as only the current path and siblings of nodes on that path are stored.
+> * **Completeness:** No; it can get trapped in infinite loops in infinite state spaces or graphs with cycles.
+> * **Optimality:** No; it returns the "leftmost" path found, not necessarily the shortest.
+
+### Implementation Insights (Lab 1)
+
+In the lab, we noted that for **Graph Search**, a `reached` or `explored` set must be maintained to avoid infinite loops and redundant expansions. DFS serves as the skeletal framework for [[Minimax]].
+
+
+### Pseudocode (Tree Search)
+```python
+def DEPTH_FIRST_SEARCH(problem):
+    node = Node(problem.initial_state)
+    if problem.is_goal(node.state): return node
+    frontier = Stack([node])
+    while not frontier.is_empty():
+        node = frontier.pop()
+        for child in expand(problem, node):
+            if problem.is_goal(child.state): return child
+            frontier.push(child)
+    return failure
+    
+    
+
+```
+### Links
+
+- **Evolves Into:** [[Iterative Deepening Search]]    
+- **Foundation:** [[Search Problem Tuple]]
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Uniformed Search\Iterative Deepening Search.md >>>>>
+
+IDS is a strategy that combines the completeness/optimality of BFS with the linear space efficiency of DFS.
+
+> [!info] **Logic & Properties**
+> * **Mechanism:** Repeatedly applies Depth-Limited DFS, increasing the depth limit $L$ by 1 in each iteration ($L = 0, 1, 2, \dots$).
+> * **Time Complexity:** $O(b^d)$, where $d$ is the goal depth. Although it repeats work, the bottom level dominates the sum.
+> * **Space Complexity:** $O(b \cdot d)$. It only stores a single path at a time.
+> * **Completeness:** Yes.
+> * **Optimality:** Yes, if step costs are identical.
+
+### Pseudocode
+```python
+def ITERATIVE_DEEPENING_SEARCH(problem):
+    for depth in range(infinity):
+        result = DEPTH_LIMITED_SEARCH(problem, depth)
+        if result != cutoff: return result
+
+def DEPTH_LIMITED_SEARCH(problem, limit):
+    # Standard DFS logic but stops expansion if current depth == limit
+    ...
+````
+
+### Mathematical Justification
+
+In a tree with branching factor $b=10$ and depth $d=5$:
+
+- **BFS Nodes:** $1 + 10 + 100 + 1,000 + 10,000 + 100,000 = 111,111$.    
+- **IDS Nodes:** $6(1) + 5(10) + 4(100) + 3(1,000) + 2(10,000) + 1(100,000) = 123,456$.    
+- **Overhead:** Only approximately $11\%$ more nodes expanded for a massive saving in memory.    
+
+### Links
+
+- **Foundation:** [[DFS]], [[BFS]]    
+- **Tags:** #algorithm #ids #hybrid
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Algorithms\Uniformed Search\Uniform Cost Search.md >>>>>
+
+Uniform Cost Search expands the node with the lowest path cost $g(n)$, ensuring an optimal path in environments with varying step costs.
+
+> [!info] **Complexity & Properties**
+> * **Frontier Logic**: Priority Queue ordered by $g(n)$.
+> * **Time Complexity**: $O(b^{1 + \lfloor C^* / \epsilon \rfloor})$, where $C^*$ is the cost of the optimal solution and $\epsilon$ is the minimum step cost.
+> * **Space Complexity**: $O(b^{1 + \lfloor C^* / \epsilon \rfloor})$, as it stores all nodes in the frontier.
+> * **Completeness**: Yes, if step costs $\ge \epsilon > 0$.
+> * **Optimality**: Yes, UCS expands nodes in order of increasing path cost.
+
+### Pseudocode
+```python
+def UNIFORM_COST_SEARCH(problem):
+    node = Node(problem.initial_state)
+    frontier = PriorityQueue(node, f=lambda n: n.path_cost)
+    reached = {problem.initial_state: node}
+    
+    while not frontier.is_empty():
+        node = frontier.pop()
+        if problem.is_goal(node.state): return node
+        for child in expand(problem, node):
+            s = child.state
+            if s not in reached or child.path_cost < reached[s].path_cost:
+                reached[s] = child
+                frontier.push(child)
+    return failure
+````
+
+### Links
+
+- **Uninformed Variant**: [[BFS]] (UCS with unit costs).    
+- **Informed Evolution**: [[A-Star]] (adds heuristic $h(n)$).    
+- **Tags**: #algorithm #ucs #optimal
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Agents\Agent Structures.md >>>>>
+
+
+While all agents map percepts to actions ($f: P^* \rightarrow A$), their internal architecture differs in complexity.
+
+### 1. Simple Reflex Agents
+* **Logic**: Acts only on the *current* percept. Condition-Action rules (e.g., "If car in front is braking, then brake").
+* **Limitation**: Only works if the environment is **Fully Observable**.
+
+### 2. Model-Based Reflex Agents
+* **Logic**: Maintains an **Internal State** to track aspects of the world that are not currently visible (handling partial observability).
+* **Component**: Needs a "Model" of how the world evolves ($T$) and how sensors work.
+
+### 3. Goal-Based Agents
+* **Logic**: Acts to achieve a specific destination or state ($G$). It uses **Search** and **Planning**.
+* **Flexibility**: Can adapt to new goals, unlike reflex agents.
+
+### 4. Utility-Based Agents
+* **Logic**: Maximizes a utility function ($U$) that measures "happiness" or performance quality, allowing trade-offs between conflicting goals (e.g., speed vs. safety).
+
+### 4. Knowledge-Based Agents
+* **Logic**: Maximizes a utility function ($U$) that measures "happiness" or performance quality, allowing trade-offs between conflicting goals (e.g., speed vs. safety).
+### Links
+* **Parent**: [[Agent]]
+* **Properties**: [[Environment Types]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Agents\Agent.md >>>>>
+
+
+An agent is anything that can be viewed as perceiving its environment through sensors and acting upon that environment through actuators.
+
+> [!abstract] **Formal Definition**
+> An agent is a function that maps percept sequences to actions:
+> $$f: P^* \rightarrow A$$
+> * **$P^*$**: The history of all percepts received to date.
+> * **$A$**: The action selected.
+
+### Rational Agent
+A rational agent is one that acts so as to maximize the expected value of its performance measure, given its percept sequence and built-in knowledge.
+* **Rationality $\neq$ Omniscience**: Rationality maximizes *expected* performance, while omniscience maximizes *actual* outcome (which is impossible without knowing the future).
+
+### Links
+* **Components**: [[PEAS]], [[Environment Types]]
+* **Tags**: #formalization #agents #foundations
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Agents\Environment Types.md >>>>>
+
+
+The properties of the environment determine the difficulty of the agent's task and the choice of algorithm design.
+
+### Key Classifications
+1. **Fully Observable vs. Partially Observable**:
+   * **Fully**: Sensors detect the complete state of the world (e.g., Chess).
+   * **Partially**: Noisy or missing data (e.g., Poker, Self-driving).
+
+2. **Deterministic vs. Stochastic**:
+   * **Deterministic**: Next state is determined purely by current state and action (e.g., Crossword).
+   * **Stochastic**: Next state involves uncertainty/randomness (e.g., Dice games, Traffic).
+
+3. **Episodic vs. Sequential**:
+   * **Episodic**: Experience is divided into atomic episodes; current action doesn't affect future episodes (e.g., Image classification).
+   * **Sequential**: Current decision affects all future decisions (e.g., Chess, Driving).
+
+4. **Static vs. Dynamic**:
+   * **Static**: Environment doesn't change while the agent is "thinking" (e.g., Sudoku).
+   * **Dynamic**: Environment changes regardless of agent action (e.g., Taxi driving).
+
+5. **Discrete vs. Continuous**:
+   * **Discrete**: Finite number of states/actions (e.g., Chess).
+   * **Continuous**: Infinite/Smooth states (e.g., Steering angle).
+
+### Links
+* **Context**: [[Agent]], [[PEAS]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Agents\PEAS.md >>>>>
+
+The PEAS framework is used to formally define the task environment for an agent.
+
+> [!info] **The 4 Components**
+> 1. **Performance Measure (P)**: The criterion for success (e.g., "Cleanliness," "Safety," "Speed").
+> 2. **Environment (E)**: The external world the agent operates in (e.g., "A room," "Public roads").
+> 3. **Actuators (A)**: The mechanisms used to act (e.g., "Wheels," "Gripper," "Display").
+> 4. **Sensors (S)**: The mechanisms used to perceive (e.g., "Camera," "Radar," "Keyboard").
+
+### Example: Self-Driving Car
+* **P**: Safety, time, comfort, legal compliance.
+* **E**: Roads, traffic, pedestrians, weather.
+* **A**: Steering, accelerator, brake, signals.
+* **S**: Cameras, LiDAR, speedometer, GPS.
+
+### Links
+* **Used In**: [[Agent]], [[Environment Types]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Games\Dominant Strategy.md >>>>>
+
+A strategy is dominant if it provides a higher payoff than any other strategy, regardless of what the other players do.
+
+### Strict vs. Weak Dominance
+* **Strict Dominance**: Strategy $s_i$ strictly dominates $s_i'$ if $u_i(s_i, s_{-i}) > u_i(s_i', s_{-i})$ for all $s_{-i}$.
+* **Weak Dominance**: Strategy $s_i$ weakly dominates $s_i'$ if $u_i(s_i, s_{-i}) \ge u_i(s_i', s_{-i})$ for all $s_{-i}$ and the inequality is strict for at least one $s_{-i}$.
+
+### Iterative Elimination of Strictly Dominated Strategies (IESDS)
+1. Identify a strictly dominated strategy for any player.
+2. Remove that strategy (row or column) from the matrix.
+3. Repeat until no more strategies can be removed.
+* **Note**: The order of elimination does not change the final set of remaining strategies for strict dominance.
+### Links
+* **Classic Example**: [[Prisoner's Dilemma]]
+* **Solution Concept**: [[Nash Equilibrium]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Games\Mixed Strategy.md >>>>>
+
+
+Formal representation of Mixed Strategies using linear algebra and summation notation, essential for computing Expected Utility efficiently.
+
+> [!abstract] **Vector Definitions**
+> For a game with two players:
+> * **Player 1 ($P1$):** Has $m$ pure strategies. Their mixed strategy is a column vector $p \in \mathbb{R}^m$:
+>   $$p = [p_1, p_2, \dots, p_m]^T, \quad \text{where } \sum_{i=1}^m p_i = 1, \quad p_i \ge 0$$
+> * **Player 2 ($P2$):** Has $n$ pure strategies. Their mixed strategy is a column vector $q \in \mathbb{R}^n$:
+>   $$q = [q_1, q_2, \dots, q_n]^T, \quad \text{where } \sum_{j=1}^n q_j = 1, \quad q_j \ge 0$$
+
+### Payoff Matrices ($A$ and $B$)
+The game is defined by two payoff matrices of size $m \times n$:
+* **$A$ (or $G_1$):** The payoff matrix for Player 1. Entry $A_{ij}$ is the utility for P1 when P1 plays row $i$ and P2 plays column $j$.
+* **$B$ (or $G_2$):** The payoff matrix for Player 2. Entry $B_{ij}$ is the utility for P2 under the same conditions.
+
+### Expected Utility ($U$)
+The expected utility is the weighted sum of payoffs for all possible outcome pairs, weighted by their joint probability ($p_i \cdot q_j$).
+
+#### 1. Summation Formulation
+$$U_1(p, q) = \sum_{i=1}^m \sum_{j=1}^n p_i \cdot q_j \cdot A_{ij}$$
+$$U_2(p, q) = \sum_{i=1}^m \sum_{j=1}^n p_i \cdot q_j \cdot B_{ij}$$
+
+#### 2. Matrix Formulation ($p^T A q$)
+This is the compact form used in algorithms.
+* **For Player 1:**
+  $$U_1(p, q) = p^T A q$$
+  *(Dimension check: $(1 \times m) \cdot (m \times n) \cdot (n \times 1) = (1 \times 1)$ scalar)*
+
+* **For Player 2:**
+  $$U_2(p, q) = p^T B q$$
+
+### Zero-Sum Case
+In a Zero-Sum game, $A = -B$ (or $A+B=0$).
+* We typically define a single matrix $G = A$.
+* **P1 Utility:** $p^T G q$.
+* **P2 Utility:** $-p^T G q$ (since P2 wants to minimize P1's gain).
+
+### Computing Nash Equilibrium
+A strategy profile $(p^*, q^*)$ is a Nash Equilibrium if:
+1.  **P1 Optimality:** $p^{*T} A q^* \ge p^T A q^*$ for all valid $p$.
+2.  **P2 Optimality:** $p^{*T} B q^* \ge p^{*T} B q$ for all valid $q$.
+
+### Links
+* **Implementation**: [[Mixed Strategy]]
+* **Context**: [[Normal Form Game]]
+* **Tags**: #formalization #linear-algebra #matrix-notation
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Games\Nash Equilibrium.md >>>>>
+
+A strategy profile where no player has an incentive to deviate unilaterally.
+
+> [!info] **Formal Definition**
+> A strategy profile $s^* = (s_1^*, \dots, s_n^*)$ is a Nash Equilibrium if for every player $i$:
+> $$u_i(s_i^*, s_{-i}^*) \ge u_i(s_i, s_{-i}^*) \quad \forall s_i \in S_i$$
+> Where $s_{-i}^*$ represents the strategies of all players other than $i$.
+
+### Best Response Logic
+* In a Nash Equilibrium, every player's strategy is a **Best Response** to the strategies of the other players.
+* Mathematically: $s_i^* \in BR_i(s_{-i}^*)$.
+
+### Mixed Strategy Nash Equilibrium
+* Players choose probabilities $p_i$ for each pure strategy $s_i$.
+* An equilibrium exists when players are **indifferent** between the pure strategies they play with non-zero probability.
+
+### Links
+* **Theorem**: [[Nash's Theorem]]
+* **Matrix View**: [[Normal Form Game]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Games\Normal Form Game.md >>>>>
+
+
+A formal representation of a simultaneous game where players choose strategies and receive payoffs based on the resulting strategy profile.
+
+> [!abstract] **The Matrix Definition**
+> A game in normal form is defined by:
+> 1. **Players**: A finite set $P = \{1, 2, \dots, n\}$.
+> 2. **Strategies**: A set of pure strategies $S_i$ for each player $i$.
+> 3. **Payoffs**: A utility function $u_i: S_1 \times \dots \times S_n \rightarrow \mathbb{R}$ for each player $i$.
+
+### Matrix Notation (2-Player)
+For two players, this is visualized as a matrix where:
+* **Rows** represent Player 1's strategies ($s_{1,j}$).
+* **Columns** represent Player 2's strategies ($s_{2,k}$).
+* **Entries** are tuples $(u_1, u_2)$ representing the payoff for (Player 1, Player 2).
+
+| | $s_{2,1}$ | $s_{2,2}$ |
+| :--- | :---: | :---: |
+| **$s_{1,1}$** | $(u_1, u_2)_{1,1}$ | $(u_1, u_2)_{1,2}$ |
+| **$s_{1,2}$** | $(u_1, u_2)_{2,1}$ | $(u_1, u_2)_{2,2}$ |
+
+### Links
+* **Solution Concept**: [[Nash Equilibrium]]
+* **Examples**: [[Prisoner's Dilemma]], [[Hawk-Dove Game]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Games\Zero-Sum Game.md >>>>>
+
+
+A special class of constant-sum games where the interests of the players are diametrically opposed.
+
+### Definition
+A game is zero-sum if for every strategy profile $s$:
+$$\sum_{i=1}^n u_i(s) = 0$$
+In a 2-player zero-sum game, this means $u_1(s) = -u_2(s)$.
+
+### Properties
+* **Minimax = Maximin**: In zero-sum games, the minimax value and maximin value are equal.
+* **Saddle Point**: A pure strategy Nash Equilibrium in a zero-sum game is often called a saddle point.
+
+### Links
+* **Algorithm**: [[Minimax]]
+* **Algorithm**: [[Negamax]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\First Order\FOL Semantics.md >>>>>
+
+
+Semantics in FOL assigns meaning to sentences by mapping symbols to elements in a **Model**.
+
+> [!abstract] **The Model Structure $M = (D, I)$**
+> A model consists of two parts:
+> 1.  **Domain ($D$)**: A non-empty set of objects (or "individuals") in the world.
+>     * *Example*: $D = \{Philip, Charles, Elizabeth, \dots\}$.
+> 2.  **Interpretation ($I$)**: A mapping function.
+>     * **Constants**: Maps symbol $c$ to an object in $D$. ($I(\text{charles}) = Charles$).
+>     * **Predicates**: Maps symbol $P$ to a set of tuples (relations) in $D$. ($I(\text{Father}) = \{ (Philip, Charles), (Charles, William) \dots \}$).
+>     * **Functions**: Maps symbol $f$ to a function $D \to D$.
+
+### Truth in FOL
+A sentence is true in model $M$ if the relationship described by the interpretation holds in the domain.
+* `Father(philip, charles)` is true iff the pair $(I(\text{philip}), I(\text{charles})) \in I(\text{Father})$.
+
+### Links
+* **Concept**: [[Logic Semantics]]
+* **Components**: [[Models]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\First Order\FOL Syntax.md >>>>>
+
+
+The syntax of First-Order Logic (FOL) extends propositional logic to describe objects, relations, and functions.
+
+> [!info] **The Alphabet**
+> * **Constants**: Specific objects in the world (e.g., `philip`, `charles`, `banana`).
+> * **Predicates**: Relations between objects that evaluate to True/False (e.g., `Father(x, y)`, `IsSquare(x)`).
+> * **Functions**: mappings from objects to objects (e.g., `LeftLegOf(x)`).
+> * **Variables**: Placeholders for objects (e.g., $x, y, z$).
+> * **Connectives**: $\neg, \wedge, \vee, \Rightarrow, \Leftrightarrow$.
+> * **Quantifiers**: $\forall, \exists$.
+
+### Terms vs. Sentences
+It is critical to distinguish between referring to an *object* and stating a *fact*.
+1.  **Term**: A logical expression that refers to an **object**.
+    * *Examples*: `charles`, $x$, `LeftLegOf(philip)`.
+2.  **Atomic Sentence**: A predicate applied to terms. It has a **Truth Value**.
+    * *Examples*: `Father(philip, charles)` is True. `Brother(charles, philip)` is False.
+3.  **Complex Sentence**: Built using connectives and quantifiers.
+    * *Example*: $\forall x, \exists y : Father(y, x)$.
+
+### Links
+* **Basis**: [[Logic Syntax]] (General definition)
+* **Implementation**: [[family.pl]] (Prolog atoms)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\First Order\Logic Programming.md >>>>>
+
+
+A restricted form of First-Order Logic designed for efficient inference, as seen in Lab 8.
+### 1. Horn Clauses
+Prolog programs are built exclusively from **Horn Clauses**:
+* **Rules**: $H \leftarrow B_1 \wedge B_2 \wedge \dots \wedge B_n$.
+    * Read as: "Head ($H$) is true if Body ($B_1 \dots B_n$) are all true."
+    * *Example*: `grandparent(X, Y) :- parent(X, Z), parent(Z, Y).`
+* **Facts**: Clauses with no body (always true).
+    * *Example*: `father(philip, charles).`
+
+### 2. Closed World Assumption (CWA)
+Standard logic assumes unknown facts could be True or False. Logic programming assumes **anything not known to be True is False**.
+* **Negation as Failure**: If the system cannot derive $P$, it concludes $\neg P$.
+* *Example*: If `mother(meghan, archie)` is not in the database, Prolog says `false`.
+
+### 3. Standardization of Variables
+In rules, variables are implicitly universally quantified.
+* `parent(X, Y) :- father(X, Y)` implies $\forall x, y : \text{Father}(x, y) \Rightarrow \text{Parent}(x, y)$.
+
+### Links
+* **Implementation**: [[family.pl]], [[movies.pl]]
+* **Algorithm**: [[Backward Chaining]]
+* **Base Logic**: [[Horn Clauses]] (Propositional version)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\First Order\Quantifiers.md >>>>>
+
+Operators that allow sentences to declare properties about *sets* of objects rather than specific individuals.
+
+### 1. Universal Quantifier ($\forall$)
+* **Syntax**: $\forall x, P(x)$.
+* **Semantics**: "For all $x$ in the domain, $P(x)$ is true."
+* **Conjunction Analogy**: Equivalent to $P(obj_1) \wedge P(obj_2) \wedge \dots$ for every object in the domain.
+* **Common Pattern**: Used with **Implication**.
+    * $\forall x, \text{King}(x) \Rightarrow \text{Person}(x)$ ("All kings are persons").
+    * *Warning*: Do not use $\wedge$ with $\forall$. $\forall x, \text{King}(x) \wedge \text{Person}(x)$ means "Everything in the universe is both a King and a Person".
+
+### 2. Existential Quantifier ($\exists$)
+* **Syntax**: $\exists x, P(x)$.
+* **Semantics**: "There exists at least one $x$ in the domain such that $P(x)$ is true."
+* **Disjunction Analogy**: Equivalent to $P(obj_1) \vee P(obj_2) \vee \dots$.
+* **Common Pattern**: Used with **Conjunction**.
+    * $\exists x, \text{King}(x) \wedge \text{Evil}(x)$ ("There is an evil king").
+
+### Duality Rules (De Morgan for Quantifiers)
+* $\forall x \neg P(x) \equiv \neg \exists x P(x)$ ("For all x P is false" = "There is no x where P is true").
+* $\neg \forall x P(x) \equiv \exists x \neg P(x)$ ("Not all x are P" = "There exists an x that is not P").
+
+### Links
+* **Context**: [[FOL Syntax]]
+* **Example**: [[Kinship Domain]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Completeness.md >>>>>
+
+
+Completeness is a property of an inference algorithm $i$ indicating its ability to find all truths.
+
+> [!abstract] **Formal Definition**
+> An inference algorithm $i$ is **Complete** if:
+> $$\text{Whenever } KB \models \alpha, \text{ the algorithm guarantees } KB \vdash_i \alpha.$$
+
+### Implication
+* A complete algorithm **never misses a truth**.
+* If something is true, the algorithm will eventually find it/derive it.
+* For Propositional Logic, purely semantic approaches (like truth tables) are complete because the space of models is finite.
+
+### Links
+* **Contrast**: [[Soundness]]
+* **Context**: [[Inference]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Entailment.md >>>>>
+
+
+Entailment is the core logical relation between a Knowledge Base ($KB$) and a sentence ($\alpha$), signifying that truth is preserved.
+
+> [!abstract] **Formal Definition ($KB \models \alpha$)**
+> We say "$KB$ entails $\alpha$" (written $KB \models \alpha$) if and only if:
+> $$\alpha \text{ is true in all models where } KB \text{ is true.}$$
+
+### Set-Theoretic Definition
+Using the notation of [[Models]], entailment is defined as subset inclusion:
+$$KB \models \alpha \iff M(KB) \subseteq M(\alpha)$$
+
+
+### Intuition
+* If I know $KB$ is true, then $\alpha$ *must* also be true.
+* There is no possible world where the $KB$ holds but $\alpha$ fails.
+
+### Links
+* **Contrast**: [[Inference]] (Derivation vs. Truth)
+* **Implementation**: [[Model Checking]]
+* **Tags**: #formalization #logic #core-concept
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Frame Problem.md >>>>>
+
+
+A fundamental challenge in logic-based planning: representing the vast number of things that **do not change** when an action is performed.
+
+### The Issue
+In a world with $N$ objects, moving one object ($Action_A$) leaves $N-1$ objects unchanged.
+* If we explicitly write rules for non-changes ($\neg Action_A \Rightarrow Object_B^{t+1} = Object_B^t$), we need $O(A \times F)$ rules.
+* This combinatorial explosion makes simple logic planners slow.
+
+### The Solution
+Use **Successor State Axioms**, which combine "Effect" and "Persistence" into a single Biconditional ($\Leftrightarrow$) rule for each fluent, reducing complexity to $O(F \times E)$ (where $E$ is effects per action).
+
+### Links
+* **Solution**: [[Successor State Axioms]]
+* **Context**: [[SATPlan]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Inference.md >>>>>
+
+
+Inference is the mechanical process of deriving logical conclusions from a Knowledge Base.
+
+> [!info] **Definition ($KB \vdash_i \alpha$)**
+> We say "$\alpha$ is derived from $KB$ by procedure $i$" (written $KB \vdash_i \alpha$) if the algorithm $i$ can produce sentence $\alpha$ starting from $KB$.
+
+### Distinction from Entailment
+* **Entailment ($\models$)**: A semantic relationship. "Is it *actually* true?".
+* **Inference ($\vdash$)**: A syntactic derivation. "Can my *algorithm* calculate it?".
+
+### Desirable Properties
+We judge inference algorithms by two key metrics relative to entailment:
+1.  **[[Soundness]]**: Does it derive *only* entailed sentences?
+2.  **[[Completeness]]**: Does it derive *all* entailed sentences?
+
+### Links
+* **Algorithms**: [[Resolution Algorithm]], [[DPLL Algorithm]]
+* **Properties**: [[Soundness]], [[Completeness]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Knowledge Based Agent.md >>>>>
+
+
+A Knowledge-Based (KB) Agent is an intelligent agent that maintains an internal state of knowledge and acts by reasoning over this knowledge to achieve its goals.
+
+> [!abstract] **Core Architecture**
+> The agent is composed of two distinct components:
+> 1.  **Knowledge Base (KB)**: A set of sentences expressed in a formal representation language that represents facts about the world.
+> 2.  **Inference Engine**: A domain-independent mechanism for deriving new sentences from the KB.
+
+### The Interface (TELL/ASK)
+The agent interacts with its KB through a standard functional interface:
+* **TELL(KB, Sentence)**: Adds a new sentence to the Knowledge Base (Knowledge acquisition).
+* **ASK(KB, Query)**: Retrieves a sentence or determines the truth of a query based on what is currently known (Reasoning).
+
+### The Loop
+1.  **TELL**: The agent perceives the environment and tells the KB the new percept.
+2.  **ASK**: The agent asks the KB what action it should perform.
+3.  **TELL**: The agent records the action it took.
+
+### Links
+* **Uses**: [[Logic Syntax]], [[Logic Semantics]]
+* **Implementation**: [[Inference]]
+* **Tags**: #formalization #agents #logic
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Logic Semantics.md >>>>>
+
+
+Semantics defines the "meaning" of sentences by assigning truth values to them with respect to a "possible world" (or **Model**).
+
+> [!info] **Definition**
+> Semantics answers the question: *"Is this sentence true in this specific world?"*
+> * It formally defines the truth of each sentence with respect to each possible model.
+> * Example: The sentence "x + y = 4" is true in a world where $x=2, y=2$, but false in a world where $x=1, y=1$.
+
+### Truth Function
+Semantics is often defined as a function $T$ taking a sentence $\alpha$ and a model $m$:
+$$Truth(\alpha, m) \in \{True, False\}$$
+
+### Links
+* **Requires**: [[Models]]
+* **Complement**: [[Logic Syntax]]
+* **Specifics**: [[PL Semantics]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Logic Syntax.md >>>>>
+
+Syntax defines the formal rules for constructing well-formed sentences in a logical language.
+
+> [!info] **Definition**
+> Syntax answers the question: *"Is this sequence of symbols a valid sentence?"*
+> * It does **not** address meaning or truth; it only concerns the arrangement of symbols.
+> * Example in Arithmetic: "x + y = 4" is valid syntax. "x4y + =" is invalid syntax.
+
+### Structure
+* **Atomic Sentences**: The most basic assertions (e.g., $P$, $Q$).
+* **Complex Sentences**: Constructed from atomic sentences using **Logical Connectives** (e.g., $\neg P$, $P \wedge Q$).
+
+### Links
+* **Complement**: [[Logic Semantics]]
+* **Specifics**: [[Logic Syntax]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Model Checking.md >>>>>
+
+
+Model Checking is a fundamental inference algorithm that determines entailment by directly enumerating models.
+
+### The Algorithm
+To check if $KB \models \alpha$:
+1.  Enumerate all possible models $m$ (all truth assignments to the symbols).
+2.  For every model $m$:
+    * If $m$ satisfies $KB$ (i.e., $KB$ is true in $m$):
+    * Check if $m$ also satisfies $\alpha$.
+3.  **Result**:
+    * If $\alpha$ is true in **every** model where $KB$ is true, return **True** (Entailment holds).
+    * Otherwise, return **False**.
+
+### Properties
+* **Sound**: Yes.
+* **Complete**: Yes (for finite finite propositional logic).
+* **Complexity**: $O(2^n)$, where $n$ is the number of symbols (Exponential Time).
+
+### Links
+* **Basis**: [[Models]], [[Entailment]]
+* **Optimized By**: [[DPLL Algorithm]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Models.md >>>>>
+
+
+A Model (often denoted $m$) is a mathematical abstraction of a "possible world" or a specific configuration of the environment.
+
+### Definition
+* A model fixes the truth value of every **Atomic Sentence** in the logic.
+* If a sentence $\alpha$ evaluates to True in model $m$, we say:
+    * "$m$ satisfies $\alpha$".
+    * "$m$ is a model of $\alpha$".
+
+### Notation: $M(\alpha)$
+We denote the set of all models where sentence $\alpha$ is true as $M(\alpha)$.
+* This notation is critical for defining [[Entailment]].
+
+### Links
+* **Used In**: [[Entailment]], [[Logic Semantics]]
+* **Tags**: #formalization #logic #truth
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\General\Soundness.md >>>>>
+
+Soundness (or "Truth-Preserving") is a property of an inference algorithm $i$.
+
+> [!abstract] **Formal Definition**
+> An inference algorithm $i$ is **Sound** if:
+> $$\text{Whenever } KB \vdash_i \alpha, \text{ it is also true that } KB \models \alpha.$$
+
+### Implication
+* A sound algorithm **never lies**.
+* It does not generate false conclusions from true premises.
+* If a sound algorithm claims "Yes," the answer is definitely "Yes."
+* **Model Checking** is a trivial example of a sound algorithm.
+
+### Links
+* **Contrast**: [[Completeness]]
+* **Context**: [[Inference]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Modal\Kripke Semantics - Boolean Connectors.md >>>>>
+
+
+While modal operators ($\Box, \Diamond$) look at accessible worlds, standard boolean connectives are evaluated locally within a single world $w$.
+
+### Semantic Clauses
+For a model $I = \langle W, R, \pi \rangle$ and a world $w \in W$:
+
+1.  **Atomic Proposition**: $I, w \models a \iff \pi_w(a) = True$.
+2.  **Negation**: $I, w \models \neg \phi \iff I, w \not\models \phi$.
+3.  **Conjunction**: $I, w \models \phi \wedge \psi \iff (I, w \models \phi \text{ and } I, w \models \psi)$.
+4.  **Disjunction**: $I, w \models \phi \vee \psi \iff (I, w \models \phi \text{ or } I, w \models \psi)$.
+5.  **Implication**: $I, w \models \phi \rightarrow \psi \iff (I, w \models \phi \implies I, w \models \psi)$.
+
+> [!important] **Exam Note (Question 14, SoSe 25)**
+> A formula without modal operators is true in $(I, w)$ if and only if it is true as a standard propositional formula using the local interpretation $\pi_w$. The "mode" of the world does not change the basic rules of logic; it only adds layers on top of them.
+
+
+
+### Links
+* **Foundations**: [[Kripke Semantics]]
+* **Contrast**: [[Modal Operators]] (Global evaluation)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Modal\Kripke Semantics.md >>>>>
+
+
+Kripke semantics provides the formal framework for evaluating the truth of modal sentences using a "relational structure".
+
+> [!info] **The Kripke Model $\mathcal{I} = \langle W, R, \pi \rangle$**
+> 1. **$W$**: A set of **Possible Worlds**.
+> 2. **$R$**: The **Accessibility Relation**. A binary relation $R \subseteq W \times W$. If $wRv$, world $v$ is accessible from $w$.
+> 3. **$\pi$**: The **Interpretation Function**. Assigns truth values to propositional variables at each world ($\pi_w : \mathcal{V} \to \{T, F\}$).
+
+### Truth Conditions
+The truth of a formula $\phi$ is evaluated at a **specific world $w$**:
+* $w \models P$ iff $\pi_w(P) = T$ (Standard propositional truth).
+* **$w \models \Box \phi$** iff for **all** worlds $v$ such that $wRv$, $v \models \phi$.
+* **$w \models \Diamond \phi$** iff there **exists** at least one world $v$ such that $wRv$ and $v \models \phi$.
+
+### The "Empty Successor" Case (Exam Trap)
+If a world $w$ has **no** outgoing relations (it is a "dead end"):
+* $w \models \Box \phi$ is **Trivially True** (Vacuous truth).
+* $w \models \Diamond \phi$ is **False** (There is no successor to satisfy it).
+
+### Links
+* **Components**: [[Relational Frames]]
+* **Implementation**: [[Lab 09 Trace]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Modal\Modal Operators.md >>>>>
+
+# Modal Operators
+
+Modal logic extends standard logic by adding operators that qualify the "mode" of truth (how a statement is true).
+
+> [!abstract] **The Dual Operators**
+> 1. **Necessity ($\Box \phi$)**: 
+>    * English: "It is necessarily true that $\phi$."
+>    * Temporal Interpretation: "$\phi$ is true **Always** (in all future worlds)."
+> 2. **Possibility ($\Diamond \phi$)**: 
+>    * English: "It is possibly true that $\phi$."
+>    * Temporal Interpretation: "$\phi$ is true **Sometimes** (in at least one future world)."
+
+### Logical Duality
+Just like $\forall$ and $\exists$, modal operators are duals of each other:
+* $\Box \phi \equiv \neg \Diamond \neg \phi$ (Necessity is the absence of the possibility of the opposite).
+* $\Diamond \phi \equiv \neg \Box \neg \phi$ (Possibility is the negation of "always false").
+
+### Links
+* **Semantics**: [[Kripke Semantics]]
+* **Analogy**: [[Quantifiers]] ($\forall \approx \Box$, $\exists \approx \Diamond$)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Modal\Relational Frames.md >>>>>
+
+
+A **Relational Frame** $\mathcal{F} = \langle W, R \rangle$ is the structure of the model without the interpretation. The properties of $R$ determine which "Axioms" of modal logic hold.
+
+### Common Relational Properties
+1. **Reflexivity**: $\forall w, wRw$. (Every world sees itself).
+   * **Resulting Axiom**: $\Box \phi \rightarrow \phi$ (If it's necessary, it is true).
+2. **Transitivity**: $\forall u,v,w, (uRv \wedge vRw) \rightarrow uRw$.
+   * **Resulting Axiom**: $\Box \phi \rightarrow \Box \Box \phi$ (If it's necessary, it's necessarily necessary).
+3. **Symmetry**: $\forall w, v, wRv \rightarrow vRw$.
+   * **Resulting Axiom**: $\phi \rightarrow \Box \Diamond \phi$.
+
+### Validity in a Frame
+We say $\mathcal{F} \models \phi$ if for **any** interpretation $\pi$, the sentence $\phi$ is true in every world of the frame.
+
+### Links
+* **Core Concept**: [[Kripke Semantics]]
+* **Property**: [[Temporal Logic]] (usually uses Transitive/Anti-symmetric frames).
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\Horn Clauses.md >>>>>
+
+
+A Horn Clause is a specific type of PL sentence that allows for efficient ($O(n)$) inference.
+
+> [!info] **Definition**
+> A Horn Clause is a disjunction of literals with **at most one** positive literal.
+> * **Definite Clause**: Exactly one positive literal (e.g., $\neg A \vee \neg B \vee C$, equivalent to $A \wedge B \Rightarrow C$).
+> * **Goal Clause**: No positive literals (e.g., $\neg A \vee \neg B$, equivalent to $A \wedge B \Rightarrow False$).
+> * **Fact**: A single positive literal (e.g., $A$).
+
+### Significance
+* Inference with Horn Clauses can be done using **Forward Chaining** or **Backward Chaining** in linear time.
+* General Resolution is NP-Complete, but Horn Resolution is P-Time.
+
+### Links
+* **Algorithm**: [[Forward Chaining]]
+* **Contrast**: [[CNF (Conjunctive Normal Form)]] (General form)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\Logical Equivalence.md >>>>>
+
+
+Two sentences $\alpha$ and $\beta$ are logically equivalent if they are true in exactly the same set of models.
+
+> [!abstract] **Definition**
+> $\alpha \equiv \beta \iff M(\alpha) = M(\beta)$
+> (or iff $\alpha \Leftrightarrow \beta$ is Valid).
+
+### Key Laws for Exam (Rewriting Rules)
+These are essential for [[CNF Conversion Algorithm]].
+
+1.  **De Morgan's Laws**:
+    * $\neg(A \wedge B) \equiv (\neg A \vee \neg B)$
+    * $\neg(A \vee B) \equiv (\neg A \wedge \neg B)$
+2.  **Implication Elimination**:
+    * $(A \Rightarrow B) \equiv (\neg A \vee B)$
+3.  **Biconditional Elimination**:
+    * $(A \Leftrightarrow B) \equiv ((A \Rightarrow B) \wedge (B \Rightarrow A))$
+4.  **Distributivity**:
+    * $A \vee (B \wedge C) \equiv (A \vee B) \wedge (A \vee C)$
+5.  **Double Negation**:
+    * $\neg \neg A \equiv A$
+
+### Links
+* **Used In**: [[CNF (Conjunctive Normal Form)]]
+* **Tags**: #formalization #logic #exam-tools
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\PL Semantics.md >>>>>
+
+
+Semantics in PL defines the truth of a sentence with respect to a **Model** (or Interpretation).
+
+> [!abstract] **The Model**
+> A model $m$ in PL is a mapping that assigns a truth value ($True$ or $False$) to every propositional symbol.
+> * If there are $n$ symbols, there are $2^n$ possible models.
+
+### Truth Tables
+The truth of complex sentences is determined recursively:
+
+| $P$ | $Q$ | $\neg P$ | $P \wedge Q$ | $P \vee Q$ | $P \Rightarrow Q$ | $P \Leftrightarrow Q$ |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| F | F | T | F | F | **T** | T |
+| F | T | T | F | T | **T** | F |
+| T | F | F | F | T | **F** | F |
+| T | T | F | T | T | **T** | T |
+
+
+* **Note on Implication**: $P \Rightarrow Q$ is true whenever $P$ is False (vacuously true). It is only False when $P$ is True and $Q$ is False.
+
+### Links
+* **Concept**: [[Logic Semantics]]
+* **Properties**: [[Validity]], [[Satisfiability]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\PL Syntax.md >>>>>
+
+
+Propositional Logic (PL) syntax defines the allowable construction of sentences using atomic propositions and logical connectives.
+
+> [!info] **The Grammar (BNF)**
+> * **Atomic Sentences**: Single propositional symbols (e.g., $P, Q, R, W_{1,3}$) or boolean constants ($True, False$).
+> * **Complex Sentences**: Constructed recursively:
+>   * $\neg S$ (Negation)
+>   * $(S_1 \wedge S_2)$ (Conjunction)
+>   * $(S_1 \vee S_2)$ (Disjunction)
+>   * $(S_1 \Rightarrow S_2)$ (Implication)
+>   * $(S_1 \Leftrightarrow S_2)$ (Biconditional).
+
+### Operator Precedence
+To reduce parentheses, operations are evaluated in this strict order:
+1.  **$\neg$** (Highest)
+2.  **$\wedge$**
+3.  **$\vee$**
+4.  **$\Rightarrow$**
+5.  **$\Leftrightarrow$** (Lowest)
+
+*Example*: $A \vee B \wedge C$ is interpreted as $A \vee (B \wedge C)$, not $(A \vee B) \wedge C$.
+
+### Links
+* **Semantics**: [[PL Semantics]]
+* **Implementation**: [[PL.py]] (`sAnd`, `sOr`, `sNeg` classes)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\Satisfiability.md >>>>>
+
+
+A sentence is **Satisfiable** if it is True in **at least one** model.
+
+> [!info] **Definition**
+> $$M(\alpha) \neq \emptyset$$
+> (There exists some $m$ such that $\alpha$ is true in $m$).
+
+### Relationships
+* **Unsatisfiable**: True in *no* models (e.g., $P \wedge \neg P$).
+* **Validity Connection**: $\alpha$ is Valid iff $\neg \alpha$ is Unsatisfiable.
+* **Proof by Refutation**:
+  $$KB \models \alpha \iff (KB \wedge \neg \alpha) \text{ is Unsatisfiable}$$
+  * This is the foundation of the [[Resolution Algorithm]].
+
+### Links
+* **Algorithm**: [[DPLL Algorithm]], [[WalkSAT]]
+* **Contrast**: [[Validity]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Logic\Propositional\Validity (Tautology).md >>>>>
+
+
+A sentence is **Valid** (or a **Tautology**) if it is True in **all** possible models.
+
+> [!info] **Definition**
+> $$M(\alpha) = \mathcal{M}_{all}$$
+> (The set of models where $\alpha$ is true is the set of all possible models).
+
+### Examples
+* $P \vee \neg P$ (Law of Excluded Middle).
+* $(P \wedge (P \Rightarrow Q)) \Rightarrow Q$ (Deduction Theorem basis).
+
+### Deduction Theorem
+This theorem connects entailment to validity:
+$$KB \models \alpha \iff (KB \Rightarrow \alpha) \text{ is Valid}$$
+* This means we can check entailment by checking if the implication is a tautology.
+
+### Links
+* **Contrast**: [[Satisfiability]]
+* **Test**: [[Model Checking]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Planning\Monkey Banana.md >>>>>
+
+
+
+The specific application of SATPlan to the Monkey-Banana problem.
+
+### Variables
+* **Fluents**: $P_x^t$ (Monkey at $x$), $B_x^t$ (Box at $x$), $OnBox^t$, $HasBanana^t$.
+* **Actions**: $Left^t, Right^t, Climb^t, Push^t, Grab^t$.
+
+### Key Constraints
+1.  **Preconditions**: You can only $Grab$ if $OnBox$ is true.
+    $$Grab^t \Rightarrow OnBox^t$$
+2.  **Effect Axioms**: If you $Push$, the box moves with you.
+    $$(P_A^t \wedge B_A^t \wedge Push^t) \Rightarrow B_B^{t+1}$$
+3.  **Frame Axioms**: If you simply $Walk$, the box stays where it is.
+
+### Links
+* **Implementation**: [[lab07_solutions.pdf]]
+* **Technique**: [[SATPlan]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Planning\SATPlan (Planning as Satisfiability).md >>>>>
+
+
+A technique to solve planning problems (like the Monkey-Banana problem) by converting them into a Propositional Logic sentence and using a SAT solver.
+
+> [!abstract] **The Core Idea**
+> A plan exists if and only if there is a satisfying assignment to a sentence that describes:
+> $$Sentence = InitialState \wedge TransitionRules \wedge GoalState$$
+
+### The Construction Steps (Lab 7)
+1.  **Time-Indexed Variables**: Create variables for every fluent at every time step $t$ (e.g., $At\_A^0$, $HaveBanana^T$).
+2.  **Initial State**: Assert the state at $t=0$ (e.g., $At\_A^0 \wedge \neg HaveBanana^0$).
+3.  **Goal State**: Assert the goal at time $T$ (e.g., $HaveBanana^T$).
+4.  **Transition Axioms**: Rules connecting time $t$ to $t+1$ (e.g., "If I grab at $t$, I have banana at $t+1$").
+5.  **Action Constraints**: "I can only do one action at a time" (Mutual Exclusion).
+
+### Links
+* **Component**: [[Successor State Axioms]]
+* **Solver**: [[DPLL Algorithm]], [[bruteForceSAT]]
+* **Example**: [[Monkey Banana]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Planning\Successor State Axioms.md >>>>>
+
+
+A specific way of writing transition rules to solve the **Frame Problem** (the problem of specifying what *doesn't* change).
+
+> [!warning] **The Problem**
+> If we only write "Action $\to$ Effect" ($Grab \Rightarrow HaveBanana$), we fail to say that "If I *don't* drop it, I *still* have it." The logic solver might randomly make me lose the banana.
+
+### The Solution Formula
+"A fluent $F$ is true at time $t+1$ if and only if:
+1.  **Action made it true** (Cause), OR
+2.  **It was already true AND action didn't make it false** (Persistence)".
+
+$$F^{t+1} \Leftrightarrow (ActionCausesF^t \vee (F^t \wedge \neg ActionDestroysF^t))$$
+
+### Example (Monkey Banana)
+$$HaveBanana^{t+1} \Leftrightarrow (Grab^t \vee (HaveBanana^t \wedge \neg Drop^t))$$.
+
+### Links
+* **Context**: [[SATPlan (Planning as Satisfiability)]]
+* **Theoretical Basis**: [[Frame Problem]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Search Problems\AND OR Graphs.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Formalizations\On Search Problems\Search Problem Tuple.md >>>>>
+
+A search problem is a mathematical model used to represent a task where an agent must find a sequence of actions to reach a goal state.
+
+> [!abstract] **The 5-Tuple $(S, A, T, G, COST)$**
+> A search problem is formally defined by:
+> * **State Space ($S$):** The set of all possible configurations the world can be in.
+> * **Action Space ($A(s)$):** The set of all possible actions available to the agent in state $s$.
+> * **Transition Model ($T(s, a) \rightarrow s'$):** A function that returns the outcome state $s'$ after taking action $a$ in state $s$.
+> * **Goal Test ($G(s)$):** A boolean condition that is true if $s$ is a destination state.
+> * **Path Cost ($COST(s, a, s')$):** A function that assigns a numeric cost to a transition.
+
+### Search Node vs. State
+It is critical to distinguish between the configuration of the world and the algorithmic structure used to find it:
+* **State:** A physical configuration (e.g., coordinates $(x,y)$ on a grid).
+* **Search Node:** A data structure in the **Frontier**. It includes the **State**, a **Parent pointer**, the **Action** taken, and the **Path Cost ($g(n)$)**.
+
+### Links
+* **Used In:** [[DFS]], [[BFS]], [[Iterative Deepening Search]], [[A-Star]]
+* **Tags:** #formalization #search #foundations
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Nash's Theorem.md >>>>>
+
+The fundamental existence theorem for non-cooperative games.
+
+> [!abstract] **Theorem Statement**
+> Every finite game (finite number of players and finite number of pure strategies) has at least one **Nash Equilibrium** in mixed strategies.
+
+### Implications
+* A game might not have a **Pure Strategy Nash Equilibrium** (e.g., Rock-Paper-Scissors).
+* However, by allowing players to choose a probability distribution over their strategies (Mixed Strategies), an equilibrium is guaranteed to exist.
+
+### Links
+* **Definition**: [[Nash Equilibrium]]
+* **Formalization**: [[Mixed Strategy]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Pruning Optimality Theorem.md >>>>>
+
+The pruning of a branch in Alpha-Beta search does not affect the final decision.
+
+> [!abstract] **Theorem Statement**
+> Alpha-beta pruning yields the exact same decision as a full Minimax search while exploring significantly fewer nodes.
+
+### Proof Logic
+* If a node is pruned, it is because we have already found a move at an upper level that is guaranteed to be better than anything this branch could provide.
+* For a **MAX** node: If the value $v$ becomes $\ge \beta$, we stop because the **MIN** parent already has an option with value $\beta$ and will never choose this branch.
+* For a **MIN** node: If the value $v$ becomes $\le \alpha$, we stop because the **MAX** parent already has an option with value $\alpha$ and will never choose this branch.
+
+### Links
+* **Algorithm**: [[Alpha-Beta Pruning]]
+* **Foundation**: [[Minimax]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Concepts\Heuristic Properties.md >>>>>
+
+Heuristics ($h(n)$) are domain-specific functions that estimate the cost from a given state to the nearest goal. Their mathematical properties determine the efficiency and optimality of informed search algorithms.
+
+### 1. Admissibility
+A heuristic is **Admissible** if it never overestimates the true cost to reach the goal.
+* **Formal Definition**: $0 \le h(n) \le h^*(n)$, where $h^*(n)$ is the true optimal cost from $n$ to the goal.
+* **Significance**: Admissibility is a sufficient condition for [[A-Star]] to be optimal in **Tree Search**.
+
+### 2. Consistency (Monotonicity)
+A heuristic is **Consistent** if, for every node $n$ and every successor $n'$ generated by an action $a$:
+* **Formal Definition**: $h(n) \le COST(n, a, n') + h(n')$.
+* **Triangle Inequality**: The estimated cost to the goal from $n$ is no greater than the step cost to $n'$ plus the estimated cost from $n'$.
+* **Significance**: Consistency is required to guarantee optimality for [[A-Star]] in **Graph Search**, ensuring that the first time a state is reached, it is via the optimal path.
+
+### 3. Dominance
+If we have two admissible heuristics $h_1$ and $h_2$, and $h_2(n) \ge h_1(n)$ for all $n$:
+* **Definition**: $h_2$ **dominates** $h_1$.
+* **Efficiency**: A dominating heuristic is "more informed" and will always result in fewer (or equal) node expansions than the heuristic it dominates.
+
+### Links
+* **Applied In**: [[A-Star]], [[Greedy Best-First Search]]
+* **Foundations**: [[Search Problem Tuple]]
+* **Tags**: #theory #heuristics #admissibility #consistency
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Concepts\Pareto Optimality.md >>>>>
+
+A concept of efficiency in game theory distinct from the Nash Equilibrium.
+
+> [!info] **Definition**
+> An outcome is **Pareto Optimal** if there is no other outcome that makes at least one player better off without making any other player worse off.
+
+### Relation to Nash Equilibrium
+* A Nash Equilibrium is **not** necessarily Pareto Optimal.
+* **Classic Example**: In the [[Prisoner's Dilemma]], the Nash Equilibrium is $(D, D)$ (Mutual Defection), which gives payoffs $(-2, -2)$. However, $(C, C)$ gives $(-1, -1)$, which is better for *both* players. Therefore, the NE is **Pareto Suboptimal**.
+
+### Links
+* **Contrast**: [[Nash Equilibrium]]
+* **Example**: [[Prisoner's Dilemma]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Concepts\Relaxed Problems.md >>>>>
+
+A standard theoretical method for deriving admissible heuristics.
+
+> [!abstract] **Definition**
+> A problem $P'$ is a **Relaxed Problem** of $P$ if it has fewer restrictions on the actions.
+> * The cost of an optimal solution to a relaxed problem $h_{relaxed}(n)$ is an **admissible heuristic** for the original problem.
+
+### Example: 8-Puzzle
+* **Original**: A tile can move from A to B if A is adjacent to B **and** B is empty.
+* **Relaxation 1**: A tile can move from A to B if A is adjacent to B (ignoring empty space constraint).
+    * **Result**: **Manhattan Distance** heuristic.
+* **Relaxation 2**: A tile can move from A to B (ignoring adjacency and empty space).
+    * **Result**: **Misplaced Tiles** heuristic.
+
+### Links
+* **Generates**: [[Heuristic Properties]] (Admissible Heuristics)
+* **Used In**: [[A-Star]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Concepts\Search Evaluation.md >>>>>
+
+Formal metrics used to assess the performance of search algorithms.
+### 1. Completeness
+
+An algorithm is **Complete** if it is guaranteed to find a solution whenever at least one solution exists.
+* **Complete:** BFS, Iterative Deepening Search, Uniform Cost Search (UCS).
+* **Incomplete:** DFS (on infinite trees).
+### 2. Optimality
+
+An algorithm is **Optimal** if it is guaranteed to find the path with the lowest cumulative cost $g(n)$.
+* **Optimal:** UCS, BFS (if costs are equal), Iterative Deepening Search (if costs are equal).
+
+### 3. Complexity
+
+* **Time Complexity:** Measured by the number of nodes generated.
+* **Space Complexity:** Measured by the maximum number of nodes stored in the frontier at any time.
+
+### Links
+* **Connected To:** [[Search Problem Tuple]]
+* **Tags:** #theory #metrics #evaluation
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Lemmas\Mixed Strategy Indifference.md >>>>>
+
+This lemma provides the primary algorithmic method for calculating a Mixed Strategy Nash Equilibrium (MSNE).
+
+> [!abstract] **Lemma Statement**
+> If a player's mixed strategy $\sigma_i$ is a best response to the opponents' strategies $\sigma_{-i}$, then every pure strategy $s_i$ that is played with non-zero probability ($P(s_i) > 0$) must yield the same expected utility.
+
+### Mathematical Logic
+For a 2-player game where Player 1 plays Hawk with probability $p$ and Dove with $1-p$:
+* If Player 2 is to play a mixed strategy, they must be **indifferent** between their own pure strategies.
+* $E_2(\text{Hawk}) = E_2(\text{Dove})$.
+* This allows us to solve for the opponent's mixing probability $p$.
+
+### Links
+* **Applied In**: [[Nash Equilibrium]]
+* **Calculation**: [[Mixed Strategy]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems\Lemmas\Security Level Lemma.md >>>>>
+
+
+Relates the value of a game to the maximin strategy.
+
+> [!abstract] **Lemma Statement**
+> In any game, the value a player receives in a Nash Equilibrium is at least as high as their **Security Level** (Maximin value).
+
+### Context
+* **Maximin Strategy**: A player maximizes their minimum payoff.
+* **Security Level**: The value $v_i = \max_{s_i} \min_{s_{-i}} u_i(s_i, s_{-i})$.
+* **Significance**: This establishes a "floor" for payoffs in rational play.
+
+### Links
+* **Concept**: [[Maximin]]
+* **Concept**: [[Nash Equilibrium]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Battle of the Sexes.md >>>>>
+
+
+A coordination game from Lab 4 where players have different preferences but a shared desire to coordinate.
+
+### The Matrix
+| | Opera (O) | Football (F) |
+| :--- | :---: | :---: |
+| **Opera (O)** | $(3, 2)$ | $(0, 0)$ |
+| **Football (F)** | $(0, 0)$ | $(2, 3)$ |
+
+*(Note: Payoffs may vary, but the structure is $a > b > 0$)*
+
+### Analysis
+* **Conflict**: Player 1 prefers Opera ($3>2$), Player 2 prefers Football ($3>2$).
+* **Coordination**: Both prefer being together (payoff $>0$) than apart ($0$).
+* **Nash Equilibria**:
+    1. **Pure**: $(O, O)$ and $(F, F)$ are both PSNEs.
+    2. **Mixed**: A third equilibrium exists where players mix strategies, often resulting in miscoordination (both go to different places).
+
+### Links
+* **Type**: [[Normal Form Game]]
+* **Contrast**: [[Prisoner's Dilemma]] (where interests are opposed)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Cousin Predicate.md >>>>>
+
+
+Refining the First-Order Logic definition for the `cousin(x, y)` relationship, as seen in **Exam SoSe 25 (Question 7)**.
+
+### The Correct Formula
+Two individuals are cousins if their parents are siblings, and they are not the same person.
+
+> [!abstract] **FOL Definition**
+> $$\forall x, y : Cousin(x, y) \iff \exists p_1, p_2 : \big( Parent(p_1, x) \wedge Parent(p_2, y) \wedge Sibling(p_1, p_2) \wedge (x \neq y) \big)$$
+
+### Analysis of your Version
+* **Predicate Direction**: You wrote `Parent(x, p1)`. In the `family.pl` and lecture convention, `parent(x, y)` means **x is the parent of y**. Your version says $x$ is the parent of $p1$, making $x$ the grandparent generation.
+* **Logic of Siblinghood**: Usually, we add a constraint that $x$ and $y$ are not siblings ($\neg Sibling(x, y)$) to distinguish "First Cousins" from siblings, though "Parents are siblings" mathematically implies they aren't siblings in most standard trees.
+* **Standardizing Apart**: Using $p_1$ and $p_2$ is excellent practice to ensure the two parents are identified as distinct entities in the search space.
+
+
+
+### Prolog Implementation
+```prolog
+cousin(X, Y) :- 
+    parent(P1, X), 
+    parent(P2, Y), 
+    sibling(P1, P2), 
+    X \= Y.
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Erratic Vacuum.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Kinship Domain.md >>>>>
+
+
+A standard First-Order Logic domain used to demonstrate predicates, rules, and recursion.
+
+### Predicates (Facts)
+The database typically stores basic relations:
+* `Male(x)`, `Female(x)`
+* `Father(x, y)`, `Mother(x, y)`
+### Derived Relations (Rules)
+Complex family ties are defined via logical implications:
+1.  **Parent**:
+    * $\forall x, y : \text{Mother}(x, y) \Rightarrow \text{Parent}(x, y)$.
+    * $\forall x, y : \text{Father}(x, y) \Rightarrow \text{Parent}(x, y)$.
+2.  **Sibling**:
+    * $\forall x, y : (\exists p : \text{Parent}(p, x) \wedge \text{Parent}(p, y)) \wedge (x \neq y) \Rightarrow \text{Sibling}(x, y)$.
+    * *Note*: The $x \neq y$ check is crucial to prevent being your own sibling.
+3.  **Grandparent**:
+    * $\forall g, c : (\exists p : \text{Parent}(g, p) \wedge \text{Parent}(p, c)) \Rightarrow \text{Grandparent}(g, c)$.
+4.  **Ancestor (Recursive)**:
+    * Base Case: $\forall x, y : \text{Parent}(x, y) \Rightarrow \text{Ancestor}(x, y)$.
+    * Recursive Step: $\forall x, y, z : \text{Parent}(x, z) \wedge \text{Ancestor}(z, y) \Rightarrow \text{Ancestor}(x, y)$.
+
+
+# Kinship Query Trace (Lab 8)
+
+Analysis of common Prolog pitfalls identified in **Lab 08** using the `family.pl` database.
+
+### 1. The Self-Sibling Problem
+**Faulty Rule**: `sibling(X, Y) :- parent(P, X), parent(P, Y).`
+* **Result**: Harry is his own sibling because the same parent (Charles) satisfies both `parent(P, X)` and `parent(P, Y)` when $X=Y$.
+**Corrected Rule**: `sibling(X, Y) :- parent(P, X), parent(P, Y), X \= Y.`
+
+### 2. Duplicate Results
+When querying `sibling(harry, Sib)`, results like `william` appear twice.
+* **Reason**: Prolog finds a path through the `father` fact AND a path through the `mother` fact. Each independent proof branch yields a result.
+
+### 3. Recursive Ancestors
+**Correct Implementation**:
+```prolog
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+
+### Links
+* **Source**: [[family.pl]]
+* **Language**: [[Logic Programming]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Lab 09 Trace.md >>>>>
+
+
+Detailed analysis of Question 1 from **Lab 09**, which is the primary template for Modal Logic exam questions.
+
+### Given Model
+* **Worlds**: $u, v, w$.
+* **Relations**: $u \to v, u \to w, v \to w$.
+* **Interpretations**: $\pi_u=\{a, b\}$, $\pi_v=\{a, \neg b\}$, $\pi_w=\{\neg a, \neg b\}$.
+
+### Statement Validations
+1. **$u \models \Diamond(a \wedge \Diamond \neg a)$**: **True**.
+   * $u$ sees $v$. In $v$, $a$ is true.
+   * $v$ sees $w$. In $w$, $\neg a$ is true $\implies \Diamond \neg a$ is true at $v$.
+   * Thus, $v$ satisfies $(a \wedge \Diamond \neg a)$, making it true for $u$.
+2. **$v \models \Box \neg a$**: **True**.
+   * $v$ only sees $w$.
+   * In $w$, $\neg a$ is true. Therefore, in all successors of $v$, $\neg a$ holds.
+3. **$w \models \Diamond a \vee b$**: **False**.
+   * $w$ has no successors $\implies \Diamond a$ is False.
+   * $b$ is False at $w$. $F \vee F = F$.
+
+### Links
+* **Theory**: [[Kripke Semantics]]
+* **Algorithm**: [[Modal Trace Algorithm]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Matching Pennies.md >>>>>
+
+
+A pure zero-sum game from Lab 4 with no Pure Strategy Nash Equilibrium.
+
+### The Matrix
+| | Heads (H) | Tails (T) |
+| :--- | :---: | :---: |
+| **Heads (H)** | $(1, -1)$ | $(-1, 1)$ |
+| **Tails (T)** | $(-1, 1)$ | $(1, -1)$ |
+
+### Analysis
+* **Cyclic Preferences**:
+    * P1 wants to match (H,H or T,T).
+    * P2 wants to mismatch (H,T or T,H).
+* **Equilibrium**: The only Nash Equilibrium is a **Mixed Strategy** where both players randomize $50/50$.
+* **Analogy**: This is the simplest form of "predicting the opponent," similar to a penalty kick in soccer.
+
+### Links
+* **Type**: [[Zero-Sum Game]]
+* **Theorem**: [[Nash's Theorem]] (guarantees the mixed equilibrium)
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Monkey Banana Problem.md >>>>>
+
+
+A classic AI problem used to demonstrate **State Space Search** and **Planning**. The agent (monkey) must manipulate the environment to reach a goal state that is not immediately accessible.
+
+> [!abstract] **Formal Problem Definition**
+> We define the problem using the standard Search Tuple $(S, A, T, G, COST)$:
+> 
+> 1.  **State Space ($S$)**: Represented as a vector `[MonkeyPos, BoxPos, MonkeyHeight, HasBanana]`
+>     * `MonkeyPos`: Location of the monkey ($A, B, C$).
+>     * `BoxPos`: Location of the box ($A, B, C$).
+>     * `MonkeyHeight`: $Low$ (floor) or $High$ (on box).
+>     * `HasBanana`: $True$ or $False$.
+> 
+> 2.  **Initial State**: `[A, C, Low, False]` (Monkey at A, Box at C).
+> 
+> 3.  **Goal Test ($G$)**: `State == [_, _, _, True]` (Any state where monkey has banana).
+> 
+> 4.  **Actions ($A$)**:
+>     * `Grasp`: If (MonkeyPos == BananaPos) and (Height == High).
+>     * `Climb`: If (MonkeyPos == BoxPos) and (Height == Low).
+>     * `Push(Direction)`: If (MonkeyPos == BoxPos) and (Height == Low).
+>     * `Walk(Location)`: If (Height == Low).
+
+### Implementation Logic
+* **Preconditions**: Actions have strict logical prerequisites (e.g., cannot `Push` if on top of the box).
+* **Effects**: Actions modify specific variables in the state tuple (e.g., `Climb` changes `MonkeyHeight` from $Low \to High$).
+* **Search**: Solving this requires a sequence of actions (Plan):
+    $$Walk(C) \rightarrow Push(B) \rightarrow Climb \rightarrow Grasp$$
+
+### Links
+* **Algorithm**: [[BFS]] (often used to find the shortest plan)
+* **Concept**: [[Search Problem Tuple]]
+* **Tags**: #search #planning #state-space
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Movie Domain.md >>>>>
+
+Formalizing complex relationships in the Movie Database (`movies.pl`).
+
+### 1. "Directors who also acted"
+**Query**: `director(M, P), (actor(M, P, _) ; actress(M, P, _)).`
+* *Logic*: Find a person `P` who is a director of movie `M` AND an actor/actress in that same movie.
+
+### 2. "Actors in more than one movie"
+**Query**: `actor(M1, A, _), actor(M2, A, _), M1 \= M2.`
+* *Logic*: Find an actor `A` who appears in movie `M1` and movie `M2` where the movies are not identical.
+
+### 3. Rule: "Actor knows Director"
+**Rule**: `knows(A, D) :- (actor(M, A, _) ; actress(M, A, _)), director(M, D).`
+* *Logic*: An actor knows a director if they both worked on the same movie `M`.
+
+### Links
+* **Reference**: [[movies.pl]]
+* **Technique**: [[Prolog Execution Logic]]
+````
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Nim.md >>>>>
+
+A specific variant of Nim played in the labs where the goal is to **avoid** taking the last object (Misere play) or **take** the last object (Normal play), often used to demonstrate Backward Induction.
+
+### The Setup
+* **Heap Size**: $N$ objects (e.g., 21).
+* **Moves**: Players can remove $1, 2, \dots, k$ objects (e.g., $k=3$).
+* **Condition**: In the lab variant, the player who takes the last object **loses** (Misere).
+
+### The "4k" Derivation (Modulo Arithmetic)
+To derive the winning strategy, we use **Backward Induction** starting from the losing state.
+
+1.  **Target State (Lose)**: $n = 0$ (The previous player took the last object).
+2.  **Winning States**: Any state from which you can force the opponent into a Losing State.
+    * If $n=1$, take 1 $\rightarrow$ Opponent gets 0 (Lose). **Win**.
+    * If $n=2$, take 2 $\rightarrow$ Opponent gets 0 (Lose). **Win**.
+    * If $n=3$, take 3 $\rightarrow$ Opponent gets 0 (Lose). **Win**.
+3.  **Losing States (Recursive)**: A state from which *all* moves lead to a Winning State for the opponent.
+    * If $n=4$: You remove 1 ($\rightarrow 3$), 2 ($\rightarrow 2$), or 3 ($\rightarrow 1$). All leave the opponent in a winning spot. **Lose**.
+
+### The General Pattern ($k=3$)
+* **Losing Positions ($L$)**: $n \equiv 1 \pmod 4$ (e.g., 1, 5, 9, 13, 17, 21).
+    * *Note: In the lab's "21" game, usually the one who takes the last one loses. If starting with 21, the first player is in a Losing Position if the other plays optimally.*
+* **Strategy**: Always finish your turn leaving the opponent with a number of items $n'$ such that $n' \equiv 1 \pmod 4$.
+* **Formula**: If current items $n$, remove $x$ such that:
+    $$(n - x) \equiv 1 \pmod 4$$
+
+
+### Links
+* **Concept**: [[Backward Induction]]
+* **Algorithm**: [[Minimax]]
+* **Tags**: #game-theory #modulo-arithmetic #misere
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Prisoner's Dilemma.md >>>>>
+
+
+A classic example of a game where individual rationality leads to collective sub-optimality.
+
+### The Matrix
+| | Cooperate (C) | Defect (D) |
+| :--- | :---: | :---: |
+| **Cooperate (C)** | $(-1, -1)$ | $(-3, 0)$ |
+| **Defect (D)** | $(0, -3)$ | $(-2, -2)$ |
+
+### Analysis
+* **Dominant Strategy**: For both players, **Defect (D)** is a strictly dominant strategy because it yields a better payoff regardless of the opponent's choice.
+* **Nash Equilibrium**: $(D, D)$ with payoffs $(-2, -2)$.
+* **Pareto Optimality**: The NE is not Pareto Optimal, as $(C, C)$ would provide a better payoff for both players $(-1, -1)$.
+
+### Links
+* **Concept**: [[Normal Form Game]]
+* **Concept**: [[Nash Equilibrium]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Rock Paper Scissors.md >>>>>
+
+A symmetric zero-sum game with no pure strategy Nash Equilibrium.
+
+### The Matrix
+| | R | P | S |
+| :--- | :---: | :---: | :---: |
+| **R** | $(0, 0)$ | $(-1, 1)$ | $(1, -1)$ |
+| **P** | $(1, -1)$ | $(0, 0)$ | $(-1, 1)$ |
+| **S** | $(-1, 1)$ | $(1, -1)$ | $(0, 0)$ |
+
+### Equilibrium Analysis
+* **PSNE**: None exists because for any strategy pair, at least one player has an incentive to deviate.
+* **MSNE**: The unique Nash Equilibrium is $((\frac{1}{3}, \frac{1}{3}, \frac{1}{3}), (\frac{1}{3}, \frac{1}{3}, \frac{1}{3}))$.
+* **Logic**: Using the lemma for [[Mixed Strategy Indifference]], each player must play their strategies such that the opponent is indifferent between Rock, Paper, and Scissors.
+
+### Links
+* **Theorem**: [[Nash's Theorem]]
+* **Calculation**: [[Mixed Strategy]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Stag Hunt.md >>>>>
+
+
+A game from Lab 4 representing a conflict between safety and social cooperation.
+
+### The Matrix
+| | Stag (S) | Hare (H) |
+| :--- | :---: | :---: |
+| **Stag (S)** | $(4, 4)$ | $(0, 3)$ |
+| **Hare (H)** | $(3, 0)$ | $(3, 3)$ |
+
+### Analysis
+* **Scenario**: Two hunters can cooperate to catch a Stag (high payoff) or hunt alone for a Hare (low but safe payoff).
+* **Risk**: If one hunts Stag and the other hunts Hare, the Stag hunter gets nothing ($0$).
+* **Equilibria**:
+    * **Payoff Dominant**: $(S, S)$ is the best outcome for both.
+    * **Risk Dominant**: $(H, H)$ is the "safe" equilibrium because it doesn't depend on the other player's trust.
+
+### Links
+* **Type**: [[Normal Form Game]]
+* **Concepts**: [[Nash Equilibrium]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Tic Tac Toe.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Tower of Hanoi.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Toy Problems\Wumpus World.md >>>>>
+
+
+A classic logical environment used to demonstrate knowledge-based agents, reasoning under partial observability, and logical inference.
+
+> [!info] **PEAS Description**
+> * **Performance**: +1000 for gold, -1000 for death, -1 per step, -10 for using arrow.
+> * **Environment**: 4x4 Grid of rooms.
+>   * **Pits**: Infinite depth (Deadly).
+>   * **Wumpus**: Beast (Deadly).
+>   * **Gold**: Shiny object (Goal).
+> * **Actuators**: Move, Turn, Grab, Shoot.
+> * **Sensors**:
+>   * **Stench**: In squares adjacent to Wumpus.
+>   * **Breeze**: In squares adjacent to a Pit.
+>   * **Glitter**: In the square with Gold.
+
+### Formal Logic Rules (Knowledge Base)
+To solve this, the agent needs rules like:
+* **Breeze Rule**: $B_{x,y} \Leftrightarrow (P_{x+1,y} \vee P_{x-1,y} \vee P_{x,y+1} \vee P_{x,y-1})$.
+* "A square is breezy if and only if there is a pit in a neighboring square."
+
+### Links
+* **Used In**: [[Hybrid Wumpus Agent]]
+* **Algorithm**: [[DPLL Algorithm]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_Content_\_Exams_\Exam Resources.md >>>>>
+
+https://inst.eecs.berkeley.edu/~cs188/fa24/resources/
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Backward Chaining As Search Problem.md >>>>>
+
+
+Solution for **Exam SoSe 25 (Problem 2.2)**.
+This problem treats logical inference as a search problem, specifically focusing on **Backward Chaining** (Goal-Directed Reasoning).
+
+### Question 15: Inference Rules
+**Task**: Write down Modus Ponens and 2 other inference rules.
+
+1.  **[[Modus Ponens]]**:
+    $$\frac{\alpha \Rightarrow \beta, \quad \alpha}{\beta}$$
+2.  **And-Elimination**:
+    $$\frac{\alpha \wedge \beta}{\alpha}$$
+3.  **Or-Introduction**:
+    $$\frac{\alpha}{\alpha \vee \beta}$$
+
+### Question 16: The Proof Trace
+**Task**: Prove $\phi = a \vee (b \rightarrow c)$ given $KB = \{d \wedge e, \quad d \rightarrow \neg b\}$.
+
+**The Backward Chaining Logic**:
+1.  **Current Goal**: $a \vee (b \rightarrow c)$
+    * *Rule (Or-Intro)*: To prove $X \vee Y$, it suffices to prove $Y$.
+    * *New Sub-goal*: $b \rightarrow c$
+2.  **Current Goal**: $b \rightarrow c$
+    * *Equivalence*: Rewritten as $\neg b \vee c$ (Implication Elimination).
+    * *Rule (Or-Intro)*: To prove $X \vee Y$, it suffices to prove $X$.
+    * *New Sub-goal*: $\neg b$
+3.  **Current Goal**: $\neg b$
+    * *Rule (Modus Ponens Reverse)*: We have rule $d \rightarrow \neg b$ in KB. To prove $\neg b$, we must prove $d$.
+    * *New Sub-goal*: $d$
+4.  **Current Goal**: $d$
+    * *Rule (And-Elimination)*: We have fact $d \wedge e$ in KB. $d$ is entailed by $d \wedge e$.
+    * **Success**: The path is complete. $\phi$ is entailed.
+
+### Question 17: Search Problem Specification
+**Task**: Express Backward Chaining as a search problem.
+
+> [!abstract] **The Search Tuple**
+> * **State Space**: The stack of current sub-goals to be proved.
+> * **Initial State**: $[\phi]$ (The stack containing only the target query).
+> * **Actions**: Selecting an inference rule that concludes the top goal on the stack and replacing that goal with the rule's premises.
+>     * *Example*: If goal is $Q$ and rule is $P \rightarrow Q$, action is `ApplyRule`, new stack is $[P]$.
+> * **Goal Test**: The stack is empty (all sub-goals have been resolved against Facts in the KB).
+
+**Properties**:
+* **Graph Type**: **AND-OR Graph**.
+    * **OR Nodes**: Choice of which rule to apply (e.g., to prove $\alpha$, use Rule 1 *OR* Rule 2).
+    * **AND Nodes**: A rule may have multiple premises (e.g., to prove $\alpha$ via $P \wedge Q \rightarrow \alpha$, I must prove $P$ *AND* $Q$).
+* **Observability**: **Fully Observable**. The agent has full access to the KB and the query; nothing is hidden.
+* **Algorithm**: **Depth-First Search (DFS)**.
+    * *Why?* It is memory efficient ($O(d)$) and matches the recursive nature of logical proofs. In Prolog and standard backward chainers, this is the default strategy.
+
+### Links
+* **Concept**: [[Backward Chaining]]
+* **Related Structure**: [[AND-OR Graphs]] (from Lab 3)
+* **Base Definitions**: [[Search Problem Tuple]], [[Modus Ponens]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\FOL SoSE 24.md >>>>>
+
+
+Solutions for FOL translation problems from Exam SoSe 24.
+
+### Question: "Berlin and Hamburg are both in Germany"
+* **Strategy**: This is a conjunction of two specific ground facts.
+* **Logic**: $In(Berlin, Germany) \wedge In(Hamburg, Germany)$.
+* *Common Error*: $In(Berlin \wedge Hamburg, Germany)$ is syntactically invalid.
+
+### Question: "There is a country that borders both France and Germany"
+* **Strategy**: Use $\exists$ with $\wedge$.
+* **Logic**: $\exists c, Country(c) \wedge Border(c, France) \wedge Border(c, Germany)$.
+
+### Question: "All countries that border Germany are in Europe"
+* **Strategy**: Use $\forall$ with $\Rightarrow$.
+* **Logic**: $\forall c, (Country(c) \wedge Border(c, Germany)) \Rightarrow In(c, Europe)$.
+
+### Links
+* **Guide**: [[_FOL Translation Guide_]]
+* **Base**: [[Quantifiers]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Fuzzy Logic Semantics.md >>>>>
+
+A formalization required for Exam SoSe 25 (Problem 2.5), where truth is a continuous degree $\mu(\phi) \in [0,1]$ rather than a binary $\{0, 1\}$.
+
+> [!info] **The Connectives**
+> We replace boolean operators with mathematical functions on the unit interval:
+> * **Negation ($\neg \alpha$)**: $c(\mu(\alpha))$ where $c: [0,1] \to [0,1]$.
+> * **Conjunction ($\alpha \wedge \beta$)**: $t(\mu(\alpha), \mu(\beta))$ where $t: [0,1]^2 \to [0,1]$ (called a **T-norm**).
+> * **Disjunction ($\alpha \vee \beta$)**: $s(\mu(\alpha), \mu(\beta))$ where $s: [0,1]^2 \to [0,1]$ (called an **S-norm** or T-conorm).
+
+### Required Properties (Exam Solution)
+To behave like logic, these functions must satisfy:
+1.  **Boundary Conditions**:
+    * $c(0)=1, c(1)=0$.
+    * $t(1, x) = x$ (Identity for AND).
+    * $s(0, x) = x$ (Identity for OR).
+2.  **Monotonicity**: If inputs increase, truth shouldn't decrease.
+    * $x \le y \implies f(x) \le f(y)$.
+3.  **Commutativity & Associativity**: Order shouldn't matter.
+
+### Standard Choices (Gödel / Zadeh Logic)
+* **Negation**: $c(x) = 1 - x$
+* **Conjunction (Min)**: $t(x, y) = \min(x, y)$
+* **Disjunction (Max)**: $s(x, y) = \max(x, y)$
+
+*Alternative (Product Logic)*: $t(x, y) = x \cdot y$.
+
+**Question 21 (SoSe 25):** _Using the functions c, s and t, express how you would define $\mu(a \rightarrow b)$ and $\mu(a \leftrightarrow b)$._
+
+To solve this, we map the classical propositional definitions to our new "fuzzy" functions.
+
+#### **Step 1: Implication ($a \rightarrow b$)**
+
+In classical logic, $a \rightarrow b$ is logically equivalent to $\neg a \vee b$ (Implication Elimination).
+
+We simply substitute our fuzzy functions:
+
+- $\neg a$ becomes $c(\mu(a))$
+    
+- $\vee$ becomes $s(\cdot, \cdot)$
+    
+
+**Result:**
+
+$$\mu(a \rightarrow b) = s(c(\mu(a)), \mu(b))$$
+
+_Example (using Standard Zadeh Logic)_:
+
+If we use $c(x) = 1-x$ and $s(x,y) = \max(x,y)$, then:
+
+$$\mu(a \rightarrow b) = \max(1 - \mu(a), \mu(b))$$
+
+_(This is known as the Kleene-Dienes implication)._
+
+#### **Step 2: Equivalence ($a \leftrightarrow b$)**
+
+In classical logic, $a \leftrightarrow b$ is equivalent to $(a \rightarrow b) \wedge (b \rightarrow a)$.
+
+We substitute using our definition from Step 1 and the $t$-norm for AND.
+
+**Result:**
+
+$$\mu(a \leftrightarrow b) = t(\mu(a \rightarrow b), \mu(b \rightarrow a))$$
+
+$$= t(s(c(\mu(a)), \mu(b)), s(c(\mu(b)), \mu(a)))$$
+
+### Links
+* **Context**: [[Logic Semantics]]
+* **Exam**: [[exam-SoSe25.pdf]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Hangui.md >>>>>
+
+
+![[Pasted image 20260218181950.png]]
+
+
+# Hangul (Korean) Syllable Grammar
+
+Solution for **Exam SoSe 24 (Question 19)**.
+Formalizing the 2D spatial syntax of Korean syllables based on vowel orientation.
+
+### 1. Predicates (Vocabulary)
+* **Types**: $Cons(x)$, $Vowel(x)$, $Vert(x)$ (Vertical vowel `|`), $Horiz(x)$ (Horizontal vowel `_`).
+* **Relations**: $Right(x, y)$ ($x$ is right of $y$), $Below(x, y)$ ($x$ is below $y$).
+
+### 2. The Logic of "Vertical" Syllables (e.g., 가)
+We define a macro $Structure_{Vert}(S)$ that is true if syllable $S$ follows the vertical pattern.
+
+$$
+Structure_{Vert}(S) \iff 
+\underbrace{\exists c_1, v : (Cons(c_1) \wedge Vowel(v) \wedge Vert(v) \wedge Right(v, c_1))}_{\text{Mandatory Core}}
+\wedge 
+\underbrace{\forall x : ((x \neq c_1 \wedge x \neq v) \rightarrow (Cons(x) \wedge Below(x, c_1) \wedge Below(x, v)))}_{\text{Optional Tail (Batchim)}}
+$$
+
+**Explanation of the $\forall$ clause:**
+* This clause handles the **optional** second consonant ($C2$).
+* It reads: *"If there is any other item $x$ in the block, it MUST be a consonant at the bottom."*
+* If no $x$ exists, the statement is vacuously true. This allows the definition to validly describe both 2-letter (CV) and 3-letter (CVC) blocks.
+
+### 3. The Logic of "Horizontal" Syllables (e.g., 구)
+We define $Structure_{Horiz}(S)$ similarly, but with different spatial rules.
+
+$$
+Structure_{Horiz}(S) \iff 
+\exists c_1, v : (Cons(c_1) \wedge Vowel(v) \wedge Horiz(v) \wedge Below(v, c_1))
+\wedge 
+\forall x : ((x \neq c_1 \wedge x \neq v) \rightarrow (Cons(x) \wedge Below(x, v)))
+$$
+
+### 4. Final Definition
+A valid syllable must satisfy one of the two structures:
+
+$$ValidSyllable(S) \iff Structure_{Vert}(S) \vee Structure_{Horiz}(S)$$
+
+
+
+### Links
+* **Concept**: [[First Order Logic]]
+* **Exam**: [[exam-sose2024.pdf]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Hawk-Dove Game.md >>>>>
+
+
+A game modeling conflict over a resource, resulting in different equilibria based on the cost of the fight.
+### The Matrix
+| | Hawk (H) | Dove (D) |
+| :--- | :---: | :---: |
+| **Hawk (H)** | $(\frac{\alpha}{2}, \frac{\alpha}{2})$ | $(\beta, 1-\beta)$ |
+| **Dove (D)** | $(1-\beta, \beta)$ | $(\frac{1}{2}, \frac{1}{2})$ |
+
+### Regimes of Equilibrium
+The Nash Equilibria depend on the variables $\alpha$ (survival rate) and $\beta$ (benefit of aggression):
+1. **Aggressive Regime**: If $\frac{\alpha}{2} > 1-\beta$, then $(H, H)$ is the unique PSNE.
+2. **Anti-Coordination Regime**: If $\frac{\alpha}{2} < 1-\beta$, then there are two PSNE: $(H, D)$ and $(D, H)$, plus a Mixed Strategy equilibrium.
+
+### Links
+* **Implementation**: [[Normal Form Game]]
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Logic - Proving Statements.md >>>>>
+
+### Logic Solutions (SoSe 25)
+
+Solutions for Questions 7 and 8 from the SoSe 25 Exam.
+
+### Question 7 (2 points)
+**Problem**: Is $(a \wedge (c \rightarrow b)) \rightarrow (\neg c \leftrightarrow (a \rightarrow b))$ a tautology, unsatisfiable, or neither?
+
+**Strategy**: [[Model Checking]] (Search for counter-examples).
+
+1.  **Test for Tautology**: Can we make the sentence **False**?
+    * Implication $X \rightarrow Y$ is False only if $X=True$ and $Y=False$.
+    * **Make LHS True ($a \wedge (c \rightarrow b)$)**:
+        * Let $a=True$.
+        * Let $c \rightarrow b = True$. (e.g., $c=True, b=True$).
+    * **Check RHS ($\neg c \leftrightarrow (a \rightarrow b)$)** with $a=T, b=T, c=T$:
+        * $\neg c \Rightarrow False$.
+        * $(a \rightarrow b) \Rightarrow (T \rightarrow T) \Rightarrow True$.
+        * $F \leftrightarrow T$ is **False**.
+    * **Result**: Since we found a case ($T,T,T$) where LHS=True and RHS=False, the whole sentence is False.
+    * $\implies$ **NOT a Tautology**.
+
+2.  **Test for Satisfiability**: Can we make the sentence **True**?
+    * Let's try a different model, e.g., $a=False$.
+    * LHS: $F \wedge (\dots) = False$.
+    * Implication $F \rightarrow \dots$ is always **True**.
+    * $\implies$ **Satisfiable**.
+
+**Final Answer**: The sentence is **Satisfiable (but not a Tautology)** (sometimes called Contingent).
+
+---
+
+### Question 8 (4 points)
+**Problem**: Prove that $\phi \wedge \psi \equiv \psi \wedge \phi$.
+
+**Strategy**: [[PL Semantics]] (Truth Table Definition).
+We show that $Truth(\phi \wedge \psi) = Truth(\psi \wedge \phi)$ for all interpretations.
+
+| $\phi$ | $\psi$ | $\phi \wedge \psi$ | $\psi \wedge \phi$ | Match? |
+| :---: | :---: | :---: | :---: | :---: |
+| F | F | F | F | ✅ |
+| F | T | F | F | ✅ |
+| T | F | F | F | ✅ |
+| T | T | T | T | ✅ |
+
+**Justification**:
+By the definition of the conjunction operator (defined in [[PL Semantics]]), the operation is commutative. The truth value depends only on the set of inputs being both True, regardless of order.
+
+# Logic Solutions (SoSe 24)
+
+Solutions for Questions 5 and 6 from the SoSe 24 Exam.
+
+### Question 5 (2 points)
+**Problem**: Is $((a \rightarrow b) \wedge c) \leftrightarrow ((\neg c \rightarrow b) \wedge \neg a)$ a tautology, unsatisfiable, or neither?
+
+**Strategy**: [[Model Checking]] (Breaking the equivalence).
+An equivalence $X \leftrightarrow Y$ is False if $X \neq Y$. Let's try to make one side True and the other False.
+
+1.  **Try to make LHS True**:
+    * Needs $c=True$ and $(a \rightarrow b)=True$.
+    * Let $a=True, b=True, c=True$.
+    * **LHS**: $(T \rightarrow T) \wedge T \Rightarrow T$.
+    * **Check RHS**:
+        * $\neg a = False$.
+        * $(\dots) \wedge F$ is **False**.
+    * **Result**: LHS=True, RHS=False. The sentence is **False** in this model.
+    * $\implies$ **NOT a Tautology**.
+
+2.  **Try to make the whole sentence True (Satisfiability)**:
+    * Let's try to make both sides False.
+    * Let $c=False$.
+    * **LHS**: $(\dots) \wedge F \Rightarrow False$.
+    * **RHS**:
+        * $\neg c = True$.
+        * Need $(\neg c \rightarrow b) \wedge \neg a$ to be False.
+        * Let $b=True$. Then $(\neg c \rightarrow b)$ is True.
+        * Let $a=True$. Then $\neg a$ is False.
+        * RHS is **False**.
+    * **Result**: LHS=False, RHS=False. $F \leftrightarrow F$ is **True**.
+    * $\implies$ **Satisfiable**.
+
+**Final Answer**: The sentence is **Satisfiable (but not a Tautology)**.
+
+---
+
+### Question 6 (4 points)
+**Problem**: Prove that $\phi \rightarrow \psi \equiv \neg \phi \vee \psi$.
+
+**Strategy**: [[Logical Equivalence]] (Truth Table Proof).
+
+
+| $\phi$ | $\psi$ | $\phi \rightarrow \psi$ | $\neg \phi$ | $\neg \phi \vee \psi$ | Match? |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| F | F | **T** | T | **T** | ✅ |
+| F | T | **T** | T | **T** | ✅ |
+| T | F | **F** | F | **F** | ✅ |
+| T | T | **T** | F | **T** | ✅ |
+
+**Justification**:
+As shown in the truth table, the column for $\phi \rightarrow \psi$ is identical to the column for $\neg \phi \vee \psi$ in all possible worlds. Therefore, by definition of [[Logical Equivalence]], they are equivalent.
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\Wordle.md >>>>>
+
+
+![[Pasted image 20260218182239.png]]
+
+Formalizing the game Wordle for Exam SoSe 24 (Problem 2.5). While often a Constraint Satisfaction Problem, it can be rigorously defined as a **Search Problem**.
+
+> [!abstract] **The Search Tuple**
+> * **State Space ($S$)**: A tuple $(G, K, C)$
+>   * $G$: Sequence of guesses made so far ($[w_1, w_2 \dots]$).
+>   * $K$: Knowledge/Constraints derived (e.g., $Green=\{ (A, 1) \}, Gray=\{Z, X, Q\}$).
+>   * $C$: The set of "Candidate Words" remaining in the dictionary consistent with $K$.
+> * **Initial State**: $([], \emptyset, Dictionary)$.
+> * **Actions ($A$)**: Choose a word $w \in Dictionary$ (or typically $w \in C$ for hard mode).
+> * **Transition Model ($T$)**:
+>   * Update $G \leftarrow G + [w]$.
+>   * Receive Feedback (Green/Yellow/Gray) from environment.
+>   * Update $K$ based on feedback.
+>   * Filter $C$ to remove words violating new $K$.
+> * **Goal Test**: Feedback is all Green (or $|C|=1$ and we guess it).
+
+### Solving Method
+* **Uninformed Search (DFS/BFS)**:
+    * *Problem*: Branching factor is ~2,500 (size of solution list). Tree depth is 6. $2500^6$ is impossible.
+* **Informed Search (Greedy)**:
+    * **Heuristic**: Maximize **Information Gain** (or minimize expected size of $|C|$).
+    * Choose guess $w$ that minimizes $\sum_{feedback} P(feedback|w) \cdot |C_{new}|$.
+    * This effectively splits the search space in half (or better) at every step.
+
+# Wordle as a Constraint Satisfaction Problem (CSP)
+
+Formalizing Wordle for Exam SoSe 24 (Problem 2.5) as a CSP. Unlike the Search approach (which focuses on the sequence of guesses), the CSP approach focuses on **reducing the domain** of possible hidden words consistent with the feedback.
+
+> [!abstract] **The CSP Tuple $(X, D, C)$**
+> * **Variables ($X$)**: The five positions of the hidden word: $\{L_1, L_2, L_3, L_4, L_5\}$.
+> * **Domains ($D$)**: Initially, $D_i = \{A, B, \dots, Z\}$ for all $i$.
+> * **Constraints ($C$)**:
+>   1.  **Unary Constraints (Green/Gray)**: 
+>       * If feedback at $i$ is Green 'A': $L_i = A$.
+>       * If feedback at $i$ is Gray 'B': $L_i \neq B$ (for all $i$, unless 'B' is duplicated elsewhere).
+>   2.  **Binary/N-ary Constraints (Yellow)**:
+>       * If feedback at $i$ is Yellow 'C': $L_i \neq C$ AND $\exists j \neq i$ such that $L_j = C$.
+>   3.  **Global Constraint (Vocabulary)**:
+>       * The tuple $(L_1, L_2, L_3, L_4, L_5) \in Dictionary$.
+
+### Solving Algorithms
+1.  **Constraint Propagation (Node Consistency)**:
+    * Apply unary constraints immediately. If $L_1$ is Green 'S', the domain $D_1$ reduces to $\{S\}$.
+    * **Pruning**: Remove any word from the *Vocabulary* that violates these node consistencies.
+
+2.  **Forward Checking**:
+    * When a guess is made, update the domains of all unassigned variables. If any domain becomes empty ($D_i = \emptyset$), the potential word path is invalid.
+
+3.  **Generate and Test (with Heuristics)**:
+    * Since the Global Constraint (Dictionary) is restrictive, we usually iterate through the **Vocabulary** (the domain of the word itself) rather than instantiating letters individually.
+    * **MRV (Minimum Remaining Values)**: If solving letter-by-letter, focus on the position with the fewest legal letter options first (e.g., $L_1$ is known, $L_5$ has only 2 options $\to$ solve $L_5$ next).
+
+Find a simpler explanantion of the solution below - 
+
+# Wordle CSP Solver Algorithm
+
+Once Wordle is modeled as a CSP, the solver follows a specific sequence of "Pruning" and "Selection" to find the hidden word.
+
+### 1. Constraint Propagation (Filtering)
+The most important step is reducing the domain of the **Global Constraint** (the dictionary $W$). After each guess $G_t$ and its feedback, we perform **Node Consistency** checks:
+* **Green Filter**: $W_{new} = \{w \in W \mid w[i] == L_i\}$
+* **Gray Filter**: $W_{new} = \{w \in W \mid L_{gray} \notin w\}$
+* **Yellow Filter**: $W_{new} = \{w \in W \mid w[i] \neq L_{yellow} \wedge L_{yellow} \in w\}$
+
+
+
+### 2. Backtracking Search (The Guess Loop)
+Since we have a finite list of words, we don't need to build words letter-by-letter. Instead, we treat the remaining dictionary as our search space.
+1.  **Variable Selection**: The variables are the 5 letter slots. 
+2.  **Value Selection (Heuristics)**: Which word should we guess next?
+    * **Minimum Remaining Values (MRV)**: Pick a guess that is expected to reduce the size of the remaining dictionary $W$ the most.
+    * **Least Constraining Value**: Pick a word that leaves the most options open if you are playing "Hard Mode," or pick a word that eliminates the most common letters (like E, S, A, R, T) if playing "Normal Mode."
+
+### 3. Forward Checking
+Before making a guess, the algorithm "looks ahead." It simulates a guess and checks if that guess would result in an empty domain ($|W| = 0$). If a guess would leave no possible words left in the dictionary, that branch of the search is pruned immediately.
+
+### Summary of the Step-by-Step Execution
+1.  **Initialize**: Set $W$ = all 5-letter words.
+2.  **Guess**: Pick a word $w$ (initially a high-entropy word like "ARISE").
+3.  **Observe**: Receive Green/Yellow/Gray constraints.
+4.  **Propagate**: Delete all words from $W$ that violate any constraint.
+5.  **Repeat**: If $|W| > 1$, go back to step 2 with the smaller list.
+
+
+### Links
+* **Type**: [[Search Problem Tuple]]
+* **Exam**: [[exam-sose2024.pdf]]
+* **Tags**: #search #game-theory #heuristics
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \_ExamProblems_\_FOL Translation Guide_.md >>>>>
+
+
+
+A step-by-step strategy for translating English sentences into First-Order Logic, a recurring task in **Lab 08** and **Exam SoSe 24**.
+
+### 1. The Quantifier-Connective Pairings
+* **Universal ($\forall$)** almost always pairs with **Implication ($\Rightarrow$)**.
+    * *English*: "All students are smart."
+    * *Logic*: $\forall x, Student(x) \Rightarrow Smart(x)$.
+    * *Error*: Using $\wedge$ here means "Everything in the world is both a student and smart."
+* **Existential ($\exists$)** almost always pairs with **Conjunction ($\wedge$)**.
+    * *English*: "There is a smart student."
+    * *Logic*: $\exists x, Student(x) \wedge Smart(x)$.
+    * *Error*: Using $\Rightarrow$ here is "vacuously true" if there is anything in the world that isn't a student.
+
+### 2. Identifying Relations vs. Objects
+* **Common Nouns**: Usually Predicates (e.g., "Student" $\to Student(x)$).
+* **Proper Nouns**: Usually Constants (e.g., "Berlin" $\to berlin$).
+* **Verbs/Relations**: n-ary Predicates (e.g., "x borders y" $\to Border(x, y)$).
+
+### 3. Transitivity Example (Lab 08)
+* *English*: "Friendship is transitive."
+* *Logic*: $\forall x, y, z, (Friend(x, y) \wedge Friend(y, z)) \Rightarrow Friend(x, z)$.
+
+### Links
+* **Context**: [[Quantifiers]]
+* **Lab Reference**: [[lab08_solutions.pdf]]
+
+<<<<< END FILE >>>>>

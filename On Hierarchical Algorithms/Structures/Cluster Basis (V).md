@@ -1,4 +1,4 @@
-﻿# Cluster Basis (V)
+# Cluster Basis (V)
 
 ## Definition / Statement
 *(Content to be populated)*
