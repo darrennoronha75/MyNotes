@@ -4,101 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4b4da4938dc9d311",
+        "id": "9624a68ae3b4803c",
         "type": "tabs",
         "children": [
           {
-            "id": "220f2603a8a36844",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Artificial Intelligence/_Content_/_Exams_/exam-sose2024.pdf"
-              },
-              "pinned": true,
-              "icon": "lucide-file-text",
-              "title": "exam-sose2024"
-            }
-          },
-          {
-            "id": "11837cfcf1ae193d",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Artificial Intelligence/_Content_/_Exams_/exam-SoSe25.pdf"
-              },
-              "pinned": true,
-              "icon": "lucide-file-text",
-              "title": "exam-SoSe25"
-            }
-          },
-          {
-            "id": "6f6fe49285236813",
+            "id": "7323bb2e10b06394",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture11-ProbabilisticReasoning.pdf"
+                "file": "On Statistical Modeling/Content_Part2/Lecture01.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "lecture11-ProbabilisticReasoning"
-            }
-          },
-          {
-            "id": "e0feb2471f9e5e96",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture11-ProbabilisticReasoning.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "lecture11-ProbabilisticReasoning"
-            }
-          },
-          {
-            "id": "4780b0d09d78c704",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture12-NaturalLanguageProcessing.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "lecture12-NaturalLanguageProcessing"
-            }
-          },
-          {
-            "id": "7d9bf562b43ebd0f",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture12-NaturalLanguageProcessing.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "lecture12-NaturalLanguageProcessing"
-            }
-          },
-          {
-            "id": "f30350ceeffb36d8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "On Artificial Intelligence/_ExamProblems_/_2026_Problems_WISE.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "_2026_Problems_WISE"
+              "title": "Lecture01"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -167,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 444.5
+    "width": 259.5
   },
   "right": {
     "id": "451613d0c8fb2f54",
@@ -183,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "On Artificial Intelligence/_ExamProblems_/_2026_Problems_WISE.md",
+                "file": "On Statistical Modeling/Content_Part2/Lecture01.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for _2026_Problems_WISE"
+              "title": "Backlinks for Lecture01"
             }
           },
           {
@@ -255,15 +176,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f30350ceeffb36d8",
+  "active": "7323bb2e10b06394",
   "lastOpenFiles": [
-    "On Artificial Intelligence/_Content_/_Exams_/exam-sose2024.pdf",
+    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam.pdf",
+    "On Statistical Modeling/__Temp_/Question Variations_SM_WiSE26.md",
+    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_2.pdf",
+    "On Statistical Modeling/Content_Part1/Lecture_Notes_14_05.pdf",
+    "On Statistical Modeling/Content_Part1/Lecture_Notes_01_04.pdf",
+    "On Statistical Modeling/Content_Part1/Lecture_Notes_07_01.pdf",
+    "On Statistical Modeling/Content_Part1/Lecture_Notes_Statistics.pdf",
+    "On Statistical Modeling/_Exercises/Untitled.md",
+    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise3 (1).pdf",
+    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise2 (1).pdf",
+    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise1 (1).pdf",
+    "On Statistical Modeling/_Exercises/SM_Lineau",
+    "On Statistical Modeling/_Exercises/Mock Exam/Solutions_Mock_exam_first_half.pdf",
     "On Artificial Intelligence/_ExamProblems_/_2026_Problems_WISE.md",
-    "On Artificial Intelligence/_Content_/_Exams_/exam-SoSe25.pdf",
-    "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture11-ProbabilisticReasoning.pdf",
-    "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture12-NaturalLanguageProcessing.pdf",
-    "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture10-ontologies.pdf",
-    "On Artificial Intelligence/_Content_/_Lecture Notes_/lecture9-OtherLogics.pdf",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Alethic Logic.md",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Temporal Logic.md",
     "On Artificial Intelligence/Toy Problems/Lab 09 Trace.md",
@@ -274,11 +202,9 @@
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Deontic Logic.md",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Untitled.md",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Epistemic Logic.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Untitled",
     "On Artificial Intelligence/Algorithms/Logic/Inference/Modal Trace Algorithm.md",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Kripke Semantics.md",
     "On Artificial Intelligence/Formalizations/On Logic/Modal/Modal Operators.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal",
     "On Artificial Intelligence/Toy Problems/Cousin Predicate.md",
     "On Artificial Intelligence/_Content_/_Exams_/Exam Resources.md",
     "On Artificial Intelligence/Toy Problems/Movie Domain.md",
@@ -288,10 +214,6 @@
     "On Artificial Intelligence/Algorithms/Logic/Inference/Prolog Execution Logic.md",
     "On Artificial Intelligence/Algorithms/Logic/Inference/Standardizing Apart.md",
     "On Artificial Intelligence/Algorithms/Logic/Inference/FOL Resolution.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/Generalized Modus Ponens.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/Unification.md",
-    "On Artificial Intelligence/Formalizations/On Logic/First Order",
-    "On Artificial Intelligence/_VAULT_CONTEXT_EXPORT.txt",
     "Pasted image 20260218182239.png",
     "Pasted image 20260218181950.png",
     "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/web_images/web_image_5569408118488927588.png",

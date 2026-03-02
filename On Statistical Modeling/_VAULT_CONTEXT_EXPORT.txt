@@ -1,0 +1,222 @@
+﻿VAULT CONTEXT EXPORT - 2026-02-23 07:11
+
+
+
+<<<<< START FILE: \ANOVA.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Linear Regression.md >>>>>
+
+
+[[General Linear Models]]
+[[Gaussian Linear Models]]
+
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Logistic Regression.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Confidence Intervals.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Degrees of Freedom.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Estimators.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Expected Value.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Hypothesis Testing.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Maximum Likelihood Estimation.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\p-value.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Quantiles.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Sample Mean.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Sample Variance.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Definitions\Standard Deviation.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Distributions\Chi Squared Distribution.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Distributions\f - distribution.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Distributions\Normal Distribution.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Distributions\Poisson Distribution.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Distributions\t - student distribution.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Modeling\Gaussian Linear Models.md >>>>>
+
+In order to develop statistical tests, we need stronger assumptions on the distribution of the random error terms ε1,...,εn. From now on we assume that ε1,...,εn are inde pendent and are all normally distributed with expectation zero and the same unknown standard deviation σ ∈ (0,∞). This is equivalent to ε ∼ Normal(0,σ2In). We refer to the corresponding linear model as Gaussian linear model. As before we assume that ATA is invertible
+
+
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Modeling\General Linear Models.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Tests\t-test.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Tests\z-test.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Central Limit Theorem.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Gaussian Chi Squared Theorem.md >>>>>
+
+Consider a Gaussian linear model. a) Therandomvectors γ andεareindependent andsatisfy γ ∼ Normal(γ,σ2(ATA)−1) and ε ∼Normal(0,σ2(In −A(ATA)−1AT)). b) If n > k+1, one has ∥ε∥2/σ2 ∼ χ2 n−k−1.
+
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Gaussian MLE Theorem.md >>>>>
+
+Consider a Gaussian linear model and let σ2 ML = 1 n ∥ε∥2. Then, (γ,σ2 ML) is the maximum likelihood estimator for (γ,σ2).
+
+Proof
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Law of Large Numbers.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 2.1.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 2.2.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 3.6.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 5.4.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 5.5.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Lemma 5.6.md >>>>>
+
+
+<<<<< END FILE >>>>>
+
+
+<<<<< START FILE: \Theorems & Lemmas\Slutsky's Lemma.md >>>>>
+
+
+<<<<< END FILE >>>>>
