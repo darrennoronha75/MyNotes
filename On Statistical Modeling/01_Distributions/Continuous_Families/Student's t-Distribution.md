@@ -11,6 +11,14 @@ The Student's t-distribution is a continuous probability distribution that arise
 Mathematically, it is formed by taking a Standard Normal variable ($Z$) and dividing it by the square root of an independent [[Chi-Squared Distribution|Chi-Squared variable]] ($V$) that has been scaled by its degrees of freedom ($\nu$):
 $$T = \frac{Z}{\sqrt{V/\nu}}$$
 
+### Rigorous Formulation
+Let $N \sim \text{Normal}(0, 1)$ be a standard normal random variable, and let $Z \sim \chi^2_m$ be a [[Chi-Squared Distribution|chi-square random variable]] with $m$ degrees of freedom. If $N$ and $Z$ are independent, a random variable $X$ has a t-distribution with $m$ degrees of freedom if it follows the same distribution as:
+$$X = \frac{N}{\sqrt{Z/m}} \sim t_m$$
+
+### Symmetry
+Because it is symmetric around zero, its [[Quantile|quantiles]] perfectly mirror each other:
+$$P(X \le -t_{m,p}) = P(X \ge t_{m,p}) = 1 - p$$
+
 ## Intuition & Properties
 * **Shape:** It is perfectly symmetric and centered at zero, resembling the Standard Normal distribution, but with distinctly **thicker tails**. 
 * **The Penalty for Uncertainty:** Because we must estimate the variance using the sample standard deviation ($S$), we inject extra uncertainty into our calculations. The thicker tails of the $t$-distribution account for this, making it "harder" to find statistical significance and effectively preventing false positives in small samples.

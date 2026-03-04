@@ -40,5 +40,5 @@ print(output)
 
 ## Connections
 
-- The likelihood of $X$ taking on specific values $x$ is defined by a [[Probability Density Function (PDF)]] or [[Probability Mass Function (PMF)]].    
-- When we gather many observations $x_1 \dots x_n$, we can calculate a [[Statistic (Function)]].
+- The likelihood of $X$ taking on specific values $x$ is defined by a Probability Density Function (PDF) or Probability Mass Function (PMF).
+- When we gather many observations $x_1 \dots x_n$, we can calculate a [[Statistic]].
