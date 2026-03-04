@@ -11,12 +11,12 @@
             "id": "7323bb2e10b06394",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "image",
               "state": {
-                "file": "On Statistical Modeling/Content_Part2/Lecture01.pdf"
+                "file": "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180542.png"
               },
-              "icon": "lucide-file-text",
-              "title": "Lecture01"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260303180542"
             }
           }
         ]
@@ -88,7 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 515.5
   },
   "right": {
     "id": "451613d0c8fb2f54",
@@ -163,7 +163,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,53 +177,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7323bb2e10b06394",
+  "active": "93b682b33b2dedc2",
   "lastOpenFiles": [
-    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam.pdf",
-    "On Statistical Modeling/__Temp_/Question Variations_SM_WiSE26.md",
-    "On Statistical Modeling/_Exercises/Mock Exam/Mock_exam_2.pdf",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180815.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Untitled.md",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180542.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump",
+    "On Statistical Modeling/ANOVA.md",
+    "On Statistical Modeling/Tests/t-test.md",
+    "On Statistical Modeling/Tests/z-test.md",
+    "On Statistical Modeling/Modeling/General Linear Models.md",
+    "On Statistical Modeling/Modeling/Gaussian Linear Models.md",
+    "On Statistical Modeling/Definitions/Probability Foundations/The Data Generating Process.md",
+    "On Statistical Modeling/Definitions/Confidence Intervals.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/Critical Regions and Alternatives.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/Decision Errors and Power.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The Two-Sample t-test.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The One-Sample T-Test.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The NHST Framework.md",
+    "On Statistical Modeling/Theorems & Lemmas/Foundational/Central Limit Theorem.md",
+    "On Statistical Modeling/Definitions/Hypothesis Testing Framework",
+    "On Statistical Modeling/Theorems & Lemmas/Foundational/Independence of Sample Mean and Variance (for Normal Distributions).md",
+    "On Statistical Modeling/Theorems & Lemmas/Foundational/Properties of the Normal Distribution.md",
+    "On Statistical Modeling/Definitions/Parametric Families/R DPQR Functions.md",
+    "On Statistical Modeling/Theorems & Lemmas/Foundational",
+    "On Statistical Modeling/Definitions/Parametric Families/Heavy-Tailed Distributions.md",
+    "On Statistical Modeling/Definitions/Parametric Families/Sampling Distributions.md",
+    "On Statistical Modeling/Definitions/Parametric Families/The Normal Distribution.md",
+    "On Statistical Modeling/Definitions/Parametric Families/Untitled",
+    "On Statistical Modeling/Definitions/Parametric Families/Core Discrete and Continuous Families.md",
+    "On Statistical Modeling/Definitions/Parametric Families/Defining Parametric Families.md",
+    "On Statistical Modeling/Definitions/Parametric Families",
+    "On Statistical Modeling/Definitions/Probability Foundations/Statistics as Random Variables.md",
+    "On Statistical Modeling/Definitions/Probability Foundations/Probability Distributions (PDF, PMF, CMF).md",
+    "On Statistical Modeling/Definitions/Probability Foundations/Random Variables and Functions.md",
+    "On Statistical Modeling/Definitions/Probability Foundations/Untitled",
+    "On Statistical Modeling/Definitions/Probability Foundations",
     "On Statistical Modeling/Content_Part1/Lecture_Notes_14_05.pdf",
-    "On Statistical Modeling/Content_Part1/Lecture_Notes_01_04.pdf",
-    "On Statistical Modeling/Content_Part1/Lecture_Notes_07_01.pdf",
-    "On Statistical Modeling/Content_Part1/Lecture_Notes_Statistics.pdf",
-    "On Statistical Modeling/_Exercises/Untitled.md",
-    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise3 (1).pdf",
-    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise2 (1).pdf",
-    "On Statistical Modeling/_Exercises/SM_Lineau/Exercise1 (1).pdf",
-    "On Statistical Modeling/_Exercises/SM_Lineau",
-    "On Statistical Modeling/_Exercises/Mock Exam/Solutions_Mock_exam_first_half.pdf",
-    "On Artificial Intelligence/_ExamProblems_/_2026_Problems_WISE.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Alethic Logic.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Temporal Logic.md",
-    "On Artificial Intelligence/Toy Problems/Lab 09 Trace.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Kripke Semantics - Boolean Connectors.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Master Validity Matrix.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Doxastic Logic.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Relational Frames.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Deontic Logic.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Untitled.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Epistemic Logic.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/Modal Trace Algorithm.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Kripke Semantics.md",
-    "On Artificial Intelligence/Formalizations/On Logic/Modal/Modal Operators.md",
-    "On Artificial Intelligence/Toy Problems/Cousin Predicate.md",
-    "On Artificial Intelligence/_Content_/_Exams_/Exam Resources.md",
-    "On Artificial Intelligence/Toy Problems/Movie Domain.md",
-    "On Artificial Intelligence/Toy Problems/Kinship Domain.md",
-    "On Artificial Intelligence/_ExamProblems_/FOL SoSE 24.md",
-    "On Artificial Intelligence/_ExamProblems_/_FOL Translation Guide_.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/Prolog Execution Logic.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/Standardizing Apart.md",
-    "On Artificial Intelligence/Algorithms/Logic/Inference/FOL Resolution.md",
-    "Pasted image 20260218182239.png",
-    "Pasted image 20260218181950.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/web_images/web_image_5569408118488927588.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/web_images/web_image_427980405250522591.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/source_images/source_image_587.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/source_images/cliff.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_7558748147581301578.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_612856166983975977.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_-6733219054194282269.png",
-    "On Reinforcement Learning/_Content/L8/L8/205_Actor-Crit/ai_images/ai_generated_image_-6287647312038211821.png"
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221901.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221746.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221629.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221206.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303214958.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303214700.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213535.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213334.png",
+    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213322.png",
+    "On Statistical Modeling/__Temp_/Note Bank",
+    "On Statistical Modeling/Untitled"
   ]
 }
