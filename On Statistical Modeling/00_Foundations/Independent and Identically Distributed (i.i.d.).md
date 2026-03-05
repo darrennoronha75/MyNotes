@@ -19,4 +19,4 @@ We denote a collection of random variables as **i.i.d.** (independent and identi
 
 ---
 **Connections:**
-* The i.i.d. assumption is a strict prerequisite for both the [[Law of Large Numbers (LLN)]] and the [[Central Limit Theorem (CLT)]].
+* The i.i.d. assumption is a strict prerequisite for both the [[Law of Large Numbers (LLN)]] and the [[Central Limit Theorem]].

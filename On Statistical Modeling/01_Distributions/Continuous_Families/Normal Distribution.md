@@ -30,4 +30,4 @@ $$X - Y \sim N(\mu_X - \mu_Y, \sigma_X^2 + \sigma_Y^2)$$
 ---
 **Connections:**
 * The independence of $\mu$ and $\sigma^2$ is mathematically formalized in the [[Independence of Sample Mean and Variance]].
-* Normal limits are the target of the [[Central Limit Theorem (CLT)]].
+* Normal limits are the target of the [[Central Limit Theorem]].

@@ -10,4 +10,4 @@ created: 2026-03-04
 
 ---
 **Connections:**
-* Permits the substitution of $S_n$ for $\sigma$ in the [[Central Limit Theorem (CLT)]].
+* Permits the substitution of $S_n$ for $\sigma$ in the [[Central Limit Theorem]].

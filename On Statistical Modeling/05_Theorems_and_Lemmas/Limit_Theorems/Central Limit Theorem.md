@@ -26,5 +26,5 @@ The CLT requires three strict mathematical assumptions to hold:
 
 ---
 **Connections:**
-* If the requirement for finite variance fails, the CLT collapses entirely. This is observed in [[Heavy-Tailed Distribution]] families like the Cauchy distribution.
+* If the requirement for finite variance fails, the CLT collapses entirely. This is observed in [[Heavy-Tailed Distributions]] families like the Cauchy distribution.
 * The denominator term $\sigma / \sqrt{n}$ represents the standard error of the mean.

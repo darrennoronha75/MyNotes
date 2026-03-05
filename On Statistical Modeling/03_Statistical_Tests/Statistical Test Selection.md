@@ -29,4 +29,4 @@ If true population variance ($\sigma^2$) is miraculously known, the standard nor
 
 ---
 **Connections:**
-* The convergence of $t$ to $Z$ under large samples is powered by the [[Central Limit Theorem (CLT)]].
+* The convergence of $t$ to $Z$ under large samples is powered by the [[Central Limit Theorem]].

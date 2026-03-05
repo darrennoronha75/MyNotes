@@ -42,4 +42,4 @@ $$P(X \in A) = \int_A f(x) \, dx$$
 **Connections:**
 * When the components $X_i$ are independent and follow a normal distribution, the vector follows a [[Multivariate Normal Distribution]].
 * The property $Cov(X, Y) = 0$ is the definition for [[Uncorrelated Random Vectors]].
-* The sample-based version of the expectation vector is the basis for the **Design Matrix** in [[Linear Models]].
+* The sample-based version of the expectation vector is the basis for the **Design Matrix** in [[Linear Model]].

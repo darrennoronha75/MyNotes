@@ -18,5 +18,5 @@ Because a statistic $T$ is computed by applying a function to random variables, 
 
 ---
 **Connections:**
-* Because statistics are random variables, their behavior is perfectly described by [[On Statistical Modeling/Definitions/Parametric Families/Sampling Distributions]].
-* The asymptotic behavior of specific statistics as $n \rightarrow \infty$ is governed by theorems like the [[Central Limit Theorem (CLT)]] and the [[Law of Large Numbers (LLN)]].
+* Because statistics are random variables, their behavior is perfectly described by sampling distributions.
+* The asymptotic behavior of specific statistics as $n \rightarrow \infty$ is governed by theorems like the [[Central Limit Theorem]] and the [[Law of Large Numbers (LLN)]].

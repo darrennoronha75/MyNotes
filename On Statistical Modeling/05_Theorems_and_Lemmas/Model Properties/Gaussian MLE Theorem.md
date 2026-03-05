@@ -10,4 +10,4 @@ Consider a Gaussian linear model and let $\sigma^2_{ML} = \frac{1}{n} \|\epsilon
 
 ---
 **Connections:**
-* Connects [[Maximum Likelihood Estimation (MLE)]] with the [[Gaussian Linear Model]].
+* Connects [[Maximum Likelihood Estimation]] with the [[Gaussian Linear Model]].
