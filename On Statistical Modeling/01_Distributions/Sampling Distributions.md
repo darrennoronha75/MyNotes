@@ -16,3 +16,4 @@ When we calculate statistics from normally distributed data, the resulting sampl
 ---
 **Connections:**
 * Sampling distributions act as the primary "Null Distributions" required to perform [[Null Hypothesis Significance Testing (NHST)]].
+

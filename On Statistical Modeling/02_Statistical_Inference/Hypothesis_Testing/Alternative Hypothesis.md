@@ -21,6 +21,14 @@ Used when testing for an effect in a specific, pre-defined direction. We place o
 * **The Critical Region ($K$):** $$K = \left\{ T_{obs} : T_{obs} > t_{1-\alpha, n-1} \right\}$$
 * *Trade-off:* This makes it mathematically easier to reject $H_0$ in the predicted direction, but mathematically impossible to reject it in the opposite direction, regardless of how extreme the data is.
 
+Below is an illustration of how this can look -
+
+![[Alternative_Hypothesis_Concept1.jpeg]]
+
+Another illustration with more annotations - 
+
+![[AlternativeHypothesis_Concept2.jpg]]
+
 ---
 **Connections:**
 * The bounds of the critical region for a two-sided alternative are perfectly mirrored by a [[Confidence Interval]].

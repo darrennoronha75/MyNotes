@@ -4,22 +4,81 @@
     "type": "split",
     "children": [
       {
-        "id": "9624a68ae3b4803c",
+        "id": "6b540c98708612b8",
         "type": "tabs",
         "children": [
           {
-            "id": "7323bb2e10b06394",
+            "id": "64e87a54f0b4018a",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Statistical Modeling/__Content_Part1/Lecture_Notes_14_05.pdf",
+                "page": 10,
+                "left": -316,
+                "top": 583,
+                "zoom": 1.0454545454545454
+              },
+              "pinned": true,
+              "icon": "lucide-file-text",
+              "title": "Lecture_Notes_14_05"
+            }
+          },
+          {
+            "id": "8f821c19c2f93c74",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise1 (1).pdf",
+                "page": 1,
+                "left": -363,
+                "top": 2,
+                "zoom": 0.9835014075473043
+              },
+              "pinned": true,
+              "icon": "lucide-file-text",
+              "title": "Exercise1 (1)"
+            }
+          },
+          {
+            "id": "3e6a3ae472e94904",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Statistical Modeling/__Exercises/Mock Exam/Mock_exam_2.pdf",
+                "page": 2,
+                "left": -363,
+                "top": 689,
+                "zoom": 0.9835014075473043
+              },
+              "pinned": true,
+              "icon": "lucide-file-text",
+              "title": "Mock_exam_2"
+            }
+          },
+          {
+            "id": "d16c1103a9549265",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "pdf",
               "state": {
-                "file": "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180542.png"
+                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise1 (1).pdf",
+                "page": 1,
+                "left": -360,
+                "top": 229,
+                "zoom": 1.001318462031857
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260303180542"
+              "icon": "lucide-file-text",
+              "title": "Exercise1 (1)"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -51,7 +110,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "borel",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -151,15 +210,17 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "On Statistical Modeling/__Exercises/Mock Exam/Mock_exam_2.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Mock_exam_2"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -174,56 +235,59 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "93b682b33b2dedc2",
+  "active": "d16c1103a9549265",
   "lastOpenFiles": [
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180815.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Untitled.md",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303180542.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump",
-    "On Statistical Modeling/ANOVA.md",
-    "On Statistical Modeling/Tests/t-test.md",
-    "On Statistical Modeling/Tests/z-test.md",
-    "On Statistical Modeling/Modeling/General Linear Models.md",
-    "On Statistical Modeling/Modeling/Gaussian Linear Models.md",
-    "On Statistical Modeling/Definitions/Probability Foundations/The Data Generating Process.md",
-    "On Statistical Modeling/Definitions/Confidence Intervals.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/Critical Regions and Alternatives.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/Decision Errors and Power.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The Two-Sample t-test.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The One-Sample T-Test.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework/The NHST Framework.md",
-    "On Statistical Modeling/Theorems & Lemmas/Foundational/Central Limit Theorem.md",
-    "On Statistical Modeling/Definitions/Hypothesis Testing Framework",
-    "On Statistical Modeling/Theorems & Lemmas/Foundational/Independence of Sample Mean and Variance (for Normal Distributions).md",
-    "On Statistical Modeling/Theorems & Lemmas/Foundational/Properties of the Normal Distribution.md",
-    "On Statistical Modeling/Definitions/Parametric Families/R DPQR Functions.md",
-    "On Statistical Modeling/Theorems & Lemmas/Foundational",
-    "On Statistical Modeling/Definitions/Parametric Families/Heavy-Tailed Distributions.md",
-    "On Statistical Modeling/Definitions/Parametric Families/Sampling Distributions.md",
-    "On Statistical Modeling/Definitions/Parametric Families/The Normal Distribution.md",
-    "On Statistical Modeling/Definitions/Parametric Families/Untitled",
-    "On Statistical Modeling/Definitions/Parametric Families/Core Discrete and Continuous Families.md",
-    "On Statistical Modeling/Definitions/Parametric Families/Defining Parametric Families.md",
-    "On Statistical Modeling/Definitions/Parametric Families",
-    "On Statistical Modeling/Definitions/Probability Foundations/Statistics as Random Variables.md",
-    "On Statistical Modeling/Definitions/Probability Foundations/Probability Distributions (PDF, PMF, CMF).md",
-    "On Statistical Modeling/Definitions/Probability Foundations/Random Variables and Functions.md",
-    "On Statistical Modeling/Definitions/Probability Foundations/Untitled",
-    "On Statistical Modeling/Definitions/Probability Foundations",
-    "On Statistical Modeling/Content_Part1/Lecture_Notes_14_05.pdf",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221901.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221746.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221629.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303221206.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303214958.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303214700.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213535.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213334.png",
-    "On Statistical Modeling/__Temp_/Note Bank/Image Dump/Pasted image 20260303213322.png",
-    "On Statistical Modeling/__Temp_/Note Bank",
-    "On Statistical Modeling/Untitled"
+    "On Statistical Modeling/02_Statistical_Inference/Estimation/Consistent Estimator.md",
+    "On Statistical Modeling/02_Statistical_Inference/Estimation/Confidence Interval.md",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Student's t-Distribution.md",
+    "On Statistical Modeling/___Misc/Images/qwd.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 104605.crdownload",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Normal Distribution.md",
+    "On Statistical Modeling/___Misc/Images/VbqBTo_t-tendingtonormal.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 588702.crdownload",
+    "On Statistical Modeling/___Misc/Images/6sl4fgnygj381_locationscale.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 508276.crdownload",
+    "On Statistical Modeling/___Misc/Images/normal_distributions_mean_shift.png",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 879852.crdownload",
+    "On Statistical Modeling/___Misc/Images/Scale_parameter_normal_distribution.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 579894.crdownload",
+    "On Statistical Modeling/___Misc/Images/NormalDist_mtpricduralb1.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 95695.crdownload",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Multivariate Normal Distribution.md",
+    "On Statistical Modeling/___Misc/Images/Multivariate-Normal-Dist.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 711350.crdownload",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Heavy-Tailed Distributions.md",
+    "On Statistical Modeling/___Misc/Images/Mean_estimator_consistency.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 590121.crdownload",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/F-Distribution.md",
+    "On Statistical Modeling/___Misc/Images/FDist_Lesson32_Drawing04a.gif",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 33434.crdownload",
+    "On Statistical Modeling/___Misc/References/Nice Stuff to Review.md",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Chi-Squared Distribution.md",
+    "On Statistical Modeling/___Misc/Images/chidensity_lesson53.webp",
+    "On Statistical Modeling/___Misc/Images/Unconfirmed 432897.crdownload",
+    "On Statistical Modeling/00_Foundations/Probability_Spaces/Probability Distribution.md",
+    "On Statistical Modeling/00_Foundations/Quantile.md",
+    "On Statistical Modeling/00_Foundations/Uncorrelated Random Vectors.md",
+    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Statistical Power.md",
+    "On Statistical Modeling/00_Foundations/Statistic.md",
+    "On Statistical Modeling/00_Foundations/Quantile.qmd.md",
+    "On Statistical Modeling/00_Foundations/Law of Total Variance.md",
+    "On Statistical Modeling/00_Foundations/Independent and Identically Distributed (i.i.d.).md",
+    "On Statistical Modeling/00_Foundations/Data Generating Process.md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Matrix Formulation of OLS.md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Linear Model.md",
+    "On Statistical Modeling/00_Foundations/Covariance Matrix.md",
+    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Alternative Hypothesis.md",
+    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Null Hypothesis Significance Testing (NHST).md",
+    "On Statistical Modeling/02_Statistical_Inference/Estimation/Ordinary Least Squares (OLS).md",
+    "On Statistical Modeling/01_Distributions/Sampling Distributions.md",
+    "On Statistical Modeling/01_Distributions/Continuous_Families/Test.md"
   ]
 }

@@ -21,6 +21,8 @@ $$X = \frac{Z_1 / m_1}{Z_2 / m_2} \sim F_{m_1, m_2}$$
 ## Intuition
 If you take two random samples from the exact same normally distributed population and calculate their sample variances, the ratio of those two variances will follow an F-distribution. If the populations are identical, the expected value of the F-ratio is approximately $1$. If the ratio is massively larger than $1$, it is mathematically indicative that the top variance is fundamentally different from the bottom variance.
 
+![[FDist_Lesson32_Drawing04a.gif]]
+
 ---
 **Connections:**
 * The F-distribution is the core null distribution for the [[Analysis of Variance (ANOVA)]] framework.

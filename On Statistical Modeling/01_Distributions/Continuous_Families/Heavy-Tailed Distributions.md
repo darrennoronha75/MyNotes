@@ -43,6 +43,8 @@ $$\phi_{\bar{X}}(t) = \left[ e^{-|t/n|} \right]^n = e^{-n \frac{|t|}{n}} = e^{-|
 **The "Infinite Noise" Result:**
 The distribution of the sample mean ($\bar{X}$) is **identical** to the distribution of a single observation ($X_1$). Averaging Cauchy data provides **zero** reduction in noise, regardless of how many samples you take. This is why the CLT "collapses"—the bell curve never forms.
 
+![[Mean_estimator_consistency.gif]]
+
 ---
 **Connections:**
 * Violates the requirements for [[Ordinary Least Squares (OLS)]] and most parametric tests.

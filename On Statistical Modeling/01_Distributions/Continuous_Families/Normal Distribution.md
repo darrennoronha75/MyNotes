@@ -5,6 +5,9 @@ created: 2026-03-04
 ---
 # Normal Distribution
 
+![[NormalDist_mtpricduralb1.gif]]
+
+
 ## Definition
 The Normal (or Gaussian) distribution is a continuous parametric family characterized by its perfectly symmetric, bell-shaped probability density function. It is strictly defined by exactly two parameters:
 $$X \sim N(\mu, \sigma^2)$$
@@ -12,15 +15,33 @@ $$X \sim N(\mu, \sigma^2)$$
 1. **The Mean ($\mu$):** The location parameter ($\mu \in \mathbb{R}$). It dictates where the absolute peak of the bell sits on the x-axis. 
 2. **The Variance ($\sigma^2$):** The scale parameter ($\sigma^2 > 0$). It dictates the spread of the data. A small variance creates a narrow, spiked distribution; a large variance creates a wide, flat distribution. 
 
+Below is how the variance affects the distribution - 
+
+
+
+
 ## Properties & Mathematical Transformations
 
 ### 1. The Location-Scale Property
 If $X \sim N(\mu, \sigma^2)$, applying any linear transformation $Y = aX + b$ results in a new, perfectly normal distribution:
+
 $$aX + b \sim N(a\mu + b, a^2\sigma^2)$$
+
+Find an illustration below of how changing the mean simply causes a shift along the axis - the variance is unchanged. (*Clue - these are independent of each other*)
+
+![[normal_distributions_mean_shift.png]]
+
+Similarly the behavior on variance change -
+![[Scale_parameter_normal_distribution.gif|570]]
+
+What happens if both change together - 
+
+![[6sl4fgnygj381_locationscale.gif]]
 
 ### 2. Standardization (Z-Scores)
 Because of the location-scale property, *every* normal distribution can be algebraically translated into one universal reference curve: the **Standard Normal Distribution**, denoted as $Z \sim N(0,1)$. We shift the mean to 0 and scale the variance to 1:
 $$Z = \frac{X - \mu}{\sigma}$$
+
 
 ### 3. Stability under Addition
 If $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$ are independent, their sum is perfectly normal. Variances *always* add, even under subtraction, because combining random noise always increases total uncertainty:

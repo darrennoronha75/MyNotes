@@ -6,6 +6,10 @@ created: 2026-03-04
 # Student's t-Distribution
 
 ## Definition
+
+![[qwd.gif|682]]
+
+
 The Student's t-distribution is a continuous probability distribution that arises when estimating the mean of a normally distributed population in situations where the sample size is small and the true population variance ($\sigma^2$) is unknown.
 
 Mathematically, it is formed by taking a Standard Normal variable ($Z$) and dividing it by the square root of an independent [[Chi-Squared Distribution|Chi-Squared variable]] ($V$) that has been scaled by its degrees of freedom ($\nu$):
@@ -27,6 +31,9 @@ $$P(X \le -t_{m,p}) = P(X \ge t_{m,p}) = 1 - p$$
 ## The Parameter: Degrees of Freedom ($\nu$)
 The distribution is governed by a single parameter: degrees of freedom ($\nu = n - 1$). 
 As the sample size $n$ increases, our estimate of the variance becomes exponentially more accurate. Consequently, as $\nu \rightarrow \infty$, the $t$-distribution perfectly converges to the Standard Normal distribution $N(0,1)$.
+
+![[VbqBTo_t-tendingtonormal.gif]]
+
 
 ---
 **Connections:**

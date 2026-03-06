@@ -20,6 +20,8 @@ $$Q = \sum_{i=1}^{k} Z_i^2 \sim \chi^2_k$$
 ## Intuition
 The $\chi^2$ distribution is fundamentally the distribution of "distances" or "variances." Because the formula for sample variance ($S^2$) inherently relies on subtracting a mean and squaring the deviations, variance estimates scale directly into the Chi-Squared family. 
 
+![[chidensity_lesson53.webp]]
+
 ---
 **Connections:**
 * This distribution is the required mathematical denominator used to construct the [[Student's t-Distribution]] and the [[F-Distribution]].

@@ -38,6 +38,8 @@ $$\Sigma_{ij} = Cov(X_i, X_j)$$
 A random vector is called **absolutely continuous** if there exists a non-negative, integrable function $f: \mathbb{R}^n \to [0, \infty)$, called the **joint density function**, such that for any Borel set $A \in \mathcal{B}(\mathbb{R}^n)$:
 $$P(X \in A) = \int_A f(x) \, dx$$
 
+Whenever you see $A \in \mathcal{B}(\mathbb{R})$, it just means "A is a normal, measurable set of numbers."
+
 ---
 **Connections:**
 * When the components $X_i$ are independent and follow a normal distribution, the vector follows a [[Multivariate Normal Distribution]].

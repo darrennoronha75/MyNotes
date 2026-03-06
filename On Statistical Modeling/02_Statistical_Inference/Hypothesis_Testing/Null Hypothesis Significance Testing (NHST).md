@@ -24,3 +24,4 @@ We calculate the test statistic from our sample data and map it onto the Null Di
 ---
 **Connections:**
 * The probability of making a mistake in this decision is governed by [[Type I Error]] and [[Type II Error]]
+

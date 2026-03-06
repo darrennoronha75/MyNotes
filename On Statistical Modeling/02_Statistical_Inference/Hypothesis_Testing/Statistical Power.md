@@ -17,7 +17,13 @@ Power is not a single, static number; it is a function of the *true* unknown pop
 2. **Sample Size ($n$):** Because the standard error features $\sqrt{n}$ in its denominator, increasing $n$ physically shrinks the variance of the distributions. The curves become narrower, reducing overlap and driving power up.
 3. **Significance Level ($\alpha$):** Increasing $\alpha$ (e.g., from $0.01$ to $0.05$) moves the critical boundary closer to the center, inherently increasing Power but sacrificing [[Type I Error]] control.
 
+![[Power_Concept1.jpg]]
 
+ The $1-\beta$  region is clearly visible in contrast with the other scenarios. 
+
+How the power increases as the rejection region decreases is given below -
+
+![[IncreasingPower_ginsyblog.gif]]
 
 ---
 **Connections:**

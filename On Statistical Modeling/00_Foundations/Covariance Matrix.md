@@ -13,7 +13,9 @@ $$Cov(X) = E\left[(X - E[X])(X - E[X])^T\right]$$
 Element-wise, the entry in the $i$-th row and $j$-th column represents the scalar covariance between the $i$-th and $j$-th components of the vector:
 $$Cov(X)_{i,j} = Cov(X_i, X_j) = E[(X_i - E[X_i])(X_j - E[X_j])]$$
 
+Below is a visualization in Matrix Format - 
 
+$$\Sigma = \begin{bmatrix} \text{Var}(X_1) & \text{Cov}(X_1, X_2) & \cdots & \text{Cov}(X_1, X_n) \\ \text{Cov}(X_2, X_1) & \text{Var}(X_2) & \cdots & \text{Cov}(X_2, X_n) \\ \vdots & \vdots & \ddots & \vdots \\ \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n) \end{bmatrix}$$
 
 ## Intuition
 If a random vector describes a point cloud in multi-dimensional space, the expectation vector $E[X]$ tells you where the *center* of the cloud is, while the covariance matrix tells you the *shape* and *orientation* of the cloud. 
@@ -25,7 +27,8 @@ If a random vector describes a point cloud in multi-dimensional space, the expec
 2. **Positive Semi-Definiteness:** For any constant vector $a \in \mathbb{R}^n$, the variance of the linear combination $a^T X$ must be non-negative. Therefore:
    $$Var(a^T X) = a^T Cov(X) a \ge 0$$
 3. **Affine Transformations:** If $Y = AX + b$ (where $A$ is a constant matrix and $b$ is a constant vector), the covariance matrix shifts strictly multiplicatively (the constant $b$ does not affect spread):
-   $$Cov(AX + b) = A \, Cov(X) \, A^T$$
+
+
 
 ---
 **Connections:**

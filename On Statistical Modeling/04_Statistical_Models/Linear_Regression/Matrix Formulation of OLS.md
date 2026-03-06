@@ -39,6 +39,10 @@ Because $Y$ is a random vector, $\hat{\gamma}$ is also a random vector with its 
     $$E[\hat{\gamma}] = E[(A^TA)^{-1}A^T(A\gamma + \varepsilon)] = \gamma + (A^TA)^{-1}A^TE[\varepsilon] = \gamma$$
 2.  **Covariance (Spread):** The uncertainty of the estimates depends directly on the background noise ($\sigma^2$) and the structure of the data ($A^TA$).
     $$Cov(\hat{\gamma}) = \sigma^2 (A^TA)^{-1}$$
+An illustration of how the line-fitting is done to the data is given below -
+
+![[LinearRegression_Yahya.gif]]
+
 
 ---
 **Connections:**

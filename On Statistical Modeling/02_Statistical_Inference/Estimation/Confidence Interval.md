@@ -42,6 +42,32 @@ Because they are identical formulas rearranged:
 * **Fail to Reject:** If the CI **contains** the null value ($H_0$), the null is a mathematically plausible reality ($p > \alpha$).
 * **Reject:** If the CI **excludes** the null value, the null is statistically implausible ($p < \alpha$).
 
+### Proof of Coverage Probability
+To prove that an interval has an exact error level of $\alpha$ (meaning it covers the true parameter with probability $1-\alpha$), we evaluate the probability of the standardized statistic falling between the negative and positive quantiles. 
+
+For a Standard Normal variable $N \sim \text{Normal}(0, 1)$, the probability of falling within the bounds $(-z_{1-\alpha/2}, z_{1-\alpha/2})$ relies on the Cumulative Distribution Function ($\Phi$) and its symmetry property ($\Phi(-z) = 1 - \Phi(z)$).
+
+$$P(N \in (-z_{1-\alpha/2}, z_{1-\alpha/2}))$$
+
+**1. Evaluate via CDF:**
+$$= \Phi(z_{1-\alpha/2}) - \Phi(-z_{1-\alpha/2})$$
+
+**2. Apply Symmetry for the Lower Bound:**
+$$= \Phi(z_{1-\alpha/2}) - (1 - \Phi(z_{1-\alpha/2}))$$
+
+**3. Combine Terms:**
+$$= 2\Phi(z_{1-\alpha/2}) - 1$$
+
+**4. Substitute the Known Quantile Probability:**
+By definition, the area to the left of $z_{1-\alpha/2}$ is exactly $1 - \alpha/2$.
+$$= 2 \left( 1 - \frac{\alpha}{2} \right) - 1$$
+$$= 2 - \alpha - 1$$
+$$= 1 - \alpha$$
+
+
+
+This mathematically proves that the confidence interval covers the true parameter in exactly $1 - \alpha$ proportion of repeated samples.
+
 ---
 **Connections:**
 * The critical values used to build the interval are drawn directly from the boundaries defined in [[Alternative Hypothesis]].
