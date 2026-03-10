@@ -8,38 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "96d03ff0eb1d9e6c",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise2 - Linear Models and Regression.pdf",
-                "page": 1,
-                "left": -677,
-                "top": 320,
-                "zoom": 1.3683497844136407
-              },
-              "icon": "lucide-file-text",
-              "title": "Exercise2 - Linear Models and Regression"
-            }
-          },
-          {
-            "id": "f654c8b416c0162e",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise3 - Linear Models and Regression.pdf",
-                "page": 1,
-                "left": -51,
-                "top": 846,
-                "zoom": 1.3683497844136407
-              },
-              "icon": "lucide-file-text",
-              "title": "Exercise3 - Linear Models and Regression"
-            }
-          },
-          {
             "id": "8f821c19c2f93c74",
             "type": "leaf",
             "pinned": true,
@@ -48,13 +16,49 @@
               "state": {
                 "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise1 - Linear Models and Regression.pdf",
                 "page": 1,
-                "left": -188,
-                "top": 335,
-                "zoom": 0.9835014075473043
+                "left": -86,
+                "top": 687,
+                "zoom": 1.7
               },
               "pinned": true,
               "icon": "lucide-file-text",
               "title": "Exercise1 - Linear Models and Regression"
+            }
+          },
+          {
+            "id": "92fdeeac223cca24",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise2 - Linear Models and Regression.pdf",
+                "page": 1,
+                "left": -177,
+                "top": 846,
+                "zoom": 1.3683497844136407
+              },
+              "pinned": true,
+              "icon": "lucide-file-text",
+              "title": "Exercise2 - Linear Models and Regression"
+            }
+          },
+          {
+            "id": "440e655a5c866f5e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "On Statistical Modeling/__Exercises/SM_Lineau/Exercise3 - Linear Models and Regression.pdf",
+                "page": 1,
+                "left": -177,
+                "top": 648,
+                "zoom": 1.3683497844136407
+              },
+              "pinned": true,
+              "icon": "lucide-file-text",
+              "title": "Exercise3 - Linear Models and Regression"
             }
           },
           {
@@ -65,9 +69,9 @@
               "type": "pdf",
               "state": {
                 "file": "On Statistical Modeling/__Content_Part1/Lecture_Notes_14_05.pdf",
-                "page": 36,
-                "left": -79,
-                "top": 131,
+                "page": 25,
+                "left": -219,
+                "top": 15,
                 "zoom": 1.24
               },
               "pinned": true,
@@ -84,9 +88,9 @@
               "state": {
                 "file": "On Statistical Modeling/__Exercises/Mock Exam/Mock_Exam -  2024.pdf",
                 "page": 2,
-                "left": -48,
-                "top": 39,
-                "zoom": 1.38
+                "left": -177,
+                "top": 252,
+                "zoom": 1.3683497844136407
               },
               "pinned": true,
               "icon": "lucide-file-text",
@@ -94,77 +98,63 @@
             }
           },
           {
-            "id": "9f1dfc771ca18685",
+            "id": "d105c6d11aa475e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Statistical Modeling/01_Distributions/Continuous_Families/Normal Distribution.md",
+                "file": "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Statistical Test (Formal Definition).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Normal Distribution"
+              "title": "Statistical Test (Formal Definition)"
             }
           },
           {
-            "id": "bf60778a36165063",
+            "id": "68940aaee1c826a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Statistical Modeling/01_Distributions/Continuous_Families/Chi-Squared Distribution.md",
+                "file": "On Statistical Modeling/05_Theorems_and_Lemmas/Model Properties/Theorem 3.10 - Distributions in the Gaussian Linear Model.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chi-Squared Distribution"
+              "title": "Theorem 3.10 - Distributions in the Gaussian Linear Model"
             }
           },
           {
-            "id": "8b402dc72e38ca3e",
+            "id": "9b12b4d17072bc43",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests/One-Sample t-Test.md",
+                "file": "On Statistical Modeling/_Software_&_Tools/Reading R Regression Output.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "One-Sample t-Test"
+              "title": "Reading R Regression Output"
             }
           },
           {
-            "id": "9f14c5748117a8af",
+            "id": "c8a6292a1b287c6e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Statistical Modeling/01_Distributions/Continuous_Families/Multivariate Normal Distribution.md",
+                "file": "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Global F-Test (Corollary 3.15).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Multivariate Normal Distribution"
-            }
-          },
-          {
-            "id": "30e0161c20e7d9c6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "On Statistical Modeling/___Misc/TempNotes/ComprehensionPart1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ComprehensionPart1"
+              "title": "Global F-Test (Corollary 3.15)"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -327,53 +317,52 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "64e87a54f0b4018a",
+  "active": "68940aaee1c826a7",
   "lastOpenFiles": [
-    "On Statistical Modeling/___Misc/TempNotes/ComprehensionPart1.md",
-    "On Statistical Modeling/___Misc/TempNotes/NotationExplainer.md",
-    "On Statistical Modeling/__Content_Part1/Lecture_Notes_14_05.pdf",
-    "On Statistical Modeling/___Misc/TempNotes",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/Multivariate Normal Distribution.md",
+    "On Statistical Modeling/00_Foundations/Probability_Spaces/Distribution Function Mechanics.md",
+    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Statistical Test (Formal Definition).md",
     "On Statistical Modeling/__Exercises/SM_Lineau/Exercise1 - Linear Models and Regression.pdf",
-    "On Statistical Modeling/__Exercises/SM_Lineau/Exercise3 - Linear Models and Regression.pdf",
-    "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests/One-Sample t-Test.md",
-    "On Statistical Modeling/__Exercises/Mock Exam/Mock_Exam -  2024.pdf",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/Chi-Squared Distribution.md",
-    "On Statistical Modeling/00_Foundations/Random Variable.md",
-    "On Statistical Modeling/00_Foundations/Random Vector.md",
-    "On Statistical Modeling/00_Foundations/Data Generating Process.md",
-    "On Artificial Intelligence/_ExamProblems_/Backward Chaining As Search Problem.md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Global F-Test (Corollary 3.15).md",
+    "Partial F-Test (Corollary 3.14).md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Coefficient of Determination (R-squared).md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Partial F-Test (Corollary 3.14).md",
+    "On Statistical Modeling/05_Theorems_and_Lemmas/Model Properties/Theorem 3.12 - Nested Subspace Projections.md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Corollary 3.11 - t-Test for Linear Combinations.md",
+    "On Statistical Modeling/05_Theorems_and_Lemmas/Model Properties/Theorem 3.10 - Distributions in the Gaussian Linear Model.md",
+    "On Statistical Modeling/__Exercises/LMR_Schulte/2. Exercise - Questions + Solution.pdf",
+    "On Artificial Intelligence/_ExamProblems_/Fuzzy Logic Semantics.md",
     "On Artificial Intelligence/_ExamProblems_/FOL SoSE 24.md",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/Normal Distribution.md",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/Student's t-Distribution.md",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/F-Distribution.md",
+    "On Artificial Intelligence/_ExamProblems_/Backward Chaining As Search Problem.md",
+    "On Statistical Modeling/00_Foundations/Covariance Matrix.md",
+    "On Statistical Modeling/00_Foundations/Probability_Spaces/Probability Distribution.md",
     "On Statistical Modeling/00_Foundations/Law of Total Variance.md",
-    "On Statistical Modeling/00_Foundations/Quantile.md",
+    "On Statistical Modeling/00_Foundations/Random Variable.md",
     "On Statistical Modeling/00_Foundations/Statistic.md",
-    "On Statistical Modeling/___Misc/References/Nice Stuff to Review.md",
-    "On Statistical Modeling/__Exercises/_Solutions/SM_Lineau_Lecture/ex3_5.R",
+    "On Statistical Modeling/00_Foundations/Quantile.md",
+    "On Statistical Modeling/00_Foundations/Random Vector.md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Models Without Intercept (Remark 3.13).md",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Assumption of Deterministic Predictors.md",
+    "On Statistical Modeling/__Content_Part1/Lecture_Notes_14_05.pdf",
+    "On Statistical Modeling/__Exercises/Mock Exam/Mock_Exam -  2024.pdf",
+    "On Statistical Modeling/_Software_&_Tools/Reading R Regression Output.md",
+    "On Statistical Modeling/__Exercises/LMR_Schulte/1. Exercise - Questions + Solution.pdf",
+    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/P-Value.md",
+    "On Statistical Modeling/02_Statistical_Inference/Estimation/Confidence Region.md",
+    "On Statistical Modeling/02_Statistical_Inference/Estimation/Estimator.md",
+    "On Statistical Modeling/MarkdownContextExport.txt",
+    "On Statistical Modeling/test.ps1",
+    "On Statistical Modeling/test.txt",
+    "On Statistical Modeling/New Text Document.txt",
     "On Statistical Modeling/__Exercises/SM_Lineau/Exercise2 - Linear Models and Regression.pdf",
-    "On Statistical Modeling/__Exercises/Mock Exam/Mock Exam - 2024 - Solutions.pdf",
-    "On Statistical Modeling/__Exercises/Mock Exam/Solutions_Mock_exam_first_half.pdf",
-    "On Statistical Modeling/__Exercises/Mock Exam/Solutions (1).pdf",
     "On Statistical Modeling/___Misc/Images/6sl4fgnygj381_locationscale.gif",
-    "On Statistical Modeling/02_Statistical_Inference/Estimation/Consistent Estimator.md",
-    "On Statistical Modeling/02_Statistical_Inference/Estimation/Confidence Interval.md",
     "On Statistical Modeling/___Misc/Images/qwd.gif",
     "On Statistical Modeling/___Misc/Images/VbqBTo_t-tendingtonormal.gif",
     "On Statistical Modeling/___Misc/Images/normal_distributions_mean_shift.png",
     "On Statistical Modeling/___Misc/Images/Scale_parameter_normal_distribution.gif",
     "On Statistical Modeling/___Misc/Images/NormalDist_mtpricduralb1.gif",
     "On Statistical Modeling/___Misc/Images/Multivariate-Normal-Dist.gif",
-    "On Statistical Modeling/01_Distributions/Continuous_Families/Heavy-Tailed Distributions.md",
     "On Statistical Modeling/___Misc/Images/Mean_estimator_consistency.gif",
     "On Statistical Modeling/___Misc/Images/FDist_Lesson32_Drawing04a.gif",
-    "On Statistical Modeling/___Misc/Images/chidensity_lesson53.webp",
-    "On Statistical Modeling/00_Foundations/Probability_Spaces/Probability Distribution.md",
-    "On Statistical Modeling/00_Foundations/Uncorrelated Random Vectors.md",
-    "On Statistical Modeling/02_Statistical_Inference/Hypothesis_Testing/Statistical Power.md",
-    "On Statistical Modeling/00_Foundations/Quantile.qmd.md",
-    "On Statistical Modeling/00_Foundations/Independent and Identically Distributed (i.i.d.).md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Matrix Formulation of OLS.md"
+    "On Statistical Modeling/___Misc/Images/chidensity_lesson53.webp"
   ]
 }

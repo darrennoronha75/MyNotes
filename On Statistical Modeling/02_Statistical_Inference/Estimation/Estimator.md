@@ -18,6 +18,13 @@ Because estimators are imperfect, statisticians evaluate their quality based on 
 2. **[[Consistent Estimator]]:** Does the estimator perfectly lock onto the true target if we collect an infinite amount of data?
 3. **Efficiency:** Does the estimator have the smallest possible variance compared to other estimators?
 
+## Formal Measure-Theoretic Setup
+In parametric statistics, our goal is to learn unknown parameters from observed data. 
+Let the sample space $\mathcal{X}$ be the set of all possible observations (often $\mathbb{R}^n$). For technical reasons, we equip $\mathcal{X}$ with a $\sigma$-algebra $\mathcal{F}_{\mathcal{X}}$. 
+Let $(P_\vartheta)_{\vartheta \in \Theta}$ be a family of probability distributions on $\mathcal{X}$, representing all possible underlying distributions of our data. 
+
+We observe a random element $X$ on $\mathcal{X}$ distributed according to $P_\vartheta$ for some unknown true parameter $\vartheta \in \Theta$.
+
 ---
 **Connections:**
 * The sample mean $\bar{X}$ is the classic estimator for the population mean $\mu$.

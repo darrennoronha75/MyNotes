@@ -1,0 +1,3367 @@
+﻿=========================================
+1. FOLDER AND FILE STRUCTURE
+=========================================
+
+Folder PATH listing for volume Windows-SSD
+Volume serial number is 8AFE-342B
+C:\USERS\DARRE\ONEDRIVE - HEXCODER\DARREN\PERSONAL\BACKUPS\DESKTOP\LEARNING\TUHH\MYNOTES\ON STATISTICAL MODELING
+|   MarkdownContextExport.txt
+|   test.ps1
+|   test.txt
+|   
++---00_Foundations
+|   |   Covariance Matrix.md
+|   |   Data Generating Process.md
+|   |   Independent and Identically Distributed (i.i.d.).md
+|   |   Law of Total Variance.md
+|   |   Quantile.md
+|   |   Random Variable.md
+|   |   Random Vector.md
+|   |   Statistic.md
+|   |   Test.qmd.txt
+|   |   Test1.qmd
+|   |   Uncorrelated Random Vectors.md
+|   |   
+|   +---Combinatorics
+|   \---Probability_Spaces
+|           Distribution Function Mechanics.md
+|           Probability Distribution.md
+|           
++---01_Distributions
+|   |   Sampling Distributions.md
+|   |   
+|   +---Continuous_Families
+|   |       Chi-Squared Distribution.md
+|   |       F-Distribution.md
+|   |       Heavy-Tailed Distributions.md
+|   |       Multivariate Normal Distribution.md
+|   |       Normal Distribution.md
+|   |       Student's t-Distribution.md
+|   |       
+|   \---Discrete_Families
+|           Bernoulli Distribution.md
+|           Binomial Distribution.md
+|           Poisson Distribution.md
+|           
++---02_Statistical_Inference
+|   +---Estimation
+|   |       Confidence Interval.md
+|   |       Confidence Region.md
+|   |       Consistent Estimator.md
+|   |       Estimator.md
+|   |       Maximum Likelihood Estimation.md
+|   |       Ordinary Least Squares (OLS).md
+|   |       Unbiased Estimator.md
+|   |       
+|   \---Hypothesis_Testing
+|           Alternative Hypothesis.md
+|           Level Alpha Test.md
+|           Null Hypothesis Significance Testing (NHST).md
+|           P-Value.md
+|           Statistical Power.md
+|           Statistical Test (Formal Definition).md
+|           Type I Error.md
+|           Type II Error.md
+|           
++---03_Statistical_Tests
+|   |   Statistical Test Selection.md
+|   |   
+|   +---Categorical_Tests
+|   |       Pearson Chi-Squared Test.md
+|   |       
+|   +---Nonparametric_Tests
+|   \---Parametric_Tests
+|           Analysis of Variance (ANOVA).md
+|           One-Sample t-Test.md
+|           Two-Sample t-Test.md
+|           
++---04_Statistical_Models
+|   +---Linear_Regression
+|   |       ANOVA-Regression Equivalence.md
+|   |       Assumption of Deterministic Predictors.md
+|   |       Coefficient of Determination (R-squared).md
+|   |       Corollary 3.11 - t-Test for Linear Combinations.md
+|   |       Design Matrix.md
+|   |       Fitted Values and Residuals.md
+|   |       Gaussian Linear Model.md
+|   |       Global F-Test (Corollary 3.15).md
+|   |       Hat Matrix.md
+|   |       Linear Model.md
+|   |       Matrix Formulation of OLS.md
+|   |       Models Without Intercept (Remark 3.13).md
+|   |       Orthogonal Projection Matrix.md
+|   |       Partial F-Test (Corollary 3.14).md
+|   |       Sample Mean as an OLS Estimator.md
+|   |       
+|   +---Logistic_Regression
+|   |       Binary Regression Framework.md
+|   |       Logistic MLE.md
+|   |       Logistic Regression Model.md
+|   |       Logit Link Function.md
+|   |       
+|   \---Non-Linear_Regression
+|           Non-Linear Least Squares.md
+|           Non-Linear MLE.md
+|           Non-Linear Regression Model.md
+|           
++---05_Theorems_and_Lemmas
+|   +---Inequalities
+|   +---Limit_Theorems
+|   |       Central Limit Theorem.md
+|   |       Continuous Mapping Theorem.md
+|   |       Law of Large Numbers (LLN).md
+|   |       Multivariate Central Limit Theorem.md
+|   |       Slutsky's Theorem.md
+|   |       
+|   +---Linear_Algebra_Properties
+|   |       Lemma 3.6 - Projection and Annihilator Matrices.md
+|   |       Trace of a Matrix.md
+|   |       
+|   +---Model Properties
+|   |       Gauss-Markov Theorem.md
+|   |       Gaussian MLE Theorem.md
+|   |       Independence of Sample Mean and Variance.md
+|   |       Independence of Uncorrelated Normal Variables.md
+|   |       Theorem 3.10 - Distributions in the Gaussian Linear Model.md
+|   |       Theorem 3.12 - Nested Subspace Projections.md
+|   |       Theorem 3.7 - Unbiasedness and Covariance of OLS.md
+|   |       
+|   \---Stochastic_Convergence
+|           Almost Sure Convergence.md
+|           Convergence in Distribution.md
+|           Convergence in Probability.md
+|           
++---_Software_&_Tools
+|       R DPQR Functions.md
+|       Reading R Regression Output.md
+|       
++---__Content_Part1
+|       Lecture_Notes_01_04.pdf
+|       Lecture_Notes_07_01.pdf
+|       Lecture_Notes_14_05.pdf
+|       Lecture_Notes_Statistics.pdf
+|       Lecture_Notes_Stochastics.pdf
+|       
++---__Content_Part2
+|       Lecture01.pdf
+|       Lecture02.pdf
+|       Lecture03.pdf
+|       Lecture04.pdf
+|       Lecture05.pdf
+|       Lecture06.pdf
+|       Lecture07.pdf
+|       Lecture08.pdf
+|       Lecture09.pdf
+|       
++---__Exercises
+|   +---LMR_Schulte
+|   |       1. Exercise - Questions + Solution.pdf
+|   |       2. Exercise - Questions + Solution.pdf
+|   |       3. Exercise - Questions + Solution.pdf
+|   |       4. Exercise - Questions + Solution.pdf
+|   |       5. Exercise - Questions + Solution.pdf
+|   |       
+|   +---Mock Exam
+|   |       Mock Exam - 2024 - Solutions.pdf
+|   |       Mock_Exam -  2024.pdf
+|   |       
+|   +---SM_Ay
+|   |       Exercises01_Ay.pdf
+|   |       Exercises02_Ay.pdf
+|   |       Exercises03_Ay.pdf
+|   |       Exercises04_Ay.pdf
+|   |       
+|   +---SM_Lineau
+|   |       Exercise1 - Linear Models and Regression.pdf
+|   |       Exercise2 - Linear Models and Regression.pdf
+|   |       Exercise3 - Linear Models and Regression.pdf
+|   |       
+|   \---_Solutions
+|       +---SM_Lineau_Exercise
+|       |   +---Exercise 1
+|       |   +---Exercise 2
+|       |   \---Exercise 3
+|       \---SM_Lineau_Lecture
+|           |   ex3_5.R
+|           |   Ex_316.R
+|           |   
+|           +---Exercise 1
+|           |       Exercise1_Problem1.R
+|           |       Exercise1_Problem2.R
+|           |       Residuals_Gaussian.csv
+|           |       Solution_Analysis_of_Residuals.R
+|           |       
+|           +---Exercise 2
+|           \---Exercise 3
+\---___Misc
+    +---Images
+    |       6sl4fgnygj381_locationscale.gif
+    |       AlternativeHypothesis_Concept2.jpg
+    |       Alternative_Hypothesis_Concept1.jpeg
+    |       chidensity_lesson53.webp
+    |       FDist_Lesson32_Drawing04a.gif
+    |       IncreasingPower_ginsyblog.gif
+    |       LinearRegression_Yahya.gif
+    |       Mean_estimator_consistency.gif
+    |       Multivariate-Normal-Dist.gif
+    |       NormalDist_mtpricduralb1.gif
+    |       normal_distributions_mean_shift.png
+    |       PopulationSampling_Harsh.gif
+    |       Power_Concept1.jpg
+    |       Power_Concept2.png
+    |       qwd.gif
+    |       Scale_parameter_normal_distribution.gif
+    |       VbqBTo_t-tendingtonormal.gif
+    |       
+    +---References
+    |       Nice Stuff to Review.md
+    |       
+    \---TempNotes
+            ComprehensionPart1.md
+            NotationExplainer.md
+            
+
+
+=========================================
+2. MARKDOWN FILE CONTENTS
+=========================================
+
+--- START OF FILE: 00_Foundations\Covariance Matrix.md ---
+---
+tags: [statistics, foundations, linear-algebra, covariance]
+aliases: [Variance-Covariance Matrix, Dispersion Matrix]
+created: 2026-03-05
+---
+# Covariance Matrix
+
+## Definition
+The Covariance Matrix is the multi-dimensional equivalent of variance. For a [[Random Vector]] $X = (X_1, \dots, X_n)^T$ whose components have finite second moments, the covariance matrix, denoted $\Sigma$ or $Cov(X)$, is an $n \times n$ matrix defined as the expected value of the outer product of the mean-centered vector:
+
+$$Cov(X) = E\left[(X - E[X])(X - E[X])^T\right]$$
+
+Element-wise, the entry in the $i$-th row and $j$-th column represents the scalar covariance between the $i$-th and $j$-th components of the vector:
+$$Cov(X)_{i,j} = Cov(X_i, X_j) = E[(X_i - E[X_i])(X_j - E[X_j])]$$
+
+Below is a visualization in Matrix Format - 
+
+$$\Sigma = \begin{bmatrix} \text{Var}(X_1) & \text{Cov}(X_1, X_2) & \cdots & \text{Cov}(X_1, X_n) \\ \text{Cov}(X_2, X_1) & \text{Var}(X_2) & \cdots & \text{Cov}(X_2, X_n) \\ \vdots & \vdots & \ddots & \vdots \\ \text{Cov}(X_n, X_1) & \text{Cov}(X_n, X_2) & \cdots & \text{Var}(X_n) \end{bmatrix}$$
+
+## Intuition
+If a random vector describes a point cloud in multi-dimensional space, the expectation vector $E[X]$ tells you where the *center* of the cloud is, while the covariance matrix tells you the *shape* and *orientation* of the cloud. 
+* The **main diagonal** contains the individual variances of each variable ($Var(X_i)$), dictating how far the cloud stretches along each axis.
+* The **off-diagonals** contain the covariances, dictating how the variables tilt or correlate with one another. If an off-diagonal is $0$, those two specific axes are orthogonal (uncorrelated).
+
+## Properties / Assumptions
+1. **Symmetry:** Because $Cov(X_i, X_j) = Cov(X_j, X_i)$, the matrix is perfectly symmetric across its main diagonal: $Cov(X) = Cov(X)^T$.
+2. **Positive Semi-Definiteness:** For any constant vector $a \in \mathbb{R}^n$, the variance of the linear combination $a^T X$ must be non-negative. Therefore:
+   $$Var(a^T X) = a^T Cov(X) a \ge 0$$
+3. **Affine Transformations:** If $Y = AX + b$ (where $A$ is a constant matrix and $b$ is a constant vector), the covariance matrix shifts strictly multiplicatively (the constant $b$ does not affect spread):
+
+
+
+---
+**Connections:**
+* If all off-diagonal elements are exactly zero, the components are [[Uncorrelated Random Vectors]].
+* It is the primary scale and orientation parameter for the [[Multivariate Normal Distribution]].
+* In a [[Gaussian Linear Model]], the covariance matrix of the error vector $\epsilon$ is assumed to be $\sigma^2 I_n$ (a scaled identity matrix), meaning errors are homoscedastic and uncorrelated.
+
+--- END OF FILE: 00_Foundations\Covariance Matrix.md ---
+
+
+--- START OF FILE: 00_Foundations\Data Generating Process.md ---
+---
+tags: [statistics, foundations, theory]
+aliases: [DGP, Underlying Distribution]
+created: 2026-03-04
+---
+# Data Generating Process
+
+## Definition
+The Data Generating Process (DGP) is the true, underlying, and unobservable probabilistic engine that produces the empirical data we collect in reality. Mathematically, it is the true [[Probability Distribution]] governing a population.
+
+![[PopulationSampling_Harsh.gif|661]]
+## Intuition
+Statisticians are trapped behind an "observational wall." We *always* only see the empirical data generated by the distribution (the outputs), but we never see the true mathematical distribution itself. Knowing the exact DGP would allow us to derive every possible information point with perfect certainty. Because it is hidden, our goal is to **estimate** it.
+## Estimation Strategies
+* **Parametric Estimation:** Imposing a pre-defined mathematical structure (a Parametric Family) onto the data to drastically simplify the problem. Instead of guessing the entire shape of reality, we assume the shape and only estimate a few constants (parameters, $\theta$). If the assumption is wrong, the model is invalid.
+* **Non-parametric Estimation:** Making no structural assumptions about the DGP. We estimate the shape visually or empirically (e.g., using Empirical Distribution Functions or histograms) based entirely on the relative frequency of the observed data.
+
+
+---
+**Connections:**
+* The leap from raw data to structural assumptions leads directly to the use of continuous families like the [[Normal Distribution]].
+* The methods used to approximate the DGP parameters are covered in [[Maximum Likelihood Estimation (MLE)]] and [[Ordinary Least Squares (OLS)]].
+
+--- END OF FILE: 00_Foundations\Data Generating Process.md ---
+
+
+--- START OF FILE: 00_Foundations\Independent and Identically Distributed (i.i.d.).md ---
+---
+tags: [statistics, foundations, probability]
+aliases: [i.i.d., Independent Random Variables, Independence]
+created: 2026-03-04
+---
+# Independent and Identically Distributed (i.i.d.)
+
+## Definition
+A collection of [[Random Variable|random variables]] $(X_i)_{i \in I}$ is **independent** if the joint probability of their outcomes is strictly equal to the product of their individual marginal probabilities.
+
+For a finite set of random variables $X_1, \dots, X_n$ and any subsets $A_1, \dots, A_n$ in the Borel $\sigma$-algebra $\mathcal{B}(\mathbb{R})$:
+$$P(X_1 \in A_1, \dots, X_n \in A_n) = \prod_{i=1}^n P(X_i \in A_i)$$
+
+## Identically Distributed
+We denote a collection of random variables as **i.i.d.** (independent and identically distributed) if they are independent AND every $X_i$ follows the exact same [[Probability Distribution]].
+
+## Properties / Assumptions
+* This is the foundational assumption for almost all random sampling in classical statistics. It guarantees that each observation provides a completely new, uncorrelated piece of information from the exact same [[Data Generating Process]].
+
+---
+**Connections:**
+* The i.i.d. assumption is a strict prerequisite for both the [[Law of Large Numbers (LLN)]] and the [[Central Limit Theorem]].
+
+--- END OF FILE: 00_Foundations\Independent and Identically Distributed (i.i.d.).md ---
+
+
+--- START OF FILE: 00_Foundations\Law of Total Variance.md ---
+---
+tags: [statistics, theorems, variance]
+aliases: [Variance Decomposition, Law of Total Variance]
+created: 2026-03-04
+---
+---
+## Definition
+The Law of Total Variance (also known as Eve's Law) is a foundational theorem that partitions the total variance of a random variable $Y$ into two distinct, mathematically interpretable components conditioned on another variable $X$.
+
+$$Var(Y) = E[Var(Y|X)] + Var(E[Y|X])$$
+
+## Intuition (The ANOVA Perspective)
+When $X$ represents a categorical grouping variable (e.g., different experimental treatments), this theorem explains the mechanical foundation of [[Analysis of Variance (ANOVA)]]:
+
+1. **$E[Var(Y|X)]$ (Within-Group / Unexplained Variance):** The average of the individual group variances. It represents the "noise" or "error" inherent in the system.
+2. **$Var(E[Y|X])$ (Between-Group / Explained Variance):** The variance of the group averages. It measures how much the means of the groups differ from the overall grand mean.
+
+
+
+---
+
+## Illustrative Example: The Lightbulb Experiment
+Suppose we want to test if three different filament types ($X_1, X_2, X_3$) result in different average lifespans for lightbulbs ($Y$). This is a slightly contrived example.
+
+### 1. The Scenario
+* **Group 1 ($X_1$):** Mean lifespan 1000h, Variance 50.
+* **Group 2 ($X_2$):** Mean lifespan 1200h, Variance 50.
+* **Group 3 ($X_3$):** Mean lifespan 1400h, Variance 50.
+
+### 2. Calculating the Components
+* **Unexplained Variance ($E[Var(Y|X)]$):** Since the variance within each group is 50, the "average" variance is simply **50**. This is the background noise we cannot explain with filament types.
+* **Explained Variance ($Var(E[Y|X])$):** We look at the variance of the means $\{1000, 1200, 1400\}$. The variance of these three numbers is **40,000**. This is the signal created by the different filaments.
+
+### 3. Total Variance
+$$Var(Y) = 50 + 40,000 = 40,050$$
+In this case, the vast majority of the variance in lightbulb life is "explained" by the filament type.
+
+### 4. Constructing the F-Statistic
+The [[F-Distribution|F-Statistic]] is essentially a ratio of these two components, adjusted for [[Ordinary Least Squares (OLS)|degrees of freedom]]:
+
+$$F = \frac{\text{Explained Variance (Signal)}}{\text{Unexplained Variance (Noise)}} = \frac{40,000}{50} = 800$$
+
+* **If $F$ is large (like 800):** The "Between-Group" signal dwarfs the "Within-Group" noise. We conclude the filaments are different.
+* **If $F \approx 1$:** The difference between group means is no larger than the random noise within the groups. We fail to reject the Null Hypothesis.
+
+---
+
+## The Null Hypothesis Link
+Under $H_0$, we assume all group means are identical ($\mu_1 = \mu_2 = \mu_3$). If this is true, the variance of the means ($Var(E[Y|X])$) must be **zero**. Any observed "Between-Group" variance in a sample would be due purely to random sampling error, making the ratio $F \approx 1$.
+
+---
+**Connections:**
+* This theorem is the mathematical justification for the **Sum of Squares** identity in linear models.
+* It is a specific application of the **Law of Iterated Expectations**.
+
+--- END OF FILE: 00_Foundations\Law of Total Variance.md ---
+
+
+--- START OF FILE: 00_Foundations\Quantile.md ---
+---
+tags: [statistics, foundations, probability]
+aliases: [p-quantile, Percentile, Critical Value]
+created: 2026-03-04
+---
+## Formal Definition
+For a random variable $X$ and a given probability $p \in (0, 1)$, a value $q \in \mathbb{R}$ is defined as the **$p$-quantile** of the distribution of $X$ if it simultaneously satisfies both:
+$$P(X \le q) \ge p \quad \text{and} \quad P(X \ge q) \ge 1 - p$$
+
+## Continuous Distributions
+In the specific case where $X$ has a continuous distribution function $F$, the inequalities collapse into a strict equality. The value $q$ is a $p$-quantile if and only if:
+$$F(q) = p$$
+
+
+## Standard Notations in Parametric Families
+In statistical modeling, quantiles for standard distributions are denoted with specific subscripts indicating their required degrees of freedom (if any) and the target probability $p$:
+
+| Distribution Family | Degrees of Freedom | Quantile Notation |
+| :--- | :---: | :--- |
+| **Standard Normal** | None | $z_p$ |
+| **Student's t** | $n$ | $t_{n,p}$ |
+| **Chi-Squared** | $n$ | $\chi^2_{n,p}$ |
+| **F-Distribution** | $n_1, n_2$ | $\mathcal{F}_{n_1,n_2,p}$ |
+
+## Symmetry Properties
+For symmetric distributions centered at zero, specifically the Standard Normal ($X \sim \text{Normal}(0, 1)$) and the Student's t-distribution ($Y \sim t_n$), their shapes obey strict mirror symmetry:
+$$P(X \le -u) = P(X \ge u)$$
+
+For their specific quantiles, this symmetry allows us to calculate lower-tail probabilities using upper-tail quantiles:
+$$P(X \le -z_p) = P(X \ge z_p) = 1 - P(X \le z_p) = 1 - p$$ $$P(Y \le -t_{n,p}) = P(Y \ge t_{n,p}) = 1 - P(Y \le t_{n,p}) = 1 - p$$
+
+---
+**Connections:**
+* These exact symmetries are what allow us to algebraically compress the bounds in [[Confidence Region]] proofs.
+
+--- END OF FILE: 00_Foundations\Quantile.md ---
+
+
+--- START OF FILE: 00_Foundations\Random Variable.md ---
+---
+tags: [foundations, probability, random-variables]
+aliases: [Random Variable, RV]
+created: 2026-03-04
+---
+## Definition
+A **Random Variable** is the foundational mathematical model used to impose numerical structure on pure randomness. Despite its name, a random variable is not a fixed number; it is a **measurable mathematical function**. 
+
+It maps outcomes from an unpredictable event—the sample space ($\Omega$)—to a measurable real number ($\mathbb{R}$).
+$$X: \Omega \rightarrow \mathbb{R}$$
+
+## Notation Convention
+To strictly separate the "unpredictable mathematical engine" from the "resulting observed data," we use strict typographical rules:
+* **Capital Letters ($X, Y, Z$):** Represent the Random Variable itself (the abstract function or the unpredictable process prior to observation).
+* **Lowercase Letters ($x, y, z$):** Represent the **observed variable** or *realization* (the specific, fixed data point measured after the event occurred).
+
+## Types of Random Variables
+1. **Discrete:** The variable maps to specific, countable values (e.g., $\{0, 1\}$ for a coin flip, $\mathbb{N}_0$ for count data).
+2. **Continuous:** The variable maps to any value within a continuous interval (e.g., $X \in \mathbb{R}$ for measurements like height or exact temperature).
+
+You can use R to simulate the exact mapping process of $X: \Omega \rightarrow \mathbb{R}$.
+
+```r
+# 1. Define the Sample Space (Omega)
+omega <- c("Heads", "Tails") 
+
+# 2. Simulate the unpredictable events (Ω)
+set.seed(45) # Keeps results consistent
+events <- sample(omega, 5, replace = TRUE) 
+
+# 3. Apply the Random Variable mapping (X)
+# X: Ω → {0, 1}
+x_realizations <- ifelse(events == "Heads", 1, 0) 
+
+# 4. View the Resulting Data (x)
+output <- data.frame(Outcome_Omega = events, Realization_x = x_realizations)
+print(output)
+
+```
+
+## Connections
+
+- The likelihood of $X$ taking on specific values $x$ is defined by a Probability Density Function (PDF) or Probability Mass Function (PMF).
+- When we gather many observations $x_1 \dots x_n$, we can calculate a [[Statistic]].
+
+--- END OF FILE: 00_Foundations\Random Variable.md ---
+
+
+--- START OF FILE: 00_Foundations\Random Vector.md ---
+---
+tags: [statistics, foundations, random-variables]
+aliases: [Multivariate Random Variable, Stochastic Vector]
+created: 2026-03-04
+---
+# Random Vector
+
+## Definition
+A **Random Vector** is a column vector $X = (X_1, \dots, X_n)^T$ where each component $X_i$ is a [[Random Variable]] defined on the same probability space $(\Omega, \mathcal{F}, P)$. 
+
+Formally, a random vector is a measurable map:
+$$X: \Omega \to \mathbb{R}^n$$
+
+
+
+## Moments of Random Vectors
+Unlike scalar random variables, the "center" and "spread" of a random vector are represented by a vector and a matrix, respectively.
+
+### 1. Expectation (Mean Vector)
+The expectation of a random vector is simply the vector of the expectations of its components:
+$$E[X] = (E[X_1], \dots, E[X_n])^T$$
+
+### 2. Covariance Matrix
+The spread and internal linear dependencies of a random vector are captured by the **Covariance Matrix** $\Sigma$ (or $Cov(X)$). This is an $n \times n$ symmetric matrix where the entry in the $i$-th row and $j$-th column is the covariance between $X_i$ and $X_j$:
+$$\Sigma = Cov(X) = E[(X - E[X])(X - E[X])^T]$$
+$$\Sigma_{ij} = Cov(X_i, X_j)$$
+
+
+
+## Properties
+* **Symmetry:** $Cov(X_i, X_j) = Cov(X_j, X_i)$, therefore $\Sigma = \Sigma^T$.
+* **Positive Semi-Definiteness:** For any constant vector $a \in \mathbb{R}^n$, the variance of the linear combination $a^T X$ must be non-negative: $Var(a^T X) = a^T \Sigma a \ge 0$.
+* **Linear Transformations:** If $Y = AX + b$ (where $A$ is a constant matrix and $b$ is a constant vector), then:
+	* $E[Y] = AE[X] + b$
+	* $Cov(Y) = A Cov(X) A^T$
+
+## Absolutely Continuous Random Vectors
+A random vector is called **absolutely continuous** if there exists a non-negative, integrable function $f: \mathbb{R}^n \to [0, \infty)$, called the **joint density function**, such that for any Borel set $A \in \mathcal{B}(\mathbb{R}^n)$:
+$$P(X \in A) = \int_A f(x) \, dx$$
+
+Whenever you see $A \in \mathcal{B}(\mathbb{R})$, it just means "A is a normal, measurable set of numbers."
+
+---
+**Connections:**
+* When the components $X_i$ are independent and follow a normal distribution, the vector follows a [[Multivariate Normal Distribution]].
+* The property $Cov(X, Y) = 0$ is the definition for [[Uncorrelated Random Vectors]].
+* The sample-based version of the expectation vector is the basis for the **Design Matrix** in [[Linear Model]].
+
+--- END OF FILE: 00_Foundations\Random Vector.md ---
+
+
+--- START OF FILE: 00_Foundations\Statistic.md ---
+---
+tags: [statistics, foundations, estimators]
+aliases: [Statistics, Sample Statistic]
+created: 2026-03-04
+---
+## Definition
+A statistic is strictly defined as a mathematical function evaluated over a set of sample data. It takes a dataset of $n$ observations and compresses it into a single numerical value, independent of any unknown true population parameters.
+
+$$T = g(X_1, X_2, \dots, X_n)$$
+
+## Intuition
+When we collect a massive amount of data, we cannot interpret it in its raw form. A statistic $T$ serves to summarize a specific property of that data. Common examples include the sample mean ($\bar{X}$), the sample variance ($S^2$), or the maximum observed value ($X_{(n)}$).
+
+## Properties / The Critical Implication
+Data is simply a collection of $n$ observed random variables, denoted as the set $\{X_1, X_2, \dots, X_n\}$. 
+
+Because a statistic $T$ is computed by applying a function to random variables, **a function of random variables is itself a random variable.** If an experiment is repeated and a different dataset is collected, the function will output a different statistic. Therefore, every statistic is random and possesses its own inherent uncertainty.
+
+---
+**Connections:**
+* Because statistics are random variables, their behavior is perfectly described by sampling distributions.
+* The asymptotic behavior of specific statistics as $n \rightarrow \infty$ is governed by theorems like the [[Central Limit Theorem]] and the [[Law of Large Numbers (LLN)]].
+
+--- END OF FILE: 00_Foundations\Statistic.md ---
+
+
+--- START OF FILE: 00_Foundations\Uncorrelated Random Vectors.md ---
+---
+tags: [statistics, foundations, covariance]
+aliases: [Uncorrelated, Uncorrelatedness]
+created: 2026-03-04
+---
+# Uncorrelated Random Vectors
+
+## Definition
+Two random vectors $X = (X_1, \dots, X_m)^T$ and $Y = (Y_1, \dots, Y_n)^T$ with finite second moments ($E[\|X\|^2] < \infty$ and $E[\|Y\|^2] < \infty$) are called **uncorrelated** if the covariance between every possible pair of their components is strictly zero.
+
+Mathematically, this means their cross-covariance matrix is a zero matrix:
+$$Cov(X, Y) := (Cov(X_i, Y_j))_{i \in \{1,\dots,m\}, j \in \{1,\dots,n\}} = \mathbf{0}$$
+When we combine $X$ and $Y$ into a single system, this results in a **Joint Covariance Matrix** with a distinct block diagonal structure:
+
+$$\text{Cov}\begin{pmatrix} X \\ Y \end{pmatrix} = \left[ \begin{array}{c|c} \mathbf{\Sigma_{XX}} & \mathbf{0}_{m \times n} \\ \hline \mathbf{0}_{n \times m} & \mathbf{\Sigma_{YY}} \end{array} \right]$$
+
+Here is the expanded structure, highlighting exactly where the zero matrices live: - 
+
+$$\text{Cov}\begin{pmatrix} X \\ Y \end{pmatrix} = \underbrace{\begin{bmatrix} \begin{array}{ccc|ccc} \sigma^2_{x_1} & \cdots & \sigma_{x_1x_m} & \color{red}{0} & \cdots & \color{red}{0} \\ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\ \sigma_{x_mx_1} & \cdots & \sigma^2_{x_m} & \color{red}{0} & \cdots & \color{red}{0} \\ \hline \color{red}{0} & \cdots & \color{red}{0} & \sigma^2_{y_1} & \cdots & \sigma_{y_1y_n} \\ \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\ \color{red}{0} & \cdots & \color{red}{0} & \sigma_{y_ny_1} & \cdots & \sigma^2_{y_n} \end{array} \end{bmatrix}}_{\text{Block Diagonal Matrix}}$$
+
+- The **Red Sections** are the Cross-Covariance matrices. They are **Zero Matrices**.    
+- The **White Sections** are the Auto-Covariance matrices. They contain the data's variance.    
+- The **Entire Matrix** is a **Block Diagonal Matrix**.
+## Properties / Assumptions
+* **Relationship to Independence:** Independence is a strictly stronger property than uncorrelatedness. If two random vectors are independent, they are necessarily uncorrelated.
+* **The Caveat:** The reverse is *not* generally true. Uncorrelated random vectors can still be highly dependent (e.g., through non-linear relationships like $Y = X^2$). 
+* **The Exception:** The only scenario where uncorrelatedness strictly implies independence is within the [[Multivariate Normal Distribution]]. See [[Independence of Uncorrelated Normal Variables]].
+
+---
+**Connections:**
+* Covariance is a foundational operator required to define the [[Multivariate Central Limit Theorem]].
+
+--- END OF FILE: 00_Foundations\Uncorrelated Random Vectors.md ---
+
+
+--- START OF FILE: 00_Foundations\Probability_Spaces\Distribution Function Mechanics.md ---
+---
+tags: [statistics, foundations, probability, algebra]
+aliases: [CDF Mechanics, Phi Function Simplification]
+created: 2026-03-10
+---
+# Distribution Function Mechanics
+
+## Motivation
+When proving that a Confidence Region possesses an exact level $\alpha$, we must evaluate the probability of a standardized statistic falling between two symmetric boundaries. This requires algebraically manipulating the Cumulative Distribution Function (CDF). For the Standard Normal distribution, the CDF is denoted by $\Phi$.
+
+## The Step-by-Step Simplification
+Consider evaluating the probability that a standard normal random variable $N$ falls between a lower bound $-z_{1-\alpha/2}$ and an upper bound $z_{1-\alpha/2}$. 
+
+**Step 1: Applying the CDF**
+The probability of falling within any interval $(a, b)$ is the CDF evaluated at the top boundary minus the CDF evaluated at the bottom boundary:
+$$P(N \in (-z_{1-\alpha/2}, z_{1-\alpha/2})) = \Phi(z_{1-\alpha/2}) - \Phi(-z_{1-\alpha/2})$$
+
+**Step 2: Exploiting Symmetry**
+Because the Standard Normal distribution is perfectly symmetric around zero, the area to the left of a negative number is identical to the area to the right of its positive counterpart. Therefore, $\Phi(-z) = 1 - \Phi(z)$. We substitute this into our equation:
+$$= \Phi(z_{1-\alpha/2}) - (1 - \Phi(z_{1-\alpha/2}))$$
+**Step 3: Algebraic Compression**
+Distribute the negative sign and combine the like terms:
+$$= 2\Phi(z_{1-\alpha/2}) - 1$$ 
+
+**Step 4: The Definition of the Quantile**
+By the strict mathematical definition of a continuous [[Quantile]], $F(q) = p$. Therefore, evaluating the CDF ($\Phi$) at exactly the $p$-quantile ($z_p$) simply returns the probability $p$. 
+Thus, $\Phi(z_{1-\alpha/2})$ is, by absolute definition, equal to $1 - \frac{\alpha}{2}$. We substitute this into the equation:
+$$= 2 \left( 1 - \frac{\alpha}{2} \right) - 1$$ 
+
+**Step 5: Final Evaluation**
+Multiply out the 2:
+$$= 2 - \alpha - 1 = 1 - \alpha$$ 
+
+
+## Conclusion
+This mechanical simplification is the universal engine used to prove that a symmetric, two-sided interval successfully captures the true parameter in exactly $1-\alpha$ proportion of repeated samples.
+
+---
+**Connections:**
+* This exact proof sequence is utilized in deriving the exact bounds for the [[Confidence Region]] and verifying the Type I Error rate for the [[Level Alpha Test]].
+
+--- END OF FILE: 00_Foundations\Probability_Spaces\Distribution Function Mechanics.md ---
+
+
+--- START OF FILE: 00_Foundations\Probability_Spaces\Probability Distribution.md ---
+---
+tags: [statistics, foundations, probability]
+aliases: [PDF, PMF, CDF, Distributions]
+created: 2026-03-04
+---
+# Probability Distribution
+
+## Definition
+A probability distribution is a mathematical function that provides the probabilities of occurrence of different possible outcomes for an experiment. It describes the structural shape of a [[Random Variable]], representing the theoretical relative frequency of events.
+
+## Formats of Distributions
+
+### 1. Probability Mass Function (PMF)
+Used strictly for **discrete** random variables. It gives the exact probability that $X$ will be exactly equal to a specific value $x$.
+$$p_X(x) = P(X = x)$$
+*Constraint:* $\sum_{x} p_X(x) = 1$
+
+### 2. Probability Density Function (PDF)
+Used for **continuous** random variables. Because a continuous variable has infinite possible values, the exact probability of any single point is zero ($P(X=x)=0$). Instead, the PDF, denoted $f_X(x)$, gives the *density* of probability. The probability of an interval is the integral of the PDF curve.
+$$P(a \le X \le b) = \int_{a}^{b} f_X(x) dx$$
+*Constraint:* $\int_{-\infty}^{\infty} f_X(x) dx = 1$
+
+
+
+### 3. Cumulative Distribution Function (CDF)
+The CDF, denoted $F_X(x)$, conveys the exact same information as the PDF/PMF, but answers a cumulative question: *What is the probability that the random variable will be less than or equal to $x$?*
+$$F_X(x) = P(X \le x)$$
+For a continuous variable, the CDF is the integral of the PDF from $-\infty$ up to $x$. It is a monotonically non-decreasing function bounded between $0$ and $1$.
+
+---
+**Connections:**
+* Probability distributions act as the hidden mathematical rules of reality, known as the [[Data Generating Process]].
+* Distributions are categorized into mathematical groups called Parametric Families (e.g., [[Normal Distribution]]).
+
+--- END OF FILE: 00_Foundations\Probability_Spaces\Probability Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Sampling Distributions.md ---
+---
+tags: [statistics, sampling-distributions, estimators]
+aliases: [Sampling Distribution]
+created: 2026-03-04
+---
+# Sampling Distributions
+
+## Definition
+A Sampling Distribution is the [[Probability Distribution]] of a given [[Statistic]] (like the sample mean or sample variance) calculated from a random sample. Because a statistic is a random variable, it inherently has its own distribution of possible values across infinite repeated samplings.
+## Common Families
+When we calculate statistics from normally distributed data, the resulting sampling distributions follow specific mathematical shapes:
+* **[[Student's t-Distribution]]:** The sampling distribution used when estimating the mean with an unknown population variance.
+* **[[Chi-Squared Distribution]]:** The sampling distribution of estimated variances (sums of squared normal variables).
+* **[[F-Distribution]]:** The sampling distribution of the ratio of two variances.
+
+---
+**Connections:**
+* Sampling distributions act as the primary "Null Distributions" required to perform [[Null Hypothesis Significance Testing (NHST)]].
+
+
+--- END OF FILE: 01_Distributions\Sampling Distributions.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\Chi-Squared Distribution.md ---
+---
+tags: [statistics, distributions, sampling-distributions, variance]
+aliases: [Chi-Square, Chi-Squared]
+created: 2026-03-04
+---
+# Chi-Squared Distribution
+
+## Definition
+The Chi-Squared distribution ($\chi^2$) is a continuous probability distribution generated by the sum of squared independent standard normal random variables. 
+
+If $Z_1, Z_2, \dots, Z_k$ are independent Standard Normal variables ($Z \sim N(0,1)$), then their sum of squares follows a Chi-Squared distribution with $k$ degrees of freedom:
+$$Q = \sum_{i=1}^{k} Z_i^2 \sim \chi^2_k$$
+
+## Properties
+* **Domain:** Because it is formed entirely by squared numbers, the $\chi^2$ distribution is strictly bounded to the right of zero ($[0, \infty)$). It can never be negative.
+* **Shape:** For small degrees of freedom, the distribution is highly skewed to the right. As $k$ becomes very large, the distribution slowly approaches a symmetric normal shape.
+* **Expectation and Variance:** * $E[Q] = k$
+  * $Var(Q) = 2k$
+
+## Intuition
+The $\chi^2$ distribution is fundamentally the distribution of "distances" or "variances." Because the formula for sample variance ($S^2$) inherently relies on subtracting a mean and squaring the deviations, variance estimates scale directly into the Chi-Squared family. 
+
+![[chidensity_lesson53.webp]]
+
+---
+**Connections:**
+* This distribution is the required mathematical denominator used to construct the [[Student's t-Distribution]] and the [[F-Distribution]].
+* Used explicitly in the [[Pearson Chi-Squared Test]] for categorical independence.
+
+--- END OF FILE: 01_Distributions\Continuous_Families\Chi-Squared Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\F-Distribution.md ---
+---
+tags: [statistics, distributions, sampling-distributions, anova]
+aliases: [Fisher-Snedecor distribution, F-ratio]
+created: 2026-03-04
+---
+# F-Distribution
+
+## Definition
+The F-distribution is a continuous, strictly positive probability distribution used extensively for testing hypotheses about the equality of multiple variances. 
+
+Mathematically, it is defined as the ratio of two independent [[Chi-Squared Distribution|Chi-Squared variables]] ($U$ and $V$), where each has been divided by its respective degrees of freedom ($d_1$ and $d_2$):
+$$F = \frac{U / d_1}{V / d_2} \sim F(d_1, d_2)$$
+### Rigorous Formulation
+Let $Z_1 \sim \chi^2_{m_1}$ and $Z_2 \sim \chi^2_{m_2}$ be independent [[Chi-Squared Distribution|chi-square random variables]]. A random variable $X$ follows an F-distribution with $m_1$ and $m_2$ degrees of freedom if it has the exact same distribution as the ratio of these variables divided by their degrees of freedom:
+$$X = \frac{Z_1 / m_1}{Z_2 / m_2} \sim F_{m_1, m_2}$$
+
+## Properties
+* **Parameters:** It is defined by two shape parameters: the numerator degrees of freedom ($d_1$) and the denominator degrees of freedom ($d_2$).
+* **Domain & Shape:** Like the $\chi^2$ distribution, it is bounded at zero ($[0, \infty)$) and is strongly right-skewed. 
+
+## Intuition
+If you take two random samples from the exact same normally distributed population and calculate their sample variances, the ratio of those two variances will follow an F-distribution. If the populations are identical, the expected value of the F-ratio is approximately $1$. If the ratio is massively larger than $1$, it is mathematically indicative that the top variance is fundamentally different from the bottom variance.
+
+![[FDist_Lesson32_Drawing04a.gif]]
+
+---
+**Connections:**
+* The F-distribution is the core null distribution for the [[Analysis of Variance (ANOVA)]] framework.
+* In multiple linear regression, the overall significance of the [[Coefficient of Determination (R-squared)]] is evaluated using this distribution.
+
+--- END OF FILE: 01_Distributions\Continuous_Families\F-Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\Heavy-Tailed Distributions.md ---
+---
+tags: [statistics, distributions, parametric-families, continuous]
+aliases: [Cauchy Distribution, Laplace Distribution, Fat Tails]
+created: 2026-03-04
+---
+# Heavy-Tailed Distributions
+
+## Definition
+While the [[Normal Distribution]] assumes extreme outliers are exceptionally rare (due to exponential density drop-off), real-world data generating processes often allocate significant probability to extreme events. These are mathematically classified as **Heavy-Tailed Distributions**.
+
+## Key Examples
+* **The Cauchy Distribution:** A symmetric distribution that visually resembles a normal curve, but its tails are so thick that its theoretical mean and variance are strictly undefined (infinite). It catastrophically destroys standard limit laws.
+* **The Laplace Distribution:** Symmetrical, but features a much sharper peak and "fatter" exponential tails. 
+
+## Statistical Consequences
+When empirical data is generated by a heavy-tailed distribution, standard parametric models (like the [[Gaussian Linear Model]]) will fail because their [[Ordinary Least Squares (OLS)]] estimators are overly sensitive to the massive outliers these distributions routinely produce. 
+
+To illustrate, follow the below example - 
+## The Cauchy Paradox: Why the Mean Does Not Exist
+The standard Cauchy distribution is defined by the PDF: $f(x) = \frac{1}{\pi(1+x^2)}$.
+
+To find the mean ($E[X]$), we must evaluate:
+$$E[X] = \int_{-\infty}^{\infty} \frac{x}{\pi(1+x^2)} dx$$
+
+### Mathematical Proof of Failure
+1. The integral for the mean is only well-defined if it converges absolutely: $\int |x| f(x) dx < \infty$.
+2. As $x \to \infty$, the function $x f(x) \approx \frac{x}{x^2} = \frac{1}{x}$.
+3. The integral of $\frac{1}{x}$ is $\ln(x)$, which diverges to $\infty$.
+4. Because the positive half is $+\infty$ and the negative half is $-\infty$, the sum is **indeterminate**. 
+
+**Conclusion:** The Cauchy distribution has **no mean** and **infinite variance**.
+
+
+
+## Collapse of the Central Limit Theorem (CLT)
+The [[Central Limit Theorem]] relies on the assumption of a finite variance ($\sigma^2 < \infty$). 
+
+### The Characteristic Function Proof
+For a Cauchy variable, the characteristic function is $\phi(t) = e^{-|t|}$.
+If we take the average of $n$ independent Cauchy variables $\bar{X} = \frac{\sum X_i}{n}$:
+$$\phi_{\bar{X}}(t) = \left[ e^{-|t/n|} \right]^n = e^{-n \frac{|t|}{n}} = e^{-|t|}$$
+
+**The "Infinite Noise" Result:**
+The distribution of the sample mean ($\bar{X}$) is **identical** to the distribution of a single observation ($X_1$). Averaging Cauchy data provides **zero** reduction in noise, regardless of how many samples you take. This is why the CLT "collapses"—the bell curve never forms.
+
+![[Mean_estimator_consistency.gif]]
+
+---
+**Connections:**
+* Violates the requirements for [[Ordinary Least Squares (OLS)]] and most parametric tests.
+
+---
+**Connections:**
+* If the variance is infinite (like in the Cauchy distribution), the [[Central Limit Theorem]] collapses entirely.
+
+--- END OF FILE: 01_Distributions\Continuous_Families\Heavy-Tailed Distributions.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\Multivariate Normal Distribution.md ---
+---
+tags: [statistics, distributions, parametric-families, continuous, multivariate]
+aliases: [Multivariate Normal, MVN]
+created: 2026-03-05
+---
+## Definition
+
+![[Multivariate-Normal-Dist.gif]]
+
+The Multivariate Normal Distribution is the multi-dimensional generalization of the [[Normal Distribution]]. It models the joint distribution of multiple normally distributed random variables that may be correlated.
+
+Let $N = (N_1, \dots, N_n)^T$ be a [[Random Vector]] consisting of independent standard normal random variables (i.e., $N_i \sim \text{Normal}(0, 1)$). The distribution of $N$ is called the **multivariate standard normal distribution** on $\mathbb{R}^n$.
+
+A random vector $X$ in $\mathbb{R}^n$ follows a general multivariate normal distribution if it can be constructed as an affine transformation of a standard multivariate normal vector $N$:
+$$X \stackrel{d}{=} \Sigma^{\frac{1}{2}}N + \mu$$
+
+*Notation:* $X \sim \text{Normal}(\mu, \Sigma)$.
+
+
+
+## Parameters
+1. **Mean Vector ($\mu$):** Determines the location of the center of the distribution in $n$-dimensional space. 
+2. **[[Covariance Matrix]] ($\Sigma$):** Determines the scale and the orientation (correlation) of the distribution.
+
+## Why must $\Sigma$ be "Positive Semi-Definite"?
+The definition explicitly requires $\Sigma$ to be a **positive semi-definite (PSD)** matrix. This is not an arbitrary rule; it stems from two absolute mathematical necessities:
+
+1. **The "No Negative Variance" Rule:** $\Sigma$ is a Covariance Matrix. If you project the random vector $X$ onto any 1D line using a vector $a$, the variance of that new projection is $a^T \Sigma a$. Because variance measures physical spread, it *cannot* be negative. A matrix where $a^T \Sigma a \ge 0$ for all $a$ is, by definition, a positive semi-definite matrix.
+2. **The Matrix Square Root:** To mathematically construct the distribution ($X = \Sigma^{\frac{1}{2}}N + \mu$), we must calculate $\Sigma^{\frac{1}{2}}$ (a matrix that, when multiplied by itself, equals $\Sigma$). Just as you cannot take the square root of a negative scalar in real numbers ($\sqrt{-4}$), you cannot take the square root of a matrix unless it is positive semi-definite.
+
+## Properties & Transformations
+
+### 1. Affine Transformations
+Because of how the distribution is constructed, any linear slice or affine transformation $Y = AX + b$ (where $A \in \mathbb{R}^{m \times n}$ is a constant matrix and $b \in \mathbb{R}^m$ is a constant vector) results in another perfectly multivariate normal vector:
+$$AX + b \sim \text{Normal}(A\mu + b, A\Sigma A^T)$$
+
+### 2. Independence and Correlation
+For a multivariate normal vector, the condition of being [[Uncorrelated Random Vectors|uncorrelated]] strictly implies independence. This is a unique feature of the Gaussian family. See [[Independence of Uncorrelated Normal Variables]].
+
+---
+**Connections:**
+* The error term $\epsilon$ in a [[Gaussian Linear Model]] is assumed to follow a multivariate normal distribution $\epsilon \sim \text{Normal}(0, \sigma^2 I_n)$.
+* The [[Multivariate Central Limit Theorem]] states that the sum of i.i.d. random vectors converges asymptotically to a multivariate normal distribution.
+
+--- END OF FILE: 01_Distributions\Continuous_Families\Multivariate Normal Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\Normal Distribution.md ---
+---
+tags: [statistics, distributions, parametric-families, continuous]
+aliases: [Gaussian Distribution, Bell Curve]
+created: 2026-03-04
+---
+# Normal Distribution
+
+![[NormalDist_mtpricduralb1.gif]]
+
+
+## Definition
+The Normal (or Gaussian) distribution is a continuous parametric family characterized by its perfectly symmetric, bell-shaped probability density function. It is strictly defined by exactly two parameters:
+$$X \sim N(\mu, \sigma^2)$$
+
+1. **The Mean ($\mu$):** The location parameter ($\mu \in \mathbb{R}$). It dictates where the absolute peak of the bell sits on the x-axis. 
+2. **The Variance ($\sigma^2$):** The scale parameter ($\sigma^2 > 0$). It dictates the spread of the data. A small variance creates a narrow, spiked distribution; a large variance creates a wide, flat distribution. 
+
+Below is how the variance affects the distribution - 
+
+
+
+
+## Properties & Mathematical Transformations
+
+### 1. The Location-Scale Property
+If $X \sim N(\mu, \sigma^2)$, applying any linear transformation $Y = aX + b$ results in a new, perfectly normal distribution:
+
+$$aX + b \sim N(a\mu + b, a^2\sigma^2)$$
+
+Find an illustration below of how changing the mean simply causes a shift along the axis - the variance is unchanged. (*Clue - these are independent of each other*)
+
+![[normal_distributions_mean_shift.png]]
+
+Similarly the behavior on variance change -
+![[Scale_parameter_normal_distribution.gif|570]]
+
+What happens if both change together - 
+
+![[6sl4fgnygj381_locationscale.gif]]
+
+### 2. Standardization (Z-Scores)
+Because of the location-scale property, *every* normal distribution can be algebraically translated into one universal reference curve: the **Standard Normal Distribution**, denoted as $Z \sim N(0,1)$. We shift the mean to 0 and scale the variance to 1:
+$$Z = \frac{X - \mu}{\sigma}$$
+
+
+### 3. Stability under Addition
+If $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$ are independent, their sum is perfectly normal. Variances *always* add, even under subtraction, because combining random noise always increases total uncertainty:
+$$X + Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$$
+$$X - Y \sim N(\mu_X - \mu_Y, \sigma_X^2 + \sigma_Y^2)$$
+
+---
+**Connections:**
+* The independence of $\mu$ and $\sigma^2$ is mathematically formalized in the [[Independence of Sample Mean and Variance]].
+* Normal limits are the target of the [[Central Limit Theorem]].
+
+--- END OF FILE: 01_Distributions\Continuous_Families\Normal Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Continuous_Families\Student's t-Distribution.md ---
+---
+tags: [statistics, distributions, sampling-distributions]
+aliases: [t-distribution, Student's t]
+created: 2026-03-04
+---
+# Student's t-Distribution
+
+## Definition
+
+![[qwd.gif|682]]
+
+
+The Student's t-distribution is a continuous probability distribution that arises when estimating the mean of a normally distributed population in situations where the sample size is small and the true population variance ($\sigma^2$) is unknown.
+
+Mathematically, it is formed by taking a Standard Normal variable ($Z$) and dividing it by the square root of an independent [[Chi-Squared Distribution|Chi-Squared variable]] ($V$) that has been scaled by its degrees of freedom ($\nu$):
+$$T = \frac{Z}{\sqrt{V/\nu}}$$
+
+### Rigorous Formulation
+Let $N \sim \text{Normal}(0, 1)$ be a standard normal random variable, and let $Z \sim \chi^2_m$ be a [[Chi-Squared Distribution|chi-square random variable]] with $m$ degrees of freedom. If $N$ and $Z$ are independent, a random variable $X$ has a t-distribution with $m$ degrees of freedom if it follows the same distribution as:
+$$X = \frac{N}{\sqrt{Z/m}} \sim t_m$$
+
+### Symmetry
+Because it is symmetric around zero, its [[Quantile|quantiles]] perfectly mirror each other:
+$$P(X \le -t_{m,p}) = P(X \ge t_{m,p}) = 1 - p$$
+
+## Intuition & Properties
+* **Shape:** It is perfectly symmetric and centered at zero, resembling the Standard Normal distribution, but with distinctly **thicker tails**. 
+* **The Penalty for Uncertainty:** Because we must estimate the variance using the sample standard deviation ($S$), we inject extra uncertainty into our calculations. The thicker tails of the $t$-distribution account for this, making it "harder" to find statistical significance and effectively preventing false positives in small samples.
+
+
+## The Parameter: Degrees of Freedom ($\nu$)
+The distribution is governed by a single parameter: degrees of freedom ($\nu = n - 1$). 
+As the sample size $n$ increases, our estimate of the variance becomes exponentially more accurate. Consequently, as $\nu \rightarrow \infty$, the $t$-distribution perfectly converges to the Standard Normal distribution $N(0,1)$.
+
+![[VbqBTo_t-tendingtonormal.gif]]
+
+
+---
+**Connections:**
+* This distribution forms the backbone of the [[One-Sample t-Test]] and [[Two-Sample t-Test]].
+* The convergence logic relies heavily on [[Slutsky's Theorem]].
+
+--- END OF FILE: 01_Distributions\Continuous_Families\Student's t-Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Discrete_Families\Bernoulli Distribution.md ---
+---
+tags: [statistics, distributions, parametric-families, discrete, stub]
+aliases: [Bernoulli, Binomial]
+created: 2026-03-04
+---
+## Definition
+The Bernoulli distribution models a single random experiment with exactly two possible outcomes: "Success" ($1$) and "Failure" ($0$). It is the simplest discrete probability distribution and serves as the building block for more complex processes.
+
+### Mathematical Formulation
+A random variable $X$ follows a Bernoulli distribution with parameter $p \in [0, 1]$, denoted $X \sim \text{Bern}(p)$, if its Probability Mass Function (PMF) is:
+$$f(x; p) = p^x (1-p)^{1-x} \quad \text{for } x \in \{0, 1\}$$
+
+### Properties
+* **Expectation:** $E[X] = p$
+* **Variance:** $Var(X) = p(1-p)$
+* **Moment Generating Function:** $M_X(t) = (1-p) + pe^t$
+
+---
+**Connections:**
+* **GLM Link:** Forms the foundation for the **Logistic Regression Model**, where the probability $p$ of a Bernoulli outcome is modeled using a logit link function.
+* **Generalization:** Summing $n$ independent Bernoulli trials results in a [[Binomial Distribution]].
+
+--- END OF FILE: 01_Distributions\Discrete_Families\Bernoulli Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Discrete_Families\Binomial Distribution.md ---
+---
+tags: [statistics, distributions, discrete]
+aliases: [Binomial]
+created: 2026-03-04
+---
+## Definition
+The Binomial distribution models the total number of successes in a fixed number $n$ of independent and identically distributed (i.i.d) Bernoulli trials.
+
+### Mathematical Formulation
+A random variable $X$ follows a Binomial distribution with parameters $n \in \mathbb{N}$ and $p \in [0, 1]$, denoted $X \sim \text{Bin}(n, p)$, if its PMF is:
+$$f(k; n, p) = P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+for $k \in \{0, 1, \dots, n\}$, where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ is the binomial coefficient.
+
+
+
+### Properties
+* **Expectation:** $E[X] = np$
+* **Variance:** $Var(X) = np(1-p)$
+* **Additivity:** If $X \sim \text{Bin}(n, p)$ and $Y \sim \text{Bin}(m, p)$ are independent, then $X + Y \sim \text{Bin}(n+m, p)$.
+
+## The Poisson Approximation
+When the number of trials $n$ is very large and the probability of success $p$ is very small, the Binomial distribution converges to the [[Poisson Distribution]] with $\lambda = np$.
+$$\lim_{n \to \infty, p \to 0} \binom{n}{k} p^k (1-p)^{n-k} = \frac{\lambda^k e^{-\lambda}}{k!}$$
+
+---
+**Connections:**
+* **Inference:** The sample proportion $\hat{p} = X/n$ is the [[Maximum Likelihood Estimation (MLE)]] for the parameter $p$.
+* **Testing:** Used for the **Binomial Test** and sign tests in non-parametric statistics.
+
+--- END OF FILE: 01_Distributions\Discrete_Families\Binomial Distribution.md ---
+
+
+--- START OF FILE: 01_Distributions\Discrete_Families\Poisson Distribution.md ---
+---
+tags: [statistics, distributions, parametric-families, discrete, stub]
+aliases: [Poisson]
+created: 2026-03-04
+---
+## Definition
+The Poisson distribution models the number of events occurring within a fixed interval of time or space, provided these events occur with a known constant mean rate and independently of the time since the last event.
+
+### Mathematical Formulation
+A discrete random variable $X$ follows a Poisson distribution with parameter $\lambda > 0$, denoted $X \sim \text{Pois}(\lambda)$, if its PMF is:
+$$f(k; \lambda) = P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} \quad \text{for } k \in \{0, 1, 2, \dots\}$$
+
+
+
+## Key Properties
+* **Equidispersion:** A unique property of the Poisson distribution is that the mean and variance are equal:
+  $$E[X] = \lambda \quad \text{and} \quad Var(X) = \lambda$$
+* **Summation:** If $X_1 \sim \text{Pois}(\lambda_1)$ and $X_2 \sim \text{Pois}(\lambda_2)$ are independent, then $X_1 + X_2 \sim \text{Pois}(\lambda_1 + \lambda_2)$.
+* **Law of Rare Events:** The Poisson distribution is the limit of the Binomial Distribution when the number of trials is large and the probability of success is small.
+
+## Assumptions
+1. The probability of an event is proportional to the length of the interval.
+2. The probability of two events occurring at the exact same time is zero.
+3. Events in non-overlapping intervals are independent.
+
+---
+**Connections:**
+* **Regression:** In **Poisson Regression** (a type of Generalized Linear Model), we use a log-link function to model the rate $\lambda$ as a linear combination of predictors.
+* **Overdispersion:** When $Var(X) > E[X]$ in empirical data, the Poisson model is often replaced by a Negative Binomial model.
+
+--- END OF FILE: 01_Distributions\Discrete_Families\Poisson Distribution.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Confidence Interval.md ---
+---
+tags: [statistics, inference, estimation]
+aliases: [CI, Confidence Bounds, Duality of CI and Hypothesis Tests]
+created: 2026-03-04
+---
+---
+## Definition
+A Confidence Interval (CI) is a range of values computed from sample data that is likely to capture the true, unobservable population parameter. A $95\%$ CI means that if we repeated the experiment infinitely, $95\%$ of the generated intervals would contain the true parameter.
+
+## Duality with Hypothesis Testing
+A $95\%$ Confidence Interval and a two-sided hypothesis test at $\alpha = 0.05$ are mathematical duals. We can derive the interval by algebraically pivoting the probability statement of the test statistic.
+
+### Algebraic Derivation & Justification
+We begin with the non-rejection region of a [[Student's t-Distribution]] for a two-sided test:
+$$P\left(-t_{1-\alpha/2, n-1} \le \frac{\bar{X} - \mu}{S/\sqrt{n}} \le t_{1-\alpha/2, n-1}\right) = 1 - \alpha$$
+
+
+
+**1. Multiply by the Standard Error:**
+Multiply all parts of the inequality by $S/\sqrt{n}$.
+$$-t_{1-\alpha/2} \cdot \frac{S}{\sqrt{n}} \le \bar{X} - \mu \le t_{1-\alpha/2} \cdot \frac{S}{\sqrt{n}}$$
+* **Justification:** This removes the denominator from the test statistic, leaving the "distance" between the sample mean and the population mean. Since the standard error is always positive, the inequality signs do not change.
+
+**2. Subtract the Sample Mean ($\bar{X}$):**
+Subtract $\bar{X}$ from all three parts.
+$$-\bar{X} - t_{1-\alpha/2} \frac{S}{\sqrt{n}} \le -\mu \le -\bar{X} + t_{1-\alpha/2} \frac{S}{\sqrt{n}}$$
+* **Justification:** This isolates the negative population parameter ($-\mu$) in the center.
+
+**3. Multiply by $-1$ (The Pivot):**
+Multiply the entire inequality by $-1$ to solve for $+\mu$.
+$$\bar{X} + t_{1-\alpha/2} \frac{S}{\sqrt{n}} \ge \mu \ge \bar{X} - t_{1-\alpha/2} \frac{S}{\sqrt{n}}$$
+* **Justification:** Multiplying by a negative number flips the direction of the inequality signs. This is the "pivot" where the statement shifts from being about the probability of the sample to the coverage of the parameter.
+
+**4. Rearrange for Standard Notation:**
+Rewrite from smallest to largest.
+$$P\left(\bar{X} - t_{1-\alpha/2} \frac{S}{\sqrt{n}} \le \mu \le \bar{X} + t_{1-\alpha/2} \frac{S}{\sqrt{n}}\right) = 1 - \alpha$$
+
+
+
+## The Decision Rule
+Because they are identical formulas rearranged:
+* **Fail to Reject:** If the CI **contains** the null value ($H_0$), the null is a mathematically plausible reality ($p > \alpha$).
+* **Reject:** If the CI **excludes** the null value, the null is statistically implausible ($p < \alpha$).
+
+### Proof of Coverage Probability
+To prove that an interval has an exact error level of $\alpha$ (meaning it covers the true parameter with probability $1-\alpha$), we evaluate the probability of the standardized statistic falling between the negative and positive quantiles. 
+
+For a Standard Normal variable $N \sim \text{Normal}(0, 1)$, the probability of falling within the bounds $(-z_{1-\alpha/2}, z_{1-\alpha/2})$ relies on the Cumulative Distribution Function ($\Phi$) and its symmetry property ($\Phi(-z) = 1 - \Phi(z)$).
+
+$$P(N \in (-z_{1-\alpha/2}, z_{1-\alpha/2}))$$
+
+**1. Evaluate via CDF:**
+$$= \Phi(z_{1-\alpha/2}) - \Phi(-z_{1-\alpha/2})$$
+
+**2. Apply Symmetry for the Lower Bound:**
+$$= \Phi(z_{1-\alpha/2}) - (1 - \Phi(z_{1-\alpha/2}))$$
+
+**3. Combine Terms:**
+$$= 2\Phi(z_{1-\alpha/2}) - 1$$
+
+**4. Substitute the Known Quantile Probability:**
+By definition, the area to the left of $z_{1-\alpha/2}$ is exactly $1 - \alpha/2$.
+$$= 2 \left( 1 - \frac{\alpha}{2} \right) - 1$$
+$$= 2 - \alpha - 1$$
+$$= 1 - \alpha$$
+
+
+
+This mathematically proves that the confidence interval covers the true parameter in exactly $1 - \alpha$ proportion of repeated samples.
+
+---
+**Connections:**
+* The critical values used to build the interval are drawn directly from the boundaries defined in [[Alternative Hypothesis]].
+* Narrower intervals indicate higher **Precision** and are often a result of increased [[Statistical Power]].
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Confidence Interval.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Confidence Region.md ---
+---
+tags: [statistics, inference, estimation]
+aliases: [Confidence Interval, Asymptotic Confidence Region, Confidence Bounds]
+created: 2026-03-10
+---
+# Confidence Region
+
+## Motivation
+While an [[Estimator]] provides a single "best guess" vector for a parameter, it contains no inherent information about its own accuracy. A Confidence Region translates a point estimate into a geometric area (or interval) of certainty, guaranteeing that the true parameter is trapped within that area in a specified percentage of repeated experiments.
+
+## Definition (Exact Confidence Region)
+Let $g(\vartheta)$ be the true, unknown parameter function we want to estimate. A set $I_X \subseteq \mathbb{R}^m$ (which depends entirely on the random sample $X$) is a **confidence region** for $g(\vartheta)$ with error level $\alpha \in (0, 1)$ if:
+$$P_\vartheta(g(\vartheta) \in I_X) \ge 1 - \alpha \quad \text{for all } \vartheta \in \Theta$$
+*(Note: If $m=1$ and the set is a continuous 1D line, $I_X$ is simply called a **Confidence Interval**).*
+
+## Asymptotic Confidence Regions
+When exact finite-sample distributions are unknown (or impossible to calculate), we construct regions that achieve the correct coverage probability only as $n \rightarrow \infty$.
+A sequence of random sets $(I_n)_{n \in \mathbb{N}}$ forms an **asymptotic confidence region** with error level $\alpha$ if the lowest possible coverage probability across all parameters converges to at least $1-\alpha$:
+$$\lim_{n \to \infty} \inf_{\vartheta \in \Theta} P_\vartheta(g(\vartheta) \in I_n) \ge 1 - \alpha$$
+
+## Duality with Hypothesis Testing
+A Confidence Region and a two-sided [[Statistical Test (Formal Definition)|Statistical Test]] are mathematical duals. You can derive one directly from the other. The region $I_X$ exactly contains all the values of $\vartheta_0$ for which the null hypothesis $H_0: \vartheta = \vartheta_0$ would **not** be rejected at level $\alpha$.
+
+## Example: Deriving the Exact $\alpha$ Bound
+To understand exactly how the probability bounds deal with $\alpha$, let's derive the exact confidence interval for a normal sample with unknown expectation ($\mu$) but known standard deviation ($\sigma_0$).
+
+Let $X = (X_1, \dots, X_n)^T$ be $n$ i.i.d. variables where $X_1 \sim \text{Normal}(\mu, \sigma_0^2)$.
+We define our interval $I_X$ using the $p$-quantiles ($z_p$) of the Standard Normal distribution:
+$$I_X = \left( \bar{X} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \quad \bar{X} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right)$$
+
+To prove this is exactly a level $\alpha$ region, we must calculate $P_\mu(\mu \in I_X)$.
+Because the sample mean $\bar{X} \sim \text{Normal}(\mu, \sigma_0^2/n)$, standardizing it gives us exactly a Standard Normal variable $N = \frac{\bar{X} - \mu}{\sigma_0/\sqrt{n}} \sim \text{Normal}(0,1)$.
+
+
+
+**The Calculation:**
+$$P_\mu(\mu \in I_X) = P_\mu\left( \mu \in \left( \bar{X} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \bar{X} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right) \right)$$
+Rearrange the inequality to isolate $\bar{X} - \mu$:
+$$= P_\mu\left( -z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} < \bar{X} - \mu < z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right)$$
+Divide by the standard error to create the Standard Normal variable ($N$):
+$$= P_\mu\left( -z_{1-\alpha/2} < \frac{\bar{X} - \mu}{\sigma_0/\sqrt{n}} < z_{1-\alpha/2} \right)$$
+$$= P(N \in (-z_{1-\alpha/2}, z_{1-\alpha/2}))$$
+
+Using the Cumulative Distribution Function ($\Phi$) of the Standard Normal:
+$$= \Phi(z_{1-\alpha/2}) - \Phi(-z_{1-\alpha/2})$$
+By symmetry of the normal curve, $\Phi(-z) = 1 - \Phi(z)$:
+$$= \Phi(z_{1-\alpha/2}) - (1 - \Phi(z_{1-\alpha/2}))$$
+$$= 2\Phi(z_{1-\alpha/2}) - 1$$
+Because $\Phi(z_{1-\alpha/2})$ is, by definition, $1 - \frac{\alpha}{2}$:
+$$= 2\left(1 - \frac{\alpha}{2}\right) - 1 = 2 - \alpha - 1 = 1 - \alpha$$
+
+This rigorous proof guarantees that the probability of the true parameter $\mu$ missing this interval is exactly bounded at $\alpha$.
+
+---
+**Connections:**
+* Asymptotic regions rely heavily on the [[Central Limit Theorem]] and [[Slutsky's Theorem]] to approximate their boundaries.
+* Narrower regions indicate higher statistical precision and are inherently linked to higher [[Statistical Power]].
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Confidence Region.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Consistent Estimator.md ---
+---
+tags: [statistics, inference, estimators]
+aliases: [Consistency, Weakly Consistent, Strongly Consistent]
+created: 2026-03-04
+---
+# Consistent Estimator
+
+## Definition
+A sequence of estimators $(U_n)_{n \in \mathbb{N}}$ for an unknown parameter $g(\vartheta)$ is **consistent** if the estimates mathematically converge to the true value as the sample size $n$ increases toward infinity.
+
+### 1. Strongly Consistent
+The sequence converges almost surely ([[Almost Sure Convergence]]):
+$$U_n \xrightarrow{P_\vartheta-a.s.} g(\vartheta) \quad \text{as } n \to \infty \text{ for all } \vartheta \in \Theta$$
+
+### 2. Weakly Consistent
+The sequence converges in probability ([[Convergence in Probability]]):
+$$U_n \xrightarrow{P_\vartheta} g(\vartheta) \quad \text{as } n \to \infty \text{ for all } \vartheta \in \Theta$$
+
+## Intuition
+Consistency is the ultimate requirement for any valid statistical method. It means that collecting more data will inevitably lead you to the absolute truth. If an estimator is inconsistent, accumulating infinite data will still leave you guessing the wrong number.
+
+*(Note: Strong consistency mathematically implies weak consistency).*
+
+---
+**Connections:**
+* The sample mean is proven to be a strongly consistent estimator for the population expectation via the [[Law of Large Numbers (LLN)]].
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Consistent Estimator.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Estimator.md ---
+---
+tags: [statistics, inference, estimation]
+aliases: [Estimator Function]
+created: 2026-03-04
+---
+## Definition
+In parametric statistics, an estimator is a measurable map (a mathematical rule or function) used to guess the value of an unknown population parameter based on observable data. 
+
+Let the sample space be $\mathcal{X}$, and let the true data generating parameter be $\vartheta \in \Theta$. If we want to estimate some function of the parameter $g(\vartheta)$, an estimator $U$ is a measurable map:
+$$U: \mathcal{X} \to \mathbb{R}^m$$
+
+## Intuition
+Because an estimator $U$ is calculated directly from a random sample $X$, the estimator itself is a [[Random Variable]] (or random vector). It does not output the guaranteed "true" value; it outputs a "guess" that carries its own probability distribution.
+
+## Key Desirable Properties
+Because estimators are imperfect, statisticians evaluate their quality based on specific mathematical properties:
+1. **[[Unbiased Estimator]]:** Does the estimator hit the true target *on average*?
+2. **[[Consistent Estimator]]:** Does the estimator perfectly lock onto the true target if we collect an infinite amount of data?
+3. **Efficiency:** Does the estimator have the smallest possible variance compared to other estimators?
+
+## Formal Measure-Theoretic Setup
+In parametric statistics, our goal is to learn unknown parameters from observed data. 
+Let the sample space $\mathcal{X}$ be the set of all possible observations (often $\mathbb{R}^n$). For technical reasons, we equip $\mathcal{X}$ with a $\sigma$-algebra $\mathcal{F}_{\mathcal{X}}$. 
+Let $(P_\vartheta)_{\vartheta \in \Theta}$ be a family of probability distributions on $\mathcal{X}$, representing all possible underlying distributions of our data. 
+
+We observe a random element $X$ on $\mathcal{X}$ distributed according to $P_\vartheta$ for some unknown true parameter $\vartheta \in \Theta$.
+
+---
+**Connections:**
+* The sample mean $\bar{X}$ is the classic estimator for the population mean $\mu$.
+* Estimators are typically generated via methods like [[Maximum Likelihood Estimation]] or [[Ordinary Least Squares (OLS)]].
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Estimator.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Maximum Likelihood Estimation.md ---
+---
+tags: [statistics, estimators, stub]
+aliases: [MLE, Likelihood]
+created: 2026-03-04
+---
+## Definition
+Maximum Likelihood Estimation (MLE) is an approach to construct estimators by finding the parameter values $\hat{\vartheta}$ that make the actually observed sample data $X$ as mathematically probable as possible. 
+
+### 1. The Discrete Case
+If the probability distribution $P_\vartheta$ is discrete, the MLE $\hat{\vartheta}$ maximizes the Probability Mass Function (PMF) for the observed data $x$:
+$$P_{\hat{\vartheta}}(\{x\}) = \sup_{\tilde{\vartheta} \in \Theta} P_{\tilde{\vartheta}}(\{x\})$$
+
+### 2. The Continuous Case
+If the distribution has a Probability Density Function (PDF) $f_\vartheta$, the MLE $\hat{\vartheta}$ maximizes the density at the observed data points $x$:
+$$f_{\hat{\vartheta}}(x) = \sup_{\tilde{\vartheta} \in \Theta} f_{\tilde{\vartheta}}(x)$$
+
+## The Likelihood Function
+To find the MLE, we treat the data $X$ as fixed constants and define a function over the parameter space $\Theta$. This is the **Likelihood Function**: $L(\vartheta) = f_\vartheta(X)$.
+
+Because probabilities multiply (which is mathematically tedious to differentiate), we almost always apply a logarithmic transformation to maximize the **Log-Likelihood Function**:
+$$\ell(\vartheta) = \log L(\vartheta)$$
+*Due to the strict monotonicity of the logarithm, the parameter that maximizes the log-likelihood is identical to the one that maximizes the original likelihood.*
+
+
+
+## Examples
+* **[[Binomial Distribution]]:** For $Y \sim \text{Bin}(n, p)$, differentiating the log-likelihood yields the MLE for probability of success: $\hat{p} = \frac{Y}{n}$.
+* **[[Normal Distribution]]:** For a normal sample, setting the derivative of the log-likelihood to zero yields the sample mean as the unique MLE: $\hat{\mu} = \frac{1}{n} \sum X_i$.
+
+---
+**Connections:**
+* Contrast this probabilistic approach with the geometric approach of [[Ordinary Least Squares (OLS)]]. In a [[Gaussian Linear Model]], the MLE and OLS estimators are algebraically identical.
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Maximum Likelihood Estimation.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Ordinary Least Squares (OLS).md ---
+---
+tags: [statistics, estimators, linear-regression]
+aliases: [OLS, Residuals, Method of Least Squares]
+created: 2026-03-04
+---
+# Ordinary Least Squares (OLS)
+
+## Definition
+Ordinary Least Squares (OLS) is a mathematical method used to estimate the unknown parameters ($\beta$) in a [[Gaussian Linear Model]]. It finds the specific coefficient estimates ($\hat{\beta}$) that strictly minimize the sum of the squared vertical distances (the residuals, $e_i$) between the observed data points and the predicted line.
+
+
+
+## Estimating the Variance ($\hat{\sigma}^2$)
+In addition to the coefficients, OLS estimates the true background population variance ($\sigma^2$) by taking the average of the squared residuals ($e_i = y_i - \hat{y}_i$). 
+
+To ensure this estimator is unbiased, we must adjust the denominator to account for the degrees of freedom spent fitting the model:
+$$\hat{\sigma}^2 = \frac{\sum (y_i - \hat{y}_i)^2}{n - p - 1}$$
+
+## The "Loss of Liberty" ($n - p - 1$)
+Because the OLS estimator ($\hat{\beta}$) is specifically engineered to minimize the residuals for *that specific sample*, the raw residuals will naturally appear slightly smaller than the true population errors. Dividing by a smaller number ($n - p - 1$ instead of $n$) inflates the result just enough to correct for that bias.
+* **$n$**: Total number of observations (the starting "bank" of freedom).
+* **$p$**: Number of non-intercept predictors (the "cost" of the slopes).
+* **$1$**: The intercept ($\beta_0$).
+
+Every parameter estimated spends one degree of freedom.
+
+---
+**Connections:**
+* Because OLS estimators are calculated from sample data, they are themselves [[Statistic|random variables]] with their own covariance matrices.
+* The $n - p - 1$ denominator is mathematically identical to the $N - J$ denominator used in the within-group variance of the [[Analysis of Variance (ANOVA)]].
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Ordinary Least Squares (OLS).md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Estimation\Unbiased Estimator.md ---
+---
+tags: [statistics, inference, estimators]
+aliases: [Unbiasedness]
+created: 2026-03-04
+---
+# Unbiased Estimator
+
+## Definition
+An [[Estimator]] $U$ for an unknown parameter function $g(\vartheta)$ is called **unbiased** if its expected value exactly equals the true parameter value, regardless of what the true parameter actually is.
+
+$$E_\vartheta[U] = g(\vartheta) \quad \text{for all } \vartheta \in \Theta$$
+*(Where $E_\vartheta$ stands for the expectation with respect to the true distribution $P_\vartheta$)*
+
+## Intuition
+Because estimators are calculated from random samples, they will almost never exactly equal the true parameter on any single attempt. However, an unbiased estimator guarantees that if you were to repeat the experiment infinitely, the average of your estimates would perfectly match reality. It has no systematic tendency to over-guess or under-guess.
+
+## Example
+For a normal sample with unknown expectation $\mu$, the sample mean $\bar{X} = \frac{1}{n} \sum X_i$ is an unbiased estimator for $\mu$ because:
+$$E_\mu[\bar{X}] = \frac{1}{n} \sum_{i=1}^n E_\mu[X_i] = E_\mu[X_1] = \mu$$
+
+## The Theoretical Setup
+Consider a scenario where we want to infer the unknown true mean of a population based on a sample, knowing that the underlying noise is normally distributed.
+
+* **Sample Space:** $\mathcal{X} = \mathbb{R}^n$ with the Borel $\sigma$-algebra $\mathcal{F}_{\mathcal{X}} = \mathcal{B}(\mathbb{R}^n)$.
+* **Data Generating Process:** Let $P_\mu$ be the distribution of $n$ [[Independent and Identically Distributed (i.i.d.)]] random variables $X_1, \dots, X_n$.
+* **Distribution:** Each $X_i$ follows a [[Normal Distribution]] with an unknown expectation $\mu \in \mathbb{R}$ and a *known* standard deviation $\sigma_0 \in (0, \infty)$.
+* **The Normal Sample:** The [[Random Vector]] $X = (X_1, \dots, X_n)^T$ represents our collected data.
+
+## The Proposed Estimator
+Our goal is to infer the underlying parameter $\mu$ from our sample $X$. To do this, we define an [[Estimator]] function $g$. In this case, we use the identity function to calculate the **Sample Mean** ($\bar{X}$):
+
+$$\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$$
+
+## Proof of Unbiasedness
+To prove that the sample mean is an [[Unbiased Estimator]], we must show that its expected value across infinite repeated samples perfectly equals the true parameter $\mu$. 
+
+Using the linearity of expectation, the straightforward calculation is:
+
+$$E_\mu[\bar{X}] = E_\mu \left[ \frac{1}{n} \sum_{i=1}^n X_i \right]$$
+
+By pulling out the constant $\frac{1}{n}$ and distributing the expectation operator:
+
+$$= \frac{1}{n} \sum_{i=1}^n E_\mu[X_i]$$
+
+Because the variables are identically distributed, every $E_\mu[X_i]$ simply equals the expectation of the first variable $E_\mu[X_1]$, which is $\mu$:
+
+$$= \frac{1}{n} (n \cdot \mu) = \mu$$
+
+**Conclusion:** Because $E_\mu[\bar{X}] = \mu$, the sample mean is a strictly unbiased estimator for the population expectation.
+
+
+
+---
+
+**Connections:**
+* Often contrasted with [[Consistent Estimator]]; an estimator can be biased in small samples but consistent as $n \to \infty$.
+
+--- END OF FILE: 02_Statistical_Inference\Estimation\Unbiased Estimator.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Alternative Hypothesis.md ---
+---
+tags: [statistics, inference, hypothesis-testing]
+aliases: [Critical Region, One-Sided Test, Two-Sided Test]
+created: 2026-03-04
+---
+# Alternative Hypothesis
+
+## Definition
+In [[Null Hypothesis Significance Testing (NHST)]], the Alternative Hypothesis ($H_1$) is the competing claim to the Null Hypothesis. Its mathematical shape strictly dictates the location of the "rejection zones"—formally known as the **Critical Region ($K$)**—on the null distribution.
+
+## Types of Alternatives
+
+### 1. Two-Sided Alternative ($H_1: \mu \neq \mu_0$)
+Used when testing for *any* difference or effect, regardless of direction. We split our risk tolerance ($\alpha$) equally into both the upper and lower tails of the distribution.
+* **The Critical Region ($K$):** The set of all values where the absolute value of the test statistic is greater than the critical quantile.
+  $$K = \left\{ T_{obs} : |T_{obs}| > t_{1-\alpha/2, n-1} \right\}$$
+* *Example:* If $\alpha = 0.05$, we reject $H_0$ if $T_{obs}$ lands above the $97.5$th percentile or below the $2.5$th percentile.
+
+### 2. One-Sided Alternative ($H_1: \mu > \mu_0$ or $H_1: \mu < \mu_0$)
+Used when testing for an effect in a specific, pre-defined direction. We place our entire risk budget ($\alpha$) into a single tail.
+* **The Critical Region ($K$):** $$K = \left\{ T_{obs} : T_{obs} > t_{1-\alpha, n-1} \right\}$$
+* *Trade-off:* This makes it mathematically easier to reject $H_0$ in the predicted direction, but mathematically impossible to reject it in the opposite direction, regardless of how extreme the data is.
+
+Below is an illustration of how this can look -
+
+![[Alternative_Hypothesis_Concept1.jpeg]]
+
+Another illustration with more annotations - 
+
+![[AlternativeHypothesis_Concept2.jpg]]
+
+---
+**Connections:**
+* The bounds of the critical region for a two-sided alternative are perfectly mirrored by a [[Confidence Interval]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Alternative Hypothesis.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Level Alpha Test.md ---
+---
+tags: [statistics, inference, hypothesis-testing]
+aliases: [Level-alpha, Asymptotic Level Alpha Test]
+created: 2026-03-10
+---
+# Level Alpha Test
+
+## Motivation
+Because a [[Statistical Test (Formal Definition)|Statistical Test]] operates on random variables, it will inevitably make mistakes. We cannot minimize both false positives and false negatives simultaneously. The Level-$\alpha$ framework solves this by strictly capping the worst-case scenario: we mathematically guarantee that the probability of a [[Type I Error]] will never exceed a pre-defined "speed limit" ($\alpha$), regardless of where the true parameter hides within the null space.
+
+## Definition (Exact Level-$\alpha$)
+A test $\varphi$ is said to have level $\alpha \in (0, 1)$ if the probability of rejecting $H_0$ when $H_0$ is actually true is bounded by $\alpha$ for *every possible parameter* inside the null space:
+$$P_\vartheta(\varphi(X) = \text{reject}) \le \alpha \quad \text{for all } \vartheta \in \Theta_0$$
+
+## Asymptotic Level-$\alpha$ Tests
+In many complex models (like the ones used in Logistic Regression), we cannot guarantee the exact error rate for small sample sizes. Instead, we rely on stochastic convergence. 
+
+A sequence of tests $(\varphi_n)_{n \in \mathbb{N}}$ is an **asymptotic test with level $\alpha$** if the worst-case error probability converges to a value less than or equal to $\alpha$ as the sample size $n$ goes to infinity:
+$$\lim_{n \to \infty} \sup_{\vartheta \in \Theta_0} P_\vartheta(\varphi_n(X) = \text{reject}) \le \alpha$$
+*(The supremum ($\sup$) ensures that even the absolute worst-case parameter combination in $\Theta_0$ rigorously respects the $\alpha$ limit).*
+
+## Example: Proving the Type I Error Bound
+To see how $\alpha$ mechanically controls the Type I error, we look at the mathematical complement of the confidence region derivation.
+
+Suppose we have a normal sample where we test the true mean $\mu$ against a specific null value $\mu_0$:
+* $H_0: \mu = \mu_0$
+* $H_1: \mu \neq \mu_0$
+
+We define our test map $\varphi: \mathbb{R}^n \to \{\text{cannot reject}, \text{reject}\}$ based on whether $\mu_0$ falls outside our calculated bounds:
+$$\varphi(x) = \begin{cases} \text{cannot reject}, & \mu_0 \in \left( \bar{x} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \bar{x} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right) \\ \text{reject}, & \mu_0 \notin \left( \bar{x} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \bar{x} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right) \end{cases}$$
+
+To prove this is a Level-$\alpha$ test, we must calculate the exact probability of triggering the `reject` condition *assuming the Null Hypothesis is strictly true* (i.e., assuming the true distribution is exactly $P_{\mu_0}$).
+
+
+
+**The Calculation:**
+$$P_{\mu_0}(\varphi(X) = \text{reject}) = P_{\mu_0}\left( \mu_0 \notin \left( \bar{X} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \bar{X} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right) \right)$$
+By the Law of Total Probability, this is 1 minus the probability that it *is* inside the interval:
+$$= 1 - P_{\mu_0}\left( \mu_0 \in \left( \bar{X} - z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}}, \bar{X} + z_{1-\alpha/2} \frac{\sigma_0}{\sqrt{n}} \right) \right)$$
+Standardizing $\bar{X} - \mu_0$ into $N \sim \text{Normal}(0,1)$:
+$$= 1 - P_{\mu_0}\left( \frac{\bar{X} - \mu_0}{\sigma_0/\sqrt{n}} \in (-z_{1-\alpha/2}, z_{1-\alpha/2}) \right)$$
+$$= 1 - (\Phi(z_{1-\alpha/2}) - \Phi(-z_{1-\alpha/2}))$$
+From our confidence region proof, we know the probability of the interval covering the true mean is exactly $1 - \alpha$:
+$$= 1 - (1 - \alpha) = \alpha$$
+
+This strictly proves that if $H_0$ is true, the mathematical function $\varphi(X)$ will output `reject` exactly $\alpha$ proportion of the time, perfectly capping our False Positive rate.
+
+---
+**Connections:**
+* This formal mathematical bound is exactly what we explicitly prove when validating the $t$-tests and partial $F$-tests in the [[Gaussian Linear Model]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Level Alpha Test.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Null Hypothesis Significance Testing (NHST).md ---
+---
+tags: [statistics, inference, hypothesis-testing]
+aliases: [NHST, Null Hypothesis]
+created: 2026-03-04
+---
+# Null Hypothesis Significance Testing (NHST)
+
+## Definition
+Null Hypothesis Significance Testing (NHST) is the standard formal framework for statistical inference. Because we cannot observe entire populations, NHST uses sample data to evaluate mutually exclusive claims about population-level parameters.
+
+## The Components
+Every test within this framework requires four distinct pieces:
+1. **The Null Hypothesis ($H_0$):** A statement that the world is a certain baseline way (e.g., "The true population mean is exactly 50," or "There is no difference between the groups"). It is the skeptical, default assumption.
+2. **The Alternative Hypothesis ($H_1$):** The competing claim (e.g., "The mean is *not* 50"). This dictates the shape of the rejection zones. See [[Alternative Hypothesis]].
+3. **The Test Statistic ($T$):** A single [[Statistic]] that condenses all the sample data into a standardized metric. 
+4. **The Null Distribution:** The [[Probability Distribution]] of the test statistic *under the strict mathematical assumption that $H_0$ is completely true*.
+
+## Decision Logic
+We calculate the test statistic from our sample data and map it onto the Null Distribution. 
+* If the statistic lands in the high-probability "fat middle" of the curve, it is a perfectly normal result under $H_0$. We **fail to reject** $H_0$.
+* If the statistic lands in the extreme tails (an highly unlikely event), it implies our foundational assumption ($H_0$ is true) is highly incompatible with the observed reality. We **reject** $H_0$.
+
+
+---
+**Connections:**
+* The probability of making a mistake in this decision is governed by [[Type I Error]] and [[Type II Error]]
+
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Null Hypothesis Significance Testing (NHST).md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\P-Value.md ---
+---
+tags: [statistics, inference, hypothesis-testing]
+aliases: [p-value, Probability Value]
+created: 2026-03-10
+---
+## The Formal Definition
+In advanced statistical theory, rather than checking if a test statistic falls into a fixed rejection region for a pre-determined level $\alpha \in (0, 1)$, we define the p-value mathematically as **the smallest level $\alpha$ such that the null hypothesis can be rejected**.
+
+Consequently, the universal decision rule is that the null hypothesis can be rejected as long as the computed p-value does not exceed the desired $\alpha$.
+
+## Reconciling with the "Extreme Values" Intuition
+In introductory statistics, the p-value is often defined intuitively as "the probability of observing a test statistic as extreme or more extreme than the one observed, assuming $H_0$ is true." 
+
+These two definitions describe the exact same mathematical reality:
+* The level $\alpha$ represents the total probability mass in the "rejection tails" of the distribution.
+* To find the "smallest possible $\alpha$" that still allows rejection, you must shrink the rejection tails until their boundary perfectly touches your observed test statistic.
+* The area left inside those shrunken tails is, by definition, the probability of observing data at that boundary or further out (more extreme). Therefore, the smallest $\alpha$ *is* the probability of the extreme event.
+
+---
+**Connections:**
+* Directly evaluated against the supremum bounds defined in the [[Level Alpha Test]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\P-Value.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Statistical Power.md ---
+---
+tags: [statistics, inference, hypothesis-testing]
+aliases: [Statistical Sensitivity, Power Function]
+created: 2026-03-04
+---
+# Statistical Power
+
+## Definition
+Statistical Power ($1 - \beta$) is the probability of a True Positive. It represents the mathematical sensitivity of a test—its ability to correctly reject the Null Hypothesis when an actual effect exists in reality.
+
+$$\text{Power} = P(T \in K \mid H_1 \text{ is true}) = 1 - \beta$$
+
+## The Power Function $\pi(\mu)$
+Power is not a single, static number; it is a function of the *true* unknown population parameter ($\mu$). The power of a test increases depending on three specific mathematical levers:
+
+1. **Effect Size:** As the true population mean ($\mu$) moves further away from the hypothesized mean ($\mu_0$), the null and alternative distributions overlap less, causing $1-\beta$ to approach $1.0$.
+2. **Sample Size ($n$):** Because the standard error features $\sqrt{n}$ in its denominator, increasing $n$ physically shrinks the variance of the distributions. The curves become narrower, reducing overlap and driving power up.
+3. **Significance Level ($\alpha$):** Increasing $\alpha$ (e.g., from $0.01$ to $0.05$) moves the critical boundary closer to the center, inherently increasing Power but sacrificing [[Type I Error]] control.
+
+![[Power_Concept1.jpg]]
+
+ The $1-\beta$  region is clearly visible in contrast with the other scenarios. 
+
+How the power increases as the rejection region decreases is given below -
+
+![[IncreasingPower_ginsyblog.gif]]
+
+---
+**Connections:**
+* Power analysis is a mandatory prerequisite for experimental design, dictating the necessary $n$ for tests like the [[Two-Sample t-Test]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Statistical Power.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Statistical Test (Formal Definition).md ---
+---
+tags: [statistics, inference, hypothesis-testing, foundations]
+aliases: [Statistical Test, Formal Test Definition]
+created: 2026-03-10
+---
+# Statistical Test (Formal Definition)
+
+## Motivation
+While [[Null Hypothesis Significance Testing (NHST)]] provides the philosophical framework, we need a strict mathematical object to operate on data. A statistical test formally bridges the gap between the sample space (our raw data) and a binary decision, translating pure mathematics into an actionable conclusion.
+
+## The Parameter Space Split
+Let $\Theta$ be the entire space of possible true parameters for a [[Data Generating Process]]. We mathematically partition this space into two mutually exclusive sets:
+* **$\Theta_0$**: The parameter space where the Null Hypothesis ($H_0$) is true.
+* **$\Theta_1$**: The parameter space where the Alternative Hypothesis ($H_1$) is true.
+
+These sets must completely exhaust the possibilities without overlapping: $\Theta_0 \cap \Theta_1 = \emptyset$ and $\Theta_0 \cup \Theta_1 = \Theta$.
+
+## Definition
+A statistical test is formally defined as a decision rule, represented mathematically as a map $\varphi$ from the sample space $\mathcal{X}$ (the observed data) to a binary outcome:
+$$\varphi : \mathcal{X} \rightarrow \{\text{not reject}, \text{reject}\}$$
+
+## The Asymmetry of the Decision
+The null hypothesis and the alternative are deliberately **not symmetric**. The mathematical philosophy is heavily skeptical: $H_0$ is presumed true as long as the data does not convincingly contradict it. 
+* If $\varphi(X) = \text{reject}$, the data sufficiently disagrees with $H_0$, proving $H_1$ is true.
+* If $\varphi(X) = \text{not reject}$, it does *not* prove $H_0$ is true; it merely means there wasn't enough evidence to discard it.
+
+---
+**Connections:**
+* The probability of this map outputting the wrong decision is governed by [[Type I Error]] and [[Type II Error]].
+* The strict mathematical threshold for this decision is constrained by the [[Level Alpha Test]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Statistical Test (Formal Definition).md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Type I Error.md ---
+---
+tags: [statistics, inference, decision-errors]
+aliases: [False Positive, Alpha Error, Significance Level]
+created: 2026-03-04
+---
+# Type I Error
+
+## Definition
+A Type I Error occurs when a researcher incorrectly rejects a true Null Hypothesis. In practical terms, it is a **False Positive**—declaring that a significant effect or difference exists when, in reality, it is purely the result of random noise.
+
+## Mathematical Formulation
+The maximum tolerated probability of committing a Type I Error is denoted by $\alpha$ (alpha), also known as the "Significance Level" of the test. 
+
+It is the conditional probability that the test statistic ($T$) falls into the critical region ($K$) given that the Null Hypothesis is actually true:
+$$P(T \in K \mid H_0 \text{ is true}) \le \alpha$$
+
+## Intuition & Control
+* $\alpha$ is chosen by the researcher *prior* to the experiment (conventionally set to $0.05$).
+* Setting a strict $\alpha$ (e.g., $0.01$) shrinks the critical region, making it harder to claim a discovery. This provides strong protection against False Positives but directly increases the risk of a [[Type II Error]].
+
+---
+**Connections:**
+* This error rate forms the core philosophical constraint of [[Null Hypothesis Significance Testing (NHST)]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Type I Error.md ---
+
+
+--- START OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Type II Error.md ---
+---
+tags: [statistics, inference, decision-errors]
+aliases: [False Negative, Beta Error]
+created: 2026-03-04
+---
+# Type II Error
+
+## Definition
+A Type II Error occurs when a researcher fails to reject a false Null Hypothesis. In practical terms, it is a **False Negative**—missing a real effect or difference because the sample data was not extreme enough to cross the statistical threshold.
+
+## Mathematical Formulation
+The probability of committing a Type II Error is denoted by $\beta$ (beta). 
+
+It is the conditional probability that the test statistic ($T$) fails to reach the critical region ($K$) given that the Alternative Hypothesis ($H_1$) is actually true:
+$$P(T \notin K \mid H_1 \text{ is true}) = \beta$$
+
+## Intuition
+Unlike $\alpha$, which is a single fixed number, $\beta$ is dynamic. It depends heavily on the true size of the underlying effect and the sample size. If the true effect is very small and the sample is small, the signal will be buried in the noise, driving $\beta$ extremely high.
+
+---
+**Connections:**
+* The inverse of a Type II Error ($1 - \beta$) is known as [[Statistical Power]].
+
+--- END OF FILE: 02_Statistical_Inference\Hypothesis_Testing\Type II Error.md ---
+
+
+--- START OF FILE: 03_Statistical_Tests\Statistical Test Selection.md ---
+---
+tags: [statistics, test-selection, reference]
+aliases: [Choosing a Statistical Test, Test Matrix]
+created: 2026-03-04
+---
+# Statistical Test Selection
+
+## Definition
+Selecting the correct operational tool from the [[Null Hypothesis Significance Testing (NHST)]] framework depends entirely on the structure of the [[Data Generating Process]]. The primary decision nodes are: Data Type (Continuous vs Categorical), Number of Groups, and Sample Size.
+
+## The Decision Matrix
+
+### 1. Continuous Data Comparisons
+* **1 Group vs. Known Mean:**
+    * Variance Known / Large $n (>30)$: **Z-Test** (Standard Normal)
+    * Variance Unknown / Small $n$: **[[One-Sample t-Test]]**
+* **2 Independent Groups:**
+    * Comparing Means: **[[Two-Sample t-Test]]** (Student's if equal variance; Welch's if unequal).
+* **3 or More Groups:**
+    * Comparing Means: **[[Analysis of Variance (ANOVA)]]** (F-Test).
+
+### 2. Categorical Data Comparisons
+* **Proportions (Large Sample):** Two-Sample Proportion Z-Test.
+* **Testing Independence (Frequencies/Counts):** **[[Pearson Chi-Squared Test]]**.
+
+## The Z vs. T Distinction
+The choice between a Z-test and a t-test is governed by the estimation of noise. 
+If true population variance ($\sigma^2$) is miraculously known, the standard normal distribution ($Z$) applies. If noise is estimated via sample variance ($s$), the $t$-distribution must be used to account for the uncertainty. As $n \rightarrow \infty$, $t$ converges perfectly to $Z$.
+
+---
+**Connections:**
+* The convergence of $t$ to $Z$ under large samples is powered by the [[Central Limit Theorem]].
+
+--- END OF FILE: 03_Statistical_Tests\Statistical Test Selection.md ---
+
+
+--- START OF FILE: 03_Statistical_Tests\Categorical_Tests\Pearson Chi-Squared Test.md ---
+---
+tags: [statistics, statistical-tests, categorical]
+aliases: [Chi-Square Test, Contingency Tables, Test of Independence]
+created: 2026-03-04
+---
+---
+## Definition
+The Pearson Chi-Squared test is a non-parametric tool used to determine if there is a statistically significant difference between the expected frequencies and the observed frequencies in one or more categories. It is primarily used for two purposes:
+1. **Goodness-of-Fit:** Does the sample data match a theoretical distribution?
+2. **Test of Independence:** Are two categorical variables related within a single population?
+
+## 1. The General Case: Goodness-of-Fit
+In the general case, we test whether an observed frequency distribution follows a specific null distribution $p = (p_1, \dots, p_k)$.
+
+* **Null Hypothesis ($H_0$):** The data follows the specified distribution.
+* **Alternative Hypothesis ($H_1$):** The data does not follow the specified distribution.
+
+### The Universal Formula
+The test statistic $\chi^2$ quantifies the "distance" between reality ($O$) and the theoretical model ($E$):
+$$\chi^2_{obs} = \sum_{i=1}^{k} \frac{(O_{i} - E_{i})^2}{E_{i}}$$
+
+Where:
+* $O_i$: Observed frequency in category $i$.
+* $E_i$: Expected frequency ($n \times p_i$) under $H_0$.
+* **Degrees of Freedom ($df$):** $k - 1$ (where $k$ is the number of categories).
+
+---
+
+## 2. The Specific Case: Test of Independence (A/B Testing)
+This is the most common application in research, where we use a **Contingency Table** to see if Group membership (e.g., Treatment A vs. Treatment B) affects an Outcome (e.g., Success vs. Failure).
+
+
+
+### The Null Hypothesis
+$$H_0: P(\text{Outcome} \mid \text{Group A}) = P(\text{Outcome} \mid \text{Group B})$$
+This implies that the row variable and column variable are independent.
+
+### Calculating Expected Counts ($E_{ij}$)
+Under the assumption of independence, the expected count for a cell is the product of its marginal probabilities:
+$$E_{ij} = \frac{(\text{Row } i \text{ Total}) \times (\text{Column } j \text{ Total})}{\text{Grand Total } N}$$
+
+### Degrees of Freedom
+In a table with $R$ rows and $C$ columns, the degrees of freedom are constrained because the marginal totals are fixed:
+$$df = (R - 1) \times (C - 1)$$
+*For a standard 2x2 table, $df = (2-1)(2-1) = 1$.*
+
+
+
+---
+
+## Properties & Assumptions
+1. **Independence of Observations:** Each subject must contribute to only one cell in the table.
+2. **Categorical Data:** Both the predictors and outcomes must be nominal or ordinal.
+3. **Large Sample Size (Cochran's Rule):** * The $\chi^2$ distribution is an asymptotic approximation.
+    * At least $80\%$ of cells must have an expected count $E_{ij} \ge 5$.
+    * No cell should have an expected count $E_{ij} < 1$.
+4. **Correction for Continuity:** For $df=1$ (2x2 tables) with small samples, **Yates' Correction** is sometimes applied to the numerator: $(|O - E| - 0.5)^2$.
+
+## Consequences of Violation
+If the expected cell counts are too low, the $\chi^2$ approximation becomes unreliable, typically leading to an inflated [[Type I Error]] rate. In these cases, **Fisher’s Exact Test** must be used, which calculates the exact hypergeometric probability of the table configuration.
+
+---
+**Connections:**
+* The statistic converges to the [[Chi-Squared Distribution]] as $n \to \infty$ due to the [[Central Limit Theorem]].
+* If the categorical outcome is binary, this test is mathematically related to the **Z-test for Two Proportions**.
+
+--- END OF FILE: 03_Statistical_Tests\Categorical_Tests\Pearson Chi-Squared Test.md ---
+
+
+--- START OF FILE: 03_Statistical_Tests\Parametric_Tests\Analysis of Variance (ANOVA).md ---
+---
+tags: [statistics, statistical-tests, parametric, anova]
+aliases: [ANOVA, One-Way ANOVA, F-Test]
+created: 2026-03-04
+---
+# Analysis of Variance (ANOVA)
+
+## Definition
+Analysis of Variance (ANOVA) is a parametric test used to compare the means of three or more independent groups ($J \ge 3$). It evaluates the Null Hypothesis ($H_0: \mu_1 = \mu_2 = \dots = \mu_J$) by analyzing the variance *between* the group means relative to the background variance *within* the groups.
+
+## The Test Statistic (F-Statistic)
+ANOVA utilizes the [[F-Distribution]] by constructing a ratio of Mean Squares:
+$$F_{obs} = \frac{\text{Mean Square Between (Explained)}}{\text{Mean Square Within (Unexplained)}}$$
+
+* **Numerator (MSB):** Measures the squared distance of each group mean from the grand mean. $df = J - 1$.
+* **Denominator (MSW):** Measures the squared distance of individual points from their specific group mean (the background noise). $df = N - J$.
+
+$$F_{obs} = \frac{\frac{\sum (\bar{\mu} - \mu_j)^2}{(J-1)}}{\frac{\sum (Y_i - Y_{ij})^2}{(N-J)}}$$
+
+## Strict Assumptions
+1. **Normality:** Residuals within each group must follow a normal distribution.
+2. **Homoscedasticity:** The variances in all groups must be identical ($\sigma_1^2 = \sigma_2^2 = \dots = \sigma_J^2$).
+3. **Independence:** Observations must be entirely independent.
+
+---
+**Connections:**
+* The mathematical justification for splitting the variance in this manner is the [[On Statistical Modeling/Definitions/Hypothesis Testing Framework/ANOVA/Law of Total Variance]].
+* ANOVA is mathematically identical to a [[Gaussian Linear Model]] utilizing dummy variables.
+
+--- END OF FILE: 03_Statistical_Tests\Parametric_Tests\Analysis of Variance (ANOVA).md ---
+
+
+--- START OF FILE: 03_Statistical_Tests\Parametric_Tests\One-Sample t-Test.md ---
+---
+tags: [statistics, statistical-tests, parametric]
+aliases: [1-Sample t-test, Single Mean Test]
+created: 2026-03-04
+---
+# One-Sample t-Test
+
+## Definition
+The One-Sample t-test determines if a single population mean ($\mu$) is significantly different from a specific, hypothesized value ($\mu_0$). It is used when the underlying population variance ($\sigma^2$) is unknown and must be estimated from the data.
+
+## The Mathematical Derivation
+If we actually knew the true variance ($\sigma^2$), we would use a Z-statistic: $Z = \frac{\bar{X}_n - \mu_0}{\sigma / \sqrt{n}} \sim N(0,1)$.
+Because $\sigma^2$ is unknown, we estimate it using the sample variance $S_n^2$. By Cochran's theorem, the scaled sample variance follows a [[Chi-Squared Distribution]]:
+$$V = \frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2_{n-1}$$
+
+A [[Student's t-Distribution]] is formed by the ratio $T = \frac{Z}{\sqrt{V/\nu}}$. Substituting our specific variables ($\nu = n-1$):
+$$T = \frac{\frac{\bar{X}_n - \mu_0}{\sigma / \sqrt{n}}}{\sqrt{\frac{\frac{(n-1)S_n^2}{\sigma^2}}{n-1}}}$$
+
+**The Cancellation:** The $(n-1)$ terms cancel, and the unknown true parameter $\sigma$ cancels out perfectly from the top and bottom. This leaves the operational test statistic:
+$$T_{obs} = \frac{\bar{X}_n - \mu_0}{S_n / \sqrt{n}} \sim t_{n-1}$$
+
+## Properties
+Because $\bar{X}_n$ acts as an anchor to calculate $S_n^2$, one independent piece of data is "spent", resulting in $n-1$ degrees of freedom.
+
+---
+**Connections:**
+* This derivation strictly requires the [[Independence of Sample Mean and Variance]].
+
+--- END OF FILE: 03_Statistical_Tests\Parametric_Tests\One-Sample t-Test.md ---
+
+
+--- START OF FILE: 03_Statistical_Tests\Parametric_Tests\Two-Sample t-Test.md ---
+---
+tags: [statistics, statistical-tests, parametric]
+aliases: [2-Sample t-test, Independent Samples t-test, Welch's t-test]
+created: 2026-03-04
+---
+# Two-Sample t-Test
+
+## Definition
+The Two-Sample t-test compares two independent random samples to determine if they originate from populations with the exact same mean ($H_0: \mu_B - \mu_A = 0$).
+
+## The Variance of the Difference
+To test the difference $D = \bar{X}_B - \bar{X}_A$, we must understand its variance. Crucially, the variances of independent random variables *always add*, even when the variables are subtracted:
+$$Var(D) = \frac{\sigma_B^2}{n_B} + \frac{\sigma_A^2}{n_A}$$
+
+## Test Variants
+
+### 1. Unequal Variances (Welch's t-test)
+If we cannot assume the populations have identical spreads, we substitute the sample variances ($S^2$) directly into the denominator.
+$$T_{obs} = \frac{(\bar{X}_B - \bar{X}_A) - 0}{\sqrt{\frac{S_B^2}{n_B} + \frac{S_A^2}{n_A}}}$$
+*Note:* The degrees of freedom for Welch's test require a complex approximation (the Welch-Satterthwaite equation).
+
+### 2. Equal Variances (Student's t-test)
+If we assume homoscedasticity ($\sigma_A^2 = \sigma_B^2 = \sigma^2$), we calculate a **Pooled Variance** ($S_p^2$) that combines both samples for a more highly powered estimate of the noise. 
+* **Degrees of Freedom:** $(n_A - 1) + (n_B - 1) = n_A + n_B - 2$.
+
+---
+**Connections:**
+* Extending this concept to $\ge 3$ groups requires [[Analysis of Variance (ANOVA)]].
+
+--- END OF FILE: 03_Statistical_Tests\Parametric_Tests\Two-Sample t-Test.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\ANOVA-Regression Equivalence.md ---
+---
+tags: [statistics, linear-regression, anova]
+aliases: [ANOVA and Regression Equivalence, F-test Equivalence]
+created: 2026-03-04
+---
+# ANOVA-Regression Equivalence
+
+## Definition
+[[Analysis of Variance (ANOVA)]] and the [[Gaussian Linear Model]] are mathematically identical frameworks operating under different historical vocabularies. ANOVA uses "Sum of Squares" for categorical groups, while Regression uses $R^2$ (explained variance) for continuous variables. Both yield the exact same F-Statistic.
+
+## The Mathematical Translation
+Both frameworks construct a ratio of Explained Variance to Unexplained Variance:
+$$F = \frac{\text{Explained Variance / Model Degrees of Freedom}}{\text{Unexplained Variance / Error Degrees of Freedom}}$$
+
+### 1. The ANOVA View
+Focuses on the physical squared distances between group means ($J$) and individual points ($N$):
+$$F = \frac{\frac{\sum (\bar{\mu} - \mu_j)^2}{(J-1)}}{\frac{\sum (Y_i - Y_{ij})^2}{(N-J)}}$$
+
+### 2. The Regression View
+Focuses on the proportion of variance successfully explained by the $p$ predictors in the model:
+$$F = \frac{R^2 / p}{(1 - R^2) / (n - p - 1)}$$
+
+## The Mapping
+The components map onto one another flawlessly:
+* **Numerator DF:** The number of categorical groups minus one ($J-1$) equals the exact number of dummy predictors ($p$) required to model them in a regression matrix.
+* **Denominator DF:** Total observations minus groups ($N-J$) exactly matches total observations minus parameters ($n - p - 1$).
+* **Variance Components:** The Sum of Squares Between is proportionally equivalent to $R^2$. The Sum of Squares Within is proportionally equivalent to the unexplained $(1 - R^2)$.
+
+---
+**Connections:**
+* The resulting test statistic follows the exact same [[F-Distribution]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\ANOVA-Regression Equivalence.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Assumption of Deterministic Predictors.md ---
+---
+tags: [statistics, linear-regression, assumptions]
+aliases: [Random Design Matrix, Remark 3.18]
+created: 2026-03-10
+---
+# Assumption of Deterministic Predictors
+
+## The Generalization
+In the standard rigorous formulation of the Gaussian Linear Model, the values $x_i^{(j)}$ are treated as deterministic constants.
+In observational studies, these predictors are often random variables themselves. 
+
+Remark 3.18
+
+All theorems, exact distributions, and level-$\alpha$ limits continue to hold perfectly true if the design matrix $X$ is random, strictly provided that $X$ is mathematically independent from the random error terms $\epsilon_1, \dots, \epsilon_n$.
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Assumption of Deterministic Predictors.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Coefficient of Determination (R-squared).md ---
+---
+tags: [statistics, linear-regression, stub]
+aliases: [R-squared, Explained Variance]
+created: 2026-03-04
+---
+## Motivation
+While the absolute norm of the residuals $\|\hat{\varepsilon}\|^2$ tells us how much error remains, it is highly dependent on the physical scale of the data (e.g., millimeters vs. millions of dollars). $R^2$ transforms this error into a universal percentage, answering: *What proportion of the total chaos in the data did our model successfully explain?*
+
+## Total Sum of Squares (TSS)
+The baseline of chaos is defined by a model with zero predictors ($k=0$), meaning we simply predict the sample mean $\bar{Y}$ for every observation.
+The Total Sum of Squares (TSS) is:
+$$\text{TSS} = \sum_{i=1}^n (Y_i - \bar{Y})^2$$
+
+## Definition of $R^2$
+The coefficient of determination is $1$ minus the ratio of the unexplainable residual variation to the baseline variation:
+$$R^2 = 1 - \frac{\|\hat{\varepsilon}\|^2}{\text{TSS}}$$
+
+* **If $R^2 = 1$:** $\|\hat{\varepsilon}\|^2 = 0$. The model passes exactly through every single data point.
+* **If $R^2 = 0$:** $\|\hat{\varepsilon}\|^2 = \text{TSS}$. The regression predictors provided zero geometric information beyond simply guessing the mean.
+
+---
+**Connections:**
+* Forms the algebraic basis for the [[Global F-Test (Corollary 3.15)]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Coefficient of Determination (R-squared).md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Corollary 3.11 - t-Test for Linear Combinations.md ---
+---
+tags: [statistics, linear-regression, hypothesis-testing, confidence-intervals]
+aliases: [Corollary 3.11, Single Coefficient Test, Prediction Interval]
+created: 2026-03-10
+---
+## Motivation
+We often need to test specific attributes of our model: *Is the slope for variable $X_1$ zero?* or *What is the predicted value for a new data point?* Both involve testing a specific linear combination of the parameters, represented by the dot product $\langle a, \gamma \rangle$. This corollary constructs the exact Level-$\alpha$ tests and Confidence Intervals for these combinations.
+
+## Deriving the Pivotal Statistic
+From Theorem 3.10, we have two independent components:
+1. The Normal estimator: $\langle a, \hat{\gamma} \rangle \sim \text{Normal}(\langle a, \gamma \rangle, \sigma^2 a^T(A^T A)^{-1}a)$
+2. The Chi-Squared variance estimator: $(n-k-1)\frac{\hat{\sigma}^2}{\sigma^2} \sim \chi^2_{n-k-1}$
+
+By the definition of the [[Student's t-Distribution]], dividing the standardized normal variable by the root of the scaled chi-squared variable perfectly cancels out the unknown true variance $\sigma^2$:
+$$\frac{\langle a, \hat{\gamma} \rangle - \langle a, \gamma \rangle}{\hat{\sigma}\sqrt{a^T(A^T A)^{-1}a}} \sim t_{n-k-1}$$
+
+## Formal Test Formulations
+
+> [!info] **Two-Sided Test (Part A)**
+> For $H_0: \langle a, \gamma \rangle = c_0$ against $H_1: \langle a, \gamma \rangle \neq c_0$:
+> The test $\varphi^{\neq}(Y)$ is a level-$\alpha$ test:
+> $$\varphi^{\neq}(Y) = \begin{cases} \text{cannot reject}, & c_0 \in I^{\neq}_{a,\hat{\gamma}} \\ \text{reject}, & c_0 \notin I^{\neq}_{a,\hat{\gamma}} \end{cases}$$
+> Where the confidence interval is defined as:
+> $$I^{\neq}_{a,\hat{\gamma}} = \left( \langle a, \hat{\gamma} \rangle \pm t_{n-k-1, 1-\alpha/2} \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a} \right)$$
+
+> [!info] **One-Sided Test (Part B)**
+> For $H_0: \langle a, \gamma \rangle \le c_0$ against $H_1: \langle a, \gamma \rangle > c_0$:
+> The test $\varphi^>(Y)$ is a level-$\alpha$ test:
+> $$\varphi^>(Y) = \begin{cases} \text{cannot reject}, & c_0 \in I^>_{a,\hat{\gamma}} \\ \text{reject}, & c_0 \notin I^>_{a,\hat{\gamma}} \end{cases}$$
+> Where the open confidence interval is defined as:
+> $$I^>_{a,\hat{\gamma}} = \left( \langle a, \hat{\gamma} \rangle - t_{n-k-1, 1-\alpha} \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a} , \infty \right)$$
+
+## Proof of Level-$\alpha$ (One-Sided Case)
+Assume the boundary condition $H_0: \langle a, \gamma \rangle \le c_0$ is true. We calculate the probability of a Type I error:
+$$P(\varphi^> \text{ rejects } H_0) = P(c_0 \notin I^>_{a,\hat{\gamma}})$$
+$$= P\left( \langle a, \hat{\gamma} \rangle - t_{n-k-1, 1-\alpha} \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a} \ge c_0 \right)$$
+Because the true parameter $\langle a, \gamma \rangle \le c_0$, replacing $c_0$ with $\langle a, \gamma \rangle$ maintains the inequality direction, creating an upper bound:
+$$\le P\left( \langle a, \hat{\gamma} \rangle - \langle a, \gamma \rangle \ge t_{n-k-1, 1-\alpha} \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a} \right)$$
+Dividing by the standard error isolates our $t$-distributed statistic $Y$:
+$$= P(Y \ge t_{n-k-1, 1-\alpha}) = 1 - P(Y \le t_{n-k-1, 1-\alpha})$$
+By the exact definition of a continuous $p$-quantile:
+$$= 1 - (1 - \alpha) = \alpha$$
+This flawlessly proves the test is bounded by $\alpha$.
+
+## The Single Coefficient Test ($H_0: \gamma_j = 0$)
+If we want to test if a single specific predictor is useless, we construct $a$ such that the $(j+1)$-st component is $1$ and all others are $0$. 
+
+> [!info] **Single Coefficient Test Formulation**
+> We reject $H_0: \gamma_j = 0$ against $H_1: \gamma_j \neq 0$ at level $\alpha$ if:
+> $$\frac{\hat{\gamma}_j}{\hat{\sigma}\sqrt{((A^T A)^{-1})_{j+1,j+1}}} \notin (-t_{n-k-1, 1-\alpha/2}, t_{n-k-1, 1-\alpha/2})$$
+
+---
+**Connections:**
+* The mathematical engine behind the coefficient p-values generated in R output.
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Corollary 3.11 - t-Test for Linear Combinations.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Design Matrix.md ---
+---
+tags: [statistics, linear-regression, linear-algebra, matrices]
+aliases: [Model Matrix, Predictor Matrix, Matrix A, Matrix X]
+created: 2026-03-10
+---
+## Motivation
+The word "Linear" in a Linear Model refers strictly to the parameters ($\gamma$), not the shape of the data. The Design Matrix exists to act as a mathematical translation layer. By engineering the columns of this matrix, we can embed highly non-linear geometries (curves, conditional slopes, categorical logic) into a perfectly flat, easily solvable linear algebra space.
+
+## Definition
+The Design Matrix $A$ is an $n \times (k+1)$ matrix that holds all the observed, deterministic data for the predictor variables. 
+* **Rows ($n$):** Each row represents one single, independent observation.
+* **Columns ($k+1$):** Each column represents a specific feature, predictor, or parameter being estimated (including the intercept).
+
+$$A = \begin{pmatrix} 
+1 & x^{(1)}_1 & \dots & x^{(k)}_1 \\ 
+1 & x^{(1)}_2 & \dots & x^{(k)}_2 \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+1 & x^{(1)}_n & \dots & x^{(k)}_n 
+\end{pmatrix}$$
+
+## Structural Variations (Feature Engineering)
+By manipulating the columns of $A$, the standard $Y = A\gamma + \varepsilon$ equation can represent complex experimental designs without changing the underlying optimization math.
+
+### 1. The ANOVA Design Matrix (Dummy Variables)
+When dealing with categorical groups (e.g., Treatment A vs. B), the matrix uses binary indicator columns. 
+$$x^{(j)}_i = \mathbf{1}\{\text{subject } i \text{ is in group } j\}$$
+*(Note: To avoid perfect multicollinearity, one category is always dropped and absorbed into the intercept $\gamma_0$.)*
+
+### 2. Polynomial Regression
+To model a curved relationship, we simply add a new column to the matrix that is the mathematical power of an existing independent variable. 
+* Example: $Y = \gamma_0 + \gamma_1 x + \gamma_2 x^2 + \varepsilon$
+* The design matrix receives a column containing $x$ and a separate column containing $x^2$. The model remains linear with respect to $\gamma$.
+
+### 3. Interaction Terms
+To model situations where the effect of one variable depends entirely on another (e.g., the effect of a drug dose depends on the delivery method), we create an interaction column by multiplying two existing columns together.
+* Example: $Y = \gamma_0 + \gamma_1 \text{dose} + \gamma_2 \mathbf{1}\{\text{supp}=VC\} + \gamma_3 (\mathbf{1}\{\text{supp}=VC\} \times \text{dose}) + \varepsilon$
+* The parameter $\gamma_3$ now specifically estimates the *difference* in slope between the two supplement types.
+
+## The Rank Assumption
+For the parameters to be uniquely estimable, $A^T A$ must be invertible. This is strictly equivalent to requiring the Design Matrix $A$ to have **Full Column Rank** ($rank(A) = k+1$). No column can be a perfect linear combination of the other columns.
+
+---
+**Connections:**
+* Forms the column space $\mathbb{L}$ onto which the [[Orthogonal Projection Matrix]] operates.
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Design Matrix.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Fitted Values and Residuals.md ---
+---
+tags: [statistics, linear-regression, definitions]
+aliases: [Fitted Values, Residuals, Y-hat, Epsilon-hat]
+created: 2026-03-10
+---
+# Fitted Values and Residuals
+
+## Motivation
+In statistics, there is a strict philosophical boundary between the unobservable true universe and the mathematical shadows we cast from our samples. Defining fitted values and residuals separately from the true parameters ensures we never confuse our *estimates* of reality with reality itself.
+
+## The True, Unobservable Model
+In the model $Y = A\gamma + \varepsilon$:
+* **$A\gamma$**: The true, perfect deterministic signal.
+* **$\varepsilon$**: The true, unobservable random error vector. 
+
+## The Observable Estimations
+
+### 1. Fitted Values ($\hat{Y}$)
+Once the OLS estimator $\hat{\gamma}$ is computed, we generate our model's predictions for the dataset. These predictions are the **fitted values**.
+$$\hat{Y} = A\hat{\gamma}$$
+Because $\hat{\gamma} = (A^T A)^{-1}A^T Y$, we can express the fitted values geometrically as the projection of $Y$ via the [[Hat Matrix]]:
+$$\hat{Y} = \Pi_{\mathbb{L}} Y$$
+
+### 2. Residuals ($\hat{\varepsilon}$)
+The residuals are the actual, measurable mistakes our specific model made on our sample data. They act as a proxy for the unobservable error vector $\varepsilon$.
+$$\hat{\varepsilon} = Y - \hat{Y}$$
+Geometrically, the residuals are isolated by applying the Annihilator Matrix to the observation vector:
+$$\hat{\varepsilon} = (I_n - \Pi_{\mathbb{L}})Y$$
+
+---
+**Connections:**
+* The properties of the residual vector are formalized in [[Lemma 3.6 - Projection and Annihilator Matrices]].
+* The variance of the residuals is used to estimate the true noise $\sigma^2$ in [[Theorem 3.7 - Unbiasedness and Covariance of OLS]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Fitted Values and Residuals.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Gaussian Linear Model.md ---
+---
+tags: [statistics, linear-regression, modeling]
+aliases: [GLM, Linear Regression]
+created: 2026-03-04
+---
+## Definition
+The Gaussian Linear Model is a specific, restricted formulation of the standard [[Linear Model]]. It inherits the exact same structural matrix equation, but adds one strong parametric assumption regarding the probability distribution of the error term.
+
+$Y = A\gamma + \varepsilon$
+
+* **$Y$:** The $n \times 1$ response vector.
+* **$A$:** The $n \times k$ [[Design Matrix]].
+* **$\gamma$:** The $k \times 1$ parameter vector.
+* **$\varepsilon$:** The $n \times 1$ error vector.
+
+### The Gaussian Assumption
+Unlike the base Linear Model (which only assumes $E[\varepsilon]=0$ and constant variance), this model assumes the unobservable error vector $\varepsilon$ perfectly follows a [[Multivariate Normal Distribution]]:
+$$\varepsilon \sim \text{Normal}(\mathbf{0}, \sigma^2 I_n)$$
+
+## Implications for the Response Vector ($Y$)
+Because affine transformations of normal vectors remain perfectly normal, adding the deterministic component $A\gamma$ means the observed response vector itself is also normally distributed:
+$$Y \sim \text{Normal}(A\gamma, \sigma^2 I_n)$$
+
+
+## Why make this strict assumption?
+While [[Ordinary Least Squares (OLS)]] does not require the Gaussian assumption simply to calculate the coefficient estimates geometrically, the Gaussian assumption mathematically "unlocks" exact statistical inference:
+
+1. **Constructing the Likelihood Function:** It allows us to define a joint probability density function for the data, enabling [[Maximum Likelihood Estimation]]. Under this model, the MLE for $\gamma$ is algebraically identical to the OLS estimator. (See [[Gaussian MLE Theorem]]).
+2. **Exact Distribution of Estimators:** It guarantees that our coefficient estimates ($\hat{\gamma}$) follow exact normal distributions in finite samples:
+   $$\hat{\gamma} \sim \text{Normal}(\gamma, \sigma^2(A^TA)^{-1})$$
+3. **Statistical Independence:** It guarantees that the coefficient estimates ($\hat{\gamma}$) and the residuals ($\hat{\varepsilon}$) are perfectly independent.
+4. **Exact Hypothesis Testing:** It guarantees that the scaled sum of squared residuals strictly follows a [[Chi-Squared Distribution]] (See [[Theorem 3.10 - Distributions in the Gaussian Linear Model]]). This allows us to perform exact finite-sample $F$-tests in [[Analysis of Variance (ANOVA)]] and [[Corollary 3.11 - t-Test for Linear Combinations]].
+
+---
+**Connections:**
+* The mathematical equivalence of global testing in this model and ANOVA is detailed in [[ANOVA-Regression Equivalence]].
+* If the normality assumption fails, the exact tests are invalid, but if the sample size $n$ is sufficiently large, we can often rely on asymptotic approximations powered by the [[Multivariate Central Limit Theorem]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Gaussian Linear Model.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Global F-Test (Corollary 3.15).md ---
+---
+tags: [statistics, linear-regression, hypothesis-testing]
+aliases: [Global F-Test, Overall Model Significance, Corollary 3.15]
+created: 2026-03-10
+---
+---
+
+Before analyzing specific slopes, we must ask the absolute baseline question: *Is this multivariable model statistically better than just predicting the average $\bar{Y}$?* If this test fails, the entire model is indistinguishable from random noise, and interpreting specific coefficients is mathematically invalid.
+
+## The Hypothesis Framework
+We test the null hypothesis that every single predictor is useless, meaning all coefficients (except the intercept) are zero.
+* $H_0: \gamma_1 = \dots = \gamma_k = 0$
+* $H_1: \gamma_j \neq 0$ for some $j \in \{1,\dots,k\}$
+
+> [!info] **Global F-Test Formulation**
+> The decision rule $\varphi(Y)$ is a level-$\alpha$ test:
+> $$\varphi(Y) = \begin{cases} \text{cannot reject}, & \frac{(n-k-1)(\text{TSS} - \|\hat{\varepsilon}\|^2)}{k\|\hat{\varepsilon}\|^2} < F_{k, n-k-1, 1-\alpha} \\ \text{reject}, & \frac{(n-k-1)(\text{TSS} - \|\hat{\varepsilon}\|^2)}{k\|\hat{\varepsilon}\|^2} \ge F_{k, n-k-1, 1-\alpha} \end{cases}$$
+
+## The Derivation
+This test is a direct, extreme application of the [[Partial F-Test (Corollary 3.14)]].
+We define our preserved subset $J = \{0\}$, meaning we only keep the intercept $\gamma_0$.
+As proven in [[Sample Mean as an OLS Estimator]], the squared norm of the residuals for an intercept-only model is exactly the Total Sum of Squares ($\|\hat{\varepsilon}_{\{0\}}\|^2 = \text{TSS}$).
+By substituting TSS for the reduced model error, and noting that the reduced model has exactly $|J| = 1$ parameter, the denominator degrees of freedom $(k+1-|J|)$ perfectly simplifies to $k$.
+
+---
+**Connections:**
+* Always evaluated at the very bottom of the R `summary(lm())` output to validate the [[Coefficient of Determination (R-squared)]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Global F-Test (Corollary 3.15).md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Hat Matrix.md ---
+---
+tags: [statistics, linear-regression, matrices]
+aliases: [Hat Matrix, Projection Matrix H]
+---
+## Motivation
+While the [[Orthogonal Projection Matrix]] is a general linear algebra concept, the Hat Matrix is its specific, operational form in statistics. It gets its name because it mathematically puts the "hat" on the $Y$ vector, transforming observed data ($Y$) directly into model predictions ($\hat{Y}$).
+
+## Definition
+Let $\mathbb{L}$ be the linear subspace generated by the columns of the [[Design Matrix]] $A$, defined as $\mathbb{L} = \{Av : v \in \mathbb{R}^{k+1}\}$.
+The Hat Matrix (or projection matrix onto $\mathbb{L}$) is defined as:
+$$\Pi_{\mathbb{L}} = A(A^T A)^{-1}A^T$$
+
+## Operational Mechanism
+When you multiply the Hat Matrix by the observed response vector $Y$, it perfectly projects $Y$ down onto the model's subspace, yielding the fitted values:
+$$\hat{Y} = \Pi_{\mathbb{L}} Y = A(A^T A)^{-1}A^T Y$$
+
+Because it is an orthogonal projection, it inherits the strict properties:
+* **Symmetric:** $\Pi_{\mathbb{L}}^T = \Pi_{\mathbb{L}}$
+* **Idempotent:** $\Pi_{\mathbb{L}}^2 = \Pi_{\mathbb{L}}$
+
+---
+**Connections:**
+* Defined formally and proven in [[Lemma 3.6 - Projection and Annihilator Matrices]].
+* Operates in tandem with the Annihilator Matrix $(I_n - \Pi_{\mathbb{L}})$ to generate [[Fitted Values and Residuals]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Hat Matrix.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Linear Model.md ---
+---
+tags: [statistics, linear-regression, modeling, matrices]
+aliases: [General Linear Model, Multiple Linear Regression]
+created: 2026-03-05
+---
+## Definition
+A Linear Model establishes a relationship between a random response vector $Y \in \mathbb{R}^n$ and a set of deterministic predictors. It assumes the expected value of the response is a linear combination of unknown parameters, plus an unobservable random error vector $\varepsilon \in \mathbb{R}^n$.
+
+Mathematically, it is written in matrix notation as:
+$$Y = A\gamma + \varepsilon$$
+
+Where:
+* **$Y$:** The $n \times 1$ random vector of observed responses.
+* **$A$:** The $n \times k$ **[[Design Matrix]]** containing the known predictor variables (usually with a first column of $1$s for the intercept).
+* **$\gamma$:** The $k \times 1$ deterministic vector of unknown parameters (coefficients) we want to estimate.
+* **$\varepsilon$:** The $n \times 1$ [[Random Vector]] of unobservable noise.
+
+## Strict Assumptions (Second-Order Properties)
+For a model to be a standard Linear Model, we do not assume a specific probability distribution, but we strictly assume the first and second moments of the error vector $\varepsilon$:
+1. **Zero Mean:** The noise balances out on average.
+   $$E[\varepsilon] = \mathbf{0}$$
+   *(Which implies $E[Y] = A\gamma$)*
+2. **Homoscedasticity and Uncorrelatedness:** The errors have a constant variance ($\sigma^2 > 0$) and are mutually [[Uncorrelated Random Vectors|uncorrelated]].
+   $$Cov(\varepsilon) = \sigma^2 I_n$$
+   *(Where $I_n$ is the $n \times n$ identity matrix, implying $Cov(Y) = \sigma^2 I_n$)*
+
+---
+**Connections:**
+* Because there is no distributional assumption, the parameters $\gamma$ are estimated purely geometrically using [[Ordinary Least Squares (OLS)]].
+* If we additionally assume the errors are normally distributed, this becomes a [[Gaussian Linear Model]].
+* The [[Gauss-Markov Theorem]] proves that under these specific assumptions, OLS provides the Best Linear Unbiased Estimator (BLUE).
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Linear Model.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Matrix Formulation of OLS.md ---
+---
+tags: [statistics, linear-regression, estimators, linear-algebra]
+aliases: [Normal Equations, OLS Estimator Matrix]
+created: 2026-03-05
+---
+# Matrix Formulation of OLS
+
+## Definition
+The Matrix Formulation of [[Ordinary Least Squares (OLS)]] extends the geometric principle of minimizing squared errors to $k$-dimensional space. For a [[Linear Model]] defined as $Y = A\gamma + \varepsilon$, we seek the specific parameter vector $\hat{\gamma}$ that minimizes the sum of the squared residuals.
+
+The residual vector is $\hat{\varepsilon} = Y - A\hat{\gamma}$. The objective function $S(\gamma)$ we want to minimize is the squared Euclidean norm (the dot product) of the residuals:
+$$S(\gamma) = \|\hat{\varepsilon}\|^2 = (Y - A\gamma)^T(Y - A\gamma)$$
+
+## The Mathematical Derivation
+To find the minimum, we expand the quadratic form, take the partial derivative (gradient) with respect to the vector $\gamma$, and set it exactly to zero.
+
+**1. Expand the objective function:**
+$$(Y^T - \gamma^T A^T)(Y - A\gamma) = Y^TY - Y^TA\gamma - \gamma^TA^TY + \gamma^TA^TA\gamma$$
+Since $Y^TA\gamma$ is a scalar, it equals its transpose $\gamma^TA^TY$, simplifying to:
+$$S(\gamma) = Y^TY - 2\gamma^TA^TY + \gamma^TA^TA\gamma$$
+
+**2. Take the gradient with respect to $\gamma$ and set to $\mathbf{0}$:**
+$$\frac{\partial S}{\partial \gamma} = -2A^TY + 2A^TA\gamma = 0$$
+
+**3. The Normal Equations:**
+Rearranging the derivative gives us the fundamental Normal Equations of linear regression:
+$$A^TA\hat{\gamma} = A^TY$$
+
+**4. Isolate $\hat{\gamma}$ (The Final Estimator):**
+Provided the [[Design Matrix]] $A$ has full column rank, the square Gram matrix $(A^TA)$ is invertible. Multiplying both sides by the inverse yields the final OLS estimator:
+$$\hat{\gamma} = (A^TA)^{-1}A^TY$$
+
+
+
+## Statistical Properties of $\hat{\gamma}$
+Because $Y$ is a random vector, $\hat{\gamma}$ is also a random vector with its own distribution. Under the assumptions of the [[Linear Model]]:
+
+1.  **Unbiasedness:** The estimator perfectly hits the true parameters on average.
+    $$E[\hat{\gamma}] = E[(A^TA)^{-1}A^T(A\gamma + \varepsilon)] = \gamma + (A^TA)^{-1}A^TE[\varepsilon] = \gamma$$
+2.  **Covariance (Spread):** The uncertainty of the estimates depends directly on the background noise ($\sigma^2$) and the structure of the data ($A^TA$).
+    $$Cov(\hat{\gamma}) = \sigma^2 (A^TA)^{-1}$$
+An illustration of how the line-fitting is done to the data is given below -
+
+![[LinearRegression_Yahya.gif]]
+
+
+---
+**Connections:**
+* The geometric action of projecting $Y$ onto the column space of $A$ is handled by the [[Orthogonal Projection Matrix]] (or Hat Matrix).
+* Under a [[Gaussian Linear Model]], this exact matrix formula also represents the [[Maximum Likelihood Estimation]].
+* The [[Gauss-Markov Theorem]] proves that out of all possible unbiased linear estimators, this specific formulation gives the smallest possible variance.
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Matrix Formulation of OLS.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Models Without Intercept (Remark 3.13).md ---
+---
+tags: [statistics, linear-regression, matrices]
+aliases: [Regression Through Origin, Remark 3.13]
+created: 2026-03-10
+---
+# Models Without Intercept
+
+## The Adjustment
+In standard formulations, the intercept $\gamma_0$ dictates that the first column of the [[Design Matrix]] $A$ is filled with ones. 
+
+If a physical model requires forcing the regression through the origin (no intercept), all previous geometric proofs and theorems continue to hold perfectly. 
+
+**The single required adjustment:** Because you are estimating one less parameter, you must replace the number of parameters $k+1$ with $k$ in all degrees of freedom calculations.
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Models Without Intercept (Remark 3.13).md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Orthogonal Projection Matrix.md ---
+---
+tags: [statistics, linear-algebra, matrices]
+aliases: [Orthogonal Projection]
+created: 2026-03-10
+---
+## Motivation
+In high-dimensional space, the observed data vector $Y$ almost never lies perfectly within the linear subspace $U$ defined by our model. The orthogonal projection provides the mathematically perfect "compromise." It finds the unique point $z_0 \in U$ that is physically closest to $Y$. 
+
+
+
+## Definition
+Let $U \subseteq \mathbb{R}^d$ be a linear subspace. For any vector $z \in \mathbb{R}^d$, there exists a unique solution $z_0 \in U$ to the geometric optimization problem:
+$$\min_{v \in U} \|z - v\|$$
+The linear map $\Pi_U : \mathbb{R}^d \to U$ that maps every $z$ to its closest point $z_0$ is called the **orthogonal projection onto $U$**. 
+
+## Strict Mathematical Properties
+Let $M \in \mathbb{R}^{d \times d}$ be the matrix representing the linear map $\Pi_U$. $M$ is an orthogonal projection matrix if and only if it satisfies two absolute conditions:
+
+**1. It is Idempotent ($\Pi_U^2 = \Pi_U$)**
+Projecting a point that is already in the subspace does nothing. If you apply the projection matrix twice, it is identical to applying it once.
+
+**2. It is Symmetric ($M = M^T$)**
+This is proven via the orthogonality condition. Because the error vector $(z - Mz)$ is strictly perpendicular to the subspace $U$ ($\perp U$), for all $x, y \in \mathbb{R}^d$:
+$$\langle Mx, y \rangle - \langle x, My \rangle = \langle Mx, y \rangle - \langle Mx, My \rangle + \langle Mx, My \rangle - \langle x, My \rangle$$
+$$= \langle Mx, y - My \rangle + \langle Mx - x, My \rangle = 0$$
+Thus, $x^T(M^T - M)y = 0$, proving that $M = M^T$.
+
+---
+**Connections:**
+* The specific implementation of this matrix in linear regression is the [[Hat Matrix]].
+* The orthogonality property is formalized in [[Lemma 3.6 - Projection and Annihilator Matrices]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Orthogonal Projection Matrix.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Partial F-Test (Corollary 3.14).md ---
+---
+tags: [statistics, linear-regression, hypothesis-testing]
+aliases: [Partial F-Test, Corollary 3.14, Nested F-Test]
+created: 2026-03-10
+---
+## Motivation
+When evaluating a categorical variable with $\ge 3$ levels (which spawns multiple dummy variables in the design matrix), we cannot check their $t$-tests individually. We must mathematically test if dropping that entire *block* of parameters significantly increases the unexplainable error. 
+
+## The Hypothesis Framework
+Let $J \subseteq \{0, 1, \dots, k\}$ with $J \neq \emptyset$ be the subset of indices representing the variables we want to *keep*. We test the null hypothesis that all excluded variables are perfectly zero.
+* $H_0: \gamma_j = 0$ for all $j \in \{0, \dots, k\} \setminus J$
+* $H_1: \gamma_j \neq 0$ for some $j \in \{0, \dots, k\} \setminus J$
+
+Let $\hat{\varepsilon}_J$ be the residuals of the smaller, Reduced Model ($L_J$). 
+Let $\hat{\varepsilon}$ be the residuals of the Full Model ($L$).
+
+> [!info] **Partial F-Test Formulation**
+> The decision rule $\varphi(Y)$ is a level-$\alpha$ test:
+> $$\varphi(Y) = \begin{cases} \text{cannot reject}, & \frac{(n-k-1)(\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2)}{(k+1-|J|)\|\hat{\varepsilon}\|^2} < F_{k+1-|J|, n-k-1, 1-\alpha} \\ \text{reject}, & \frac{(n-k-1)(\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2)}{(k+1-|J|)\|\hat{\varepsilon}\|^2} \ge F_{k+1-|J|, n-k-1, 1-\alpha} \end{cases}$$
+
+## The Derivation via the Pythagorean Theorem
+We must map our observable errors ($\hat{\varepsilon}$) to the geometric projection differences established in Theorem 3.12.
+We partition the distance from the data $Y$ to the reduced model $\hat{Y}_J$:
+$$Y - \hat{Y}_J = (Y - \hat{Y}) + (\hat{Y} - \hat{Y}_J)$$
+Because $Y - \hat{Y} \perp L$ (the residuals are orthogonal to the full model space), and both $\hat{Y}$ and $\hat{Y}_J$ exist inside $L$, the vector $\hat{Y} - \hat{Y}_J$ is also in $L$. Thus, the two components are perfectly orthogonal, invoking the Pythagorean theorem:
+$$\|Y - \hat{Y}_J\|^2 = \|Y - \hat{Y}\|^2 + \|\hat{Y} - \hat{Y}_J\|^2$$
+Substituting our residual definitions ($\|Y - \hat{Y}\| = \|\hat{\varepsilon}\|$):
+$$\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2 = \|\hat{Y} - \hat{Y}_J\|^2$$
+
+This proves that the physical "explosion in error" caused by deleting the variables ($\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2$) is mathematically identical to the term $\|\hat{Y} - \Pi_H Y\|^2$ from Theorem 3.12. Substituting this back into the ratio from Theorem 3.12 (where $r = |J|$) completes the F-distribution proof.
+
+
+
+---
+**Connections:**
+* This theorem is structurally identical to the Sum of Squares algebra used in [[Analysis of Variance (ANOVA)]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Partial F-Test (Corollary 3.14).md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Linear_Regression\Sample Mean as an OLS Estimator.md ---
+---
+tags: [statistics, linear-regression, estimators]
+aliases: [Example 3.8, OLS Base Case, Intercept-Only Model]
+created: 2026-03-10
+---
+# Sample Mean as an OLS Estimator (Base Case k=0)
+
+## Motivation
+It is easy to get lost in high-dimensional matrix algebra. This base case serves as a crucial sanity check, linking the complex matrix operations of a General Linear Model back to the foundational statistics of 1D arrays. It mathematically proves that estimating a single sample mean is just the simplest possible form of linear regression.
+
+## The Setup
+Consider the special case where $k=0$. The model has no predictors, only a global intercept $\gamma_0$.
+$$Y_i = \gamma_0 + \varepsilon_i \quad \text{for } i \in \{1,\dots,n\}$$
+This simply describes $n$ uncorrelated random variables where $E[Y_i] = \gamma_0$.
+
+## The Matrix Translation
+We translate this simple scenario into our formal matrix architecture:
+* **The Design Matrix ($A$):** Since there is only the intercept, $A$ is just an $n \times 1$ column vector of ones: $A = (1, \dots, 1)^T \in \mathbb{R}^n$.
+* **The Gram Matrix ($A^T A$):** Multiplying a row of $n$ ones by a column of $n$ ones yields the scalar $n$.
+* **The Target ($A^T Y$):** Multiplying the row of ones by the response vector $Y$ simply sums the elements: $A^T Y = \sum_{i=1}^n Y_i$.
+
+## The Algebraic Collapse
+We plug these collapsed matrices into the OLS estimator formula $\hat{\gamma} = (A^T A)^{-1}A^T Y$:
+$$\hat{\gamma}_0 = (n)^{-1} \sum_{i=1}^n Y_i = \frac{1}{n} \sum_{i=1}^n Y_i = \bar{Y}$$
+The complex matrix math perfectly yields the standard **sample mean**.
+
+Furthermore, the residuals become $\hat{\varepsilon}_i = Y_i - \bar{Y}$. 
+The unbiased variance estimator $\hat{\sigma}^2 = \frac{1}{n-k-1}\|\hat{\varepsilon}\|^2$ simplifies seamlessly (since $k=0$) to:
+$$\hat{\sigma}^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i - \bar{Y})^2 = S^2$$
+Which is the universally recognized formula for **sample variance**.
+
+---
+**Connections:**
+* Validates the architecture established in the [[Matrix Formulation of OLS]].
+
+--- END OF FILE: 04_Statistical_Models\Linear_Regression\Sample Mean as an OLS Estimator.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Logistic_Regression\Binary Regression Framework.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Logistic_Regression\Binary Regression Framework.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Logistic_Regression\Logistic MLE.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Logistic_Regression\Logistic MLE.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Logistic_Regression\Logistic Regression Model.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Logistic_Regression\Logistic Regression Model.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Logistic_Regression\Logit Link Function.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Logistic_Regression\Logit Link Function.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear Least Squares.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear Least Squares.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear MLE.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear MLE.md ---
+
+
+--- START OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear Regression Model.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 04_Statistical_Models\Non-Linear_Regression\Non-Linear Regression Model.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Central Limit Theorem.md ---
+---
+tags: [statistics, theorems, asymptotic-theory]
+aliases: [CLT]
+created: 2026-03-04
+---
+# Central Limit Theorem (CLT)
+
+## Definition
+The Central Limit Theorem (CLT) states that the distribution of a sample mean ($\bar{X}_n$) converges to a [[Normal Distribution]] as the sample size ($n$) grows to infinity, **regardless of the original shape of the data generating process**.
+
+As $n \rightarrow \infty$, the standardized distance between the sample mean and the true mean converges in distribution ($\xrightarrow{d}$) to a normal distribution:
+$$\sqrt{n}(\bar{X}_n - \mu) \xrightarrow{d} N(0, \sigma^2)$$
+
+## The Standardized Representation
+By dividing by $\sigma$ to neutralize the variance, we create an asymptotic Standard Normal representation:
+$$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} N(0, 1)$$
+
+In practice, the true population variance ($\sigma^2$) is rarely known. Using [[Slutsky's Theorem]], we can legally replace the unknown parameter $\sigma$ with the estimated sample standard deviation $S_n$, maintaining the asymptotic relationship:
+$$\frac{\bar{X}_n - \mu}{S_n / \sqrt{n}} \xrightarrow{d} N(0, 1)$$
+
+## Prerequisites
+The CLT requires three strict mathematical assumptions to hold:
+1. **Independent and Identically Distributed (i.i.d.):** The data points must not influence each other and must come from the same underlying probability distribution.
+2. **Finite Expected Value:** The true population mean ($\mu$) must be a finite number.
+3. **Finite Variance:** The true population variance ($\sigma^2$) must be less than infinity ($\sigma^2 < \infty$). 
+
+---
+**Connections:**
+* If the requirement for finite variance fails, the CLT collapses entirely. This is observed in [[Heavy-Tailed Distributions]] families like the Cauchy distribution.
+* The denominator term $\sigma / \sqrt{n}$ represents the standard error of the mean.
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Central Limit Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Continuous Mapping Theorem.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Continuous Mapping Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Law of Large Numbers (LLN).md ---
+---
+tags: [statistics, theorems, asymptotic-theory, stub]
+aliases: [LLN]
+created: 2026-03-04
+---
+## Definition (Theorem 2.3)
+The Law of Large Numbers states that the sample mean of a sequence of independent and identically distributed (i.i.d.) random vectors converges to their theoretical expected value as the sample size grows to infinity.
+
+Let $(X_i)_{i \in \mathbb{N}}$ be i.i.d. random vectors in $\mathbb{R}^m$ such that $E[\|X\|] < \infty$, and define $S_n = \sum_{i=1}^n X_i$.
+
+### 1. The Weak Law of Large Numbers
+The sample mean converges to the true mean in probability ([[Convergence in Probability]]):
+$$\frac{1}{n} S_n \xrightarrow{P} E[X_1] \quad \text{as } n \to \infty$$
+
+### 2. The Strong Law of Large Numbers
+The sample mean converges to the true mean almost surely ([[Almost Sure Convergence]]):
+$$\frac{1}{n} S_n \xrightarrow{a.s.} E[X_1] \quad \text{as } n \to \infty$$
+
+## Intuition
+If you flip a fair coin a few times, you might get $80\%$ heads. If you flip it a million times, the proportion of heads will converge to exactly $50\%$. The LLN guarantees that random noise cancels itself out over the long run, pulling the sample average toward the true population expectation.
+
+---
+**Connections:**
+* The LLN is the primary theorem used to prove that the sample mean is a [[Consistent Estimator]] for the population mean.
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Law of Large Numbers (LLN).md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Multivariate Central Limit Theorem.md ---
+---
+tags: [statistics, theorems, asymptotic-theory, multivariate]
+aliases: [Multivariate CLT]
+created: 2026-03-04
+---
+# Multivariate Central Limit Theorem
+
+## Definition (Theorem 2.4)
+The Multivariate Central Limit Theorem extends the standard [[Central Limit Theorem]] to multi-dimensional data. It states that the sum of i.i.d. random vectors converges to a [[Multivariate Normal Distribution]], regardless of the underlying distribution of the data.
+
+Let $(X_i)_{i \in \mathbb{N}}$ be i.i.d. random vectors in $\mathbb{R}^m$ such that their second moments are finite ($E[\|X_1\|^2] < \infty$). 
+Let $S_n = \sum_{i=1}^n X_i$. 
+Let $\Sigma = Cov(X_1)$ be the covariance matrix, and let $N \sim \text{Normal}(\mathbf{0}, \Sigma)$.
+
+Then, the standardized sum converges in distribution ([[Convergence in Distribution]]):
+$$\frac{S_n - nE[X_1]}{\sqrt{n}} \xrightarrow{d} N \quad \text{as } n \to \infty$$
+
+---
+**Connections:**
+* This theorem is vital for deriving asymptotic hypothesis tests and confidence regions in the [[Gaussian Linear Model]] when multiple parameters are evaluated simultaneously.
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Multivariate Central Limit Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Slutsky's Theorem.md ---
+---
+tags: [statistics, theorems, asymptotic-theory, stub]
+aliases: [Slutsky]
+created: 2026-03-04
+---
+# Slutsky's Theorem
+
+🚧 **Note: This is a stub file to be expanded when processing the advanced PDF corpus.** ## Definition
+*(Pending formal mathematical definition regarding the algebraic combination of sequences of random variables that converge in distribution and probability).*
+
+---
+**Connections:**
+* Permits the substitution of $S_n$ for $\sigma$ in the [[Central Limit Theorem]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Limit_Theorems\Slutsky's Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Linear_Algebra_Properties\Lemma 3.6 - Projection and Annihilator Matrices.md ---
+---
+tags: [statistics, theorems, linear-algebra, linear-regression]
+aliases: [Lemma 3.6, Annihilator Matrix, Projection Matrix]
+created: 2026-03-10
+---
+# Lemma 3.6 - Projection and Annihilator Matrices
+
+## Motivation
+To evaluate any linear model, we must mathematically separate the "signal" from the "noise." This lemma provides the exact linear algebra machinery to do so. It guarantees that the predictions ($\hat{Y}$) exist strictly within the model's geometric space, and that the resulting residuals ($\hat{\varepsilon}$) are perfectly orthogonal (perpendicular) to those predictions. 
+
+
+## The Theorem
+Let $\mathbb{L}$ be the linear subspace generated by the columns of the design matrix $A$, i.e., $\mathbb{L} = \{Av : v \in \mathbb{R}^{k+1}\}$. 
+
+**a) The Projection Matrix ($\Pi_{\mathbb{L}}$)**
+The matrix $A(A^T A)^{-1}A^T$ is the exact orthogonal projection $\Pi_{\mathbb{L}}$ onto $\mathbb{L}$[. 
+In the context of the linear model, this means the fitted values and residuals can be expressed entirely via linear transformations of the response vector $Y$:
+* $\hat{Y} = A(A^T A)^{-1}A^T Y = \Pi_{\mathbb{L}}Y$
+* $\hat{\varepsilon} = (I_n - A(A^T A)^{-1}A^T)Y = (I_n - \Pi_{\mathbb{L}})Y$
+
+**b) The Annihilator Matrix**
+The matrix $(I_n - A(A^T A)^{-1}A^T)$, often called the Annihilator Matrix, is symmetric and idempotent:
+$$(I_n - A(A^T A)^{-1}A^T)^2 = (I_n - A(A^T A)^{-1}A^T)$$
+
+## Proof
+
+**Part A (Orthogonality):**
+For any $z \in \mathbb{R}^n$, we have $A(A^T A)^{-1}A^T z = Av$ where $v = (A^T A)^{-1}A^T z \in \mathbb{R}^{k+1}$, meaning the projection strictly lives in $\mathbb{L}$.
+To prove it is orthogonal, we show the residual vector is perpendicular to the subspace. We multiply $A^T$ by the residual:
+$$A^T(z - A(A^T A)^{-1}A^T z) = A^T z - A^T A(A^T A)^{-1}A^T z = A^T z - A^T z = \mathbf{0}$$
+Thus, $\langle Av, z - A(A^T A)^{-1}A^T z \rangle = 0$ for all $v \in \mathbb{R}^{k+1}$, proving $z - \Pi_{\mathbb{L}}z \perp \mathbb{L}$.
+
+**Part B (Symmetry and Idempotence):**
+Because $A^T A$ and its inverse are symmetric, $(A(A^T A)^{-1}A^T)^T = A(A^T A)^{-1}A^T$. Therefore, both the projection matrix and the annihilator matrix $I_n - \Pi_{\mathbb{L}}$ are symmetric.
+Using the property that projections are idempotent ($\Pi_{\mathbb{L}}^2 = \Pi_{\mathbb{L}}$):
+$$(I_n - \Pi_{\mathbb{L}})^2 = I_n^2 - I_n\Pi_{\mathbb{L}} - \Pi_{\mathbb{L}}I_n + \Pi_{\mathbb{L}}^2 = I_n - 2\Pi_{\mathbb{L}} + \Pi_{\mathbb{L}} = I_n - \Pi_{\mathbb{L}}$$ [cite: 437]
+
+---
+**Connections:**
+* Links directly to the definitions of [[Hat Matrix]] and [[Orthogonal Projection Matrix]].
+* The symmetry and idempotence proven here are critical for calculating $E[\|\hat{\varepsilon}\|^2]$ in [[Theorem 3.7 - Unbiasedness and Covariance of OLS]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Linear_Algebra_Properties\Lemma 3.6 - Projection and Annihilator Matrices.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Linear_Algebra_Properties\Trace of a Matrix.md ---
+---
+tags: [statistics, linear-algebra, foundations]
+aliases: [Trace, Cyclic Permutation Property]
+created: 2026-03-10
+---
+# Trace of a Matrix
+
+## Definition
+For a symmetric matrix $M = (M_{i,j})_{i,j \in \{1,\dots,d\}} \in \mathbb{R}^{d \times d}$, the trace is defined as the sum of its diagonal elements:
+$$trace(M) = \sum_{i=1}^{d} M_{i,i}$$
+
+## Cyclic Permutation Property
+
+For two given matrices $U \in \mathbb{R}^{p \times q}$ and $V \in \mathbb{R}^{q \times p}$, the trace of their products is identical, allowing matrices to be swapped inside the trace operator:
+
+$$trace(UV) = \sum_{i=1}^{p} \sum_{j=1}^{q} u_{ij}v_{ji} = \sum_{j=1}^{q} \sum_{i=1}^{p} v_{ji}u_{ij} = trace(VU)$$
+
+## Motivation
+When calculating the expected value of quadratic forms (such as the expected variance of the residuals in a [[Linear Model]]), standard scalar algebra fails. The cyclic permutation property of the trace is the indispensable mathematical "trick" required to untangle matrix expectations. Specifically, it allows us to rearrange $E[\varepsilon^T M \varepsilon]$ into $\sigma^2 trace(M)$, which is the core mechanism used to prove the unbiasedness of the residual variance estimator in **Theorem 3.7**.
+
+---
+**Connections:**
+* Crucial for proving the unbiasedness of $\hat{\sigma}^2$ in [[Theorem 3.7 - Unbiasedness and Covariance of OLS]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Linear_Algebra_Properties\Trace of a Matrix.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Gauss-Markov Theorem.md ---
+[FILE IS EMPTY]
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Gauss-Markov Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Gaussian MLE Theorem.md ---
+---
+tags: [statistics, theorems, linear-regression, stub]
+aliases: [Gaussian MLE]
+created: 2026-03-04
+---
+---
+## Motivation
+Why do statisticians bother assuming the unobservable error terms are perfectly Gaussian? This theorem exists to unify probability and geometry. It proves that if the noise follows a normal distribution, the pure geometric "least squares" line is mathematically identical to the probabilistically "most likely" reality. It also highlights the inherent bias that occurs when Maximum Likelihood Estimation is used to estimate variance without adjusting for degrees of freedom.
+
+## The Theorem
+Consider a [[Gaussian Linear Model]] where $\varepsilon \sim \text{Normal}(\mathbf{0}, \sigma^2 I_n)$. Let the unadjusted variance estimator be $\hat{\sigma}^2_{ML} = \frac{1}{n}\|\hat{\varepsilon}\|^2$.
+Then, the joint maximum likelihood estimator for the parameters and the variance is:
+$$(\hat{\gamma}_{ML}, \hat{\sigma}^2_{ML}) = (\hat{\gamma}_{OLS}, \frac{1}{n}\|\hat{\varepsilon}\|^2)$$
+
+*Note: While $\hat{\gamma}_{ML}$ is unbiased, $\hat{\sigma}^2_{ML} = \frac{n-k-1}{n}\hat{\sigma}^2_{OLS}$, making the MLE variance estimator biased in finite samples, though asymptotically unbiased as $n \to \infty$.
+
+## Rigorous Proof
+Because $Y = A\gamma + \varepsilon$ and $\varepsilon$ is a normal vector, $Y \sim \text{Normal}(A\gamma, \sigma^2 I_n)$. 
+The probability density function for the random vector $Y$ is:
+$$f(y) = \frac{1}{(2\pi)^{n/2} \sigma^n} \exp\left(-\frac{\|y - A\gamma\|^2}{2\sigma^2}\right)$$
+
+We define the Log-Likelihood function $L(\gamma, \sigma^2)$ by taking the natural logarithm:
+$$L(\gamma, \sigma^2) = -n \ln(\sqrt{2\pi}) - \frac{n}{2} \ln(\sigma^2) - \frac{\|Y - A\gamma\|^2}{2\sigma^2}$$
+
+**1. Maximizing for $\gamma$:**
+For any strictly fixed $\sigma^2 > 0$, the function $L$ becomes maximal if and only if the negative distance term $\|Y - A\gamma\|^2$ is minimized. By strict geometric definition, the OLS estimator $\hat{\gamma}$ is the unique minimizer of this exact quadratic form. Therefore, $\hat{\gamma}_{ML} = \hat{\gamma}_{OLS}$.
+
+**2. Maximizing for $\sigma^2$:**
+We substitute $\hat{\gamma}$ into the log-likelihood and take the partial derivative with respect to $\sigma^2$:
+$$\frac{\partial L(\hat{\gamma}, \sigma^2)}{\partial \sigma^2} = -\frac{n}{2\sigma^2} + \frac{\|Y - A\hat{\gamma}\|^2}{2\sigma^4}$$ 
+Setting the derivative strictly to zero:
+$$-\frac{n}{2\sigma^2} + \frac{\|\hat{\varepsilon}\|^2}{2\sigma^4} = 0 \iff \sigma^2 = \frac{1}{n}\|\hat{\varepsilon}\|^2$$ 
+Because $L \to -\infty$ as $\sigma^2 \to 0$ and $\sigma^2 \to \infty$, this stationary point is the global maximum.
+
+---
+**Connections:**
+* Links [[Maximum Likelihood Estimation]] framework directly to [[Matrix Formulation of OLS]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Gaussian MLE Theorem.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Independence of Sample Mean and Variance.md ---
+---
+tags: [statistics, theorems, foundations]
+aliases: [Mean-Variance Independence]
+created: 2026-03-04
+---
+# Independence of Sample Mean and Variance
+
+## Definition
+For data generated exclusively by a Gaussian (Normal) process, the sample mean ($\bar{X}$) and the sample variance ($S^2$) are completely **statistically independent**. Knowing the value of one provides zero mathematical information about the value of the other.
+
+## The Apparent Paradox
+This independence feels counterintuitive because the formula for sample variance explicitly contains the sample mean:
+$$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$
+How can $S^2$ be independent of $\bar{X}$ if $\bar{X}$ is used to calculate it?
+
+## The Geometric Resolution
+The paradox is resolved by separating *algebraic dependence* from *statistical independence*:
+1. **Algebraic necessity:** We must use $\bar{X}$ in the formula simply as a physical anchor point to measure distance. Spread cannot be measured without establishing a center.
+2. **Statistical freedom:** Because the [[Normal Distribution]] is perfectly symmetrical and featureless, shifting the entire curve left or right along the number line (changing the mean) does absolutely nothing to warp, stretch, or squash its width (the variance). 
+
+If a sample mean is $1,000,000$, there are no mathematical clues as to whether the data is tightly packed (variance of $1$) or wildly dispersed (variance of $10,000$).
+
+---
+**Connections:**
+* This strict independence is the core mathematical requirement that allows us to construct the [[Student's t-Distribution]] as a ratio of a Normal variable and a Chi-Squared variable.
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Independence of Sample Mean and Variance.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Independence of Uncorrelated Normal Variables.md ---
+---
+tags: [statistics, theorems, multivariate-normal, independence]
+aliases: [Lemma 2.2, Normal Independence]
+created: 2026-03-04
+---
+## Definition
+For general random vectors, being uncorrelated does not imply independence. However, **Lemma 2.2** states that if $X$ and $Y$ are jointly normally distributed, uncorrelatedness perfectly implies independence.
+
+Let $X$ and $Y$ be random vectors in $\mathbb{R}^m$ and $\mathbb{R}^n$, respectively, such that their joint vector $(X, Y)$ is a normally distributed random vector in $\mathbb{R}^{m+n}$. 
+If $X$ and $Y$ are [[Uncorrelated Random Vectors]], then $X$ and $Y$ are completely independent.
+
+## Intuition
+The [[Multivariate Normal Distribution]] is uniquely determined entirely by its mean vector and covariance matrix. It contains no "hidden" higher-order dependencies. If the linear dependency (covariance) is zero, the joint probability density function perfectly factors into the product of the marginal density functions, satisfying the strict mathematical definition of independence.
+
+
+
+---
+**Connections:**
+* This lemma is frequently exploited when proving properties of [[Ordinary Least Squares (OLS)]] estimators in the [[Gaussian Linear Model]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Independence of Uncorrelated Normal Variables.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.10 - Distributions in the Gaussian Linear Model.md ---
+---
+tags: [statistics, theorems, linear-regression, stub]
+aliases: [Gaussian Chi Squared, Residual Chi Squared]
+created: 2026-03-04
+---
+## Motivation
+
+Before establishing any hypothesis tests, we must prove the exact probability distributions of our geometric OLS estimators. This theorem mathematically guarantees that if the underlying noise is Gaussian, the coefficient estimates ($\hat{\gamma}$) and the residuals ($\hat{\varepsilon}$) not only follow exact Normal and Chi-squared distributions, but are strictly independent of each other.
+
+> [!info] **Theorem 3.10**
+> Consider a Gaussian linear model $Y = A\gamma + \varepsilon$ with $\varepsilon \sim \text{Normal}(0, \sigma^2 I_n)$.
+> **a)** The random vectors $\hat{\gamma}$ and $\hat{\varepsilon}$ are independent and satisfy:
+> * $\hat{\gamma} \sim \text{Normal}(\gamma, \sigma^2(A^T A)^{-1})$
+> * $\hat{\varepsilon} \sim \text{Normal}(0, \sigma^2(I_n - A(A^T A)^{-1}A^T))$
+> 
+> **b)** If $n > k + 1$, the scaled squared residuals follow a Chi-Squared distribution:
+> * $\frac{\|\hat{\varepsilon}\|^2}{\sigma^2} \sim \chi^2_{n-k-1}$
+
+## Rigorous Proof
+
+### Proof of Part A (Distributions and Independence)
+Recall the affine transformations from the unobservable errors:
+$\hat{\gamma} = \gamma + (A^T A)^{-1}A^T \varepsilon$
+$\hat{\varepsilon} = (I_n - A(A^T A)^{-1}A^T)\varepsilon$
+
+Because they are linear transformations of the normal vector $\varepsilon$, both are normal random vectors. Their expectations are trivially $\gamma$ and $0$.
+Their covariance matrices are:
+$$Cov(\hat{\gamma}) = (A^T A)^{-1}A^T (\sigma^2 I_n) A(A^T A)^{-1} = \sigma^2 (A^T A)^{-1}$$
+$$Cov(\hat{\varepsilon}) = (I_n - \Pi_L) (\sigma^2 I_n) (I_n - \Pi_L)^T = \sigma^2 (I_n - \Pi_L)^2 = \sigma^2(I_n - \Pi_L)$$
+
+**Proving Independence via Cross-Covariance:**
+We calculate the covariance between the two vectors:
+$$Cov(\hat{\gamma}, \hat{\varepsilon}) = E[(\hat{\gamma} - \gamma)(\hat{\varepsilon} - 0)^T]$$
+$$= E[((A^T A)^{-1}A^T \varepsilon) ((I_n - A(A^T A)^{-1}A^T)\varepsilon)^T]$$
+$$= (A^T A)^{-1}A^T E[\varepsilon \varepsilon^T] (I_n - A(A^T A)^{-1}A^T)$$
+$$= \sigma^2 (A^T A)^{-1}A^T (I_n - A(A^T A)^{-1}A^T)$$
+Distributing the terms:
+$$= \sigma^2 \left( (A^T A)^{-1}A^T - (A^T A)^{-1}A^T A (A^T A)^{-1}A^T \right)$$
+$$= \sigma^2 \left( (A^T A)^{-1}A^T - I_{k+1} (A^T A)^{-1}A^T \right) = \mathbf{0}$$
+Because they are uncorrelated and jointly multivariate normal, they are perfectly independent by [[Independence of Uncorrelated Normal Variables|Lemma 2.2]].
+
+### Proof of Part B (The Chi-Squared Distance)
+
+Let $u_1, \dots, u_n \in \mathbb{R}^n$ be an orthonormal base such that $u_1, \dots, u_{k+1}$ strictly generate the linear subspace $L$. Let $O$ be the matrix containing these column vectors. Because it is orthonormal, $O^T O = I_n$ and $O O^T = I_n$.
+
+The rotated error vector $O\varepsilon \sim \text{Normal}(0, \sigma^2 I_n)$ has the exact same distribution as $\varepsilon$. Multiplication by $O^T$ does not change a vector's norm.
+
+$$\|\hat{\varepsilon}\|^2 = \|(I_n - \Pi_L)\varepsilon\|^2 \stackrel{d}{=} \|(I_n - \Pi_L)O\varepsilon\|^2 = \|O^T(I_n - \Pi_L)O\varepsilon\|^2$$
+
+Because $\Pi_L u_i = u_i$ for $i \in \{1,\dots,k+1\}$ and $0$ otherwise, the matrix $O^T \Pi_L O$ is a diagonal matrix with exactly $k+1$ ones and the rest zeros.
+
+Thus, $O^T(I_n - \Pi_L)O$ is a diagonal matrix where the first $k+1$ elements are $0$ and the remaining $n - (k+1)$ elements are $1$. 
+
+This isolates exactly $n-k-1$ independent standard normal variables:
+$$\|\hat{\varepsilon}\|^2 \stackrel{d}{=} \sum_{i=k+2}^n \varepsilon_i^2 \implies \frac{\|\hat{\varepsilon}\|^2}{\sigma^2} \sim \chi^2_{n-k-1}$$
+
+
+
+---
+**Connections:**
+* The proven independence is mechanically required to construct the $t$-statistic in [[Corollary 3.11 - t-Test for Linear Combinations]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.10 - Distributions in the Gaussian Linear Model.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.12 - Nested Subspace Projections.md ---
+---
+tags: [statistics, theorems, linear-algebra, anova]
+aliases: [Theorem 3.12, Nested Models, Subspace Projection]
+created: 2026-03-10
+---
+## Motivation
+To test if an entire *group* of variables is useless, we cannot test them individually. We must compare a "Full Model" against a "Reduced Model" that deletes those variables entirely. This theorem provides the geometric proof that the difference in predictions between two nested models mathematically constructs an F-distribution, unlocking the Partial F-Test.
+
+## The Geometric Setup
+
+Consider a Gaussian linear model where $L$ is the full parameter subspace (dimension $k+1$).
+Let $H \subseteq \mathbb{R}^n$ be a smaller linear subspace representing the Reduced Model, where $r = \dim H < k+1$.
+
+Assume the nested condition $H \subseteq L$, and that the true underlying signal actually lives in the smaller space: $A\gamma \in H$.
+
+Let $\Pi_H$ be the orthogonal projection onto $H$.
+
+> [!info] **Theorem 3.12 Properties**
+> **a)** The model difference vector $(\hat{Y} - \Pi_H Y)$ and the full model residuals $\hat{\varepsilon}$ are strictly independent.
+> **b)** The squared distance between models is $\chi^2$ distributed: $\frac{\|\hat{Y} - \Pi_H Y\|^2}{\sigma^2} \sim \chi^2_{k+1-r}$
+> **c)** If $n > k+1$, the scaled ratio forms an F-distribution:
+> $$\frac{(n-k-1)\|\hat{Y} - \Pi_H Y\|^2}{(k+1-r)\|\hat{\varepsilon}\|^2} \sim \mathcal{F}_{k+1-r, n-k-1}$$
+
+## Rigorous Proof
+
+### Proof of Part A (Independence)
+
+Using Lemma 3.6, we expand the vectors:
+
+$\hat{Y} - \Pi_H Y = (\Pi_L - \Pi_H)Y = (\Pi_L - \Pi_H)(A\gamma + \varepsilon)$
+
+Because we assumed $A\gamma \in H \subseteq L$, the projection of $A\gamma$ onto either space is just $A\gamma$, causing them to cancel out:
+
+$= A\gamma - A\gamma + (\Pi_L - \Pi_H)\varepsilon = (\Pi_L - \Pi_H)\varepsilon$
+
+To prove independence, we evaluate the expected cross-product with $\hat{\varepsilon} = (I_n - \Pi_L)\varepsilon$:
+
+$$E[\hat{\varepsilon}(\hat{Y} - \Pi_H Y)^T] = E[(I_n - \Pi_L)\varepsilon \varepsilon^T (\Pi_L - \Pi_H)^T]$$
+$$= \sigma^2(I_n - \Pi_L)(\Pi_L - \Pi_H)$$
+Because projections are idempotent ($\Pi_L^2 = \Pi_L$) and nested ($\Pi_L \Pi_H = \Pi_H$):
+$$= \sigma^2(\Pi_L - \Pi_H - \Pi_L^2 + \Pi_L \Pi_H) = \sigma^2(\Pi_L - \Pi_H - \Pi_L + \Pi_H) = \mathbf{0}$$
+Zero correlation implies strict independence under joint normality.
+
+### Proof of Part B ($\chi^2$ Distribution)
+
+Let $u_1, \dots, u_n$ be an orthonormal base where $u_1, \dots, u_r$ generate $H$, and $u_1, \dots, u_{k+1}$ generate $L$. Let $O$ be the matrix of these vectors.
+
+$$\|\hat{Y} - \Pi_H Y\|^2 = \|(\Pi_L - \Pi_H)\varepsilon\|^2 \stackrel{d}{=} \|O^T(\Pi_L - \Pi_H)O\varepsilon\|^2$$
+
+The matrix $O^T(\Pi_L - \Pi_H)O$ is a diagonal matrix whose elements are exactly zero except for the $(r+1)$-st to the $(k+1)$-st elements, which are $1$. 
+
+This flawlessly isolates exactly $(k+1) - r$ standard normal variables:
+$$\frac{1}{\sigma^2}\|\hat{Y} - \Pi_H Y\|^2 \stackrel{d}{=} \frac{1}{\sigma^2}\sum_{i=r+1}^{k+1} \varepsilon_i^2 \sim \chi^2_{k+1-r}$$
+
+---
+**Connections:**
+* The exact theoretical foundation for the [[Partial F-Test (Corollary 3.14)]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.12 - Nested Subspace Projections.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.7 - Unbiasedness and Covariance of OLS.md ---
+---
+tags: [statistics, theorems, linear-regression, estimators]
+aliases: [Theorem 3.7, OLS Unbiasedness, OLS Covariance]
+created: 2026-03-10
+---
+# Theorem 3.7 - Unbiasedness and Covariance of OLS
+
+## Motivation
+[[Ordinary Least Squares (OLS)]] is fundamentally a geometric operation (finding the closest point on a plane). This theorem exists to prove that this pure geometry possesses valid, rigorous statistical properties. It guarantees that the geometric optimization actually hits the true underlying data-generating parameters *on average*, and provides the exact mathematical shape of the uncertainty (covariance matrix) around those estimates.
+
+## The Theorem
+Assume a [[Linear Model]] $Y = A\gamma + \varepsilon$ where $E[\varepsilon_i] = 0$ and $Var[\varepsilon_i] = \sigma^2$ for all $i \in \{1,\dots,n\}$, and the errors are uncorrelated.
+
+**a) Unbiasedness of Coefficients:**
+The least squares estimator $\hat{\gamma} = (A^T A)^{-1}A^T Y$ is an unbiased estimator for the true parameter vector $\gamma$
+$$E[\hat{\gamma}] = \gamma$$
+
+**b) Covariance and Noise Estimation:**
+The covariance matrix of the estimator is determined strictly by the underlying noise $\sigma^2$ and the design matrix $A$
+$$Cov(\hat{\gamma}) = \sigma^2(A^T A)^{-1}$$
+Furthermore, if $n > k+1$, the corrected sum of squared residuals $\hat{\sigma}^2 = \frac{1}{n-k-1}\|\hat{\varepsilon}\|^2$ is an unbiased estimator for the true variance $\sigma^2$:
+$$E[\hat{\sigma}^2] = \sigma^2$$
+
+## Rigorous Proof
+
+### Proof of Part A (Unbiasedness)
+First, express $\hat{\gamma}$ in terms of the true $\gamma$ and the error vector $\varepsilon$:
+$$\hat{\gamma} = (A^T A)^{-1}A^T(A\gamma + \varepsilon) = \gamma + (A^T A)^{-1}A^T\varepsilon$$ 
+Since $E[\varepsilon] = 0$ and $A$ is deterministic:
+$$E[\hat{\gamma}] = \gamma + (A^T A)^{-1}A^T E[\varepsilon] = \gamma + \mathbf{0} = \gamma$$
+
+### Proof of Part B (Covariance Matrix)
+Because the errors are homoscedastic and uncorrelated, their covariance matrix is $Cov(\varepsilon) = \sigma^2 I_n$.
+Applying affine transformation rules to $\hat{\gamma} = \gamma + (A^T A)^{-1}A^T\varepsilon$:
+$$Cov(\hat{\gamma}) = (A^T A)^{-1}A^T Cov(\varepsilon) ((A^T A)^{-1}A^T)^T$$ 
+$$= (A^T A)^{-1}A^T (\sigma^2 I_n) A(A^T A)^{-1}$$
+$$= \sigma^2 (A^T A)^{-1}A^T A(A^T A)^{-1} = \sigma^2(A^T A)^{-1}$$
+
+### Proof of Part B (Variance Estimator)
+To prove $E[\hat{\sigma}^2] = \sigma^2$, we analyze the expected squared norm of the residuals. Using [[Lemma 3.6 - Projection and Annihilator Matrices]], we know $\hat{\varepsilon} = (I_n - A(A^T A)^{-1}A^T)\varepsilon$.
+$$E[\|\hat{\varepsilon}\|^2] = E[\varepsilon^T(I_n - A(A^T A)^{-1}A^T)^T(I_n - A(A^T A)^{-1}A^T)\varepsilon]$$
+Because the annihilator matrix is idempotent and symmetric, this simplifies to:
+$$= E[\varepsilon^T(I_n - A(A^T A)^{-1}A^T)\varepsilon]$$
+Applying the [[Trace of a Matrix|cyclic trace property]] and substituting $E[\varepsilon \varepsilon^T] = \sigma^2 I_n$:
+$$= \sigma^2 trace(I_n - A(A^T A)^{-1}A^T)$$
+$$= \sigma^2 trace(I_n) - \sigma^2 trace(A(A^T A)^{-1}A^T)$$
+$$= \sigma^2 n - \sigma^2 trace(A^T A(A^T A)^{-1})$$$$= \sigma^2 n - \sigma^2 trace(I_{k+1}) = \sigma^2(n - k - 1)$$
+Therefore, $E[\frac{1}{n-k-1}\|\hat{\varepsilon}\|^2] = \sigma^2$
+
+---
+**Connections:**
+* Validates the $n-p-1$ denominator rule found in [[Ordinary Least Squares (OLS)]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Model Properties\Theorem 3.7 - Unbiasedness and Covariance of OLS.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Almost Sure Convergence.md ---
+---
+tags: [statistics, stochastic-convergence, asymptotic-theory]
+aliases: [Strong Convergence, Converges Almost Surely, a.s. Convergence]
+created: 2026-03-04
+---
+# Almost Sure Convergence
+
+## Definition
+A sequence of random vectors $(Y_n)_{n \in \mathbb{N}}$ in $\mathbb{R}^m$ **converges almost surely** to a random vector $Y$ if the set of outcomes where the sequence's limit exactly equals $Y$ has a probability of $1$.
+
+$$P\left( \lim_{n \to \infty} Y_n = Y \right) = 1$$
+
+*Notation:* $Y_n \xrightarrow{a.s.} Y$ as $n \to \infty$.
+
+## Intuition
+Imagine generating infinite parallel universes, each tracking a sequence of random numbers. Almost sure convergence means that in $100\%$ of those universes (except for a set of universes so rare their probability is strictly $0$), the sequence will eventually lock onto the target value $Y$ and never leave.
+
+
+
+## Properties / Assumptions
+* This is the strongest standard form of stochastic convergence.
+* Almost sure convergence mathematically implies [[Convergence in Probability]] and [[Convergence in Distribution]].
+* It forms the requirement for Strong Consistency in a [[Consistent Estimator]].
+
+---
+**Connections:**
+* This form of convergence governs the Strong [[Law of Large Numbers (LLN)]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Almost Sure Convergence.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Convergence in Distribution.md ---
+---
+tags: [statistics, stochastic-convergence, asymptotic-theory]
+aliases: [Converges in Distribution, Weak Convergence of Measures]
+created: 2026-03-04
+---
+# Convergence in Distribution
+
+## Definition
+Let $(Y_n)_{n \in \mathbb{N}}$ be a sequence of random vectors with distribution functions $F_{Y_n}$, and let $Y$ have distribution function $F_Y$. 
+The sequence **converges in distribution** to $Y$ if the limit of the sequence's CDF exactly equals the CDF of $Y$ at every point where $F_Y$ is continuous.
+
+$$\lim_{n \to \infty} F_{Y_n}(t) = F_Y(t) \quad \text{for all continuity points } t$$
+
+*Notation:* $Y_n \xrightarrow{d} Y$ as $n \to \infty$.
+
+## Properties / Assumptions
+* For continuous distributions, this implies that the probability of the sequence falling into any interval $I$ converges to the probability of the target variable $Y$ falling into that interval: $\lim_{n \to \infty} P(Y_n \in I) = P(Y \in I)$.
+* This is the weakest form of stochastic convergence. It does *not* mean the random variables themselves are getting closer to each other, only that the *shapes* of their overall probability curves are becoming identical.
+
+---
+**Connections:**
+* This is the exact mechanism that powers the [[Central Limit Theorem]] and [[Multivariate Central Limit Theorem]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Convergence in Distribution.md ---
+
+
+--- START OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Convergence in Probability.md ---
+---
+tags: [statistics, stochastic-convergence, asymptotic-theory]
+aliases: [Weak Convergence, Converges in Probability]
+created: 2026-03-04
+---
+# Convergence in Probability
+
+## Definition
+A sequence of random vectors $(Y_n)_{n \in \mathbb{N}}$ in $\mathbb{R}^m$ **converges in probability** to a random vector $Y$ if, as the sequence index $n$ approaches infinity, the probability that the distance between $Y_n$ and $Y$ is larger than any arbitrarily small positive number $\varepsilon$ shrinks to exactly zero.
+
+$$\lim_{n \to \infty} P(\|Y_n - Y\| \ge \varepsilon) = 0 \quad \text{for all } \varepsilon > 0$$
+
+*Notation:* $Y_n \xrightarrow{P} Y$ as $n \to \infty$.
+
+## Intuition
+As you collect more and more data (increasing $n$), the probability of an "unusual" or "bad" estimate occurring becomes vanishingly small. The sequence of random variables heavily concentrates its probability mass exactly on $Y$.
+
+## Properties / Assumptions
+* Convergence in probability is the foundation of a [[Consistent Estimator]] (Weak Consistency).
+* It is a weaker condition than [[Almost Sure Convergence]]; if a sequence converges almost surely, it automatically converges in probability.
+* It is a stronger condition than [[Convergence in Distribution]].
+
+---
+**Connections:**
+* This form of convergence governs the Weak [[Law of Large Numbers (LLN)]].
+
+--- END OF FILE: 05_Theorems_and_Lemmas\Stochastic_Convergence\Convergence in Probability.md ---
+
+
+--- START OF FILE: _Software_&_Tools\R DPQR Functions.md ---
+---
+tags: [statistics, software, r-stats]
+aliases: [DPQR, R Distribution Functions]
+created: 2026-03-04
+---
+# R DPQR Functions
+
+## Definition
+In the `R` programming environment, every standard parametric family (like `norm`, `t`, `pois`) is accessible via a standardized set of four functional prefixes: **D, P, Q, and R**. 
+
+1. **`d` (Density/Mass):** Computes the exact height of the [[Probability Distribution|PDF or PMF]] at a specific value $x$. 
+   * *Example:* `dnorm(0)` returns the peak height of the standard normal curve.
+2. **`p` (Probability):** Computes the Cumulative Distribution Function (CDF). It gives the area under the curve (the probability) of observing a value *less than or equal to* $q$. 
+   * *Example:* `pnorm(1.96)` returns $\approx 0.975$.
+3. **`q` (Quantile):** The mathematical inverse of `p`. You input a probability (e.g., $0.95$), and it returns the exact value on the x-axis that divides the distribution such that the given probability lies to the left. 
+   * *Example:* `qnorm(0.975)` returns $1.96$.
+4. **`r` (Random):** A random number generator. It pulls synthetic, stochastic observations from the specified [[Data Generating Process]]. 
+   * *Example:* `rnorm(100)` generates 100 random variables from a standard normal distribution.
+
+---
+**Connections:**
+* The `q` function is absolutely essential for calculating the strict boundaries of the [[Alternative Hypothesis|Critical Region]] and the [[Confidence Interval]].
+
+--- END OF FILE: _Software_&_Tools\R DPQR Functions.md ---
+
+
+--- START OF FILE: _Software_&_Tools\Reading R Regression Output.md ---
+---
+tags: [statistics, software, linear-regression]
+aliases: [summary.lm, R Output, Example 3.16, Example 3.17]
+created: 2026-03-10
+---
+# Reading R Regression Output
+
+## Motivation
+Statistical software (like R) abstracts away the heavy matrix math. Understanding how the theoretical corollaries directly map to the `summary(lm())` and `Anova()` outputs is critical for applied analysis.
+
+## Mapping the Summary Table (Example 3.16)
+Consider a model predicting tooth length (`len`) using `dose`, supplement type (`suppVC`), and an interaction term (`dose:suppVC`).
+* **`Residual standard error`**: This is $\hat{\sigma}$, the square root of $\frac{||\hat{\epsilon}||^2}{n-k-1}$. 
+* **`Degrees of freedom`**: Calculated as $n - k - 1$ ($60 - 3 - 1 = 56$).
+* **`Std. Error` (Coefficients Table)**: These are the mathematical roots of the diagonal elements of the inverted Gram matrix $\sigma^2(A^T A)^{-1}$.
+* **`t value`**: This is the ratio of the Estimate to the Std. Error. This exactly matches the test statistic formulation from [[Corollary 3.11 - t-Test for Linear Combinations]] for testing $H_0: \gamma_j = 0$.
+* Pr(>|t|)`**: The p-value for the two-sided t-test. If it is $< 0.05$, we reject the null and conclude the coefficient's true sign matches the estimate's sign.
+* **`F-statistic` (Bottom Line)**: This runs the [[Global F-Test (Corollary 3.15)]] to verify if all coefficients aside from the intercept are zero.
+
+## Mapping the Anova Table (Example 3.17)
+When dealing with categorical predictors with $>2$ levels (like `education_level: school, college, university`, the `summary` table splits them into multiple dummy variables. You cannot use the individual t-tests to evaluate the variable as a whole.
+
+By running `Anova(model, type="III")` from the `car` package, R runs the [[Partial F-Test (Corollary 3.14)]]. It groups the dummy variables back together (e.g., `education_level` gets `Df = 2`) and provides a single global p-value `Pr(>F)` to test if the entire categorical concept is mathematically relevant to the model.
+
+--- END OF FILE: _Software_&_Tools\Reading R Regression Output.md ---
+
+
+--- START OF FILE: ___Misc\References\Nice Stuff to Review.md ---
+
+https://www.dataanalysisclassroom.com/data-analysis-made-easy/
+
+--- END OF FILE: ___Misc\References\Nice Stuff to Review.md ---
+
+
+--- START OF FILE: ___Misc\TempNotes\ComprehensionPart1.md ---
+Here is the complete, consolidated map of the Gaussian Linear Model, fully anchored to a specific, practical experiment so you can see exactly how the math translates to real-world science.
+
+### The Setup: Our Specific Experiment
+
+Let’s assume you are running a Reinforcement Learning experiment. You want to build a model that predicts the **`WinRate`** of a chess-playing AI.
+
+You collect data on 100 different training runs ($n=100$) using three predictors:
+
+1. **`TrainingHours`**: A continuous number.    
+2. **`AgentType`**: A categorical variable with three levels (MCTS, MaskablePPO, Random).    
+3. **`Hardware`**: A categorical variable with two levels (GPU, CPU).
+    
+    
+    
+### The Primer: Hypothesis Testing and P-values
+
+Before we look at the specific linear model tools, we have to establish the universal language they all speak: the **p-value**.
+
+In statistics, we start every test with a cynical assumption called the **Null Hypothesis ($H_0$)**. The Null Hypothesis basically says, _"Your model is useless, your variables do nothing, and any pattern you see is just random noise."_
+
+**What does $H_0$ mean for our experiment?**
+
+- "Training for 100 hours yields the exact same win rate as training for 1 hour."
+    
+- "A complex MaskablePPO agent wins just as often as an agent making completely random moves."
+    
+- "Your entire predictive model is no better than just blindly guessing the overall average win rate."
+    
+
+The **p-value** is the probability that you would see your exact experimental data (or data even more extreme) _if the Null Hypothesis were entirely true_.
+
+- **High p-value (e.g., 0.40):** There is a 40% chance you'd see these win rates just by random luck. **Decision:** We "fail to reject $H_0$." The variable is useless.
+    
+- **Low p-value (e.g., 0.01):** There is only a 1% chance random noise could produce a pattern this strong. **Decision:** We "reject $H_0$." We have discovered a statistically significant effect.
+    
+
+We typically set a "cutoff" error level called $\alpha$ (usually **0.05**). If the p-value is below $\alpha$, the computer flags it with stars (`*`, `**`, `***`).
+
+---
+
+### Folder 1: The Background Engine (Building the Model & Iterating Assumptions)
+
+**The Action:** You give the computer your 100 runs and type `lm(WinRate ~ TrainingHours + AgentType + Hardware)`.
+
+**The Computer’s Action:**
+
+1. **The Dummy Variable Trap:** It converts text into 1s and 0s. To prevent the matrix math from exploding, it sets a **Baseline**. It drops `Random` and `CPU`. The Intercept ($\gamma_0$) now represents the expected win rate of a _Random agent trained on a CPU for 0 hours_.
+    
+2. **The Fitting:** It calculates the estimates $\hat{\gamma} = (A^TA)^{-1}A^TY$ and the residuals $\hat{\varepsilon}$.
+    
+
+**The Core Assumption & How We Iterate:**
+
+The computer strictly assumes the errors follow a perfect Gaussian bell curve: $\varepsilon \sim \text{Normal}(\mathbf{0}, \sigma^2 I_n)$.
+
+- **Iteration Step 1:** You look at the `Residuals` summary (Min, 1Q, Median, 3Q, Max).
+    
+- **Iteration Step 2:** If the median is far from $0$, or the Min/Max are wildly asymmetrical (e.g., Min is -10 but Max is +80), your assumption is violated! The computer's p-values will be garbage.
+    
+- **Iteration Step 3:** You iterate. You might realize, "Ah, the benefit of `TrainingHours` slows down over time." You update your model assumption to include a log-transformation: `lm(WinRate ~ log(TrainingHours) + ...)`. You re-fit and check the residuals again until they look symmetric and Gaussian.
+    
+
+---
+
+### Folder 2: The Micro View (Testing a Single Parameter)
+
+**The Goal:** You want to know if `TrainingHours` specifically increases the `WinRate`.
+
+**The Hypothesis:** $H_0: \gamma_{\text{TrainingHours}} = 0$. (The true slope is flat).
+
+**The Mathematical Proof (Corollary 3.11):**
+
+> _"We can reject $H_0: \gamma_j = 0$ against $H_1: \gamma_j \neq 0$ at level $\alpha$ if: $\frac{\hat{\gamma}_j}{\hat{\sigma}\sqrt{((A^TA)^{-1})_{j+1,j+1}}} \notin (-t_{n-k-1, 1-\alpha/2}, t_{n-k-1, 1-\alpha/2})$."_
+
+This math proves that dividing the estimated slope by its standard error creates an exact Student's $t$-distribution, giving us a valid p-value.
+
+**The Imagined R Output:**
+
+Plaintext
+
+```
+Coefficients:
+                     Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            15.200      2.100   7.238 1.09e-09 ***
+TrainingHours           2.500      0.500   5.000 2.03e-06 ***
+HardwareGPU             4.100      3.200   1.281 0.2031    
+```
+
+**Your Decision Process:**
+
+1. **Look at `TrainingHours`:** The estimate is 2.500. The p-value is `2.03e-06`. You decisively **reject $H_0$**. Every additional hour of training significantly increases the win rate by 2.5%.
+    
+2. **Look at `HardwareGPU`:** The p-value is `0.2031`. You **fail to reject $H_0$**. There is a 20% chance that the 4.1% bump in win rate for GPU users was just random luck. You cannot scientifically claim the GPU makes a difference to the final win rate.
+    
+
+---
+
+### Folder 3: The Group View (Testing a Categorical Factor)
+
+**The Goal:** You need to test if the _entire concept_ of `AgentType` (MCTS vs MaskablePPO vs Random) matters.
+
+**The Hypothesis:** $H_0: \gamma_{\text{MCTS}} = 0$ AND $\gamma_{\text{MaskablePPO}} = 0$ simultaneously.
+
+**The Mathematical Proof (Theorem 3.12 & Corollary 3.14):**
+
+> _"Consider a Gaussian linear model... For $H_0: \gamma_j = 0$ for all $j \in \{0, \dots, k\} \setminus J$, the test rejects if: $\frac{(n-k-1)(\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2)}{(k+1-|J|)\|\hat{\varepsilon}\|^2} \geq F_{k+1-|J|, n-k-1, 1-\alpha}$."_
+
+This is the **Partial $F$-test**. The computer physically builds a "Full Model" and a "Reduced Model" (where `AgentType` is deleted), compares the explosion in error ($\|\hat{\varepsilon}_J\|^2 - \|\hat{\varepsilon}\|^2$), and scales it into an $F$-distribution.
+
+**The Imagined R Output (`car::Anova`):**
+
+Plaintext
+
+```
+Anova Table (Type III tests)
+                 Sum Sq  Df  F value    Pr(>F)    
+TrainingHours    150.2    1   25.000  2.03e-06 ***
+AgentType        450.8    2   37.500  1.12e-10 ***
+Hardware          10.1    1    1.641  0.2031    
+Residuals        570.0   95                       
+```
+
+**Your Decision Process:**
+
+1. **Look at `AgentType`:** It has `2` degrees of freedom (`Df`), meaning it tested MCTS and MaskablePPO together against the baseline.
+    
+2. **Look at `Pr(>F)`:** It is `1.12e-10`.
+    
+3. **The Conclusion:** You powerfully **reject $H_0$**. The architecture of the agent is a highly significant factor in predicting the win rate.
+    
+
+---
+
+### Folder 4: The Macro View (Testing the Whole Endeavor)
+
+**The Goal:** You want to know if your complex model (Hours + Agent + Hardware) is actually better than just drawing a flat horizontal line at the average win rate of all 100 runs.
+
+**The Hypothesis:** $H_0: \gamma_1 = \gamma_2 = \dots = \gamma_k = 0$ (Every single predictor is completely useless).
+
+**The Mathematical Proof (Corollary 3.15 & Equation 3.13):**
+
+> _"For $H_0: \gamma_1 = \dots = \gamma_k = 0$ against $H_1: \gamma_j \neq 0$ for some $j$, the test rejects if: $\frac{(n-k-1)(\text{TSS} - \|\hat{\varepsilon}\|^2)}{k\|\hat{\varepsilon}\|^2} \geq F_{k, n-k-1, 1-\alpha}$."_
+> 
+> And $R^2$ is defined as: $R^2 = 1 - \frac{\|\hat{\varepsilon}\|^2}{\text{TSS}}$.
+
+This is the **Global $F$-test**. It calculates how much your full model shrank the error compared to the Total Sum of Squares (TSS) of a flat line.
+
+**The Imagined R Output:**
+
+Plaintext
+
+```
+Residual standard error: 2.449 on 95 degrees of freedom
+Multiple R-squared:  0.6750,	Adjusted R-squared:  0.6610
+F-statistic: 49.34 on 4 and 95 DF,  p-value: < 2.2e-16
+```
+
+**Your Decision Process:**
+
+1. **Look at `Multiple R-squared`:** It is `0.6750`. **Conclusion:** Your chosen variables (Hours, Agent, Hardware) successfully explain roughly 67.5% of all the variance in AI win rates. The remaining 32.5% is unexplained noise or factors you didn't measure.
+    
+2. **Look at the bottom `p-value`:** It is `< 2.2e-16`.
+    
+3. **The Conclusion:** Because this p-value is essentially zero, you firmly **reject $H_0$**. You have mathematical proof that your predictive model performs significantly better than a flat average guess.
+    
+
+---
+
+Would you like to look at the difference between `Multiple R-squared` and `Adjusted R-squared`, and why the adjusted version is what you should actually report in your RL chess paper?
+
+--- END OF FILE: ___Misc\TempNotes\ComprehensionPart1.md ---
+
+
+--- START OF FILE: ___Misc\TempNotes\NotationExplainer.md ---
+Here is a complete "cheat sheet" for the mathematical notation used across these theorems and corollaries.
+
+Think of this as your translation dictionary. Mathematicians use these symbols because they are incredibly precise, but once you map them to their physical meanings in a dataset (like your RL chess experiment), they lose their intimidation factor.
+
+### 1. The Core Data & Dimensions
+
+These define the physical size and shape of your experiment.
+
+- **$n$**: The total number of observations or data points (e.g., 100 chess runs).    
+- **$k$**: The number of predictor variables (e.g., TrainingHours, Hardware, etc.).    
+- **$k+1$**: The total number of parameters you are estimating. The "$+1$" is for the Intercept ($\gamma_0$).    
+- **$Y$**: The Response Vector. An $n$-dimensional column containing your actual observed outcomes (e.g., the exact Win Rates).    
+- **$A$**: The Design Matrix. An $n \times (k+1)$ grid of numbers containing all your input data, plus a first column of pure 1s for the intercept.    
+
+### 2. The "Invisible Truth" vs. "The Hats"
+
+In statistics, Greek letters usually represent the true, unobservable reality, while putting a "hat" ($\hat{\ }$) on them represents the computer's best mathematical guess based on the data.
+- **$\gamma$**: The true, invisible vector of coefficients (the "perfect" slopes).    
+- **$\hat{\gamma}$**: Your estimated coefficients. The numbers in the R `Estimate` column.    
+- **$\varepsilon$**: The true, invisible vector of random noise/error in the universe.    
+- **$\hat{\varepsilon}$**: The Residuals. The actual mistakes your specific model made on your data ($Y - \hat{Y}$).    
+- **$\sigma^2$**: The true, invisible variance (power) of the random noise.
+    
+- **$\hat{\sigma}^2$**: The estimated variance of the noise. Calculated as $\frac{1}{n-k-1}\|\hat{\varepsilon}\|^2$.
+    
+
+### 3. The Geometry (Vectors & Spaces)
+
+Professor Schulte proves probability by using 3D spatial geometry. These symbols describe shapes and distances.
+
+- **$\|\cdot\|$**: The Euclidean Norm (the physical length of a vector).
+    
+    - _Crucial use:_ **$\|\hat{\varepsilon}\|^2$** is the Sum of Squared Residuals. It is the core measurement of how "bad" your model's predictions are.
+        
+- **$\langle u, v \rangle$**: The Scalar Product (or Dot Product). It is a way to multiply two vectors to get a single number.
+    
+- **$I_n$**: The Identity Matrix. An $n \times n$ grid with 1s down the diagonal and 0s elsewhere. It acts like the number "1" in matrix multiplication.
+    
+- **$L$**: The linear subspace spanned by the columns of $A$. Physically, this is the "floor" or "hyperplane" representing every possible prediction your Full Model can make.
+    
+- **$\Pi_L$**: The Orthogonal Projection Matrix onto $L$.
+    
+    - _Crucial use:_ Multiplying $Y$ by $\Pi_L$ takes your messy data points and drops them straight down onto the model floor, creating your fitted predictions ($\hat{Y} = \Pi_L Y$).
+        
+- **$H$** or **$L_J$**: A smaller linear subspace. This represents a "Reduced Model" where you have deleted some variables. It is a smaller space existing completely inside $L$.
+    
+
+### 4. The Testing Mechanics
+
+These symbols are the gears turning inside the hypothesis tests.
+
+- **$a$**: A "Selector Vector" used in Theorem 3.11. If you want to test just the second coefficient ($\gamma_1$), you set $a = (0, 1, 0, \dots, 0)^T$. Then the math $\langle a, \hat{\gamma} \rangle$ acts like tweezers, plucking exactly $\hat{\gamma}_1$ out of the vector so you can test it.
+    
+- **$c_0$**: The constant you are testing against. In 99% of regression tests, $c_0 = 0$ (testing if the variable has _zero_ effect).
+    
+- **$J$**: A set of indices (like $\{2, 3\}$). Used in Corollary 3.14 to specify which specific group of variables you are testing or deleting (like grouping the `AgentType` dummy variables together).
+    
+- **$|J|$**: The cardinality of $J$ (how many variables are in that specific group).
+    
+- **$\phi(Y)$**: The Test Function. This is the final decision algorithm. It takes your data $Y$ and outputs a binary decision: either "reject $H_0$" or "cannot reject $H_0$".
+    
+- **$I_{a,\hat{\gamma}}$**: The Confidence Interval. A mathematically calculated range (e.g., $[2.1, 4.5]$) that has a $1-\alpha$ probability of containing the true, invisible coefficient.
+    
+- **TSS**: Total Sum of Squares. The absolute baseline level of chaos in your data. It is the error you would get if you just predicted the average win rate for every single run.
+    
+
+### 5. Probabilities & Cutoffs
+
+These symbols dictate the final p-value lookups.
+
+- **$\sim$**: "Is distributed as". (e.g., $X \sim \text{Normal}$).
+    
+- **$=_d$**: "Is equal in distribution to". Two things might be calculated differently, but they follow the exact same probability curve.
+    
+- **$\chi^2_{df}$**: The Chi-squared distribution with $df$ degrees of freedom. Used to model the behavior of the squared errors.
+    
+- **$t_{n-k-1, 1-\alpha/2}$**: The critical threshold from the Student's t-table. If your calculated $t$-value crosses this line, you get a star (`*`) in R.
+    
+- **$F_{df_1, df_2, 1-\alpha}$**: The critical threshold from the F-table. Used when comparing the errors of two different models (nested models).
+    
+
+---
+
+Would you like to take this dictionary and translate the dense block of text in **Theorem 3.12** (the nested models proof) line-by-line into plain English?
+
+--- END OF FILE: ___Misc\TempNotes\NotationExplainer.md ---
+
+

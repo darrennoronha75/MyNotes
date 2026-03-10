@@ -3,29 +3,32 @@ tags: [statistics, foundations, probability]
 aliases: [p-quantile, Percentile, Critical Value]
 created: 2026-03-04
 ---
-# Quantile
-
-## Definition
-For a [[Random Variable]] $X$ and a probability $p \in (0, 1)$, a value $q \in \mathbb{R}$ is called the **$p$-quantile** of the distribution if it satisfies both:
+## Formal Definition
+For a random variable $X$ and a given probability $p \in (0, 1)$, a value $q \in \mathbb{R}$ is defined as the **$p$-quantile** of the distribution of $X$ if it simultaneously satisfies both:
 $$P(X \le q) \ge p \quad \text{and} \quad P(X \ge q) \ge 1 - p$$
 
-If $X$ has a continuous distribution function $F$, the $p$-quantile is simply the unique value $q$ where the Cumulative Distribution Function (CDF) equals $p$:
+## Continuous Distributions
+In the specific case where $X$ has a continuous distribution function $F$, the inequalities collapse into a strict equality. The value $q$ is a $p$-quantile if and only if:
 $$F(q) = p$$
 
 
+## Standard Notations in Parametric Families
+In statistical modeling, quantiles for standard distributions are denoted with specific subscripts indicating their required degrees of freedom (if any) and the target probability $p$:
 
-## Standard Notation
-In statistical literature, quantiles for standard parametric families are denoted with specific subscripts indicating their degrees of freedom (if applicable) and the probability $p$:
-* **Standard Normal:** $z_p$
-* **Student's t:** $t_{n,p}$
-* **Chi-Squared:** $\chi^2_{n,p}$
-* **F-Distribution:** $F_{n_1,n_2,p}$
+| Distribution Family | Degrees of Freedom | Quantile Notation |
+| :--- | :---: | :--- |
+| **Standard Normal** | None | $z_p$ |
+| **Student's t** | $n$ | $t_{n,p}$ |
+| **Chi-Squared** | $n$ | $\chi^2_{n,p}$ |
+| **F-Distribution** | $n_1, n_2$ | $\mathcal{F}_{n_1,n_2,p}$ |
 
 ## Symmetry Properties
-For symmetric distributions centered at zero (like the Standard Normal and Student's t), the quantiles exhibit perfect mirror symmetry. The probability of landing below the negative quantile is equal to the probability of landing above the positive quantile:
-* Normal: $P(X \le -z_p) = P(X \ge z_p) = 1 - p$
-* t-dist: $P(Y \le -t_{n,p}) = P(Y \ge t_{n,p}) = 1 - p$
+For symmetric distributions centered at zero, specifically the Standard Normal ($X \sim \text{Normal}(0, 1)$) and the Student's t-distribution ($Y \sim t_n$), their shapes obey strict mirror symmetry:
+$$P(X \le -u) = P(X \ge u)$$
+
+For their specific quantiles, this symmetry allows us to calculate lower-tail probabilities using upper-tail quantiles:
+$$P(X \le -z_p) = P(X \ge z_p) = 1 - P(X \le z_p) = 1 - p$$ $$P(Y \le -t_{n,p}) = P(Y \ge t_{n,p}) = 1 - P(Y \le t_{n,p}) = 1 - p$$
 
 ---
 **Connections:**
-* Quantiles are the mathematical thresholds used to define the boundaries of the [[Alternative Hypothesis|Critical Region]] and the [[Confidence Interval]].
+* These exact symmetries are what allow us to algebraically compress the bounds in [[Confidence Region]] proofs.

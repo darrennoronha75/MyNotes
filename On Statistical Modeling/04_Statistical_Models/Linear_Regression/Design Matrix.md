@@ -1,59 +1,44 @@
 ---
 tags: [statistics, linear-regression, linear-algebra, matrices]
 aliases: [Model Matrix, Predictor Matrix, Matrix A, Matrix X]
-created: 2026-03-05
+created: 2026-03-10
 ---
-# Design Matrix
+## Motivation
+The word "Linear" in a Linear Model refers strictly to the parameters ($\gamma$), not the shape of the data. The Design Matrix exists to act as a mathematical translation layer. By engineering the columns of this matrix, we can embed highly non-linear geometries (curves, conditional slopes, categorical logic) into a perfectly flat, easily solvable linear algebra space.
 
 ## Definition
-The Design Matrix (often denoted as $A$ or $X$) is the core architectural component of a [[Linear Model]]. It is an $n \times k$ matrix that holds all the observed, deterministic data for the predictor variables. 
+The Design Matrix $A$ is an $n \times (k+1)$ matrix that holds all the observed, deterministic data for the predictor variables. 
+* **Rows ($n$):** Each row represents one single, independent observation.
+* **Columns ($k+1$):** Each column represents a specific feature, predictor, or parameter being estimated (including the intercept).
 
-* **Rows ($n$):** Each row represents one single, independent observation or experimental unit.
-* **Columns ($k$):** Each column represents a specific feature, predictor, or parameter being estimated (including the intercept).
-
-$$A = \begin{pmatrix}
-a_{11} & a_{12} & \dots & a_{1k} \\
-a_{21} & a_{22} & \dots & a_{2k} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{n1} & a_{n2} & \dots & a_{nk}
-\end{pmatrix}$$
-
-
-
-## Structural Variations
-The structure of the Design Matrix dictates the exact type of model being fitted. By manipulating the columns of $A$, the standard $Y = A\gamma + \varepsilon$ equation can represent vastly different geometric shapes and experimental designs.
-
-### 1. The Standard Multiple Regression (With Intercept)
-To estimate a baseline intercept ($\gamma_0$), the very first column of the matrix must be a column of pure $1$s.
 $$A = \begin{pmatrix} 
-1 & x_{11} & x_{12} \\ 
-1 & x_{21} & x_{22} \\ 
-\vdots & \vdots & \vdots \\ 
-1 & x_{n1} & x_{n2} 
-\end{pmatrix}$$
-*When multiplied by the parameter vector $\gamma = (\gamma_0, \gamma_1, \gamma_2)^T$, the $1$ perfectly isolates the $\gamma_0$ intercept term.*
-
-### 2. Regression Through the Origin
-If the physics of the problem dictate that $Y$ must be exactly $0$ when all predictors are $0$ (e.g., measuring mass vs. volume), we drop the intercept. The matrix simply contains the raw variables.
-$$A = \begin{pmatrix} 
-x_{11} & x_{12} \\ 
-x_{21} & x_{22} \\ 
-\vdots & \vdots
+1 & x^{(1)}_1 & \dots & x^{(k)}_1 \\ 
+1 & x^{(1)}_2 & \dots & x^{(k)}_2 \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+1 & x^{(1)}_n & \dots & x^{(k)}_n 
 \end{pmatrix}$$
 
-### 3. The ANOVA Design Matrix (Dummy Variables)
-When dealing with categorical groups rather than continuous numbers (e.g., Treatment A vs. Treatment B), the Design Matrix uses binary "indicator" columns (0s and 1s).
-$$A = \begin{pmatrix} 
-1 & 0 \\  \leftarrow \text{Subject 1 is in Group A} \\
-1 & 0 \\  \leftarrow \text{Subject 2 is in Group A} \\
-0 & 1 \\  \leftarrow \text{Subject 3 is in Group B} \\
-0 & 1 \\  \leftarrow \text{Subject 4 is in Group B} 
-\end{pmatrix}$$
-*This is the exact matrix structure that links the [[Linear Model]] to [[Analysis of Variance (ANOVA)]].*
+## Structural Variations (Feature Engineering)
+By manipulating the columns of $A$, the standard $Y = A\gamma + \varepsilon$ equation can represent complex experimental designs without changing the underlying optimization math.
+
+### 1. The ANOVA Design Matrix (Dummy Variables)
+When dealing with categorical groups (e.g., Treatment A vs. B), the matrix uses binary indicator columns. 
+$$x^{(j)}_i = \mathbf{1}\{\text{subject } i \text{ is in group } j\}$$
+*(Note: To avoid perfect multicollinearity, one category is always dropped and absorbed into the intercept $\gamma_0$.)*
+
+### 2. Polynomial Regression
+To model a curved relationship, we simply add a new column to the matrix that is the mathematical power of an existing independent variable. 
+* Example: $Y = \gamma_0 + \gamma_1 x + \gamma_2 x^2 + \varepsilon$
+* The design matrix receives a column containing $x$ and a separate column containing $x^2$. The model remains linear with respect to $\gamma$.
+
+### 3. Interaction Terms
+To model situations where the effect of one variable depends entirely on another (e.g., the effect of a drug dose depends on the delivery method), we create an interaction column by multiplying two existing columns together.
+* Example: $Y = \gamma_0 + \gamma_1 \text{dose} + \gamma_2 \mathbf{1}\{\text{supp}=VC\} + \gamma_3 (\mathbf{1}\{\text{supp}=VC\} \times \text{dose}) + \varepsilon$
+* The parameter $\gamma_3$ now specifically estimates the *difference* in slope between the two supplement types.
 
 ## The Rank Assumption
-For the parameters to be uniquely estimable, the Design Matrix must have **Full Column Rank** ($rank(A) = k$). This means no column can be a perfect linear combination of the other columns. If columns are perfectly correlated (e.g., one column is "Length in meters" and another is "Length in centimeters"), the matrix suffers from strict multicollinearity, the determinant becomes zero, and the model mathematically shatters.
+For the parameters to be uniquely estimable, $A^T A$ must be invertible. This is strictly equivalent to requiring the Design Matrix $A$ to have **Full Column Rank** ($rank(A) = k+1$). No column can be a perfect linear combination of the other columns.
 
 ---
 **Connections:**
-* The mathematical operation required to solve for the parameters relies on the Gram matrix form ($A^TA$), as defined in the [[Matrix Formulation of OLS]].
+* Forms the column space $\mathbb{L}$ onto which the [[Orthogonal Projection Matrix]] operates.

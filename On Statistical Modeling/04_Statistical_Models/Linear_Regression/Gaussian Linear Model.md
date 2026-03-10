@@ -29,7 +29,7 @@ While [[Ordinary Least Squares (OLS)]] does not require the Gaussian assumption 
 2. **Exact Distribution of Estimators:** It guarantees that our coefficient estimates ($\hat{\gamma}$) follow exact normal distributions in finite samples:
    $$\hat{\gamma} \sim \text{Normal}(\gamma, \sigma^2(A^TA)^{-1})$$
 3. **Statistical Independence:** It guarantees that the coefficient estimates ($\hat{\gamma}$) and the residuals ($\hat{\varepsilon}$) are perfectly independent.
-4. **Exact Hypothesis Testing:** It guarantees that the scaled sum of squared residuals strictly follows a [[Chi-Squared Distribution]] (See [[Gaussian Chi Squared Theorem]]). This allows us to perform exact finite-sample $F$-tests in [[Analysis of Variance (ANOVA)]] and [[Linear Hypothesis Testing]].
+4. **Exact Hypothesis Testing:** It guarantees that the scaled sum of squared residuals strictly follows a [[Chi-Squared Distribution]] (See [[Theorem 3.10 - Distributions in the Gaussian Linear Model]]). This allows us to perform exact finite-sample $F$-tests in [[Analysis of Variance (ANOVA)]] and [[Corollary 3.11 - t-Test for Linear Combinations]].
 
 ---
 **Connections:**
