@@ -1,4 +1,6 @@
 [
   "pdf-plus",
-  "execute-code"
+  "execute-code",
+  "ridian",
+  "qmd-as-md-obsidian"
 ]

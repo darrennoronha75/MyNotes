@@ -2,5 +2,5 @@
   "rExecutablePath": "C:/Program Files/R/R-4.5.2/bin/x64/Rscript.exe",
   "rstudioPandocPath": "",
   "quartoExecutablePath": "C:/Program Files/Quarto/bin/quarto.exe",
-  "enableFloatingMenu": false
+  "enableFloatingMenu": true
 }

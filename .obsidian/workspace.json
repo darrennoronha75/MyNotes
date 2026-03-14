@@ -4,24 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "8b606b991c7a5094",
+        "id": "f74a2469cc5c3bde",
         "type": "tabs",
         "children": [
           {
-            "id": "68d6548017e62fe1",
+            "id": "eb853b497012e364",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/t-Test for Linear Combinations (Corollary 3.11).md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "t-Test for Linear Combinations (Corollary 3.11)"
+            }
+          },
+          {
+            "id": "a7e32fbfa28a0117",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "On Statistical Modeling/00_Home/Applied Tool Translation Matrix.md",
+                "file": "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Theoretical/Solution - SM - Part 1 - Ex1 - Problem 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Applied Tool Translation Matrix"
+              "title": "Solution - SM - Part 1 - Ex1 - Problem 4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -161,9 +178,35 @@
               "icon": "lucide-list",
               "title": "Outline of Mock_exam_2"
             }
+          },
+          {
+            "id": "377c45d15460ba32",
+            "type": "leaf",
+            "state": {
+              "type": "r-environment-view",
+              "state": {},
+              "icon": "table",
+              "title": "R Environment"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
+      },
+      {
+        "id": "0211d3ae839a6ff9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70e120b1af99ddcd",
+            "type": "leaf",
+            "state": {
+              "type": "r-help-view",
+              "state": {},
+              "icon": "info",
+              "title": "R Help"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
@@ -181,56 +224,136 @@
       "command-palette:Open command palette": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "qmd-as-md-obsidian:Toggle Quarto Preview": false
     }
   },
-  "active": "68d6548017e62fe1",
+  "floating": {
+    "id": "9d8b1e0db31dccff",
+    "type": "floating",
+    "children": [
+      {
+        "id": "f88207a2a1d97952",
+        "type": "window",
+        "children": [
+          {
+            "id": "d8012a1ce16b8075",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0159b9452cd2c20a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "On Statistical Modeling/88_Source_Material/__Content_Part1/Lecture_Notes_14_05.pdf",
+                    "page": 29,
+                    "left": -224,
+                    "top": 430,
+                    "zoom": 1.4545454545454546
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "Lecture_Notes_14_05"
+                }
+              },
+              {
+                "id": "af88c1a4e48cb96f",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "On Statistical Modeling/88_Source_Material/__Exercises/SM_Lineau/Exercise1 - Linear Models and Regression.pdf",
+                    "page": 1,
+                    "left": -265,
+                    "top": 122,
+                    "zoom": 1.3683497844136407
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "Exercise1 - Linear Models and Regression"
+                }
+              },
+              {
+                "id": "68d6548017e62fe1",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "On Statistical Modeling/88_Source_Material/__Exercises/SM_Lineau/Exercise2 - Linear Models and Regression.pdf",
+                    "page": 1,
+                    "left": -265,
+                    "top": 658,
+                    "zoom": 1.3683497844136407
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "Exercise2 - Linear Models and Regression"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical",
+        "x": 1720,
+        "y": 0,
+        "width": 1720,
+        "height": 1392,
+        "maximize": false,
+        "zoom": -1
+      }
+    ]
+  },
+  "active": "a7e32fbfa28a0117",
   "lastOpenFiles": [
-    "On Statistical Modeling/00_Home/Index - Statistical Modeling.md",
+    "On Statistical Modeling/88_Source_Material/__Exercises/SM_Lineau/Exercise1 - Linear Models and Regression.pdf",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Theoretical/Solution - SM - Part 1 - Ex1 - Problem 4.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Theoretical/Solution - SM - Part 1 - Ex1 - Problem 3.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Theoretical/Solution - SM - Part 1 - Ex1 - Problem 2.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Theoretical/Solution - SM - Part 1 - Ex1 - Problem 1.md",
+    "On Statistical Modeling/06_Applied_Exercises/Mock Exam",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Statistical Models - Part 1 - Exercise 1.md",
+    "On Statistical Modeling/99_Meta/Images/e1p2- source.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm1.png",
+    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/t-Test for Linear Combinations (Corollary 3.11).md",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm3-fitted-residuals.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm2-fitted-residuals.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm1-fitted-residuals.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm3-qqnorm-qline.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm2-qqnorm-qline.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm1-qqnorm-qline.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm1-qqnorm.png",
+    "On Statistical Modeling/99_Meta/Images/e1p2-lm3.png",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Residuals_Gaussian.csv",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Residuals_Gaussian (1).csv",
+    "On Statistical Modeling/88_Source_Material/__Exercises/LMR_Schulte/1. Exercise - Questions + Solution.pdf",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Greenberg.csv",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Solution - SM - Part 1 - Ex1 - Problem 1.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Solution_Analysis_of_Residuals.R",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Solution_Analysis_of_Residuals (1).R",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Solution_Cancer.R",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/R/Solution_Greenberg.R",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Solution - SM - Part 1 - Ex1 - Problem 2.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Untitled.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Solution - SM - Part 1 - Ex1 - Problem 4.md",
+    "On Statistical Modeling/06_Applied_Exercises/SM_Lineau_Exercise/Sheet_01_Linear_Regression/Solutions/Solution - SM - Part 1 - Ex1 - Problem 3.md",
     "On Statistical Modeling/00_Home/Applied Tool Translation Matrix.md",
+    "On Statistical Modeling/00_Home/Index - Statistical Modeling.md",
     "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/ANOVA-Regression Equivalence.md",
     "On Statistical Modeling/01_Foundations_and_Probability/01B_Random_Variables/Covariance Matrix.md",
-    "On Statistical Modeling/05_Theorems_and_Proofs/Inequalities",
     "On Statistical Modeling/03_Statistical_Tests/Test_Selection/Statistical Test Selection.md",
-    "On Statistical Modeling/03_Statistical_Tests/Test_Selection",
     "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems/Slutsky's Theorem.md",
     "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems/Multivariate Central Limit Theorem.md",
     "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems/Law of Large Numbers (LLN).md",
     "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems/Continuous Mapping Theorem.md",
     "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems/Central Limit Theorem.md",
-    "On Statistical Modeling/05_Theorems_and_Proofs/Limit_Theorems",
     "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests/Two-Sample t-Test.md",
     "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests/One-Sample t-Test.md",
     "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests/Analysis of Variance (ANOVA).md",
-    "On Statistical Modeling/03_Statistical_Tests/Parametric_Tests",
-    "On Statistical Modeling/03_Statistical_Tests/Categorical_Tests/Pearson Chi-Squared Test.md",
-    "On Statistical Modeling/03_Statistical_Tests/Categorical_Tests",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/t-Test for Linear Combinations (Corollary 3.11).md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/Partial F-Test (Corollary 3.14).md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/Global F-Test (Corollary 3.15).md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation/Coefficient of Determination (R-squared).md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Model_Foundations/Linear Model.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Model_Foundations/Gaussian Linear Model.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Estimation_and_Geometry/Orthogonal Projection Matrix.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Estimation_and_Geometry/Matrix Formulation of OLS.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Estimation_and_Geometry/Fitted Values and Residuals.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Estimation_and_Geometry/Design Matrix.md",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Testing_and_Evaluation",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Model_Foundations",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression/Estimation_and_Geometry",
-    "On Statistical Modeling/04_Statistical_Models/Linear_Regression",
-    "On Statistical Modeling/05_Theorems_and_Proofs/Model_Properties/Unbiasedness and Covariance of OLS (Theorem 3.7).md",
-    "On Statistical Modeling/05_Theorems_and_Proofs/Model_Properties/Nested Subspace Projections (Theorem 3.12).md",
-    "On Statistical Modeling/05_Theorems_and_Proofs/Model_Properties",
-    "On Statistical Modeling/99_Meta/Images/VbqBTo_t-tendingtonormal.gif",
-    "On Statistical Modeling/99_Meta/Images/Scale_parameter_normal_distribution.gif",
-    "On Statistical Modeling/99_Meta/Images/qwd.gif",
-    "On Statistical Modeling/99_Meta/Images/Power_Concept2.png",
-    "On Statistical Modeling/99_Meta/Images/Power_Concept1.jpg",
-    "On Statistical Modeling/99_Meta/Images/PopulationSampling_Harsh.gif",
-    "On Statistical Modeling/99_Meta/Images/normal_distributions_mean_shift.png",
-    "On Statistical Modeling/99_Meta/Images/NormalDist_mtpricduralb1.gif",
-    "On Statistical Modeling/99_Meta/Images/Multivariate-Normal-Dist.gif",
-    "On Statistical Modeling/99_Meta/Images/Mean_estimator_consistency.gif"
+    "On Statistical Modeling/03_Statistical_Tests/Categorical_Tests/Pearson Chi-Squared Test.md"
   ]
 }

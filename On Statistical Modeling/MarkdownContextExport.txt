@@ -152,8 +152,25 @@ C:\USERS\DARRE\ONEDRIVE - HEXCODER\DARREN\PERSONAL\BACKUPS\DESKTOP\LEARNING\TUHH
 |           Convergence in Probability.md
 |           
 +---06_Applied_Exercises
+|   +---Mock Exam
 |   +---SM_Lineau_Exercise
 |   |   +---Sheet_01_Linear_Regression
+|   |   |   |   Statistical Models - Part 1 - Exercise 1.md
+|   |   |   |   
+|   |   |   \---Solutions
+|   |   |       +---R
+|   |   |       |       Greenberg.csv
+|   |   |       |       Residuals_Gaussian.csv
+|   |   |       |       Solution_Analysis_of_Residuals.R
+|   |   |       |       Solution_Cancer.R
+|   |   |       |       Solution_Greenberg.R
+|   |   |       |       
+|   |   |       \---Theoretical
+|   |   |               Solution - SM - Part 1 - Ex1 - Problem 1.md
+|   |   |               Solution - SM - Part 1 - Ex1 - Problem 2.md
+|   |   |               Solution - SM - Part 1 - Ex1 - Problem 3.md
+|   |   |               Solution - SM - Part 1 - Ex1 - Problem 4.md
+|   |   |               
 |   |   \---Sheet_02_ANOVA_and_NonLinear
 |   \---SM_Lineau_Lecture
 |           ex3_5.R
@@ -212,6 +229,16 @@ C:\USERS\DARRE\ONEDRIVE - HEXCODER\DARREN\PERSONAL\BACKUPS\DESKTOP\LEARNING\TUHH
     |       AlternativeHypothesis_Concept2.jpg
     |       Alternative_Hypothesis_Concept1.jpeg
     |       chidensity_lesson53.webp
+    |       e1p2- source.png
+    |       e1p2-lm1-fitted-residuals.png
+    |       e1p2-lm1-qqnorm-qline.png
+    |       e1p2-lm1.png
+    |       e1p2-lm2-fitted-residuals.png
+    |       e1p2-lm2-qqnorm-qline.png
+    |       e1p2-lm2.png
+    |       e1p2-lm3-fitted-residuals.png
+    |       e1p2-lm3-qqnorm-qline.png
+    |       e1p2-lm3.png
     |       FDist_Lesson32_Drawing04a.gif
     |       IncreasingPower_ginsyblog.gif
     |       LinearRegression_Yahya.gif
@@ -224,6 +251,10 @@ C:\USERS\DARRE\ONEDRIVE - HEXCODER\DARREN\PERSONAL\BACKUPS\DESKTOP\LEARNING\TUHH
     |       Power_Concept2.png
     |       qwd.gif
     |       Scale_parameter_normal_distribution.gif
+    |       SM-P1-e1-p1.png
+    |       SM-P1-e1-p2.png
+    |       SM-P1-e1-p3.png
+    |       SM-P1-e1-p4.png
     |       VbqBTo_t-tendingtonormal.gif
     |       
     +---References
@@ -2857,9 +2888,45 @@ By the exact definition of a continuous $p$-quantile:
 $$= 1 - (1 - \alpha) = \alpha$$
 This flawlessly proves the test is bounded by $\alpha$.
 
-## The Single Coefficient Test ($H_0: \gamma_j = 0$)
+### One-Sided Test (Left-Tailed Variant)
+While foundational texts often only explicitly define the right-tailed variant for pedagogical economy, the exact mathematical symmetry of the Student's t-distribution allows us to directly construct the left-tailed equivalent. We simply flip the interval bound to catch everything down to $-\infty$ and establish a strict upper ceiling using a positive margin of error.
 
-If we want to test if a single specific predictor is useless, we construct $a$ such that the $(j+1)$-st component is $1$ and all others are $0$. 
+> [!info] **Left-Tailed Test Formulation**
+> For $H_0: \langle a, \gamma \rangle \ge c_0$ against $H_1: \langle a, \gamma \rangle < c_0$:
+> 
+> The test $\varphi^<(Y)$ is a level-$\alpha$ test:
+> $$\varphi^<(Y) = \begin{cases} \text{cannot reject}, & c_0 \in I^<_{a,\hat{\gamma}} \\ \text{reject}, & c_0 \notin I^<_{a,\hat{\gamma}} \end{cases}$$
+> 
+> Where the open-ended confidence interval is bounded on the right:
+> $$I^<_{a,\hat{\gamma}} = \left( -\infty, \quad \langle a, \hat{\gamma} \rangle + t_{n-k-1, 1-\alpha} \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a} \right)$$
+
+*Caveat:* To strictly map a left-tailed problem to the original "Part B" theorem ($> c_0$), you can creatively multiply your selector vector $a$ by $-1$. This flips the inequality direction algebraically, allowing you to extract exactly $-\gamma_j$ and perfectly satisfy the formal $> c_0$ mathematical requirement of the standard corollary.
+
+
+
+## The Single Coefficient Test ($H_0: \gamma_j = 0$)
+If we want to test if a single specific predictor is useless, we must test the scalar coefficient $\gamma_j$. To isolate this from the parameter vector $\gamma$, we construct the selector vector $a$ such that the $(j+1)$-st component is $1$ and all others are $0$ (a one-hot vector).
+
+#### The Interval Decision Rule (Checking for Zero)
+If you look closely at the formal decision rules $\varphi(Y)$ defined above, they do not explicitly rely on checking a calculated $T$-statistic against a critical threshold. Instead, the test is defined entirely by checking whether the null value ($c_0$) lives inside the constructed Confidence Interval.
+
+When evaluating a single coefficient, our null hypothesis is almost always that the predictor is useless, meaning $c_0 = 0$. 
+
+
+This creates a highly intuitive, geometric way to solve the test:
+1. Construct the appropriate $1 - \alpha$ confidence interval for $\hat{\gamma}_j$ (two-sided, or one-sided depending on the alternative hypothesis).
+2. Check if the number 0 exists within those bounds.
+3. **If 0 is inside the interval ($0 \in I$):** Zero is a mathematically plausible reality for the true slope. We **cannot reject** $H_0$.
+4. **If 0 is strictly outside the interval ($0 \notin I$):** A flat line is highly incompatible with the observed data. We **reject** $H_0$ and conclude the variable is significant.
+
+**How the Standard Error is Extracted:**
+When you multiply a matrix $M$ by a one-hot vector $a^T M a$, linear algebra dictates that the result is strictly the corresponding diagonal element of $M$. 
+Therefore, if $M = (A^T A)^{-1}$, then $a^T(A^T A)^{-1}a = ((A^T A)^{-1})_{j+1,j+1}$.
+
+Substituting this into our pivotal statistic gives us the explicit $T$-formulation for testing a single coefficient:
+$$T = \frac{\hat{\gamma}_j - \gamma_j}{\hat{\sigma}\sqrt{((A^T A)^{-1})_{j+1,j+1}}}$$
+
+
 
 > [!info] **Single Coefficient Test Formulation**
 > We reject $H_0: \gamma_j = 0$ against $H_1: \gamma_j \neq 0$ at level $\alpha$ if:
@@ -2867,7 +2934,7 @@ If we want to test if a single specific predictor is useless, we construct $a$ s
 
 ---
 **Connections:**
-* The mathematical engine behind the coefficient p-values generated in R output.
+* This extraction of the diagonal element is exactly how statistical software computes the `Std. Error` column in standard R output.
 
 --- END OF FILE: 04_Statistical_Models\Linear_Regression\Testing_and_Evaluation\t-Test for Linear Combinations (Corollary 3.11).md ---
 
@@ -3536,6 +3603,583 @@ As you collect more and more data (increasing $n$), the probability of an "unusu
 * This form of convergence governs the Weak [[Law of Large Numbers (LLN)]].
 
 --- END OF FILE: 05_Theorems_and_Proofs\Stochastic_Convergence\Convergence in Probability.md ---
+
+
+--- START OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Statistical Models - Part 1 - Exercise 1.md ---
+---
+tags: [exercise-index, statistical-models, linear-regression]
+aliases: [SM Sheet 1, Exercise Sheet 1]
+---
+
+## Core Theme
+
+This sheet covers the application of the [[Gaussian Linear Model]] through manual calculation, R implementation, and theoretical derivation.
+
+---
+
+## Problem 1: The Mechanics of Simple Linear Regression
+
+**The Goal:** Build a model with one continuous predictor (Latitude) to predict a continuous outcome (Mortality), test its validity, and make a prediction. 
+
+**The Challenge:** Executing the matrix algebra manually before relying on R to understand the mechanics under the hood.
+
+* **Theoretical Mapping:** * [[Matrix Formulation of OLS]] to calculate $\hat{\gamma} = (A^TA)^{-1}A^TY$.
+    * [[t-Test for Linear Combinations (Corollary 3.11)]] for the one-sided slope test ($H_1: \gamma_1 < 0$).
+    * The exact formula for a [[Confidence Interval]] applied to a new prediction point ($x = 40$).
+* **R Toolkit:** `lm()`, `summary()`, `confint.glht()`, and `predict(..., interval="confidence")`.
+
+**Workspace & Solution:**
+[[Solution - SM - Part 1 - Ex1 - Problem 1]]
+
+---
+
+## Problem 2: Model Diagnostics (Verifying Assumptions)
+
+**The Goal:** A GLM is completely mathematically invalid if the errors ($\varepsilon$) are not normally distributed with constant variance. You must visually prove these assumptions hold for three different models.
+
+**The Challenge:** Interpreting diagnostic plots to spot violations like heteroscedasticity (funnel shapes) or non-normality (curved Q-Q plots).
+
+* **Theoretical Mapping:** * [[Gaussian Linear Model]] (specifically the strict assumption: $\varepsilon \sim \text{Normal}(0, \sigma^2 I_n)$).
+    * [[Fitted Values and Residuals]] (Understanding that $\hat{\varepsilon}$ is our proxy for the unobservable true error).
+* **R Toolkit:** `qqnorm()` to check the bell-curve assumption, and `plot(fitted, residuals)` to check for constant, uncorrelated noise.
+
+**Workspace & Solution:**
+[[Solution - SM - Part 1 - Ex1 - Problem 2]]
+
+---
+
+## Problem 3: Categorical Predictors & Multiple Regression
+
+**The Goal:** Move from a simple 1D line to a multi-variable plane that includes categorical text data (Private vs. Rural school).
+
+**The Challenge:** Mathematics cannot process the word "Rural". You must understand how categorical data is transformed into a mathematical matrix.
+
+* **Theoretical Mapping:** * [[Design Matrix]] (specifically utilizing the "Dummy Variable" structural variation).
+    * Evaluating the slope of the dummy variable using [[t-Test for Linear Combinations (Corollary 3.11)]].
+* **R Toolkit:** R handles dummy variables automatically inside `lm(Height ~ School + Age)`.
+
+**Workspace & Solution:**
+[[Solution - SM - Part 1 - Ex1 - Problem 3]]
+
+---
+
+## Problem 4: Theoretical Unification (The Capstone)
+
+**The Goal:** Prove that a standard Two-Sample t-test is literally just a Gaussian Linear Model in disguise. 
+**The Challenge:** This is a pure mathematical proof. You must define a Design Matrix $A$ with binary indicator columns, and prove that the OLS estimator $(A^TA)^{-1}A^TY$ algebraically simplifies into the exact Two-Sample t-test formula.
+
+* **Theoretical Mapping:** * [[Design Matrix]] (Formulating the matrix for two distinct groups).
+    * [[Two-Sample t-Test]] (The target equation we are trying to derive).
+    * [[Level Alpha Test]] (Proving the Type I error limit bounds).
+* **R Toolkit:** N/A - Pure theoretical proof.
+
+**Workspace & Solution:**
+[[Solution - SM - Part 1 - Ex1 - Problem 4]]
+
+--- END OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Statistical Models - Part 1 - Exercise 1.md ---
+
+
+--- START OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 1.md ---
+---
+tags: [exercise-solution, statistical-models, linear-regression]
+---
+
+# Solution - SM - Part 1 - Ex1 - Problem 1
+
+![[SM-P1-e1-p1.png]]
+
+---
+
+## Detailed Deconstruction and Theoretical Mapping
+
+> [!info] **The Setup**
+> * We are given a sample size of **n = 7**.
+> * The predictor (independent variable) is Latitude ($x$).
+> * The response (dependent variable) is Mortality ($Y$).
+> * We are building a model with **k = 1** predictor.
+
+### Part a) Estimate the intercept, coefficient, and variance.
+
+* **Theoretical Link:** [[Matrix Formulation of OLS]] & [[Ordinary Least Squares (OLS)]].
+* **The Process:** We cannot solve this algebraically; we must construct the matrices.
+    1. We build the Design Matrix $A$, which requires a column of 1s for the intercept ($\gamma_0$) and a column for Latitude ($x$).        
+    2. We calculate the Gram matrix ($A^T A$) and the target vector $A^T Y$.        
+    3. The coefficients are found geometrically via $\hat{\gamma} = (A^T A)^{-1}A^T Y$. (Here a Matrix Multiplication).
+    4. To find the variance $\hat{\sigma}^2$, we must first calculate the Fitted Values and Residuals. We find the sum of squared residuals $\|\hat{\varepsilon}\|^2 = \|Y - A\hat{\gamma}\|^2$ and divide by the degrees of freedom ($n - k - 1$). Because **n = 7** and **k = 1**, we divide by **5**.
+
+### Part b) Predict the mortality for Ohio ($x = 40$).
+
+* **Theoretical Link:** [[t-Test for Linear Combinations (Corollary 3.11)]].
+* **The Process:** Prediction is simply a linear combination of our estimated parameters. We define a selector vector $a = (1, 40)^T$ to represent Ohio's data. The prediction is the scalar dot product $\hat{y}_{new} = \langle a, \hat{\gamma} \rangle = a^T \hat{\gamma}$.
+
+### Part c) Use a statistical test at $\alpha = 0.05$ to show the slope is negative.
+
+* **Theoretical Link:** [[Alternative Hypothesis]], [[Level Alpha Test]], and [[t-Test for Linear Combinations (Corollary 3.11)]].
+* **The Process:** 1. Because the prompt asks us "to show" the slope is negative, this must be our Alternative Hypothesis ($H_1: \gamma_1 < 0$). This makes it a one-sided, lower-tail test. Our Null Hypothesis is $H_0: \gamma_1 \ge 0$.
+    2. We construct the T-statistic by dividing our estimate $\hat{\gamma}_1$ by its standard error. According to Theorem 3.10 and Corollary 3.11, the standard error for $\gamma_j$ isolates the corresponding diagonal element of the inverted Gram matrix: $\hat{\sigma} \sqrt{((A^TA)^{-1})_{2,2}}$.
+    3. We compare $T_{obs}$ against the critical p-quantile of the Student's t-distribution: $-t_{n-k-1, 1-\alpha} = -t_{5, 0.95}$.
+
+### Part d) Derive a confidence interval for Ohio with error level 0.1.
+
+* **Theoretical Link:** [[Confidence Region]] & [[t-Test for Linear Combinations (Corollary 3.11)]].
+* **The Process:** A confidence interval for an expected value uses the two-sided formulation from Corollary 3.11.
+    1. An error level of **0.1** means $\alpha = 0.1$. Because it is a two-sided interval, we allocate $\alpha/2$ to each tail, meaning we need the **1 - 0.05 = 0.95** quantile: $t_{5, 0.95}$.        
+    2. We use the Ohio selector vector $a = (1, 40)^T$. The standard error for this specific linear combination is mathematically defined as $\hat{\sigma}\sqrt{a^T(A^T A)^{-1}a}$.        
+    3. The interval is $I = \langle a, \hat{\gamma} \rangle \pm t_{5, 0.95} \cdot \hat{\sigma}\sqrt{a^T(A^T A)^{-1}a}$.
+
+---
+
+## Summarized Solution
+
+### a) Estimate the intercept, coefficient, and variance.
+
+To solve for the parameters geometrically, we construct the Design Matrix $A \in \mathbb{R}^{7 \times 2}$ by combining a column of ones (for the intercept) with the observed Latitude values $x$, and define our response vector $Y$ (Mortality):
+
+$$Y = [200, 128, 117, 129, 182, 229, 134]^T$$
+$$x = [39, 42, 44, 44, 35, 31, 43]^T$$
+
+First, we compute the Gram matrix $A^T A$ and the target vector $A^T Y$:
+
+$$A^T A = \begin{bmatrix} n & \sum x_i \\ \sum x_i & \sum x_i^2 \end{bmatrix} = \begin{bmatrix} 7 & 278 \\ 278 & 11192 \end{bmatrix}$$
+$$A^T Y = \begin{bmatrix} \sum Y_i \\ \sum x_i Y_i \end{bmatrix} = \begin{bmatrix} 1119 \\ 43231 \end{bmatrix}$$
+
+Inverting the Gram matrix yields:
+
+$$(A^T A)^{-1} = \frac{1}{7(11192) - (278)^2} \begin{bmatrix} 11192 & -278 \\ -278 & 7 \end{bmatrix} = \frac{1}{1060} \begin{bmatrix} 11192 & -278 \\ -278 & 7 \end{bmatrix}$$
+
+Applying the Matrix Formulation of OLS, we isolate $\hat{\gamma} = (A^T A)^{-1}A^T Y$:
+
+$$\hat{\gamma} = \frac{1}{1060} \begin{bmatrix} 11192(1119) - 278(43231) \\ -278(1119) + 7(43231) \end{bmatrix} = \begin{bmatrix} 477.009 \\ -7.986 \end{bmatrix}$$
+
+* **Intercept ($\hat{\gamma}_0$):** $\approx 477.01$
+* **Coefficient ($\hat{\gamma}_1$):** $\approx -7.99$
+
+To estimate the background variance, we calculate the sum of squared residuals ($\|\hat{\varepsilon}\|^2 = Y^TY - \hat{\gamma}^T A^T Y$):
+
+$$Y^T Y = \sum Y_i^2 = 190235$$
+$$\hat{\gamma}^T A^T Y = 477.009(1119) + (-7.986)(43231) = 188537.31$$
+$$\|\hat{\varepsilon}\|^2 = 190235 - 188537.31 = 1697.69$$
+
+Applying Unbiasedness and Covariance of OLS (Theorem 3.7), we divide by the degrees of freedom ($n - k - 1 = 7 - 1 - 1 = 5$):
+
+$$\hat{\sigma}^2 = \frac{\|\hat{\varepsilon}\|^2}{n-k-1} = \frac{1697.69}{5} \approx 339.54$$
+
+### b) Predict the mortality for Ohio ($x=40$).
+
+Prediction represents a specific linear combination of the estimated parameters. We define the selector vector $a = (1, 40)^T$ representing the new observation:
+
+$$\hat{y}_{ohio} = \langle a, \hat{\gamma} \rangle = a^T \hat{\gamma} = \hat{\gamma}_0 + 40\hat{\gamma}_1 = 477.009 + 40(-7.986) \approx 157.57$$
+
+### c) Statistical test for negative slope ($\alpha = 0.05$).
+
+**The Objective:** We are tasked to test if the slope ($\gamma_1$) is negative. Because we are testing a specific direction, this requires a one-sided test. Our hypotheses are:
+
+* $H_0: \gamma_1 \ge 0$
+* $H_1: \gamma_1 < 0$
+
+Below are mathematically equivalent ways to approach this problem.
+
+#### ==Approach 1: The Natural Left-Tailed Test (Applied Method)==
+
+In practice, we rely on the exact symmetry of the Student's t-distribution. We isolate our coefficient $\hat{\gamma}_1$ and check if it falls far enough into the negative (left) tail of the distribution to reject the null hypothesis.
+
+**Calculate the Test Statistic ($T_{obs}$):** We extract the variance for $\hat{\gamma}_1$ by looking at the corresponding diagonal element of our inverted Gram matrix ($(A^T A)^{-1}_{2,2} = \frac{7}{1060}$).
+
+$$T_{obs} = \frac{\hat{\gamma}_1 - 0}{\hat{\sigma} \sqrt{((A^TA)^{-1})_{2,2}}} = \frac{-7.986}{\sqrt{339.54} \cdot \sqrt{\frac{7}{1060}}} = \frac{-7.986}{18.426 \cdot 0.0812} \approx -5.35$$
+
+**Determine the Critical Region:**
+For $\alpha=0.05$ and $n-k-1 = 5$ degrees of freedom, we look up the left-sided boundary: $-t_{5, 0.95} = -2.015$. 
+
+**Conclusion:**
+Because $T_{obs} = -5.35 < -2.015$, the test statistic falls deep into the critical rejection region. We strictly reject $H_0$ and conclude the slope is significantly negative.
+
+#### ==Approach 2: Strict Mapping via Corollary 3.11b (Theoretical Method)==
+
+Corollary 3.11(b) in the text strictly defines an upper-tail test ($H_1: \langle a, \gamma \rangle > c_0$). To execute the proof using only the theorem exactly as written, we must algebraically manipulate our hypothesis to fit the $> c_0$ format.
+
+**Flip the Hypothesis:**
+By multiplying our hypothesis by -1, the inequality flips:
+* $H_0: -\gamma_1 \le 0$
+* $H_1: -\gamma_1 > 0$
+
+**Define the Selector Vector ($a$):**
+To extract exactly $-\gamma_1$, we define our linear combination selector vector as $a = (0, -1)^T$. 
+Our point estimate becomes: 
+$$\langle a, \hat{\gamma} \rangle = 0(\hat{\gamma}_0) - 1(\hat{\gamma}_1) = -(-7.986) = +7.986$$
+
+**Calculate the Test Statistic ($T_{obs}$):**
+The variance scalar $a^T(A^T A)^{-1}a$ remains perfectly identical because squaring the -1 from our vector yields 1.
+
+$$T_{obs} = \frac{\langle a, \hat{\gamma} \rangle - 0}{\hat{\sigma}\sqrt{a^T(A^T A)^{-1}a}} = \frac{+7.986}{18.426 \cdot 0.0812} \approx +5.35$$
+
+**Conclusion:**
+We compare this against the standard right-sided critical value from the corollary: $+t_{5, 0.95} = +2.015$. 
+Because $T_{obs} = +5.35 > +2.015$, we reject $H_0$. The mathematical conclusion is identical: the slope is significantly negative.
+
+#### ==Approach 3: The Confidence Interval Method (Professor's Preferred Solution)==
+
+Rather than calculating a T-statistic and checking if it crosses a critical threshold, we can directly evaluate the exact mathematical definition of the test $\varphi(Y)$ provided in Corollary 3.11. The corollary states we reject $H_0$ if our null value ($c_0 = 0$) falls outside the corresponding one-sided confidence interval.
+
+**Select the Interval:**
+Because we are testing $H_1: \gamma_1 < 0$, we establish an upper ceiling using the Left-Tailed Variant of the confidence interval. We want to be 95% confident that the true parameter is somewhere below this ceiling.
+
+$$I^<_{a,\hat{\gamma}} = \left( -\infty, \quad \hat{\gamma}_1 + t_{n-k-1, 1-\alpha} \cdot \hat{\sigma}\sqrt{((A^TA)^{-1})_{2,2}} \right)$$
+
+**Calculate the Upper Bound:**
+We plug in our known point estimate, critical t-value ($t_{5, 0.95} = 2.015$), and standard error:
+
+$$\text{Upper Bound} = -7.986 + 2.015 \left( \sqrt{339.54} \cdot \sqrt{\frac{7}{1060}} \right)$$
+$$\text{Upper Bound} = -7.986 + 2.015(1.496)$$
+$$\text{Upper Bound} = -7.986 + 3.014 = -4.972$$
+
+Our one-sided confidence region is:
+$$I^< = (-\infty, \quad -4.972)$$
+
+**Conclusion:**
+We test our null hypothesis value $c_0 = 0$.
+Because $0 > -4.972$, it is strictly outside our confidence interval ($0 \notin I^<$). Following the decision rule $\varphi^<(Y)$, we reject $H_0$ and conclude the slope is significantly negative.
+
+### d) Confidence interval for Ohio (error level 0.1).
+
+An error level of **0.1** implies $\alpha = 0.1$. Since a confidence interval is structurally two-sided, we use the symmetric quantile $t_{n-k-1, 1-\alpha/2} = t_{5, 0.95} = 2.015$.
+
+Applying the symmetric interval formulation from t-Test for Linear Combinations (Corollary 3.11), we first calculate the standard error for the specific Ohio prediction using our selector vector $a = (1, 40)^T$:
+
+$$a^T(A^T A)^{-1}a = \frac{1}{1060} \begin{bmatrix} 1 & 40 \end{bmatrix} \begin{bmatrix} 11192 & -278 \\ -278 & 7 \end{bmatrix} \begin{bmatrix} 1 \\ 40 \end{bmatrix} = \frac{152}{1060} \approx 0.1434$$
+
+The margin of error is $t_{5, 0.95} \cdot \hat{\sigma} \cdot \sqrt{a^T(A^T A)^{-1}a}$:
+
+$$\text{Margin} = 2.015 \cdot \sqrt{339.54} \cdot \sqrt{0.1434} = 2.015 \cdot 18.426 \cdot 0.3787 \approx 14.06$$
+
+The 90% confidence region is centered on our prediction $\hat{y}_{ohio}$:
+
+$$I = (157.57 - 14.06, \quad 157.57 + 14.06) = [143.51, \quad 171.63]$$
+
+### e) R Implementation
+
+Statistical software bypasses the manual matrix multiplication but follows the exact same geometric rules. Below is the step-by-step execution using standard R functions and the `multcomp` package.
+
+#### 1. Data Setup & Parameter Estimation (Part A)
+```R
+> Cancer <- data.frame(Mortality=c(200,128,117,129,182,229,134), Latitude=c(39,42,44,44,35,31,43))
+> LM <- lm(Mortality~Latitude, Cancer)
+> LM
+
+Call:
+lm(formula = Mortality ~ Latitude, data = Cancer)
+
+Coefficients:
+(Intercept)     Latitude  
+    477.009       -7.986  
+
+> sum(LM$residuals^2)/5
+[1] 339.5368
+> sqrt(sum(LM$residuals^2)/5)
+[1] 18.42652
+````
+
+**Interpretation:** 
+
+- `lm()` calculates $(A^TA)^{-1}A^TY$, perfectly returning our manual estimates: $\hat{\gamma}_0 = 477.009$ and $\hat{\gamma}_1 = -7.986$.
+- By squaring the residuals and dividing by the degrees of freedom ($n-k-1 = 5$), R calculates the exact unbiased variance $\hat{\sigma}^2 \approx 339.54$ and its square root, the residual standard error ($\hat{\sigma} \approx 18.43$).    
+
+---
+
+#### 2. Prediction for Ohio (Part B)
+
+```
+> LM$coefficients[1] + 40*LM$coefficients[2]
+(Intercept) 
+   157.5755 
+> predict(LM, data.frame(Latitude=40))
+       1 
+157.5755 
+```
+
+**Interpretation:** 
+
+Both methods compute the exact same linear combination $\langle a, \hat{\gamma} \rangle$. The `predict()` function simply automates the dot product of the estimated coefficients and the new data vector $a = (1, 40)^T$, yielding **157.57**.
+
+---
+
+#### 3. Statistical Test for Negative Slope (Part C)
+
+```
+> library(multcomp)
+> Slope_negative <- glht(LM, linfct="Latitude>=0")
+> summary(Slope_negative)
+
+Linear Hypotheses:
+              Estimate Std. Error t value  Pr(<t)   
+Latitude >= 0   -7.986      1.497  -5.333 0.00155 **
+
+> confint(Slope_negative)
+Linear Hypotheses:
+              Estimate lwr     upr    
+Latitude >= 0 -7.9858     -Inf -4.9685
+```
+
+**Interpretation:**
+
+ - **The Test (`summary`):** The `linfct="Latitude>=0"` command strictly defines our null hypothesis ($H_0: \gamma_1 \ge 0$). The output perfectly matches our manual $T$-statistic of **-5.333**. The `Pr(<t)` is the left-tailed p-value (**0.00155**). Because $0.00155 < 0.05$, we reject $H_0$.
+* **The Professor's Interval (`confint`):** This executes **Approach 3** from our notes. It builds the 95% one-sided confidence ceiling: **[-Inf, -4.9685]**. Because our hypothesized value ($0$) is strictly outside this interval, we reject $H_0$.   
+
+---
+
+#### 4. Confidence Interval for Ohio Prediction (Part D)
+
+```
+> Prediction_Ohio <- glht(LM, linfct="(Intercept)+40*Latitude=0")
+> confint(Prediction_Ohio, level=0.9)
+
+Linear Hypotheses:
+                                 Estimate lwr      upr     
+(Intercept) + 40 * Latitude == 0 157.5755 143.5151 171.6359 
+```
+
+**Interpretation:** 
+
+By feeding the full linear combination into `linfct` and setting `level=0.9`, the `glht` function applies the two-sided formula from Corollary 3.11. It extracts the standard error scaled by $a^T(A^T A)^{-1}a$ and outputs the exact 90% bounds we calculated manually: **[143.51, 171.63]**.
+
+--- END OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 1.md ---
+
+
+--- START OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 2.md ---
+![[SM-P1-e1-p2.png]]
+
+
+To perform exact statistical inference (like calculating valid p-values or confidence intervals), the [[Gaussian Linear Model]] relies on one strict assumption about the unobservable error term ($\varepsilon$):
+
+$$\varepsilon \sim \text{Normal}(\mathbf{0}, \sigma^2 I_n)$$
+
+This single mathematical statement packs in three distinct physical requirements:
+
+1. **Normality:** The errors must follow a bell-curve distribution.    
+2. **Homoscedasticity:** The errors must have a constant variance ($\sigma^2$) across all predictions.    
+3. **Independence:** The errors must be entirely uncorrelated with one another ($I_n$).    
+
+Because we can never see the true errors ($\varepsilon$), we must use the model's physical mistakes—the residuals ($\hat{\varepsilon}$)—as proxies. We evaluate them using two primary visual tools.
+
+## The Diagnostic Tools
+
+### 1. The Normal Q-Q Plot (`qqnorm`)
+
+A Quantile-Quantile (Q-Q) plot is the ultimate test for the **Normality** assumption.
+
+- **How it works:** It mathematically sorts your observed residuals from smallest to largest (the Sample Quantiles on the Y-axis) and plots them against where those values _should_ perfectly fall if they were drawn from a true Standard Normal distribution (the Theoretical Quantiles on the X-axis).    
+- **How to read it:** If your residuals are perfectly normal, the dots will tightly hug the straight diagonal line (`qqline`).    
+- **Spotting Violations:** If the dots peel away from the line at the edges, your data has a different shape. An "S-shape" indicates "light tails" (too tightly bounded), while a "U-shape" or inverted "S-shape" indicates "heavy tails" (too many extreme outliers).    
+
+### 2. Residuals vs. Fitted Plot
+
+This plot is the ultimate test for **Homoscedasticity** and **Independence**.
+
+- **How it works:** It plots the model's predicted values ($\hat{Y}$) on the X-axis against the size of the residual ($\hat{\varepsilon}$) on the Y-axis.    
+- **How to read it:** You are looking for a completely structureless, random cloud of points centered around $0$.    
+- **Spotting Violations:** * **Heteroscedasticity:** If the cloud forms a "funnel" or "megaphone" shape (getting wider or narrower from left to right), the variance is not constant.    
+    - **Non-linearity:** If the cloud forms a distinct curve (like a U-shape or a parabola), your linear model is missing a mathematical term (like a quadratic $x^2$ predictor).        
+
+---
+
+## Case Studies: Analyzing the Three Models
+
+We will now evaluate LM1, LM2, and LM3 based on their diagnostic plots, and then reveal the "Ground Truth" using the raw data generation code.
+
+### Model 1 (LM1): The "Bounded" Error
+
+![[e1p2-lm1.png]]
+
+- **Residuals vs. Fitted:** The cloud of points is spread evenly from left to right, meaning we have constant variance (Homoscedasticity). However, the cloud looks suspiciously "blocky." There are no points trailing off into the extremes; it looks like a hard rectangle.
+
+
+![[e1p2-lm1-fitted-residuals.png]]
+
+
+- **Q-Q Plot:** The points form a very distinct "S" shape. They hug the line in the middle but peel off horizontally at the top and bottom. This visually proves the residuals have "light tails"—extreme values are missing entirely.
+
+![[e1p2-lm1-qqnorm-qline.png]]
+
+- **Conclusion:** The errors are independent and have constant variance, but they are **not normally distributed**. The GLM assumption fails.
+
+**The Ground Truth:**
+
+Looking at the source code: `Y1 <- -U + runif(n)`.
+The `runif()` function generates a _Uniform Distribution_. A uniform distribution is perfectly flat with hard boundaries. It has no bell-curve tails, exactly as the Q-Q plot diagnosed.
+
+---
+
+### Model 2 (LM2): The "Exploding" Variance
+
+![[e1p2-lm2.png]]
+
+- **Residuals vs. Fitted:** This is a textbook violation. The plot forms a massive **funnel shape**. On the left side (low fitted values), the errors are tightly packed. On the right side (high fitted values), the errors explode outward.   
+
+![[e1p2-lm2-fitted-residuals.png]]
+
+
+- **Q-Q Plot:** While it mostly follows the line, there are some severe deviations at the tails, largely driven by the extreme variance on the right side of the data.
+
+![[e1p2-lm2-qqnorm-qline.png]]
+
+- **Conclusion:** The model suffers from severe **Heteroscedasticity**. The variance ($\sigma^2$) is not a constant number; it is dynamically changing. The GLM assumption fails catastrophically.
+    
+
+**The Ground Truth:**
+
+Looking at the source code: `Y2 <- -1 + 1.5*U + U*rnorm(n)`.
+The error term is `U * rnorm(n)`. Because the random normal noise is mathematically multiplied by the predictor `U`, the noise physically scales up as `U` gets larger. This mathematically forces the funnel shape.
+
+---
+
+### Model 3 (LM3): The Perfect Model
+
+![[e1p2-lm3.png]]
+
+
+- **Residuals vs. Fitted:** The points form a beautiful, shapeless, random cloud centered around zero. There are no patterns, no curves, and no funnels. The spread is constant from left to right.
+
+![[e1p2-lm3-qqnorm-qline.png]]
+
+- **Q-Q Plot:** The points track the theoretical normal line almost perfectly from corner to corner.
+
+
+![[e1p2-lm3-qqnorm-qline.png]]
+
+   
+- **Conclusion:** The residuals show constant variance, independence, and a perfect normal distribution. The GLM assumption holds completely true.
+    
+
+**The Ground Truth:**
+
+Looking at the source code: `Y3 <- -3 - 2*U + 2*rnorm(n)`.
+
+The error term is `2 * rnorm(n)`. This is a perfectly scaled Standard Normal distribution that is entirely independent of the predictor `U`. It perfectly matches the strict requirements of the Gaussian Linear Model.
+
+
+--- END OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 2.md ---
+
+
+--- START OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 3.md ---
+
+![[SM-P1-e1-p3.png]]
+
+
+> [!info] **The Setup**
+> * We are given a sample size of **n = 32** children.
+> * The predictors are School type (Categorical: Private/Rural) and Age (Continuous).
+> * The response (dependent variable) is Height ($Y$).
+> * We are tasked with building nested models to isolate the effect of the school environment on height.
+> 
+
+### Part a) School Only Model (LM0)
+
+* **Theoretical Link:** [[Design Matrix]] (Dummy Variables) & [[t-Test for Linear Combinations (Corollary 3.11)]].
+* **The Process:** We model height using only the categorical school variable. R creates a dummy variable $x_{\text{rural}}$ (where Rural = 1, Private = 0, meaning Private is absorbed into the intercept $\gamma_0$). 
+    1. The model is $Y_i = \gamma_0 + \gamma_{\text{school}} x_{i, \text{rural}} + \varepsilon_i$.
+    2. We test the two-sided hypothesis that the absolute average height between the schools is identical: $H_0: \gamma_{\text{school}} = 0$ against $H_1: \gamma_{\text{school}} \neq 0$ at level 0.05.
+
+### Part b) School + Age Model (LM1)
+
+* **Theoretical Link:** [[Linear Model]] (Multiple Predictors) & [[Unbiasedness and Covariance of OLS (Theorem 3.7)]].
+* **The Process:** Age is introduced as a continuous covariate. This mathematically controls for the natural growth of the children, preventing age differences between the two school populations from confounding the school effect.
+    1. The expanded model is $Y_i = \gamma_0 + \gamma_{\text{school}} x_{i, \text{rural}} + \gamma_{\text{age}} x_{i, \text{age}} + \varepsilon_i$.
+    2. We test the identical mathematical hypothesis ($H_0: \gamma_{\text{school}} = 0$), but its physical interpretation changes: *Assuming age is strictly held constant*, is there a height difference between the schools?
+
+### Part c) Interaction Model (LM2) - (Contextual Extension)
+
+* **Theoretical Link:** Interaction Terms & Non-Parallel Slopes.
+* **The Process:** We test if the *rate of growth* (slope) differs between the schools by multiplying the dummy variable by the continuous variable. The model becomes $Y_i = \gamma_0 + \gamma_{\text{school}} x_{i, \text{rural}} + \gamma_{\text{age}} x_{i, \text{age}} + \gamma_{\text{interaction}} (x_{i, \text{rural}} \times x_{i, \text{age}}) + \varepsilon_i$.
+
+---
+
+## Summarized Solution
+
+### a) Linear model with school as the only independent variable.
+
+We define the parameter $\gamma_{\text{school}}$ to represent the height difference for rural students compared to the private school baseline. 
+
+**Hypotheses:**
+* $H_0: \gamma_{\text{school}} = 0$ 
+* $H_1: \gamma_{\text{school}} \neq 0$
+
+**Results:**
+The estimated difference is $\hat{\gamma}_{\text{school}} = -2.873$. 
+Evaluating the T-statistic yields a p-value of 0.298. Because 0.298 > 0.05, we **fail to reject $H_0$**. In a vacuum, there is no statistically significant difference in the absolute average height between the two schools.
+
+### b) Linear model incorporating both school and age.
+
+We expand the model to include age, filtering out the variance caused by natural growth to isolate the pure school effect.
+
+**Hypotheses:**
+* $H_0: \gamma_{\text{school}} = 0$ 
+* $H_1: \gamma_{\text{school}} \neq 0$
+
+**Results:**
+By accounting for age, the unexplainable noise ($\hat{\sigma}^2$) physically shrinks, and the true school effect is unmasked. The new estimated difference is $\hat{\gamma}_{\text{school}} = -5.4663$. 
+Evaluating the T-statistic yields a p-value of 0.04242. Because 0.04242 < 0.05, we **reject $H_0$**. When comparing children of the exact same age, students at the rural school are significantly shorter.
+
+---
+
+## R Implementation & Output Interpretation
+
+The software execution cleanly illustrates the shift from a noisy, single-variable view to a controlled, multi-variable view.
+
+####  Model 0: School Only (Part A)
+
+```
+> LM0 <- lm(height~school, Greenberg)
+> summary(LM0)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  144.544      1.795  80.518   <2e-16 ***
+schoolrural   -2.873      2.714  -1.059    0.298    
+
+Residual standard error: 7.616 on 30 degrees of freedom
+```
+
+**Interpretation:** The baseline (Private school) average height is 144.54 cm. The Rural school is estimated to be 2.87 cm shorter. However, the high standard error (2.714) results in a weak $T$-value (-1.059) and a non-significant p-value (0.298).
+
+####  Model 1: School + Age (Part B)
+
+```
+> LM1 <- lm(height~school+age, Greenberg)
+> summary(LM1)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  91.8171    17.9294   5.121 1.81e-05 ***
+schoolrural  -5.4663     2.5749  -2.123  0.04242 * age           0.4157     0.1408   2.953  0.00619 ** Residual standard error: 6.793 on 29 degrees of freedom
+```
+
+**Interpretation:** Adding age absorbs a massive amount of the previously unexplained variance. Notice the `Residual standard error` drops from 7.616 down to 6.793. Because the background noise is quieter, the standard error for `schoolrural` shrinks (from 2.714 to 2.574), while the unmasked estimate grows to -5.466. This improved signal-to-noise ratio pushes the p-value down to 0.0424, crossing the 0.05 significance threshold.
+#### Model 2: The Interaction Check
+
+```
+> LM2 <- lm(height~school+age+school*age, Greenberg)
+> summary(LM2)
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+schoolrural:age  -0.3994     0.3273  -1.220  0.23251    
+```
+
+**Interpretation:** This checks if the lines _should_ be parallel. The interaction term (`schoolrural:age`) tests if the growth rate differs between the schools. The p-value is 0.232, meaning there is no statistically significant difference in their slopes. The simpler, parallel LM1 model is structurally sufficient.
+
+
+
+
+
+
+
+--- END OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 3.md ---
+
+
+--- START OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 4.md ---
+![[SM-P1-e1-p4.png]]
+
+
+--- END OF FILE: 06_Applied_Exercises\SM_Lineau_Exercise\Sheet_01_Linear_Regression\Solutions\Theoretical\Solution - SM - Part 1 - Ex1 - Problem 4.md ---
 
 
 --- START OF FILE: 07_R_Toolkit\R DPQR Functions.md ---
